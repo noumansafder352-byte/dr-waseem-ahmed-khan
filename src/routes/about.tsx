@@ -271,7 +271,7 @@ function About() {
       </section>
 
       {/* Core Values — editorial alternating pillars */}
-      <section className="relative overflow-hidden px-6 py-24 md:px-8 md:py-32">
+      <section className="relative overflow-hidden px-6 py-20 md:px-8 md:py-24">
         {/* Premium background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f7fafd] to-white" />
         <div
