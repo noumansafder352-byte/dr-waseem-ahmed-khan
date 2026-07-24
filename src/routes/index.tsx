@@ -173,7 +173,7 @@ function Home() {
 
           <FadeUp delay={140}>
             <h1
-              className="mt-14 max-w-5xl text-6xl leading-[1.02] tracking-tight text-white md:text-8xl lg:text-[7rem]"
+              className="mt-10 max-w-5xl text-5xl leading-[1.05] tracking-tight text-white md:text-7xl lg:text-[6rem]"
               style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
             >
               Expert Surgical Care
@@ -183,18 +183,18 @@ function Home() {
           </FadeUp>
 
           <FadeUp delay={280}>
-            <div className="mt-16 space-y-3">
+            <div className="mt-8">
               <p className="text-xl font-semibold text-white md:text-2xl">
                 Maj Gen (Rtd) Waseem Ahmad Khan, HI (M)
               </p>
-              <p className="text-[13px] tracking-[0.28em] text-white/70 md:text-sm">
-                MBBS • FCPS • FACS • CHPE • Diploma in Surgery (AFPGMI)
+              <p className="mt-2 text-sm font-light tracking-[0.18em] text-white/75 md:text-base">
+                General &amp; Laparoscopic Surgeon
               </p>
             </div>
           </FadeUp>
 
           <FadeUp delay={400}>
-            <p className="mx-auto mt-10 max-w-2xl text-base leading-[1.9] text-white/80 md:text-lg">
+            <p className="mx-auto mt-8 max-w-2xl text-base leading-[1.9] text-white/80 md:text-lg">
               Delivering expert surgical care with decades of clinical
               excellence, leadership, and compassionate patient care — every
               treatment personalized using evidence-based techniques to achieve
@@ -203,7 +203,7 @@ function Home() {
           </FadeUp>
 
           <FadeUp delay={520}>
-            <div className="mt-12 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
+            <div className="mt-10 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
               <Link
                 to="/contact"
                 hash="appointment"
