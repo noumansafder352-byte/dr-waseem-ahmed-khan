@@ -163,7 +163,7 @@ function Home() {
         <div className="pointer-events-none absolute bottom-20 left-1/2 h-px w-40 -translate-x-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
         {/* Content */}
-        <div className="relative mx-auto flex min-h-[100dvh] max-w-6xl flex-col items-center justify-center px-6 py-32 text-center md:px-8">
+        <div className="relative mx-auto flex min-h-[100dvh] max-w-6xl flex-col items-center justify-center px-6 pt-40 pb-16 text-center md:px-8 md:pt-44 md:pb-20 lg:pt-52 lg:pb-24">
           <FadeUp>
             <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/[0.08] px-6 py-2.5 text-[11px] font-medium uppercase tracking-[0.32em] text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md">
               <span className="h-1.5 w-1.5 rounded-full bg-[#19979C]" />
