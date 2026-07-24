@@ -28,8 +28,10 @@ import {
   Droplet,
   Star,
   BadgeCheck,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { FadeUp } from "@/components/site/FadeUp";
 import { CtaBand } from "@/components/site/CtaBand";
@@ -830,37 +832,133 @@ const testimonials = [
   },
 ];
 
+function useVisibleCount() {
+  const [count, setCount] = useState(3);
+  useEffect(() => {
+    const compute = () => {
+      const w = window.innerWidth;
+      if (w < 720) setCount(1);
+      else if (w < 1080) setCount(2);
+      else setCount(3);
+    };
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
+  }, []);
+  return count;
+}
+
 function Testimonials() {
-  const [active, setActive] = useState(0);
-  const t = testimonials[active];
+  const visible = useVisibleCount();
+  const total = testimonials.length;
+  const [index, setIndex] = useState(0);
+  const [animate, setAnimate] = useState(true);
+  const [paused, setPaused] = useState(false);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const dragRef = useRef<{ startX: number; moved: number; active: boolean }>({
+    startX: 0,
+    moved: 0,
+    active: false,
+  });
+
+  // Infinite loop: render items + first `visible` clones at the end
+  const items = [...testimonials, ...testimonials.slice(0, visible)];
+
+  const go = useCallback(
+    (dir: 1 | -1) => {
+      setAnimate(true);
+      setIndex((i) => i + dir);
+    },
+    [],
+  );
+
+  // Handle loop snap when reaching cloned tail / negative
+  useEffect(() => {
+    if (index === total) {
+      const t = setTimeout(() => {
+        setAnimate(false);
+        setIndex(0);
+      }, 650);
+      return () => clearTimeout(t);
+    }
+    if (index < 0) {
+      const t = setTimeout(() => {
+        setAnimate(false);
+        setIndex(total - 1);
+      }, 650);
+      return () => clearTimeout(t);
+    }
+  }, [index, total]);
+
+  // Re-enable animation after snap
+  useEffect(() => {
+    if (!animate) {
+      const r = requestAnimationFrame(() => setAnimate(true));
+      return () => cancelAnimationFrame(r);
+    }
+  }, [animate]);
+
+  // Autoplay
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => {
+      setAnimate(true);
+      setIndex((i) => i + 1);
+    }, 6000);
+    return () => clearInterval(id);
+  }, [paused]);
+
+  // Drag / swipe
+  const onPointerDown = (e: React.PointerEvent) => {
+    dragRef.current = { startX: e.clientX, moved: 0, active: true };
+    (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
+  };
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!dragRef.current.active) return;
+    dragRef.current.moved = e.clientX - dragRef.current.startX;
+  };
+  const onPointerUp = () => {
+    if (!dragRef.current.active) return;
+    const moved = dragRef.current.moved;
+    dragRef.current.active = false;
+    if (Math.abs(moved) > 60) go(moved < 0 ? 1 : -1);
+  };
+
+  const cardBasis = 100 / visible;
+  const translate = -(index * cardBasis);
+  const activeDot = ((index % total) + total) % total;
 
   return (
-    <section className="relative isolate overflow-hidden px-6 py-24 md:px-8 md:py-32">
-      {/* Ambient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f6f9fc] to-white" />
+    <section
+      className="relative isolate overflow-hidden px-6 py-24 md:px-8 md:py-32"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Premium background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f5f8fc] to-white" />
       <div
         aria-hidden
-        className="absolute -left-40 top-24 h-96 w-96 rounded-full opacity-[0.10] blur-3xl"
+        className="absolute -left-32 top-16 h-[420px] w-[420px] rounded-full opacity-[0.09] blur-3xl"
         style={{ backgroundColor: "#1F72B9" }}
       />
       <div
         aria-hidden
-        className="absolute -right-40 bottom-24 h-96 w-96 rounded-full opacity-[0.10] blur-3xl"
+        className="absolute -right-32 bottom-16 h-[420px] w-[420px] rounded-full opacity-[0.09] blur-3xl"
         style={{ backgroundColor: "#19979C" }}
       />
       <div
         aria-hidden
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.035]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(24,47,88,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(24,47,88,0.6) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
+            "linear-gradient(rgba(24,47,88,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(24,47,88,0.7) 1px, transparent 1px)",
+          backgroundSize: "96px 96px",
           maskImage:
             "radial-gradient(ellipse at center, black 30%, transparent 78%)",
         }}
       />
 
-      <div className="relative mx-auto max-w-6xl px-2 sm:px-6 lg:px-10">
+      <div className="relative mx-auto max-w-6xl">
         {/* Header */}
         <FadeUp>
           <div className="mx-auto max-w-2xl text-center">
@@ -869,7 +967,7 @@ function Testimonials() {
               Patient Testimonials
             </span>
             <h2
-              className="mt-6 text-4xl leading-[1.1] tracking-tight text-primary md:text-5xl lg:text-[3.4rem]"
+              className="mt-6 text-4xl leading-[1.1] tracking-tight text-primary md:text-5xl lg:text-[3.2rem]"
               style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
             >
               Voices of{" "}
@@ -877,189 +975,153 @@ function Testimonials() {
               <em className="font-serif italic text-[#19979C]">recovery</em>
             </h2>
             <div className="mx-auto mt-6 h-px w-16 bg-gradient-to-r from-transparent via-[#19979C] to-transparent" />
-            <p className="mx-auto mt-6 max-w-xl text-base leading-[1.85] text-muted-foreground md:text-lg">
-              Stories from patients who have entrusted their care to Dr. Waseem —
-              shared with gratitude, in their own words.
+            <p className="mx-auto mt-6 max-w-xl text-base leading-[1.85] text-muted-foreground md:text-[17px]">
+              Reflections from patients who have entrusted their care to
+              Dr. Waseem — shared with gratitude, in their own words.
             </p>
           </div>
         </FadeUp>
 
-        {/* Trust strip */}
-        <FadeUp delay={120}>
-          <div className="mx-auto mt-14 grid max-w-4xl grid-cols-3 divide-x divide-border overflow-hidden rounded-2xl border border-border bg-white/70 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.05),0_20px_50px_-30px_rgba(24,47,88,0.18)] backdrop-blur">
-            {[
-              { value: "5.0", label: "Average rating", accent: "#f5b638" },
-              { value: "500+", label: "Verified patients", accent: "#529542" },
-              { value: "30+", label: "Years of practice", accent: "#1F72B9" },
-            ].map((s) => (
-              <div key={s.label} className="px-4 py-5 text-center sm:px-6">
-                <div
-                  className="font-serif text-2xl font-semibold sm:text-[28px]"
-                  style={{ color: s.accent }}
-                >
-                  {s.value}
-                </div>
-                <div className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </FadeUp>
-
-        {/* Editorial split */}
-        <FadeUp delay={200}>
-          <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-12 md:gap-14 lg:gap-20">
-            {/* Featured story */}
-            <article
-              key={t.name}
-              className="relative md:col-span-7"
-              style={{ ["--accent" as any]: t.accent }}
+        {/* Carousel */}
+        <FadeUp delay={160}>
+          <div className="mt-16 md:mt-20">
+            <div
+              className="overflow-hidden px-1 py-2"
+              onPointerDown={onPointerDown}
+              onPointerMove={onPointerMove}
+              onPointerUp={onPointerUp}
+              onPointerCancel={onPointerUp}
             >
-              {/* Chapter marker */}
-              <div className="flex items-center gap-4">
-                <span
-                  className="font-serif text-sm font-semibold tracking-[0.3em] text-muted-foreground"
-                >
-                  {String(active + 1).padStart(2, "0")}
-                  <span className="mx-2 text-border">/</span>
-                  <span className="text-muted-foreground/70">
-                    {String(testimonials.length).padStart(2, "0")}
-                  </span>
-                </span>
-                <span className="h-px flex-1" style={{ backgroundColor: t.accent, opacity: 0.35 }} />
-                <span
-                  className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em]"
-                  style={{ backgroundColor: `${t.accent}14`, color: t.accent }}
-                >
-                  <BadgeCheck size={11} />
-                  Verified patient
-                </span>
-              </div>
-
-              {/* Stars */}
-              <div className="mt-6 flex items-center gap-1">
-                {Array.from({ length: t.rating }).map((_, k) => (
-                  <Star key={k} size={16} className="fill-[#f5b638] text-[#f5b638]" />
-                ))}
-                <span className="ml-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                  {t.treatment}
-                </span>
-              </div>
-
-              {/* The quote — editorial, no card */}
-              <blockquote
-                key={`q-${active}`}
-                className="relative mt-7 animate-fade-in font-serif text-[22px] leading-[1.55] text-primary md:text-[26px] md:leading-[1.55] lg:text-[30px] lg:leading-[1.5]"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
+              <div
+                ref={trackRef}
+                className="flex touch-pan-y select-none"
+                style={{
+                  transform: `translate3d(${translate}%,0,0)`,
+                  transition: animate
+                    ? "transform 650ms cubic-bezier(0.22,0.61,0.36,1)"
+                    : "none",
+                }}
               >
-                <span
-                  aria-hidden
-                  className="absolute -left-3 -top-6 font-serif text-[64px] leading-none md:-left-4 md:-top-8 md:text-[80px]"
-                  style={{ color: t.accent, opacity: 0.18, fontFamily: "var(--font-display)" }}
-                >
-                  “
-                </span>
-                <span className="relative">{t.quote}</span>
-              </blockquote>
-
-              {/* Attribution */}
-              <div className="mt-10 flex items-center gap-4">
-                <div
-                  className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full font-serif text-base font-semibold text-white"
-                  style={{ backgroundColor: t.accent }}
-                >
-                  {t.initials}
-                </div>
-                <div className="min-w-0">
-                  <div className="font-serif text-[17px] font-semibold text-primary">
-                    {t.name}
+                {items.map((it, i) => (
+                  <div
+                    key={`${it.name}-${i}`}
+                    className="shrink-0 px-3 md:px-4 lg:px-5"
+                    style={{ flexBasis: `${cardBasis}%`, maxWidth: `${cardBasis}%` }}
+                  >
+                    <TestimonialCard t={it} />
                   </div>
-                  <div className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-                    {t.date}
-                  </div>
-                </div>
+                ))}
               </div>
-            </article>
+            </div>
 
-            {/* Chapter list */}
-            <aside className="md:col-span-5">
-              <div className="mb-5 flex items-center gap-3">
-                <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">
-                  More stories
-                </span>
-                <span className="h-px flex-1 bg-border" />
-              </div>
+            {/* Navigation */}
+            <div className="mt-10 flex items-center justify-center gap-6">
+              <button
+                type="button"
+                onClick={() => go(-1)}
+                aria-label="Previous testimonial"
+                className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-primary shadow-[0_2px_10px_-4px_rgba(24,47,88,0.08),0_16px_40px_-24px_rgba(24,47,88,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#19979C]/40 hover:text-[#19979C]"
+              >
+                <ChevronLeft size={18} />
+              </button>
 
-              <ul className="relative flex flex-col">
-                {/* vertical guide */}
-                <span
-                  aria-hidden
-                  className="absolute left-6 top-2 bottom-2 w-px bg-border"
-                />
-                {testimonials.map((it, i) => {
-                  const isActive = i === active;
+              <div className="flex items-center gap-2">
+                {testimonials.map((_, i) => {
+                  const isActive = i === activeDot;
                   return (
-                    <li key={it.name}>
-                      <button
-                        type="button"
-                        onClick={() => setActive(i)}
-                        aria-current={isActive ? "true" : undefined}
-                        className="group relative flex w-full items-center gap-4 rounded-2xl py-3.5 pl-2 pr-3 text-left transition-all duration-[380ms] hover:bg-white/80"
-                      >
-                        {/* node */}
-                        <span
-                          aria-hidden
-                          className="relative z-10 grid h-12 w-12 shrink-0 place-items-center rounded-full font-serif text-[13px] font-semibold transition-all duration-[380ms]"
-                          style={{
-                            backgroundColor: isActive ? it.accent : "#ffffff",
-                            color: isActive ? "#ffffff" : it.accent,
-                            boxShadow: isActive
-                              ? `0 10px 24px -12px ${it.accent}80`
-                              : "inset 0 0 0 1px var(--border)",
-                          }}
-                        >
-                          {it.initials}
-                        </span>
-
-                        <span className="min-w-0 flex-1">
-                          <span className="flex items-center gap-2">
-                            <span
-                              className={`truncate font-serif text-[15px] transition-colors duration-[380ms] ${
-                                isActive ? "text-primary font-semibold" : "text-primary/85 font-medium"
-                              }`}
-                            >
-                              {it.name}
-                            </span>
-                            <BadgeCheck size={12} className="shrink-0 text-[#529542]" />
-                          </span>
-                          <span className="mt-0.5 flex items-center gap-2">
-                            <span className="truncate text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                              {it.treatment}
-                            </span>
-                          </span>
-                        </span>
-
-                        {/* active indicator */}
-                        <span
-                          aria-hidden
-                          className="ml-auto h-6 w-[3px] rounded-full transition-all duration-[380ms]"
-                          style={{
-                            backgroundColor: it.accent,
-                            opacity: isActive ? 1 : 0,
-                            transform: isActive ? "scaleY(1)" : "scaleY(0.4)",
-                          }}
-                        />
-                      </button>
-                    </li>
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => {
+                        setAnimate(true);
+                        setIndex(i);
+                      }}
+                      aria-label={`Go to testimonial ${i + 1}`}
+                      className="group relative h-2 rounded-full transition-all duration-500"
+                      style={{
+                        width: isActive ? 28 : 8,
+                        backgroundColor: isActive ? "#19979C" : "rgba(24,47,88,0.18)",
+                      }}
+                    />
                   );
                 })}
-              </ul>
-            </aside>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => go(1)}
+                aria-label="Next testimonial"
+                className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-primary shadow-[0_2px_10px_-4px_rgba(24,47,88,0.08),0_16px_40px_-24px_rgba(24,47,88,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#19979C]/40 hover:text-[#19979C]"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
           </div>
         </FadeUp>
       </div>
     </section>
   );
 }
+
+function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
+  return (
+    <article
+      className="group relative flex h-full min-h-[340px] flex-col overflow-hidden rounded-[20px] border border-border/70 bg-white p-7 shadow-[0_1px_2px_rgba(24,47,88,0.04),0_18px_40px_-28px_rgba(24,47,88,0.22)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_2px_6px_rgba(24,47,88,0.05),0_30px_60px_-30px_rgba(24,47,88,0.35)]"
+    >
+      {/* Accent top line */}
+      <span
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-[3px] opacity-80"
+        style={{
+          background: `linear-gradient(90deg, transparent, ${t.accent}, transparent)`,
+        }}
+      />
+
+      {/* Top row: rating + verified */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-0.5">
+          {Array.from({ length: t.rating }).map((_, k) => (
+            <Star key={k} size={14} className="fill-[#f5b638] text-[#f5b638]" />
+          ))}
+        </div>
+        <span
+          className="inline-flex items-center gap-1 rounded-full px-2 py-1 text-[9.5px] font-semibold uppercase tracking-[0.18em]"
+          style={{ backgroundColor: "#5295421a", color: "#3d7a30" }}
+        >
+          <BadgeCheck size={11} />
+          Verified
+        </span>
+      </div>
+
+      {/* Quote */}
+      <p className="mt-5 flex-1 text-[14.5px] leading-[1.75] text-primary/85">
+        “{t.quote}”
+      </p>
+
+      {/* Divider */}
+      <div className="mt-6 h-px w-full bg-border/70" />
+
+      {/* Attribution */}
+      <div className="mt-5 flex items-center gap-3.5">
+        <div
+          className="grid h-11 w-11 shrink-0 place-items-center rounded-full font-serif text-[13px] font-semibold text-white"
+          style={{ backgroundColor: t.accent }}
+        >
+          {t.initials}
+        </div>
+        <div className="min-w-0">
+          <div className="truncate font-serif text-[15px] font-semibold text-primary">
+            {t.name}
+          </div>
+          <div className="mt-0.5 flex items-center gap-1.5 text-[10.5px] font-semibold uppercase tracking-[0.18em]">
+            <span style={{ color: t.accent }}>{t.treatment}</span>
+            <span className="text-muted-foreground/50">•</span>
+            <span className="text-muted-foreground">{t.date}</span>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
 
