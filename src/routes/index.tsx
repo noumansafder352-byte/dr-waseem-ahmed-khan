@@ -677,69 +677,8 @@ function Home() {
       </section>
 
 
-      {/* Credentials */}
-      <section className="px-6 py-24 md:px-8 md:py-32">
-        <div className="mx-auto max-w-7xl">
-          <FadeUp>
-            <div className="mx-auto max-w-2xl text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
-                Professional Credentials
-              </span>
-              <h2 className="mt-4 text-4xl font-semibold text-primary md:text-5xl">
-                Qualifications & leadership
-              </h2>
-            </div>
-          </FadeUp>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-2">
-            <FadeUp>
-              <div className="h-full rounded-3xl border border-border bg-white p-10 shadow-premium">
-                <div className="flex items-center gap-3">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
-                    <GraduationCap size={20} />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-primary">Qualifications</h3>
-                </div>
-                <ul className="mt-6 space-y-3">
-                  {["MBBS", "FCPS", "FACS", "CHPE", "Diploma in Surgery (AFPGMI)"].map((q) => (
-                    <li key={q} className="flex items-center gap-3 text-primary/85">
-                      <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
-                      <span className="font-medium">{q}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeUp>
-            <FadeUp delay={120}>
-              <div className="h-full rounded-3xl border border-border bg-white p-10 shadow-premium">
-                <div className="flex items-center gap-3">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
-                    <Award size={20} />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-primary">Leadership</h3>
-                </div>
-                <ul className="mt-6 space-y-3">
-                  {[
-                    "Former HoD Surgery — CMH",
-                    "Former HoD Surgery — PEMH",
-                    "Professor of Surgery",
-                    "Councillor — CPSP",
-                    "Regional Director — CPSP Rawalpindi",
-                  ].map((q) => (
-                    <li key={q} className="flex items-center gap-3 text-primary/85">
-                      <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
-                      <span className="font-medium">{q}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
       {/* Process */}
-      <section className="bg-primary px-6 py-24 text-white md:px-8 md:py-32">
+      <section className="bg-primary px-6 py-20 text-white md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
           <FadeUp>
             <div className="mx-auto max-w-2xl text-center">
@@ -751,7 +690,7 @@ function Home() {
               </h2>
             </div>
           </FadeUp>
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {process.map((p, i) => (
               <FadeUp key={p.title} delay={i * 60}>
                 <div className="relative rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur transition-colors hover:border-secondary/60">
@@ -772,8 +711,11 @@ function Home() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <Testimonials />
+
       {/* FAQ */}
-      <section className="px-6 py-24 md:px-8 md:py-32">
+      <section className="px-6 py-20 md:px-8 md:py-24">
         <div className="mx-auto max-w-4xl">
           <FadeUp>
             <div className="text-center">
@@ -792,6 +734,7 @@ function Home() {
           </div>
         </div>
       </section>
+
 
       <CtaBand />
     </SiteLayout>
