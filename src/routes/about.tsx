@@ -390,7 +390,7 @@ function About() {
                                 />
                               </div>
                               <h3
-                                className="mt-4 font-serif text-3xl font-semibold leading-tight transition-colors duration-[400ms] md:text-4xl"
+                                className="mt-3 font-serif text-3xl font-semibold leading-tight transition-colors duration-[400ms] md:text-4xl"
                                 style={{ color: "var(--primary)" }}
                               >
                                 <span
@@ -400,7 +400,7 @@ function About() {
                                   {v.title}
                                 </span>
                               </h3>
-                              <p className="mt-3 max-w-sm text-[15px] leading-[1.75] text-muted-foreground md:text-base md:max-w-md md:ml-auto md:mr-0"
+                              <p className="mt-2 max-w-sm text-[15px] leading-[1.7] text-muted-foreground md:text-base md:max-w-md md:ml-auto md:mr-0"
                                  style={isLeft ? { marginLeft: "auto", marginRight: 0 } : { marginLeft: 0, marginRight: "auto" }}>
                                 {v.desc}
                               </p>
