@@ -270,31 +270,171 @@ function About() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="px-6 py-24 md:px-8 md:py-32">
-        <div className="mx-auto max-w-7xl">
+      {/* Core Values — editorial alternating pillars */}
+      <section className="relative overflow-hidden px-6 py-24 md:px-8 md:py-32">
+        {/* Premium background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f7fafd] to-white" />
+        <div
+          className="absolute inset-0 opacity-[0.5]"
+          style={{
+            backgroundImage:
+              "radial-gradient(ellipse 60% 40% at 15% 10%, rgba(31,114,185,0.07), transparent 60%), radial-gradient(ellipse 55% 45% at 85% 90%, rgba(25,151,156,0.07), transparent 60%)",
+          }}
+        />
+        <svg
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-32 hidden -translate-x-1/2 opacity-[0.14] md:block"
+          width="800"
+          height="800"
+          viewBox="0 0 800 800"
+          fill="none"
+        >
+          <circle cx="400" cy="400" r="300" stroke="#1F72B9" strokeWidth="0.5" />
+          <circle cx="400" cy="400" r="220" stroke="#19979C" strokeWidth="0.5" />
+          <circle cx="400" cy="400" r="140" stroke="#182F58" strokeWidth="0.5" />
+        </svg>
+
+        <div className="relative mx-auto max-w-6xl">
           <FadeUp>
             <div className="mx-auto max-w-2xl text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
-                Core Values
-              </span>
-              <h2 className="mt-4 text-4xl font-semibold text-primary md:text-5xl">
-                The principles that guide our practice
+              <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-1.5 shadow-premium backdrop-blur">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#19979C]" />
+                <span className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-primary">
+                  Core Values
+                </span>
+              </div>
+              <h2 className="mt-6 font-serif text-4xl font-semibold leading-[1.1] text-primary md:text-6xl">
+                The principles that guide{" "}
+                <em className="italic font-normal text-[#19979C]">our practice</em>
               </h2>
+              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
+                Six commitments that shape every consultation, every decision,
+                and every outcome.
+              </p>
             </div>
           </FadeUp>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {values.map((v, i) => (
-              <FadeUp key={v.title} delay={i * 60}>
-                <div className="h-full rounded-3xl border border-border bg-white p-8 shadow-premium transition-all duration-500 hover:-translate-y-1 hover:shadow-premium-lg">
-                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-accent text-secondary">
-                    <v.icon size={22} />
-                  </div>
-                  <h3 className="mt-5 text-xl font-semibold text-primary">{v.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
-                </div>
-              </FadeUp>
-            ))}
+
+          {/* Alternating pillars with central spine */}
+          <div className="relative mt-20 md:mt-24">
+            {/* Central vertical spine (desktop) */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 md:block"
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent 0%, rgba(24,47,88,0.18) 12%, rgba(31,114,185,0.22) 50%, rgba(25,151,156,0.18) 88%, transparent 100%)",
+              }}
+            />
+            {/* Mobile spine */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute bottom-0 left-6 top-0 w-px md:hidden"
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent, rgba(31,114,185,0.25), transparent)",
+              }}
+            />
+
+            <ol className="space-y-14 md:space-y-24">
+              {values.map((v, i) => {
+                const accents = ["#182F58", "#19979C", "#529542", "#1F72B9", "#19979C", "#182F58"];
+                const accent = accents[i % accents.length];
+                const isLeft = i % 2 === 0;
+                return (
+                  <li key={v.title} className="relative">
+                    <FadeUp delay={i * 120}>
+                      <div
+                        className={`group relative grid grid-cols-[3rem_1fr] items-center gap-6 md:grid-cols-2 md:gap-16 ${
+                          isLeft ? "" : "md:[&>*:first-child]:order-2"
+                        }`}
+                      >
+                        {/* Content side */}
+                        <div
+                          className={`md:col-span-1 ${
+                            isLeft ? "md:pr-14 md:text-right" : "md:pl-14 md:text-left"
+                          } col-start-2 md:col-start-auto`}
+                        >
+                          <div
+                            className="relative rounded-2xl px-1 py-2 transition-all duration-[400ms] ease-out md:px-6 md:py-6 md:group-hover:-translate-y-1"
+                            style={{
+                              transitionProperty: "transform, background-color, box-shadow",
+                            }}
+                          >
+                            {/* Subtle hover tint */}
+                            <div
+                              aria-hidden
+                              className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100"
+                              style={{
+                                background: `linear-gradient(${
+                                  isLeft ? "270deg" : "90deg"
+                                }, ${accent}0D 0%, transparent 80%)`,
+                              }}
+                            />
+                            <div className="relative">
+                              <div
+                                className={`flex items-center gap-3 ${
+                                  isLeft ? "md:justify-end" : "md:justify-start"
+                                }`}
+                              >
+                                <span
+                                  className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground"
+                                >
+                                  0{i + 1}
+                                </span>
+                                <span
+                                  className="h-px w-8 origin-left transition-all duration-[400ms] group-hover:w-14"
+                                  style={{
+                                    backgroundColor: accent,
+                                    transformOrigin: isLeft ? "right" : "left",
+                                  }}
+                                />
+                              </div>
+                              <h3
+                                className="mt-4 font-serif text-3xl font-semibold leading-tight transition-colors duration-[400ms] md:text-4xl"
+                                style={{ color: "var(--primary)" }}
+                              >
+                                <span
+                                  className="transition-colors duration-[400ms] group-hover:text-[var(--hover-color)]"
+                                  style={{ ["--hover-color" as never]: accent }}
+                                >
+                                  {v.title}
+                                </span>
+                              </h3>
+                              <p className="mt-3 max-w-sm text-[15px] leading-[1.75] text-muted-foreground md:text-base md:max-w-md md:ml-auto md:mr-0"
+                                 style={isLeft ? { marginLeft: "auto", marginRight: 0 } : { marginLeft: 0, marginRight: "auto" }}>
+                                {v.desc}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Icon medallion on spine */}
+                        <div
+                          className="pointer-events-none absolute left-6 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 md:left-1/2"
+                        >
+                          <div
+                            className="grid h-16 w-16 place-items-center rounded-full border border-border bg-white shadow-premium transition-all duration-[400ms] ease-out group-hover:shadow-premium-lg md:h-20 md:w-20"
+                            style={{ boxShadow: "0 0 0 6px rgba(255,255,255,0.95)" }}
+                          >
+                            <div
+                              className="grid h-11 w-11 place-items-center rounded-full text-white transition-transform duration-[400ms] ease-out group-hover:rotate-[6deg] group-hover:scale-105 md:h-14 md:w-14"
+                              style={{
+                                background: `linear-gradient(140deg, ${accent} 0%, ${accent}cc 100%)`,
+                              }}
+                            >
+                              <v.icon size={22} strokeWidth={1.6} />
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Spacer for opposite side (desktop only) */}
+                        <div className="hidden md:block" aria-hidden />
+                      </div>
+                    </FadeUp>
+                  </li>
+                );
+              })}
+            </ol>
           </div>
         </div>
       </section>
