@@ -530,34 +530,162 @@ function Home() {
         </div>
       </section>
 
-      {/* Why patients trust */}
+      {/* Why patients trust — editorial split */}
       <section className="relative overflow-hidden px-6 py-24 md:px-8 md:py-32">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-[oklch(0.97_0.02_200)] to-white" />
+        {/* Background atmosphere */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f6f9fc] to-white" />
+        <div
+          aria-hidden
+          className="absolute -left-32 top-24 h-80 w-80 rounded-full opacity-[0.07] blur-3xl"
+          style={{ backgroundColor: "#182F58" }}
+        />
+        <div
+          aria-hidden
+          className="absolute -right-32 bottom-24 h-80 w-80 rounded-full opacity-[0.08] blur-3xl"
+          style={{ backgroundColor: "#19979C" }}
+        />
+        <svg
+          aria-hidden
+          className="absolute inset-x-0 top-0 h-full w-full opacity-[0.04]"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <pattern id="trust-grid" width="56" height="56" patternUnits="userSpaceOnUse">
+              <path d="M56 0H0V56" fill="none" stroke="#182F58" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#trust-grid)" />
+        </svg>
+
         <div className="relative mx-auto max-w-7xl">
           <FadeUp>
-            <div className="mx-auto max-w-2xl text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
+            <div className="max-w-2xl">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#19979C]">
+                <span className="h-px w-8 bg-[#19979C]" />
                 Why Patients Trust Us
               </span>
-              <h2 className="mt-4 text-4xl font-semibold text-primary md:text-5xl">
-                A standard of care built on distinction
+              <h2 className="mt-5 font-serif text-4xl leading-[1.05] tracking-tight text-primary md:text-5xl lg:text-[3.5rem]">
+                A standard of care built on{" "}
+                <span className="italic text-[#1F72B9]">distinction</span>
               </h2>
+              <p className="mt-5 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
+                Three decades of surgical leadership, teaching, and patient-centred practice —
+                distilled into the principles that guide every consultation and procedure.
+              </p>
             </div>
           </FadeUp>
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {trust.map((t, i) => (
-              <FadeUp key={t.title} delay={i * 50}>
-                <div className="flex h-full flex-col rounded-2xl border border-border bg-white/70 p-6 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-premium">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent text-secondary">
-                    <t.icon size={22} />
-                  </div>
-                  <p className="mt-5 text-sm font-medium leading-snug text-primary">{t.title}</p>
+
+          <div className="mt-16 grid gap-14 lg:grid-cols-12 lg:gap-16">
+            {/* Left — portrait */}
+            <FadeUp className="lg:col-span-5">
+              <div className="relative">
+                {/* Decorative frame */}
+                <span
+                  aria-hidden
+                  className="absolute -left-4 -top-4 h-24 w-24 rounded-tl-[24px] border-l-2 border-t-2 border-[#19979C]/40"
+                />
+                <span
+                  aria-hidden
+                  className="absolute -bottom-4 -right-4 h-24 w-24 rounded-br-[24px] border-b-2 border-r-2 border-[#529542]/40"
+                />
+
+                <div className="relative overflow-hidden rounded-[24px] shadow-premium-lg">
+                  <img
+                    src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=1200&q=80"
+                    alt="Surgeon in the operating theatre"
+                    className="h-[560px] w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#182F58]/60 via-transparent to-transparent" />
                 </div>
-              </FadeUp>
-            ))}
+
+                {/* Floating experience badge */}
+                <div className="absolute -bottom-6 -left-6 rounded-2xl bg-white p-5 shadow-premium-lg ring-1 ring-black/[0.04] md:-left-8">
+                  <div className="flex items-center gap-4">
+                    <div
+                      className="grid h-12 w-12 place-items-center rounded-xl text-white"
+                      style={{ backgroundColor: "#182F58" }}
+                    >
+                      <Award size={22} />
+                    </div>
+                    <div>
+                      <div className="font-serif text-2xl font-semibold leading-none text-primary">
+                        30+ Years
+                      </div>
+                      <div className="mt-1 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                        Of Surgical Excellence
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating stat */}
+                <div className="absolute -right-4 top-8 hidden rounded-2xl bg-white p-4 shadow-premium ring-1 ring-black/[0.04] md:block">
+                  <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                    Institutions Led
+                  </div>
+                  <div className="mt-1 font-serif text-xl font-semibold text-[#1F72B9]">
+                    CMH · PEMH · AMC
+                  </div>
+                </div>
+              </div>
+            </FadeUp>
+
+            {/* Right — trust timeline */}
+            <div className="lg:col-span-7">
+              <ol className="relative space-y-8 border-l border-dashed border-[#182F58]/15 pl-8 md:space-y-9 md:pl-10">
+                {trust.map((t, i) => (
+                  <FadeUp key={t.title} delay={i * 70}>
+                    <li className="group relative">
+                      {/* Timeline node */}
+                      <span
+                        aria-hidden
+                        className="absolute -left-[42px] top-1 grid h-6 w-6 place-items-center rounded-full bg-white shadow-[0_0_0_4px_white] ring-1 ring-black/[0.06] md:-left-[50px]"
+                      >
+                        <span
+                          className="h-2 w-2 rounded-full transition-transform duration-[380ms] group-hover:scale-150"
+                          style={{ backgroundColor: t.accent }}
+                        />
+                      </span>
+
+                      <div className="flex gap-5 transition-transform duration-[380ms] ease-out group-hover:-translate-y-0.5">
+                        <div
+                          className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-all duration-[380ms] ease-out group-hover:scale-105"
+                          style={{ backgroundColor: `${t.accent}14`, color: t.accent }}
+                        >
+                          <t.icon size={22} strokeWidth={1.7} />
+                        </div>
+
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-baseline gap-3">
+                            <span
+                              className="font-serif text-xs italic"
+                              style={{ color: t.accent }}
+                            >
+                              0{i + 1}
+                            </span>
+                            <span
+                              className="h-px w-6 origin-left transition-all duration-[380ms] ease-out group-hover:w-14"
+                              style={{ backgroundColor: t.accent }}
+                            />
+                          </div>
+                          <h3 className="mt-2 font-serif text-xl font-semibold leading-tight text-primary md:text-[1.4rem]">
+                            {t.title}
+                          </h3>
+                          <p className="mt-2 text-[14.5px] leading-[1.7] text-muted-foreground">
+                            {t.desc}
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                  </FadeUp>
+                ))}
+              </ol>
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* Credentials */}
       <section className="px-6 py-24 md:px-8 md:py-32">
