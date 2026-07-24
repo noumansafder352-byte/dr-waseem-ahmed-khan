@@ -215,37 +215,195 @@ function About() {
         </div>
       </section>
 
-      {/* Leadership Timeline */}
-      <section className="px-6 py-24 md:px-8 md:py-32">
-        <div className="mx-auto max-w-4xl">
+      {/* Leadership & Experience — Executive Journey */}
+      <section className="relative overflow-hidden px-6 py-24 md:px-8 md:py-32">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f7fafd] to-white" />
+        <div
+          className="absolute inset-0 opacity-[0.4]"
+          style={{
+            backgroundImage:
+              "radial-gradient(ellipse 50% 40% at 10% 20%, rgba(31,114,185,0.08), transparent 60%), radial-gradient(ellipse 45% 35% at 90% 80%, rgba(25,151,156,0.08), transparent 60%)",
+          }}
+        />
+        <svg
+          aria-hidden
+          className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.06]"
+          preserveAspectRatio="none"
+          viewBox="0 0 1200 400"
+        >
+          <path d="M0,200 Q300,80 600,200 T1200,200" stroke="#182F58" strokeWidth="1" fill="none" />
+          <path d="M0,240 Q300,120 600,240 T1200,240" stroke="#19979C" strokeWidth="1" fill="none" />
+        </svg>
+
+        <div className="relative mx-auto max-w-7xl">
           <FadeUp>
-            <div className="text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
-                Leadership & Experience
-              </span>
-              <h2 className="mt-4 text-4xl font-semibold text-primary md:text-5xl">
-                A distinguished career
+            <div className="mx-auto max-w-2xl text-center">
+              <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-1.5 shadow-premium backdrop-blur">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#1F72B9]" />
+                <span className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-primary">
+                  Leadership & Experience
+                </span>
+              </div>
+              <h2 className="mt-6 font-serif text-4xl font-semibold leading-[1.1] text-primary md:text-6xl">
+                A distinguished{" "}
+                <em className="italic font-normal text-[#1F72B9]">journey</em>
               </h2>
+              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
+                Decades of service defining surgical leadership, education, and
+                institutional excellence across Pakistan's most respected medical
+                institutions.
+              </p>
             </div>
           </FadeUp>
-          <div className="relative mt-16 space-y-8">
-            <div className="absolute bottom-0 left-6 top-0 w-px bg-gradient-to-b from-primary via-secondary to-transparent" />
-            {timeline.map((t, i) => (
-              <FadeUp key={t.title} delay={i * 80}>
-                <div className="relative flex gap-6 pl-2">
-                  <div className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#eaf1fa] text-primary shadow-premium">
-                    <Award size={20} />
-                  </div>
-                  <div className="flex-1 rounded-2xl border border-border bg-white p-6 shadow-premium">
-                    <h3 className="text-lg font-semibold text-primary">{t.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                      {t.detail}
-                    </p>
-                  </div>
-                </div>
-              </FadeUp>
-            ))}
+
+          {/* Desktop: Horizontal executive pathway */}
+          <div className="relative mt-20 hidden lg:block">
+            <svg
+              aria-hidden
+              className="pointer-events-none absolute left-0 right-0 top-[92px] mx-auto"
+              width="100%"
+              height="60"
+              viewBox="0 0 1200 60"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <linearGradient id="journey-line" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0%" stopColor="#182F58" stopOpacity="0.15" />
+                  <stop offset="25%" stopColor="#1F72B9" stopOpacity="0.5" />
+                  <stop offset="50%" stopColor="#19979C" stopOpacity="0.5" />
+                  <stop offset="75%" stopColor="#529542" stopOpacity="0.5" />
+                  <stop offset="100%" stopColor="#182F58" stopOpacity="0.15" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M40,30 Q260,-10 480,30 T920,30 T1160,30"
+                stroke="url(#journey-line)"
+                strokeWidth="1.5"
+                fill="none"
+                strokeDasharray="4 6"
+              />
+            </svg>
+
+            <ol className="relative grid grid-cols-5 gap-4">
+              {timeline.map((t, i) => {
+                const accents = ["#182F58", "#1F72B9", "#19979C", "#529542", "#182F58"];
+                const accent = accents[i];
+                const offset = i % 2 === 0 ? "lg:translate-y-0" : "lg:translate-y-16";
+                return (
+                  <FadeUp key={t.title} delay={i * 120}>
+                    <li className={`group relative flex flex-col items-center ${offset}`}>
+                      <div
+                        className="mb-3 rounded-full border border-border bg-white/90 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.22em] backdrop-blur transition-all duration-[400ms] group-hover:border-transparent"
+                        style={{ color: accent }}
+                      >
+                        Milestone 0{i + 1}
+                      </div>
+                      <div className="relative">
+                        <div
+                          aria-hidden
+                          className="absolute inset-0 rounded-full opacity-0 blur-xl transition-opacity duration-[450ms] group-hover:opacity-60"
+                          style={{ backgroundColor: accent }}
+                        />
+                        <div
+                          className="relative grid h-16 w-16 place-items-center rounded-full border border-border bg-white shadow-premium transition-all duration-[400ms] group-hover:shadow-premium-lg"
+                          style={{ boxShadow: "0 0 0 6px rgba(255,255,255,0.95)" }}
+                        >
+                          <div
+                            className="grid h-11 w-11 place-items-center rounded-full text-white"
+                            style={{
+                              background: `linear-gradient(140deg, ${accent} 0%, ${accent}cc 100%)`,
+                            }}
+                          >
+                            <Award size={18} strokeWidth={1.8} />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className="relative mt-6 w-full rounded-2xl border border-border/70 bg-white/90 p-5 text-center backdrop-blur transition-all duration-[400ms] group-hover:-translate-y-1 group-hover:border-transparent"
+                        style={{
+                          boxShadow:
+                            "0 1px 2px rgba(24,47,88,0.04), 0 10px 30px -14px rgba(24,47,88,0.12)",
+                        }}
+                      >
+                        <div
+                          aria-hidden
+                          className="pointer-events-none absolute inset-x-6 top-0 h-px origin-center scale-x-0 transition-transform duration-[450ms] group-hover:scale-x-100"
+                          style={{ backgroundColor: accent }}
+                        />
+                        <h3 className="font-serif text-[1.05rem] font-semibold leading-snug text-primary">
+                          {t.title}
+                        </h3>
+                        <div
+                          className="mx-auto mt-2 h-px w-6 transition-all duration-[400ms] group-hover:w-10"
+                          style={{ backgroundColor: accent }}
+                        />
+                        <p className="mt-3 text-[0.82rem] leading-relaxed text-muted-foreground">
+                          {t.detail}
+                        </p>
+                      </div>
+                    </li>
+                  </FadeUp>
+                );
+              })}
+            </ol>
           </div>
+
+          {/* Mobile / tablet fallback */}
+          <ol className="relative mt-16 space-y-8 lg:hidden">
+            <div
+              aria-hidden
+              className="absolute bottom-4 left-7 top-4 w-px"
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent, rgba(31,114,185,0.35), rgba(25,151,156,0.35), transparent)",
+              }}
+            />
+            {timeline.map((t, i) => {
+              const accents = ["#182F58", "#1F72B9", "#19979C", "#529542", "#182F58"];
+              const accent = accents[i];
+              return (
+                <FadeUp key={t.title} delay={i * 100}>
+                  <li className="group relative flex gap-5">
+                    <div className="relative shrink-0">
+                      <div
+                        className="relative grid h-14 w-14 place-items-center rounded-full border border-border bg-white shadow-premium"
+                        style={{ boxShadow: "0 0 0 5px rgba(255,255,255,0.95)" }}
+                      >
+                        <div
+                          className="grid h-10 w-10 place-items-center rounded-full text-white"
+                          style={{
+                            background: `linear-gradient(140deg, ${accent} 0%, ${accent}cc 100%)`,
+                          }}
+                        >
+                          <Award size={16} strokeWidth={1.8} />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="relative flex-1 rounded-2xl border border-border/70 bg-white/90 p-5 transition-all duration-[400ms] group-hover:-translate-y-0.5 group-hover:border-transparent"
+                      style={{
+                        boxShadow:
+                          "0 1px 2px rgba(24,47,88,0.04), 0 10px 26px -14px rgba(24,47,88,0.12)",
+                      }}
+                    >
+                      <div
+                        className="text-[0.62rem] font-semibold uppercase tracking-[0.22em]"
+                        style={{ color: accent }}
+                      >
+                        Milestone 0{i + 1}
+                      </div>
+                      <h3 className="mt-1.5 font-serif text-lg font-semibold text-primary">
+                        {t.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {t.detail}
+                      </p>
+                    </div>
+                  </li>
+                </FadeUp>
+              );
+            })}
+          </ol>
         </div>
       </section>
 
