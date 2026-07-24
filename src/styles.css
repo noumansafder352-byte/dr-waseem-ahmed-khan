@@ -34,30 +34,36 @@
   --color-ring-offset-background: var(--background);
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --color-medical: var(--medical);
+  --color-medical-foreground: var(--medical-foreground);
+  --color-teal: var(--teal);
 }
 
 :root {
   --radius: 1rem;
-  /* Brand: #032E59 primary, #01969C secondary */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.22 0.05 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.05 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.05 250);
-  --primary: oklch(0.29 0.09 253);
-  --primary-foreground: oklch(0.99 0.005 240);
-  --secondary: oklch(0.63 0.11 199);
-  --secondary-foreground: oklch(0.99 0.005 240);
-  --muted: oklch(0.97 0.01 240);
-  --muted-foreground: oklch(0.5 0.03 250);
-  --accent: oklch(0.95 0.03 200);
-  --accent-foreground: oklch(0.29 0.09 253);
+  /* Brand: #182F58 navy, #1F72B9 blue, #529542 green, #19979C teal */
+  --background: #ffffff;
+  --foreground: #182F58;
+  --card: #ffffff;
+  --card-foreground: #182F58;
+  --popover: #ffffff;
+  --popover-foreground: #182F58;
+  --primary: #182F58;
+  --primary-foreground: #ffffff;
+  --secondary: #1F72B9;
+  --secondary-foreground: #ffffff;
+  --medical: #529542;
+  --medical-foreground: #ffffff;
+  --teal: #19979C;
+  --muted: #f5f7fb;
+  --muted-foreground: #5a6a86;
+  --accent: #eaf1fa;
+  --accent-foreground: #182F58;
   --destructive: oklch(0.6 0.24 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.92 0.01 240);
-  --input: oklch(0.92 0.01 240);
-  --ring: oklch(0.63 0.11 199);
+  --border: #e5eaf2;
+  --input: #e5eaf2;
+  --ring: #1F72B9;
 }
 
 @layer base {
