@@ -892,40 +892,20 @@ function Testimonials() {
 
         <FadeUp delay={140}>
           <div className="relative mt-16 md:mt-20">
-            {/* Stage */}
-            <div className="relative mx-auto h-[440px] w-full max-w-3xl sm:h-[400px] md:h-[380px]">
+            {/* Stage — height driven by the active card, side peeks absolutely positioned to match */}
+            <div className="relative mx-auto w-full max-w-3xl">
               {testimonials.map((t, i) => {
-                // Position relative to active, wrapped to -half..+half
                 let offset = i - active;
                 if (offset > count / 2) offset -= count;
                 if (offset < -count / 2) offset += count;
 
                 const isActive = offset === 0;
                 const isSide = Math.abs(offset) === 1;
-                const isVisible = Math.abs(offset) <= 1;
 
-                const translate = offset * 62; // % of stage width
-                const scale = isActive ? 1 : isSide ? 0.88 : 0.8;
-                const opacity = isActive ? 1 : isSide ? 0.45 : 0;
-                const blur = isActive ? 0 : 2;
-                const z = isActive ? 30 : isSide ? 20 : 10;
+                if (!isActive && !isSide) return null;
 
-                return (
-                  <article
-                    key={t.name}
-                    aria-hidden={!isActive}
-                    className="absolute left-1/2 top-1/2 w-[92%] max-w-[640px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[28px] border border-border/70 bg-white p-8 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_30px_70px_-30px_rgba(24,47,88,0.28)] transition-all duration-[500ms] ease-out sm:p-10 md:p-12"
-                    style={{
-                      transform: `translate(calc(-50% + ${translate}%), -50%) scale(${scale})`,
-                      opacity,
-                      zIndex: z,
-                      filter: `blur(${blur}px)`,
-                      pointerEvents: isActive ? "auto" : "none",
-                      visibility: isVisible ? "visible" : "hidden",
-                      ["--accent" as any]: t.accent,
-                    }}
-                  >
-                    {/* Top accent */}
+                const commonInner = (
+                  <>
                     <span
                       aria-hidden
                       className="absolute inset-x-0 top-0 h-[3px]"
@@ -952,7 +932,7 @@ function Testimonials() {
                     </div>
 
                     {/* Quote */}
-                    <blockquote className="relative mt-5 font-serif text-[18px] leading-[1.7] text-primary/90 md:text-[20px] md:leading-[1.75]">
+                    <blockquote className="relative mt-6 font-serif text-[18px] leading-[1.75] text-primary/90 md:text-[20px] md:leading-[1.8]">
                       <span
                         className="mr-1 font-serif text-3xl leading-none"
                         style={{ color: t.accent }}
@@ -963,7 +943,7 @@ function Testimonials() {
                     </blockquote>
 
                     {/* Footer: avatar + meta */}
-                    <div className="mt-8 flex items-center justify-between gap-4 border-t border-border pt-6">
+                    <div className="mt-10 flex items-center justify-between gap-4 border-t border-border pt-6">
                       <div className="flex min-w-0 items-center gap-4">
                         <div
                           className="relative grid h-14 w-14 shrink-0 place-items-center rounded-2xl font-serif text-lg font-semibold text-white"
@@ -1002,6 +982,39 @@ function Testimonials() {
                         </span>
                       </div>
                     </div>
+                  </>
+                );
+
+                if (isActive) {
+                  // Active card sits in the flow and drives stage height
+                  return (
+                    <article
+                      key={t.name}
+                      className="relative z-30 mx-auto w-full overflow-hidden rounded-[28px] border border-border/70 bg-white p-8 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_30px_70px_-30px_rgba(24,47,88,0.28)] transition-all duration-[500ms] ease-out sm:p-10 md:p-12"
+                      style={{ ["--accent" as any]: t.accent }}
+                    >
+                      {commonInner}
+                    </article>
+                  );
+                }
+
+                // Side peek — absolutely positioned, matched to active card height,
+                // pushed outward so only 15–20% is visible past the active card edge.
+                const side = offset > 0 ? "right" : "left";
+                return (
+                  <article
+                    key={t.name}
+                    aria-hidden
+                    className="pointer-events-none absolute inset-y-0 z-10 hidden w-[70%] overflow-hidden rounded-[28px] border border-border/70 bg-white p-8 opacity-45 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_24px_50px_-30px_rgba(24,47,88,0.22)] transition-all duration-[500ms] ease-out sm:p-10 md:block md:p-12"
+                    style={{
+                      [side]: "-42%",
+                      transform: "scale(0.9)",
+                      transformOrigin: side === "left" ? "right center" : "left center",
+                      filter: "blur(1px)",
+                      ["--accent" as any]: t.accent,
+                    }}
+                  >
+                    {commonInner}
                   </article>
                 );
               })}
