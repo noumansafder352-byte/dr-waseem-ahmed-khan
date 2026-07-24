@@ -224,7 +224,7 @@ function Home() {
             {services.map((s, i) => (
               <FadeUp key={s.title} delay={i * 60}>
                 <div className="group h-full rounded-3xl border border-border bg-white p-8 shadow-premium transition-all duration-500 hover:-translate-y-1 hover:shadow-premium-lg">
-                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-brand-gradient text-white shadow-premium">
+                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#eaf1fa] text-primary">
                     <s.icon size={26} />
                   </div>
                   <h3 className="mt-6 text-xl font-semibold text-primary">{s.title}</h3>
@@ -289,7 +289,7 @@ function Home() {
             <FadeUp>
               <div className="h-full rounded-3xl border border-border bg-white p-10 shadow-premium">
                 <div className="flex items-center gap-3">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-brand-gradient text-white">
+                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
                     <GraduationCap size={20} />
                   </div>
                   <h3 className="text-2xl font-semibold text-primary">Qualifications</h3>
@@ -307,7 +307,7 @@ function Home() {
             <FadeUp delay={120}>
               <div className="h-full rounded-3xl border border-border bg-white p-10 shadow-premium">
                 <div className="flex items-center gap-3">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-brand-gradient text-white">
+                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
                     <Award size={20} />
                   </div>
                   <h3 className="text-2xl font-semibold text-primary">Leadership</h3>

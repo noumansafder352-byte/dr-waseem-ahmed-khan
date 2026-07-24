@@ -76,7 +76,7 @@ function Contact() {
             ].map((c, i) => (
               <FadeUp key={c.title} delay={i * 60}>
                 <div className="h-full rounded-2xl border border-border bg-white p-7 text-center shadow-premium">
-                  <div className="mx-auto grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient text-white">
+                  <div className="mx-auto grid h-12 w-12 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
                     <c.icon size={22} />
                   </div>
                   <h3 className="mt-5 text-sm font-semibold uppercase tracking-wider text-primary">
@@ -142,7 +142,7 @@ function Contact() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-brand-gradient px-8 py-4 text-sm font-semibold text-white shadow-premium transition-transform hover:-translate-y-0.5 disabled:opacity-70 sm:w-auto"
+                    className="inline-flex w-full items-center justify-center rounded-full bg-medical px-8 py-4 text-sm font-semibold text-medical-foreground shadow-premium transition-all hover:-translate-y-0.5 hover:bg-medical-hover disabled:opacity-70 sm:w-auto"
                   >
                     {submitting ? "Sending…" : "Request Appointment"}
                   </button>
