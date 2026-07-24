@@ -26,10 +26,7 @@ import {
   Microscope,
   Ribbon,
   Droplet,
-  Quote,
   Star,
-  ChevronLeft,
-  ChevronRight,
   BadgeCheck,
 } from "lucide-react";
 import { useState } from "react";
