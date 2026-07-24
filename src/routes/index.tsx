@@ -811,15 +811,46 @@ const testimonials = [
       "Decades of expertise combined with genuine compassion. Dr. Waseem gave me clarity, confidence, and a treatment plan tailored precisely to my needs.",
     accent: "#529542",
   },
+  {
+    name: "Fatima Z.",
+    initials: "FZ",
+    treatment: "Breast Lump Excision",
+    date: "July 2025",
+    rating: 5,
+    quote:
+      "I felt heard and respected at every stage. The results have been excellent and the follow-up care was thoughtful, attentive, and deeply reassuring.",
+    accent: "#1F72B9",
+  },
+  {
+    name: "Bilal A.",
+    initials: "BA",
+    treatment: "Appendectomy",
+    date: "May 2025",
+    rating: 5,
+    quote:
+      "Professional, precise, and remarkably kind. My procedure went smoothly and I was back on my feet far sooner than I imagined possible.",
+    accent: "#19979C",
+  },
 ];
 
 function Testimonials() {
-  const [active, setActive] = useState(0);
-  const total = testimonials.length;
-  const t = testimonials[active];
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const [progress, setProgress] = useState(0);
 
-  const next = () => setActive((v) => (v + 1) % total);
-  const prev = () => setActive((v) => (v - 1 + total) % total);
+  const scrollByCard = (dir: 1 | -1) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const first = el.querySelector<HTMLElement>("[data-testimonial-card]");
+    const step = first ? first.offsetWidth + 24 : el.clientWidth;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  };
+
+  const onScroll = () => {
+    const el = trackRef.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    setProgress(max <= 0 ? 0 : el.scrollLeft / max);
+  };
 
   return (
     <section className="relative isolate overflow-hidden px-6 py-20 md:px-8 md:py-24">
@@ -847,7 +878,7 @@ function Testimonials() {
         }}
       />
 
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-7xl">
         <FadeUp>
           <div className="mx-auto max-w-2xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#19979C]/25 bg-white/70 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-secondary shadow-sm backdrop-blur">
@@ -870,139 +901,139 @@ function Testimonials() {
           </div>
         </FadeUp>
 
-        {/* Feature card */}
         <FadeUp delay={140}>
-          <div className="relative mt-14">
+          <div className="relative mt-12 md:mt-14">
+            {/* Edge fades */}
             <div
-              className="relative overflow-hidden rounded-[28px] border border-border/70 bg-white p-8 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_28px_70px_-32px_rgba(24,47,88,0.28)] md:p-14"
-              style={{ ["--accent" as any]: t.accent }}
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-white to-transparent md:w-14"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-white to-transparent md:w-14"
+            />
+
+            {/* Track */}
+            <div
+              ref={trackRef}
+              onScroll={onScroll}
+              className="scroll-hide -mx-2 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 pb-4 pt-2"
+              style={{ scrollbarWidth: "none" }}
             >
-              {/* Left accent bar */}
-              <span
-                aria-hidden
-                className="absolute inset-y-8 left-0 w-[3px] rounded-r-full"
-                style={{ background: `linear-gradient(180deg, ${t.accent}, ${t.accent}00)` }}
-              />
-              {/* Giant quote */}
-              <Quote
-                aria-hidden
-                size={140}
-                strokeWidth={1}
-                className="pointer-events-none absolute -right-6 -top-8 text-[#182F58]/[0.05] md:-right-4 md:-top-4 md:h-[180px] md:w-[180px]"
-              />
+              {testimonials.map((t) => (
+                <article
+                  key={t.name}
+                  data-testimonial-card
+                  className="group relative flex w-[85%] shrink-0 snap-start flex-col overflow-hidden rounded-[22px] border border-border/70 bg-white p-6 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_18px_44px_-28px_rgba(24,47,88,0.22)] transition-all duration-[380ms] hover:-translate-y-1 hover:shadow-[0_2px_10px_-4px_rgba(24,47,88,0.08),0_28px_60px_-28px_rgba(24,47,88,0.3)] sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+                  style={{ ["--accent" as any]: t.accent }}
+                >
+                  {/* Top accent */}
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-100"
+                    style={{
+                      background: `linear-gradient(90deg, ${t.accent}, ${t.accent}00)`,
+                    }}
+                  />
+                  <Quote
+                    aria-hidden
+                    size={72}
+                    strokeWidth={1}
+                    className="pointer-events-none absolute -right-2 -top-2 text-[#182F58]/[0.06]"
+                  />
 
-              <div className="relative grid gap-10 md:grid-cols-[auto_1fr] md:gap-14">
-                {/* Avatar + meta */}
-                <div className="flex items-start gap-5 md:flex-col md:items-center md:text-center">
-                  <div
-                    className="relative grid h-20 w-20 shrink-0 place-items-center rounded-2xl font-serif text-2xl font-semibold text-white shadow-premium md:h-24 md:w-24 md:text-3xl"
-                    style={{ backgroundColor: t.accent }}
-                  >
-                    {t.initials}
-                    <span
-                      aria-hidden
-                      className="absolute -bottom-2 -right-2 grid h-8 w-8 place-items-center rounded-full bg-white shadow-premium ring-1 ring-black/[0.04]"
+                  {/* Header: avatar + name */}
+                  <div className="flex items-center gap-3">
+                    <div
+                      className="relative grid h-12 w-12 shrink-0 place-items-center rounded-xl font-serif text-base font-semibold text-white"
+                      style={{ backgroundColor: t.accent }}
                     >
-                      <BadgeCheck size={16} className="text-[#529542]" />
-                    </span>
-                  </div>
-                  <div>
-                    <div className="font-serif text-xl font-semibold text-primary md:mt-4 md:text-2xl">
-                      {t.name}
+                      {t.initials}
+                      <span
+                        aria-hidden
+                        className="absolute -bottom-1.5 -right-1.5 grid h-5 w-5 place-items-center rounded-full bg-white shadow-sm ring-1 ring-black/[0.04]"
+                      >
+                        <BadgeCheck size={11} className="text-[#529542]" />
+                      </span>
                     </div>
-                    <div className="mt-1 text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                      {t.treatment}
-                    </div>
-                    <div className="mt-3 flex items-center gap-1 md:justify-center">
-                      {Array.from({ length: t.rating }).map((_, i) => (
-                        <Star
-                          key={i}
-                          size={15}
-                          className="fill-[#f5b638] text-[#f5b638]"
-                        />
-                      ))}
+                    <div className="min-w-0">
+                      <div className="truncate font-serif text-[15px] font-semibold text-primary">
+                        {t.name}
+                      </div>
+                      <div className="mt-0.5 truncate text-[10.5px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                        {t.treatment}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Quote body */}
-                <div className="relative">
-                  <blockquote
-                    key={active}
-                    className="relative font-serif text-[1.35rem] leading-[1.55] text-primary md:text-[1.7rem] md:leading-[1.5]"
-                    style={{ animation: "fadeUpIn 500ms ease-out" }}
-                  >
+                  {/* Rating */}
+                  <div className="mt-4 flex items-center gap-0.5">
+                    {Array.from({ length: t.rating }).map((_, i) => (
+                      <Star
+                        key={i}
+                        size={13}
+                        className="fill-[#f5b638] text-[#f5b638]"
+                      />
+                    ))}
+                  </div>
+
+                  {/* Quote */}
+                  <blockquote className="relative mt-3 line-clamp-5 font-serif text-[15px] leading-[1.65] text-primary/90">
                     <span
-                      className="mr-1 font-serif text-4xl leading-none"
+                      className="mr-1 font-serif text-2xl leading-none"
                       style={{ color: t.accent }}
                     >
                       “
                     </span>
                     {t.quote}
-                    <span
-                      className="ml-1 font-serif text-4xl leading-none"
-                      style={{ color: t.accent }}
-                    >
-                      ”
-                    </span>
                   </blockquote>
 
-                  <div className="mt-8 flex items-center justify-between border-t border-border pt-6">
-                    <div className="flex items-center gap-3">
-                      <span
-                        className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em]"
-                        style={{
-                          backgroundColor: `${t.accent}14`,
-                          color: t.accent,
-                        }}
-                      >
-                        <BadgeCheck size={12} />
-                        Verified Patient
-                      </span>
-                      <span className="text-[12px] text-muted-foreground">
-                        {t.date}
-                      </span>
-                    </div>
-
-                    {/* Controls */}
-                    <div className="flex items-center gap-3">
-                      <button
-                        type="button"
-                        onClick={prev}
-                        aria-label="Previous testimonial"
-                        className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-primary transition-all duration-[380ms] hover:-translate-y-0.5 hover:border-secondary hover:text-secondary hover:shadow-premium"
-                      >
-                        <ChevronLeft size={18} />
-                      </button>
-                      <button
-                        type="button"
-                        onClick={next}
-                        aria-label="Next testimonial"
-                        className="grid h-11 w-11 place-items-center rounded-full text-white transition-all duration-[380ms] hover:-translate-y-0.5 hover:shadow-premium-lg"
-                        style={{ backgroundColor: t.accent }}
-                      >
-                        <ChevronRight size={18} />
-                      </button>
-                    </div>
+                  {/* Footer meta */}
+                  <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
+                    <span
+                      className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.16em]"
+                      style={{
+                        backgroundColor: `${t.accent}14`,
+                        color: t.accent,
+                      }}
+                    >
+                      <BadgeCheck size={11} />
+                      Verified
+                    </span>
+                    <span className="text-[11px] text-muted-foreground">
+                      {t.date}
+                    </span>
                   </div>
-                </div>
-              </div>
+                </article>
+              ))}
             </div>
 
-            {/* Pagination dots */}
-            <div className="mt-8 flex items-center justify-center gap-2.5">
-              {testimonials.map((it, i) => (
-                <button
-                  key={it.name}
-                  type="button"
-                  onClick={() => setActive(i)}
-                  aria-label={`Show testimonial ${i + 1}`}
-                  className={`h-1.5 rounded-full transition-all duration-[380ms] ${
-                    i === active ? "w-10" : "w-4 bg-border hover:bg-muted-foreground/40"
-                  }`}
-                  style={i === active ? { backgroundColor: t.accent } : undefined}
+            {/* Controls + progress */}
+            <div className="mt-8 flex items-center justify-between gap-4">
+              <div className="relative h-[3px] flex-1 overflow-hidden rounded-full bg-border/70">
+                <span
+                  className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-[#182F58] via-[#1F72B9] to-[#19979C] transition-[width] duration-300"
+                  style={{ width: `${Math.max(12, progress * 100)}%` }}
                 />
-              ))}
+              </div>
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => scrollByCard(-1)}
+                  aria-label="Previous testimonials"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-primary transition-all duration-[380ms] hover:-translate-y-0.5 hover:border-secondary hover:text-secondary hover:shadow-premium"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollByCard(1)}
+                  aria-label="Next testimonials"
+                  className="grid h-11 w-11 place-items-center rounded-full bg-[#182F58] text-white transition-all duration-[380ms] hover:-translate-y-0.5 hover:bg-[#19979C] hover:shadow-premium-lg"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
             </div>
           </div>
         </FadeUp>
