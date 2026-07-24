@@ -550,7 +550,7 @@ function About() {
                       {/* Content */}
                       <div
                         className={`col-start-2 md:col-start-auto ${
-                          isLeft ? "md:pr-14 md:text-right" : "md:pl-14 md:text-left"
+                          isLeft ? "md:pr-24 md:text-right" : "md:pl-24 md:text-left"
                         }`}
                       >
                         <div
