@@ -108,7 +108,7 @@ function Home() {
       {/* Hero */}
       <section className="relative min-h-dvh w-full overflow-hidden">
         <img src={HERO_IMG} alt="" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#032E59]/92 via-[#032E59]/75 to-[#01969C]/60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#182F58]/92 via-[#182F58]/78 to-[#1F72B9]/55" />
         <div className="relative mx-auto flex min-h-dvh max-w-7xl flex-col justify-center px-6 pb-20 pt-32 md:px-8 md:pt-36">
           <FadeUp>
             <span className="inline-block w-fit rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-white/90 backdrop-blur">
