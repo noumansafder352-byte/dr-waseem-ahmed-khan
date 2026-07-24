@@ -51,14 +51,20 @@ export const Route = createFileRoute("/")({
 const ABOUT_IMG =
   "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1400&q=80";
 
-const services = [
-  { icon: Stethoscope, title: "General Surgery", desc: "Comprehensive surgical care across a wide range of conditions." },
-  { icon: Activity, title: "Thyroid Surgery", desc: "Precise thyroidectomy and thyroid nodule management." },
-  { icon: HeartPulse, title: "Breast Surgery", desc: "Diagnostic and therapeutic breast surgical procedures." },
-  { icon: Shield, title: "Gallbladder Surgery", desc: "Laparoscopic cholecystectomy with rapid recovery." },
-  { icon: Scissors, title: "Hernia Repair", desc: "Open and laparoscopic repair with modern mesh techniques." },
-  { icon: Sparkles, title: "Appendix Surgery", desc: "Minimally invasive appendectomy for faster healing." },
-  { icon: Waves, title: "Varicose Vein Treatment", desc: "Advanced treatment options for venous conditions." },
+const services: {
+  icon: typeof Stethoscope;
+  title: string;
+  desc: string;
+  accent: string;
+  tint: string;
+}[] = [
+  { icon: Stethoscope, title: "General Surgery", desc: "Comprehensive surgical care across a wide range of conditions.", accent: "#182F58", tint: "#eaf1fa" },
+  { icon: Activity, title: "Thyroid Surgery", desc: "Precise thyroidectomy and thyroid nodule management.", accent: "#19979C", tint: "#e6f6f6" },
+  { icon: HeartPulse, title: "Breast Surgery", desc: "Diagnostic and therapeutic breast surgical procedures.", accent: "#1F72B9", tint: "#e8f1fb" },
+  { icon: Shield, title: "Gallbladder Surgery", desc: "Laparoscopic cholecystectomy with rapid recovery.", accent: "#529542", tint: "#eaf5e6" },
+  { icon: Scissors, title: "Hernia Repair", desc: "Open and laparoscopic repair with modern mesh techniques.", accent: "#182F58", tint: "#eaf1fa" },
+  { icon: Sparkles, title: "Appendix Surgery", desc: "Minimally invasive appendectomy for faster healing.", accent: "#19979C", tint: "#e6f6f6" },
+  { icon: Waves, title: "Varicose Vein Treatment", desc: "Advanced treatment options for venous conditions.", accent: "#1F72B9", tint: "#e8f1fb" },
 ];
 
 const trust = [
