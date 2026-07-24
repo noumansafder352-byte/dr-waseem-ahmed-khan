@@ -365,7 +365,7 @@ function Home() {
       </section>
 
       {/* Services */}
-      <section className="relative isolate overflow-hidden px-6 py-28 md:px-8 md:py-40">
+      <section className="relative isolate overflow-hidden px-6 py-24 md:px-8 md:py-28">
         {/* Premium background layers */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[oklch(0.985_0.008_220)] to-white" />
         <div
