@@ -520,7 +520,7 @@ function About() {
           </FadeUp>
 
           {/* Staggered two-column pillars with central spine */}
-          <div className="relative mt-14 md:mt-16">
+          <div className="relative mt-20 md:mt-24">
             {/* Central vertical spine (desktop) */}
             <div
               aria-hidden
@@ -550,7 +550,7 @@ function About() {
                       {/* Content */}
                       <div
                         className={`col-start-2 md:col-start-auto ${
-                          isLeft ? "md:pr-24 md:text-right" : "md:pl-24 md:text-left"
+                          isLeft ? "md:pr-32 md:text-right" : "md:pl-32 md:text-left"
                         }`}
                       >
                         <div
@@ -633,7 +633,7 @@ function About() {
 
               return (
                 <div className="grid gap-6 md:grid-cols-2 md:gap-x-0 md:gap-y-0">
-                  <ol className="space-y-6 md:space-y-10">
+                  <ol className="space-y-10 md:space-y-16">
                     {leftItems.map((v) => {
                       const originalIndex = values.indexOf(v);
                       return (
@@ -641,7 +641,7 @@ function About() {
                       );
                     })}
                   </ol>
-                  <ol className="space-y-6 md:mt-24 md:space-y-10">
+                  <ol className="space-y-10 md:mt-28 md:space-y-16">
                     {rightItems.map((v) => {
                       const originalIndex = values.indexOf(v);
                       return (
