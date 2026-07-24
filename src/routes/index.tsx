@@ -158,18 +158,22 @@ function Home() {
         <div className="pointer-events-none absolute right-1/4 top-1/4 h-1.5 w-1.5 rounded-full bg-white/70 shadow-[0_0_30px_8px_rgba(255,255,255,0.4)]" />
         <div className="pointer-events-none absolute left-1/3 bottom-1/4 h-1.5 w-1.5 rounded-full bg-[#529542]/80 shadow-[0_0_30px_8px_rgba(82,149,66,0.5)]" />
 
+        {/* Additional decorative accents */}
+        <div className="pointer-events-none absolute left-1/2 top-24 h-px w-40 -translate-x-1/2 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+        <div className="pointer-events-none absolute bottom-20 left-1/2 h-px w-40 -translate-x-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+
         {/* Content */}
-        <div className="relative mx-auto flex min-h-[95dvh] max-w-5xl flex-col items-center px-6 pb-24 pt-36 text-center md:px-8 md:pt-44">
+        <div className="relative mx-auto flex min-h-[100dvh] max-w-6xl flex-col items-center justify-center px-6 py-32 text-center md:px-8">
           <FadeUp>
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/[0.08] px-5 py-2 text-[11px] font-medium uppercase tracking-[0.28em] text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/[0.08] px-6 py-2.5 text-[11px] font-medium uppercase tracking-[0.32em] text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md">
               <span className="h-1.5 w-1.5 rounded-full bg-[#19979C]" />
               General &amp; Laparoscopic Surgeon
             </span>
           </FadeUp>
 
-          <FadeUp delay={120}>
+          <FadeUp delay={140}>
             <h1
-              className="mt-10 max-w-4xl text-5xl leading-[1.02] tracking-tight text-white md:text-7xl lg:text-[5.5rem]"
+              className="mt-14 max-w-5xl text-6xl leading-[1.02] tracking-tight text-white md:text-8xl lg:text-[7rem]"
               style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
             >
               Expert Surgical Care
@@ -178,32 +182,32 @@ function Home() {
             </h1>
           </FadeUp>
 
-          <FadeUp delay={240}>
-            <div className="mt-14 space-y-2">
-              <p className="text-lg font-semibold text-white md:text-xl">
+          <FadeUp delay={280}>
+            <div className="mt-16 space-y-3">
+              <p className="text-xl font-semibold text-white md:text-2xl">
                 Maj Gen (Rtd) Waseem Ahmad Khan, HI (M)
               </p>
-              <p className="text-[13px] tracking-[0.2em] text-white/70 md:text-sm">
+              <p className="text-[13px] tracking-[0.28em] text-white/70 md:text-sm">
                 MBBS • FCPS • FACS • CHPE • Diploma in Surgery (AFPGMI)
               </p>
             </div>
           </FadeUp>
 
-          <FadeUp delay={340}>
-            <p className="mx-auto mt-10 max-w-2xl text-base leading-[1.85] text-white/80 md:text-lg">
+          <FadeUp delay={400}>
+            <p className="mx-auto mt-10 max-w-2xl text-base leading-[1.9] text-white/80 md:text-lg">
               Delivering expert surgical care with decades of clinical
-              excellence, leadership, and compassionate patient care. Every
-              treatment is personalized using evidence-based surgical techniques
-              to achieve the best possible outcomes.
+              excellence, leadership, and compassionate patient care — every
+              treatment personalized using evidence-based techniques to achieve
+              the best possible outcomes.
             </p>
           </FadeUp>
 
-          <FadeUp delay={440}>
+          <FadeUp delay={520}>
             <div className="mt-12 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
               <Link
                 to="/contact"
                 hash="appointment"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#529542] px-8 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(82,149,66,0.7)] transition-all hover:-translate-y-0.5 hover:bg-[#182F58] sm:w-auto"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#529542] px-9 py-4 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(82,149,66,0.7)] transition-all hover:-translate-y-0.5 hover:bg-[#19979C] sm:w-auto"
               >
                 Book Appointment
                 <ArrowRight
@@ -213,63 +217,10 @@ function Home() {
               </Link>
               <Link
                 to="/services"
-                className="inline-flex w-full items-center justify-center rounded-full border border-white/50 bg-transparent px-8 py-4 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white hover:text-[#182F58] sm:w-auto"
+                className="inline-flex w-full items-center justify-center rounded-full border border-white/50 bg-transparent px-9 py-4 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white hover:text-[#182F58] sm:w-auto"
               >
                 Our Services
               </Link>
-            </div>
-          </FadeUp>
-
-          {/* Trust cards */}
-          <FadeUp delay={560}>
-            <div className="mt-16 grid w-full grid-cols-2 gap-4 md:mt-20 md:grid-cols-4 md:gap-5">
-              {[
-                { icon: Shield, title: "Former HoD Surgery", sub: "CMH & PEMH" },
-                { icon: GraduationCap, title: "Professor of Surgery", sub: "Army Medical College" },
-                { icon: Award, title: "Councillor & Regional Director", sub: "CPSP" },
-                { icon: Stethoscope, title: "General & Laparoscopic", sub: "Surgery Specialist" },
-              ].map((c) => (
-                <div
-                  key={c.title}
-                  className="group relative overflow-hidden rounded-2xl border border-white/15 bg-white/[0.06] p-5 text-left shadow-[0_10px_40px_-20px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-white/30 hover:bg-white/[0.1]"
-                >
-                  <div className="grid h-11 w-11 place-items-center rounded-xl border border-white/15 bg-white/10 text-[#19979C]">
-                    <c.icon size={20} />
-                  </div>
-                  <p className="mt-5 text-sm font-semibold leading-snug text-white">
-                    {c.title}
-                  </p>
-                  <p className="mt-1 text-xs leading-snug text-white/60">
-                    {c.sub}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </FadeUp>
-
-          {/* Achievements strip */}
-          <FadeUp delay={700}>
-            <div className="mt-16 w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-6 backdrop-blur-md md:mt-20 md:px-10 md:py-8">
-              <div className="grid grid-cols-2 gap-y-6 md:grid-cols-4 md:divide-x md:divide-white/10">
-                {[
-                  { k: "5+", v: "Professional Qualifications" },
-                  { k: "5+", v: "Leadership Positions" },
-                  { k: "7+", v: "Specialized Services" },
-                  { k: "100%", v: "Patient-First Care" },
-                ].map((s) => (
-                  <div key={s.v} className="px-2 text-center md:px-6">
-                    <div
-                      className="text-3xl font-semibold text-white md:text-4xl"
-                      style={{ fontFamily: "var(--font-display)" }}
-                    >
-                      {s.k}
-                    </div>
-                    <div className="mt-2 text-[10px] uppercase tracking-[0.22em] text-white/60 md:text-[11px]">
-                      {s.v}
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </FadeUp>
         </div>
