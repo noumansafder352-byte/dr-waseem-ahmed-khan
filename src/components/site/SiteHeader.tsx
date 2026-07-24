@@ -54,7 +54,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
           <Link
             to="/contact"
             hash="appointment"
-            className="inline-flex items-center rounded-full bg-brand-gradient px-5 py-2.5 text-sm font-semibold text-white shadow-premium transition-transform hover:-translate-y-0.5"
+            className="inline-flex items-center rounded-full bg-medical px-5 py-2.5 text-sm font-semibold text-medical-foreground shadow-premium transition-all hover:-translate-y-0.5 hover:bg-medical-hover"
           >
             Book Appointment
           </Link>
