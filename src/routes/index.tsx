@@ -319,7 +319,7 @@ function Home() {
 
 
       {/* About */}
-      <section className="px-6 py-24 md:px-8 md:py-32">
+      <section className="px-6 py-20 md:px-8 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <FadeUp>
             <div className="relative overflow-hidden rounded-3xl shadow-premium-lg">
