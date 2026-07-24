@@ -75,7 +75,7 @@ export function SiteHeader(_: { transparentOnTop?: boolean } = {}) {
           <img
             src={logo.url}
             alt="Dr. Waseem Ahmad Khan — General & Laparoscopic Surgeon"
-            className="h-[60px] w-auto md:h-[70px]"
+            className="h-[76px] w-auto md:h-[84px]"
             draggable={false}
           />
         </Link>
@@ -135,7 +135,7 @@ export function SiteHeader(_: { transparentOnTop?: boolean } = {}) {
         }`}
       >
         <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">
-          <img src={logo.url} alt="" className="h-12 w-auto" />
+          <img src={logo.url} alt="" className="h-16 w-auto" />
           <button
             type="button"
             onClick={() => setOpen(false)}
