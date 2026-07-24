@@ -97,14 +97,10 @@
   color: transparent;
 }
 
-@utility bg-medical {
-  background-color: #529542;
-  color: #ffffff;
-}
-
 @utility bg-medical-hover {
   background-color: #467f38;
 }
+
 
 @utility shadow-premium {
   box-shadow:
