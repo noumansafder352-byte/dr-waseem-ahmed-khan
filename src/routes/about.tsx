@@ -271,7 +271,7 @@ function About() {
       </section>
 
       {/* Core Values — editorial alternating pillars */}
-      <section className="relative overflow-hidden px-6 py-24 md:px-8 md:py-32">
+      <section className="relative overflow-hidden px-6 py-20 md:px-8 md:py-24">
         {/* Premium background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f7fafd] to-white" />
         <div
@@ -315,7 +315,7 @@ function About() {
           </FadeUp>
 
           {/* Alternating pillars with central spine */}
-          <div className="relative mt-20 md:mt-24">
+          <div className="relative mt-14 md:mt-16">
             {/* Central vertical spine (desktop) */}
             <div
               aria-hidden
@@ -335,7 +335,7 @@ function About() {
               }}
             />
 
-            <ol className="space-y-14 md:space-y-24">
+            <ol className="space-y-8 md:space-y-12">
               {values.map((v, i) => {
                 const accents = ["#182F58", "#19979C", "#529542", "#1F72B9", "#19979C", "#182F58"];
                 const accent = accents[i % accents.length];
@@ -344,18 +344,18 @@ function About() {
                   <li key={v.title} className="relative">
                     <FadeUp delay={i * 120}>
                       <div
-                        className={`group relative grid grid-cols-[3rem_1fr] items-center gap-6 md:grid-cols-2 md:gap-16 ${
+                        className={`group relative grid grid-cols-[3rem_1fr] items-center gap-6 md:grid-cols-2 md:gap-12 ${
                           isLeft ? "" : "md:[&>*:first-child]:order-2"
                         }`}
                       >
                         {/* Content side */}
                         <div
                           className={`md:col-span-1 ${
-                            isLeft ? "md:pr-14 md:text-right" : "md:pl-14 md:text-left"
+                            isLeft ? "md:pr-10 md:text-right" : "md:pl-10 md:text-left"
                           } col-start-2 md:col-start-auto`}
                         >
                           <div
-                            className="relative rounded-2xl px-1 py-2 transition-all duration-[400ms] ease-out md:px-6 md:py-6 md:group-hover:-translate-y-1"
+                            className="relative rounded-2xl px-1 py-1 transition-all duration-[400ms] ease-out md:px-5 md:py-4 md:group-hover:-translate-y-1"
                             style={{
                               transitionProperty: "transform, background-color, box-shadow",
                             }}
@@ -390,7 +390,7 @@ function About() {
                                 />
                               </div>
                               <h3
-                                className="mt-4 font-serif text-3xl font-semibold leading-tight transition-colors duration-[400ms] md:text-4xl"
+                                className="mt-3 font-serif text-3xl font-semibold leading-tight transition-colors duration-[400ms] md:text-4xl"
                                 style={{ color: "var(--primary)" }}
                               >
                                 <span
@@ -400,7 +400,7 @@ function About() {
                                   {v.title}
                                 </span>
                               </h3>
-                              <p className="mt-3 max-w-sm text-[15px] leading-[1.75] text-muted-foreground md:text-base md:max-w-md md:ml-auto md:mr-0"
+                              <p className="mt-2 max-w-sm text-[15px] leading-[1.7] text-muted-foreground md:text-base md:max-w-md md:ml-auto md:mr-0"
                                  style={isLeft ? { marginLeft: "auto", marginRight: 0 } : { marginLeft: 0, marginRight: "auto" }}>
                                 {v.desc}
                               </p>
