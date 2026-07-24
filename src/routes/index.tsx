@@ -409,76 +409,84 @@ function Home() {
             </div>
           </FadeUp>
 
-          <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-16 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
               <FadeUp key={s.title} delay={i * 60}>
-                <div className="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-border/70 bg-white p-10 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_20px_50px_-30px_rgba(24,47,88,0.15)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_-8px_rgba(24,47,88,0.08),0_40px_80px_-30px_rgba(24,47,88,0.25)]">
-                  {/* Top accent bar */}
-                  <span
-                    className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
-                    style={{ background: `linear-gradient(90deg, ${s.accent}, ${s.accent}00)` }}
-                  />
-                  <span
-                    className="absolute left-0 top-0 h-[3px] w-16"
-                    style={{ backgroundColor: s.accent }}
-                  />
-                  {/* Corner glow */}
+                <div className="group relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-[20px] border border-border/70 bg-white p-7 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_18px_44px_-28px_rgba(24,47,88,0.15)] transition-all duration-[380ms] ease-out hover:-translate-y-1 hover:shadow-[0_10px_20px_-8px_rgba(24,47,88,0.12),0_36px_70px_-28px_rgba(24,47,88,0.32)]">
+                  {/* Hover image reveal */}
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-60"
-                    style={{ backgroundColor: `${s.accent}22` }}
-                  />
-
-                  {/* Icon container */}
-                  <div className="relative">
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-[380ms] ease-out group-hover:opacity-100"
+                  >
+                    <img
+                      src={s.image}
+                      alt=""
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
                     <div
-                      className="grid h-16 w-16 place-items-center rounded-2xl shadow-inner transition-transform duration-500 group-hover:scale-105"
-                      style={{ backgroundColor: s.tint, color: s.accent }}
-                    >
-                      <s.icon size={30} strokeWidth={1.6} />
-                    </div>
-                    <span
-                      aria-hidden
-                      className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full opacity-70"
-                      style={{ backgroundColor: s.accent }}
+                      className="absolute inset-0"
+                      style={{
+                        background: `linear-gradient(155deg, ${s.accent}f2 0%, ${s.accent}cc 45%, rgba(10,18,34,0.82) 100%)`,
+                      }}
                     />
                   </div>
 
-                  <h3 className="mt-8 text-[1.35rem] font-semibold leading-tight text-primary">
-                    {s.title}
-                  </h3>
-                  <p className="mt-3 text-[15px] leading-[1.75] text-muted-foreground">
-                    {s.desc}
-                  </p>
+                  {/* Top accent bar */}
+                  <span
+                    className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 transition-transform duration-[380ms] ease-out group-hover:scale-x-100"
+                    style={{ background: `linear-gradient(90deg, ${s.accent}, ${s.accent}00)` }}
+                  />
+                  <span
+                    className="absolute left-0 top-0 h-[3px] w-14"
+                    style={{ backgroundColor: s.accent }}
+                  />
 
-                  <div className="mt-8 flex items-center justify-between border-t border-border/60 pt-6">
-                    <Link
-                      to="/services"
-                      className="group/link relative inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-secondary"
-                      style={{ color: s.accent }}
-                    >
-                      <span className="relative">
-                        Learn more
-                        <span
-                          className="absolute -bottom-0.5 left-0 h-px w-0 transition-all duration-500 group-hover:w-full"
-                          style={{ backgroundColor: s.accent }}
+                  <div className="relative flex h-full flex-col">
+                    {/* Icon */}
+                    <div className="relative">
+                      <div
+                        className="grid h-14 w-14 place-items-center rounded-xl transition-all duration-[380ms] ease-out group-hover:bg-white/15 group-hover:text-white group-hover:backdrop-blur"
+                        style={{ backgroundColor: s.tint, color: s.accent }}
+                      >
+                        <s.icon size={26} strokeWidth={1.6} />
+                      </div>
+                    </div>
+
+                    <h3 className="mt-6 text-[1.15rem] font-semibold leading-tight text-primary transition-colors duration-[380ms] group-hover:text-white">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2.5 text-[14px] leading-[1.7] text-muted-foreground transition-colors duration-[380ms] group-hover:text-white/90">
+                      {s.desc}
+                    </p>
+
+                    <div className="mt-auto flex items-center justify-between pt-6">
+                      <Link
+                        to="/services"
+                        className="relative inline-flex items-center gap-1.5 text-[13px] font-semibold transition-colors duration-[380ms] group-hover:text-white"
+                        style={{ color: s.accent }}
+                      >
+                        <span className="relative">
+                          Learn more
+                          <span
+                            className="absolute -bottom-0.5 left-0 h-px w-0 bg-current transition-all duration-[380ms] group-hover:w-full"
+                          />
+                        </span>
+                        <ArrowRight
+                          size={14}
+                          className="transition-transform duration-[380ms] group-hover:translate-x-1"
                         />
+                      </Link>
+                      <span className="font-serif text-xs italic text-muted-foreground/50 transition-colors duration-[380ms] group-hover:text-white/60">
+                        0{i + 1}
                       </span>
-                      <ArrowRight
-                        size={15}
-                        className="transition-transform duration-500 group-hover:translate-x-1"
-                      />
-                    </Link>
-                    <span
-                      className="font-serif text-sm italic text-muted-foreground/50"
-                    >
-                      0{i + 1}
-                    </span>
+                    </div>
                   </div>
                 </div>
               </FadeUp>
             ))}
           </div>
+
 
           <FadeUp delay={200}>
             <div className="mt-16 text-center">
