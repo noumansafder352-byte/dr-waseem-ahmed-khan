@@ -120,7 +120,7 @@ function About() {
             {["MBBS", "FCPS", "FACS", "CHPE", "Diploma in Surgery (AFPGMI)"].map((q, i) => (
               <FadeUp key={q} delay={i * 60}>
                 <div className="h-full rounded-2xl border border-border bg-white p-6 text-center shadow-premium transition-all duration-500 hover:-translate-y-1 hover:shadow-premium-lg">
-                  <div className="mx-auto grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient text-white">
+                  <div className="mx-auto grid h-12 w-12 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
                     <GraduationCap size={22} />
                   </div>
                   <div className="mt-5 font-serif text-xl font-semibold text-primary">{q}</div>
@@ -149,7 +149,7 @@ function About() {
             {timeline.map((t, i) => (
               <FadeUp key={t.title} delay={i * 80}>
                 <div className="relative flex gap-6 pl-2">
-                  <div className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full bg-brand-gradient text-white shadow-premium">
+                  <div className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#eaf1fa] text-primary shadow-premium">
                     <Award size={20} />
                   </div>
                   <div className="flex-1 rounded-2xl border border-border bg-white p-6 shadow-premium">

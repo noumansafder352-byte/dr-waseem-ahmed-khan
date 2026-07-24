@@ -108,7 +108,7 @@ function Home() {
       {/* Hero */}
       <section className="relative min-h-dvh w-full overflow-hidden">
         <img src={HERO_IMG} alt="" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#032E59]/92 via-[#032E59]/75 to-[#01969C]/60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#182F58]/92 via-[#182F58]/78 to-[#1F72B9]/55" />
         <div className="relative mx-auto flex min-h-dvh max-w-7xl flex-col justify-center px-6 pb-20 pt-32 md:px-8 md:pt-36">
           <FadeUp>
             <span className="inline-block w-fit rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-white/90 backdrop-blur">
@@ -141,7 +141,7 @@ function Home() {
               <Link
                 to="/contact"
                 hash="appointment"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-primary shadow-premium-lg transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full bg-medical px-7 py-3.5 text-sm font-semibold text-medical-foreground shadow-premium-lg transition-all hover:-translate-y-0.5 hover:bg-medical-hover"
               >
                 Book Appointment <ArrowRight size={16} />
               </Link>
@@ -224,7 +224,7 @@ function Home() {
             {services.map((s, i) => (
               <FadeUp key={s.title} delay={i * 60}>
                 <div className="group h-full rounded-3xl border border-border bg-white p-8 shadow-premium transition-all duration-500 hover:-translate-y-1 hover:shadow-premium-lg">
-                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-brand-gradient text-white shadow-premium">
+                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#eaf1fa] text-primary">
                     <s.icon size={26} />
                   </div>
                   <h3 className="mt-6 text-xl font-semibold text-primary">{s.title}</h3>
@@ -289,7 +289,7 @@ function Home() {
             <FadeUp>
               <div className="h-full rounded-3xl border border-border bg-white p-10 shadow-premium">
                 <div className="flex items-center gap-3">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-brand-gradient text-white">
+                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
                     <GraduationCap size={20} />
                   </div>
                   <h3 className="text-2xl font-semibold text-primary">Qualifications</h3>
@@ -307,7 +307,7 @@ function Home() {
             <FadeUp delay={120}>
               <div className="h-full rounded-3xl border border-border bg-white p-10 shadow-premium">
                 <div className="flex items-center gap-3">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-brand-gradient text-white">
+                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
                     <Award size={20} />
                   </div>
                   <h3 className="text-2xl font-semibold text-primary">Leadership</h3>
