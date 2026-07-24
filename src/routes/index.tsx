@@ -1005,7 +1005,7 @@ function Testimonials() {
                 {items.map((it, i) => (
                   <div
                     key={`${it.name}-${i}`}
-                    className="shrink-0 px-3 md:px-4 lg:px-5"
+                    className="shrink-0 px-3 pb-4 pt-10 md:px-4 lg:px-5"
                     style={{ flexBasis: `${cardBasis}%`, maxWidth: `${cardBasis}%` }}
                   >
                     <TestimonialCard t={it} />
