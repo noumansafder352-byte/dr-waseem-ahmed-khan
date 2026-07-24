@@ -835,11 +835,7 @@ const testimonials = [
 
 function Testimonials() {
   const [active, setActive] = useState(0);
-  const count = testimonials.length;
-
-  const go = (dir: 1 | -1) => {
-    setActive((i) => (i + dir + count) % count);
-  };
+  const t = testimonials[active];
 
   return (
     <section className="relative isolate overflow-hidden px-6 py-24 md:px-8 md:py-32">
@@ -868,6 +864,7 @@ function Testimonials() {
       />
 
       <div className="relative mx-auto max-w-6xl px-2 sm:px-6 lg:px-10">
+        {/* Header */}
         <FadeUp>
           <div className="mx-auto max-w-2xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#19979C]/25 bg-white/70 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-secondary shadow-sm backdrop-blur">
@@ -890,175 +887,178 @@ function Testimonials() {
           </div>
         </FadeUp>
 
-        <FadeUp delay={140}>
-          <div className="relative mt-16 md:mt-20">
-            {/* Stage — height driven by the active card, side peeks absolutely positioned to match */}
-            <div className="relative mx-auto w-full max-w-3xl">
-              {testimonials.map((t, i) => {
-                let offset = i - active;
-                if (offset > count / 2) offset -= count;
-                if (offset < -count / 2) offset += count;
+        {/* Trust strip */}
+        <FadeUp delay={120}>
+          <div className="mx-auto mt-14 grid max-w-4xl grid-cols-3 divide-x divide-border overflow-hidden rounded-2xl border border-border bg-white/70 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.05),0_20px_50px_-30px_rgba(24,47,88,0.18)] backdrop-blur">
+            {[
+              { value: "5.0", label: "Average rating", accent: "#f5b638" },
+              { value: "500+", label: "Verified patients", accent: "#529542" },
+              { value: "30+", label: "Years of practice", accent: "#1F72B9" },
+            ].map((s) => (
+              <div key={s.label} className="px-4 py-5 text-center sm:px-6">
+                <div
+                  className="font-serif text-2xl font-semibold sm:text-[28px]"
+                  style={{ color: s.accent }}
+                >
+                  {s.value}
+                </div>
+                <div className="mt-1 text-[10.5px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                  {s.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </FadeUp>
 
-                const isActive = offset === 0;
-                const isSide = Math.abs(offset) === 1;
-
-                if (!isActive && !isSide) return null;
-
-                const commonInner = (
-                  <>
-                    <span
-                      aria-hidden
-                      className="absolute inset-x-0 top-0 h-[3px]"
-                      style={{
-                        background: `linear-gradient(90deg, ${t.accent}, ${t.accent}00)`,
-                      }}
-                    />
-                    <Quote
-                      aria-hidden
-                      size={120}
-                      strokeWidth={1}
-                      className="pointer-events-none absolute -right-3 -top-4 text-[#182F58]/[0.05]"
-                    />
-
-                    {/* Rating */}
-                    <div className="flex items-center gap-1">
-                      {Array.from({ length: t.rating }).map((_, k) => (
-                        <Star
-                          key={k}
-                          size={16}
-                          className="fill-[#f5b638] text-[#f5b638]"
-                        />
-                      ))}
-                    </div>
-
-                    {/* Quote */}
-                    <blockquote className="relative mt-6 font-serif text-[18px] leading-[1.75] text-primary/90 md:text-[20px] md:leading-[1.8]">
-                      <span
-                        className="mr-1 font-serif text-3xl leading-none"
-                        style={{ color: t.accent }}
-                      >
-                        “
-                      </span>
-                      {t.quote}
-                    </blockquote>
-
-                    {/* Footer: avatar + meta */}
-                    <div className="mt-10 flex items-center justify-between gap-4 border-t border-border pt-6">
-                      <div className="flex min-w-0 items-center gap-4">
-                        <div
-                          className="relative grid h-14 w-14 shrink-0 place-items-center rounded-2xl font-serif text-lg font-semibold text-white"
-                          style={{ backgroundColor: t.accent }}
-                        >
-                          {t.initials}
-                          <span
-                            aria-hidden
-                            className="absolute -bottom-1.5 -right-1.5 grid h-6 w-6 place-items-center rounded-full bg-white shadow-sm ring-1 ring-black/[0.04]"
-                          >
-                            <BadgeCheck size={13} className="text-[#529542]" />
-                          </span>
-                        </div>
-                        <div className="min-w-0">
-                          <div className="truncate font-serif text-[17px] font-semibold text-primary">
-                            {t.name}
-                          </div>
-                          <div className="mt-1 truncate text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                            {t.treatment}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="hidden shrink-0 flex-col items-end gap-1.5 sm:flex">
-                        <span
-                          className="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.16em]"
-                          style={{
-                            backgroundColor: `${t.accent}14`,
-                            color: t.accent,
-                          }}
-                        >
-                          <BadgeCheck size={11} />
-                          Verified
-                        </span>
-                        <span className="text-[11px] text-muted-foreground">
-                          {t.date}
-                        </span>
-                      </div>
-                    </div>
-                  </>
-                );
-
-                if (isActive) {
-                  // Active card sits in the flow and drives stage height
-                  return (
-                    <article
-                      key={t.name}
-                      className="relative z-30 mx-auto w-full overflow-hidden rounded-[28px] border border-border/70 bg-white p-8 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_30px_70px_-30px_rgba(24,47,88,0.28)] transition-all duration-[500ms] ease-out sm:p-10 md:p-12"
-                      style={{ ["--accent" as any]: t.accent }}
-                    >
-                      {commonInner}
-                    </article>
-                  );
-                }
-
-                // Side peek — absolutely positioned, matched to active card height,
-                // pushed outward so only 15–20% is visible past the active card edge.
-                const side = offset > 0 ? "right" : "left";
-                return (
-                  <article
-                    key={t.name}
-                    aria-hidden
-                    className="pointer-events-none absolute inset-y-0 z-10 hidden w-[70%] overflow-hidden rounded-[28px] border border-border/70 bg-white p-8 opacity-45 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_24px_50px_-30px_rgba(24,47,88,0.22)] transition-all duration-[500ms] ease-out sm:p-10 md:block md:p-12"
-                    style={{
-                      [side]: "-42%",
-                      transform: "scale(0.9)",
-                      transformOrigin: side === "left" ? "right center" : "left center",
-                      filter: "blur(1px)",
-                      ["--accent" as any]: t.accent,
-                    }}
-                  >
-                    {commonInner}
-                  </article>
-                );
-              })}
-            </div>
-
-            {/* Controls */}
-            <div className="mt-10 flex items-center justify-center gap-6">
-              <button
-                type="button"
-                onClick={() => go(-1)}
-                aria-label="Previous testimonial"
-                className="grid h-12 w-12 place-items-center rounded-full border border-border bg-white text-primary transition-all duration-[380ms] hover:-translate-y-0.5 hover:border-secondary hover:text-secondary hover:shadow-premium"
-              >
-                <ChevronLeft size={18} />
-              </button>
-
-              <div className="flex items-center gap-2">
-                {testimonials.map((t, i) => {
-                  const isActive = i === active;
-                  return (
-                    <button
-                      key={t.name}
-                      type="button"
-                      onClick={() => setActive(i)}
-                      aria-label={`Show testimonial ${i + 1}`}
-                      className="group relative h-2 rounded-full transition-all duration-[380ms]"
-                      style={{
-                        width: isActive ? 32 : 8,
-                        backgroundColor: isActive ? t.accent : "#d9dfe8",
-                      }}
-                    />
-                  );
-                })}
+        {/* Editorial split */}
+        <FadeUp delay={200}>
+          <div className="mt-16 grid gap-10 md:mt-20 md:grid-cols-12 md:gap-14 lg:gap-20">
+            {/* Featured story */}
+            <article
+              key={t.name}
+              className="relative md:col-span-7"
+              style={{ ["--accent" as any]: t.accent }}
+            >
+              {/* Chapter marker */}
+              <div className="flex items-center gap-4">
+                <span
+                  className="font-serif text-sm font-semibold tracking-[0.3em] text-muted-foreground"
+                >
+                  {String(active + 1).padStart(2, "0")}
+                  <span className="mx-2 text-border">/</span>
+                  <span className="text-muted-foreground/70">
+                    {String(testimonials.length).padStart(2, "0")}
+                  </span>
+                </span>
+                <span className="h-px flex-1" style={{ backgroundColor: t.accent, opacity: 0.35 }} />
+                <span
+                  className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em]"
+                  style={{ backgroundColor: `${t.accent}14`, color: t.accent }}
+                >
+                  <BadgeCheck size={11} />
+                  Verified patient
+                </span>
               </div>
 
-              <button
-                type="button"
-                onClick={() => go(1)}
-                aria-label="Next testimonial"
-                className="grid h-12 w-12 place-items-center rounded-full bg-[#182F58] text-white transition-all duration-[380ms] hover:-translate-y-0.5 hover:bg-[#19979C] hover:shadow-premium-lg"
+              {/* Stars */}
+              <div className="mt-6 flex items-center gap-1">
+                {Array.from({ length: t.rating }).map((_, k) => (
+                  <Star key={k} size={16} className="fill-[#f5b638] text-[#f5b638]" />
+                ))}
+                <span className="ml-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  {t.treatment}
+                </span>
+              </div>
+
+              {/* The quote — editorial, no card */}
+              <blockquote
+                key={`q-${active}`}
+                className="relative mt-7 animate-fade-in font-serif text-[22px] leading-[1.55] text-primary md:text-[26px] md:leading-[1.55] lg:text-[30px] lg:leading-[1.5]"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}
               >
-                <ChevronRight size={18} />
-              </button>
-            </div>
+                <span
+                  aria-hidden
+                  className="absolute -left-3 -top-6 font-serif text-[64px] leading-none md:-left-4 md:-top-8 md:text-[80px]"
+                  style={{ color: t.accent, opacity: 0.18, fontFamily: "var(--font-display)" }}
+                >
+                  “
+                </span>
+                <span className="relative">{t.quote}</span>
+              </blockquote>
+
+              {/* Attribution */}
+              <div className="mt-10 flex items-center gap-4">
+                <div
+                  className="relative grid h-12 w-12 shrink-0 place-items-center rounded-full font-serif text-base font-semibold text-white"
+                  style={{ backgroundColor: t.accent }}
+                >
+                  {t.initials}
+                </div>
+                <div className="min-w-0">
+                  <div className="font-serif text-[17px] font-semibold text-primary">
+                    {t.name}
+                  </div>
+                  <div className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                    {t.date}
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            {/* Chapter list */}
+            <aside className="md:col-span-5">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+                  More stories
+                </span>
+                <span className="h-px flex-1 bg-border" />
+              </div>
+
+              <ul className="relative flex flex-col">
+                {/* vertical guide */}
+                <span
+                  aria-hidden
+                  className="absolute left-6 top-2 bottom-2 w-px bg-border"
+                />
+                {testimonials.map((it, i) => {
+                  const isActive = i === active;
+                  return (
+                    <li key={it.name}>
+                      <button
+                        type="button"
+                        onClick={() => setActive(i)}
+                        aria-current={isActive ? "true" : undefined}
+                        className="group relative flex w-full items-center gap-4 rounded-2xl py-3.5 pl-2 pr-3 text-left transition-all duration-[380ms] hover:bg-white/80"
+                      >
+                        {/* node */}
+                        <span
+                          aria-hidden
+                          className="relative z-10 grid h-12 w-12 shrink-0 place-items-center rounded-full font-serif text-[13px] font-semibold transition-all duration-[380ms]"
+                          style={{
+                            backgroundColor: isActive ? it.accent : "#ffffff",
+                            color: isActive ? "#ffffff" : it.accent,
+                            boxShadow: isActive
+                              ? `0 10px 24px -12px ${it.accent}80`
+                              : "inset 0 0 0 1px var(--border)",
+                          }}
+                        >
+                          {it.initials}
+                        </span>
+
+                        <span className="min-w-0 flex-1">
+                          <span className="flex items-center gap-2">
+                            <span
+                              className={`truncate font-serif text-[15px] transition-colors duration-[380ms] ${
+                                isActive ? "text-primary font-semibold" : "text-primary/85 font-medium"
+                              }`}
+                            >
+                              {it.name}
+                            </span>
+                            <BadgeCheck size={12} className="shrink-0 text-[#529542]" />
+                          </span>
+                          <span className="mt-0.5 flex items-center gap-2">
+                            <span className="truncate text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                              {it.treatment}
+                            </span>
+                          </span>
+                        </span>
+
+                        {/* active indicator */}
+                        <span
+                          aria-hidden
+                          className="ml-auto h-6 w-[3px] rounded-full transition-all duration-[380ms]"
+                          style={{
+                            backgroundColor: it.accent,
+                            opacity: isActive ? 1 : 0,
+                            transform: isActive ? "scaleY(1)" : "scaleY(0.4)",
+                          }}
+                        />
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </aside>
           </div>
         </FadeUp>
       </div>
