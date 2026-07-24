@@ -986,7 +986,8 @@ function Testimonials() {
         <FadeUp delay={160}>
           <div className="mt-16 md:mt-20">
             <div
-              className="overflow-hidden px-1 py-2"
+              className="px-1 py-2"
+              style={{ overflowX: "clip", overflowY: "visible" }}
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}
               onPointerUp={onPointerUp}
@@ -1005,7 +1006,7 @@ function Testimonials() {
                 {items.map((it, i) => (
                   <div
                     key={`${it.name}-${i}`}
-                    className="shrink-0 px-3 pb-4 pt-10 md:px-4 lg:px-5"
+                    className="shrink-0 px-3 pb-4 pt-14 md:px-4 lg:px-5"
                     style={{ flexBasis: `${cardBasis}%`, maxWidth: `${cardBasis}%` }}
                   >
                     <TestimonialCard t={it} />
