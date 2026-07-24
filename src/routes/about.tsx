@@ -344,18 +344,18 @@ function About() {
                   <li key={v.title} className="relative">
                     <FadeUp delay={i * 120}>
                       <div
-                        className={`group relative grid grid-cols-[3rem_1fr] items-center gap-6 md:grid-cols-2 md:gap-16 ${
+                        className={`group relative grid grid-cols-[3rem_1fr] items-center gap-6 md:grid-cols-2 md:gap-12 ${
                           isLeft ? "" : "md:[&>*:first-child]:order-2"
                         }`}
                       >
                         {/* Content side */}
                         <div
                           className={`md:col-span-1 ${
-                            isLeft ? "md:pr-14 md:text-right" : "md:pl-14 md:text-left"
+                            isLeft ? "md:pr-10 md:text-right" : "md:pl-10 md:text-left"
                           } col-start-2 md:col-start-auto`}
                         >
                           <div
-                            className="relative rounded-2xl px-1 py-2 transition-all duration-[400ms] ease-out md:px-6 md:py-6 md:group-hover:-translate-y-1"
+                            className="relative rounded-2xl px-1 py-1 transition-all duration-[400ms] ease-out md:px-5 md:py-4 md:group-hover:-translate-y-1"
                             style={{
                               transitionProperty: "transform, background-color, box-shadow",
                             }}
