@@ -62,14 +62,71 @@ const services: {
   desc: string;
   accent: string;
   tint: string;
+  image: string;
 }[] = [
-  { icon: Stethoscope, title: "General Surgery", desc: "Comprehensive surgical care across a wide range of conditions.", accent: "#182F58", tint: "#eaf1fa" },
-  { icon: Activity, title: "Thyroid Surgery", desc: "Precise thyroidectomy and thyroid nodule management.", accent: "#19979C", tint: "#e6f6f6" },
-  { icon: HeartPulse, title: "Breast Surgery", desc: "Diagnostic and therapeutic breast surgical procedures.", accent: "#1F72B9", tint: "#e8f1fb" },
-  { icon: Shield, title: "Gallbladder Surgery", desc: "Laparoscopic cholecystectomy with rapid recovery.", accent: "#529542", tint: "#eaf5e6" },
-  { icon: Scissors, title: "Hernia Repair", desc: "Open and laparoscopic repair with modern mesh techniques.", accent: "#182F58", tint: "#eaf1fa" },
-  { icon: Sparkles, title: "Appendix Surgery", desc: "Minimally invasive appendectomy for faster healing.", accent: "#19979C", tint: "#e6f6f6" },
-  { icon: Waves, title: "Varicose Vein Treatment", desc: "Advanced treatment options for venous conditions.", accent: "#1F72B9", tint: "#e8f1fb" },
+  {
+    icon: Stethoscope,
+    title: "General Surgery",
+    desc: "Comprehensive surgical care across a wide range of conditions.",
+    accent: "#182F58",
+    tint: "#eaf1fa",
+    image:
+      "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    icon: Microscope,
+    title: "Thyroid Surgery",
+    desc: "Precise thyroidectomy and thyroid nodule management.",
+    accent: "#19979C",
+    tint: "#e6f6f6",
+    image:
+      "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    icon: Ribbon,
+    title: "Breast Surgery",
+    desc: "Diagnostic and therapeutic breast surgical procedures.",
+    accent: "#1F72B9",
+    tint: "#e8f1fb",
+    image:
+      "https://images.unsplash.com/photo-1631815588090-d1bcbe9a8537?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    icon: Droplet,
+    title: "Gallbladder Surgery",
+    desc: "Laparoscopic cholecystectomy with rapid recovery.",
+    accent: "#529542",
+    tint: "#eaf5e6",
+    image:
+      "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Hernia Repair",
+    desc: "Open and laparoscopic repair with modern mesh techniques.",
+    accent: "#182F58",
+    tint: "#eaf1fa",
+    image:
+      "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    icon: Scissors,
+    title: "Appendix Surgery",
+    desc: "Minimally invasive appendectomy for faster healing.",
+    accent: "#19979C",
+    tint: "#e6f6f6",
+    image:
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    icon: GitBranch,
+    title: "Varicose Vein Treatment",
+    desc: "Advanced treatment options for venous conditions.",
+    accent: "#1F72B9",
+    tint: "#e8f1fb",
+    image:
+      "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=80",
+  },
 ];
 
 const trust = [
