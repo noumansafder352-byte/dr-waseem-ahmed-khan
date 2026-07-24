@@ -26,6 +26,11 @@ import {
   Microscope,
   Ribbon,
   Droplet,
+  Quote,
+  Star,
+  ChevronLeft,
+  ChevronRight,
+  BadgeCheck,
 } from "lucide-react";
 import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -314,7 +319,7 @@ function Home() {
 
 
       {/* About */}
-      <section className="px-6 py-24 md:px-8 md:py-32">
+      <section className="px-6 py-20 md:px-8 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <FadeUp>
             <div className="relative overflow-hidden rounded-3xl shadow-premium-lg">
@@ -360,7 +365,7 @@ function Home() {
       </section>
 
       {/* Services */}
-      <section className="relative isolate overflow-hidden px-6 py-28 md:px-8 md:py-40">
+      <section className="relative isolate overflow-hidden px-6 py-24 md:px-8 md:py-28">
         {/* Premium background layers */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[oklch(0.985_0.008_220)] to-white" />
         <div
@@ -521,7 +526,7 @@ function Home() {
       </section>
 
       {/* Why patients trust — editorial split */}
-      <section className="relative overflow-hidden px-6 py-24 md:px-8 md:py-32">
+      <section className="relative overflow-hidden px-6 py-20 md:px-8 md:py-24">
         {/* Background atmosphere */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f6f9fc] to-white" />
         <div
@@ -677,69 +682,8 @@ function Home() {
       </section>
 
 
-      {/* Credentials */}
-      <section className="px-6 py-24 md:px-8 md:py-32">
-        <div className="mx-auto max-w-7xl">
-          <FadeUp>
-            <div className="mx-auto max-w-2xl text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
-                Professional Credentials
-              </span>
-              <h2 className="mt-4 text-4xl font-semibold text-primary md:text-5xl">
-                Qualifications & leadership
-              </h2>
-            </div>
-          </FadeUp>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-2">
-            <FadeUp>
-              <div className="h-full rounded-3xl border border-border bg-white p-10 shadow-premium">
-                <div className="flex items-center gap-3">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
-                    <GraduationCap size={20} />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-primary">Qualifications</h3>
-                </div>
-                <ul className="mt-6 space-y-3">
-                  {["MBBS", "FCPS", "FACS", "CHPE", "Diploma in Surgery (AFPGMI)"].map((q) => (
-                    <li key={q} className="flex items-center gap-3 text-primary/85">
-                      <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
-                      <span className="font-medium">{q}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeUp>
-            <FadeUp delay={120}>
-              <div className="h-full rounded-3xl border border-border bg-white p-10 shadow-premium">
-                <div className="flex items-center gap-3">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
-                    <Award size={20} />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-primary">Leadership</h3>
-                </div>
-                <ul className="mt-6 space-y-3">
-                  {[
-                    "Former HoD Surgery — CMH",
-                    "Former HoD Surgery — PEMH",
-                    "Professor of Surgery",
-                    "Councillor — CPSP",
-                    "Regional Director — CPSP Rawalpindi",
-                  ].map((q) => (
-                    <li key={q} className="flex items-center gap-3 text-primary/85">
-                      <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
-                      <span className="font-medium">{q}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeUp>
-          </div>
-        </div>
-      </section>
-
       {/* Process */}
-      <section className="bg-primary px-6 py-24 text-white md:px-8 md:py-32">
+      <section className="bg-primary px-6 py-20 text-white md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
           <FadeUp>
             <div className="mx-auto max-w-2xl text-center">
@@ -751,7 +695,7 @@ function Home() {
               </h2>
             </div>
           </FadeUp>
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {process.map((p, i) => (
               <FadeUp key={p.title} delay={i * 60}>
                 <div className="relative rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur transition-colors hover:border-secondary/60">
@@ -772,8 +716,11 @@ function Home() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <Testimonials />
+
       {/* FAQ */}
-      <section className="px-6 py-24 md:px-8 md:py-32">
+      <section className="px-6 py-20 md:px-8 md:py-24">
         <div className="mx-auto max-w-4xl">
           <FadeUp>
             <div className="text-center">
@@ -792,6 +739,7 @@ function Home() {
           </div>
         </div>
       </section>
+
 
       <CtaBand />
     </SiteLayout>
@@ -821,3 +769,245 @@ function FaqItem({ q, a }: { q: string; a: string }) {
     </button>
   );
 }
+
+const testimonials = [
+  {
+    name: "Ayesha R.",
+    initials: "AR",
+    treatment: "Laparoscopic Cholecystectomy",
+    date: "March 2026",
+    rating: 5,
+    quote:
+      "From the very first consultation, Dr. Waseem's calm and thorough approach put me at ease. The surgery was flawless and my recovery far quicker than I expected. Truly world-class care.",
+    accent: "#182F58",
+  },
+  {
+    name: "Muhammad K.",
+    initials: "MK",
+    treatment: "Hernia Repair",
+    date: "January 2026",
+    rating: 5,
+    quote:
+      "A surgeon whose experience shows in every detail. He answered every question with patience, explained each step clearly, and delivered a truly exceptional outcome.",
+    accent: "#19979C",
+  },
+  {
+    name: "Sana F.",
+    initials: "SF",
+    treatment: "Thyroid Surgery",
+    date: "November 2025",
+    rating: 5,
+    quote:
+      "The professionalism, precision, and warmth I experienced under Dr. Waseem's care was extraordinary. I felt genuinely looked after — not just as a patient, but as a person.",
+    accent: "#1F72B9",
+  },
+  {
+    name: "Imran H.",
+    initials: "IH",
+    treatment: "General Surgery Consultation",
+    date: "September 2025",
+    rating: 5,
+    quote:
+      "Decades of expertise combined with genuine compassion. Dr. Waseem gave me clarity, confidence, and a treatment plan tailored precisely to my needs.",
+    accent: "#529542",
+  },
+];
+
+function Testimonials() {
+  const [active, setActive] = useState(0);
+  const total = testimonials.length;
+  const t = testimonials[active];
+
+  const next = () => setActive((v) => (v + 1) % total);
+  const prev = () => setActive((v) => (v - 1 + total) % total);
+
+  return (
+    <section className="relative isolate overflow-hidden px-6 py-20 md:px-8 md:py-24">
+      {/* Ambient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f6f9fc] to-white" />
+      <div
+        aria-hidden
+        className="absolute -left-32 top-16 h-80 w-80 rounded-full opacity-[0.09] blur-3xl"
+        style={{ backgroundColor: "#1F72B9" }}
+      />
+      <div
+        aria-hidden
+        className="absolute -right-32 bottom-16 h-80 w-80 rounded-full opacity-[0.09] blur-3xl"
+        style={{ backgroundColor: "#19979C" }}
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(24,47,88,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(24,47,88,0.6) 1px, transparent 1px)",
+          backgroundSize: "72px 72px",
+          maskImage:
+            "radial-gradient(ellipse at center, black 30%, transparent 78%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-6xl">
+        <FadeUp>
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#19979C]/25 bg-white/70 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-secondary shadow-sm backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#19979C]" />
+              Patient Testimonials
+            </span>
+            <h2
+              className="mt-6 text-4xl leading-[1.1] tracking-tight text-primary md:text-5xl lg:text-[3.4rem]"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+            >
+              Voices of{" "}
+              <em className="font-serif italic text-secondary">trust</em> &amp;{" "}
+              <em className="font-serif italic text-[#19979C]">recovery</em>
+            </h2>
+            <div className="mx-auto mt-6 h-px w-16 bg-gradient-to-r from-transparent via-[#19979C] to-transparent" />
+            <p className="mx-auto mt-6 max-w-xl text-base leading-[1.85] text-muted-foreground md:text-lg">
+              Stories from patients who have entrusted their care to Dr. Waseem —
+              shared with gratitude, in their own words.
+            </p>
+          </div>
+        </FadeUp>
+
+        {/* Feature card */}
+        <FadeUp delay={140}>
+          <div className="relative mt-14">
+            <div
+              className="relative overflow-hidden rounded-[28px] border border-border/70 bg-white p-8 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_28px_70px_-32px_rgba(24,47,88,0.28)] md:p-14"
+              style={{ ["--accent" as any]: t.accent }}
+            >
+              {/* Left accent bar */}
+              <span
+                aria-hidden
+                className="absolute inset-y-8 left-0 w-[3px] rounded-r-full"
+                style={{ background: `linear-gradient(180deg, ${t.accent}, ${t.accent}00)` }}
+              />
+              {/* Giant quote */}
+              <Quote
+                aria-hidden
+                size={140}
+                strokeWidth={1}
+                className="pointer-events-none absolute -right-6 -top-8 text-[#182F58]/[0.05] md:-right-4 md:-top-4 md:h-[180px] md:w-[180px]"
+              />
+
+              <div className="relative grid gap-10 md:grid-cols-[auto_1fr] md:gap-14">
+                {/* Avatar + meta */}
+                <div className="flex items-start gap-5 md:flex-col md:items-center md:text-center">
+                  <div
+                    className="relative grid h-20 w-20 shrink-0 place-items-center rounded-2xl font-serif text-2xl font-semibold text-white shadow-premium md:h-24 md:w-24 md:text-3xl"
+                    style={{ backgroundColor: t.accent }}
+                  >
+                    {t.initials}
+                    <span
+                      aria-hidden
+                      className="absolute -bottom-2 -right-2 grid h-8 w-8 place-items-center rounded-full bg-white shadow-premium ring-1 ring-black/[0.04]"
+                    >
+                      <BadgeCheck size={16} className="text-[#529542]" />
+                    </span>
+                  </div>
+                  <div>
+                    <div className="font-serif text-xl font-semibold text-primary md:mt-4 md:text-2xl">
+                      {t.name}
+                    </div>
+                    <div className="mt-1 text-[12px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                      {t.treatment}
+                    </div>
+                    <div className="mt-3 flex items-center gap-1 md:justify-center">
+                      {Array.from({ length: t.rating }).map((_, i) => (
+                        <Star
+                          key={i}
+                          size={15}
+                          className="fill-[#f5b638] text-[#f5b638]"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quote body */}
+                <div className="relative">
+                  <blockquote
+                    key={active}
+                    className="relative font-serif text-[1.35rem] leading-[1.55] text-primary md:text-[1.7rem] md:leading-[1.5]"
+                    style={{ animation: "fadeUpIn 500ms ease-out" }}
+                  >
+                    <span
+                      className="mr-1 font-serif text-4xl leading-none"
+                      style={{ color: t.accent }}
+                    >
+                      “
+                    </span>
+                    {t.quote}
+                    <span
+                      className="ml-1 font-serif text-4xl leading-none"
+                      style={{ color: t.accent }}
+                    >
+                      ”
+                    </span>
+                  </blockquote>
+
+                  <div className="mt-8 flex items-center justify-between border-t border-border pt-6">
+                    <div className="flex items-center gap-3">
+                      <span
+                        className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em]"
+                        style={{
+                          backgroundColor: `${t.accent}14`,
+                          color: t.accent,
+                        }}
+                      >
+                        <BadgeCheck size={12} />
+                        Verified Patient
+                      </span>
+                      <span className="text-[12px] text-muted-foreground">
+                        {t.date}
+                      </span>
+                    </div>
+
+                    {/* Controls */}
+                    <div className="flex items-center gap-3">
+                      <button
+                        type="button"
+                        onClick={prev}
+                        aria-label="Previous testimonial"
+                        className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-primary transition-all duration-[380ms] hover:-translate-y-0.5 hover:border-secondary hover:text-secondary hover:shadow-premium"
+                      >
+                        <ChevronLeft size={18} />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={next}
+                        aria-label="Next testimonial"
+                        className="grid h-11 w-11 place-items-center rounded-full text-white transition-all duration-[380ms] hover:-translate-y-0.5 hover:shadow-premium-lg"
+                        style={{ backgroundColor: t.accent }}
+                      >
+                        <ChevronRight size={18} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Pagination dots */}
+            <div className="mt-8 flex items-center justify-center gap-2.5">
+              {testimonials.map((it, i) => (
+                <button
+                  key={it.name}
+                  type="button"
+                  onClick={() => setActive(i)}
+                  aria-label={`Show testimonial ${i + 1}`}
+                  className={`h-1.5 rounded-full transition-all duration-[380ms] ${
+                    i === active ? "w-10" : "w-4 bg-border hover:bg-muted-foreground/40"
+                  }`}
+                  style={i === active ? { backgroundColor: t.accent } : undefined}
+                />
+              ))}
+            </div>
+          </div>
+        </FadeUp>
+      </div>
+    </section>
+  );
+}
+
