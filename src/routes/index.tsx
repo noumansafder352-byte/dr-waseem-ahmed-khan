@@ -834,36 +834,25 @@ const testimonials = [
 ];
 
 function Testimonials() {
-  const trackRef = useRef<HTMLDivElement | null>(null);
-  const [progress, setProgress] = useState(0);
+  const [active, setActive] = useState(0);
+  const count = testimonials.length;
 
-  const scrollByCard = (dir: 1 | -1) => {
-    const el = trackRef.current;
-    if (!el) return;
-    const first = el.querySelector<HTMLElement>("[data-testimonial-card]");
-    const step = first ? first.offsetWidth + 24 : el.clientWidth;
-    el.scrollBy({ left: dir * step, behavior: "smooth" });
-  };
-
-  const onScroll = () => {
-    const el = trackRef.current;
-    if (!el) return;
-    const max = el.scrollWidth - el.clientWidth;
-    setProgress(max <= 0 ? 0 : el.scrollLeft / max);
+  const go = (dir: 1 | -1) => {
+    setActive((i) => (i + dir + count) % count);
   };
 
   return (
-    <section className="relative isolate overflow-hidden px-6 py-20 md:px-8 md:py-24">
+    <section className="relative isolate overflow-hidden px-6 py-24 md:px-8 md:py-32">
       {/* Ambient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f6f9fc] to-white" />
       <div
         aria-hidden
-        className="absolute -left-32 top-16 h-80 w-80 rounded-full opacity-[0.09] blur-3xl"
+        className="absolute -left-40 top-24 h-96 w-96 rounded-full opacity-[0.10] blur-3xl"
         style={{ backgroundColor: "#1F72B9" }}
       />
       <div
         aria-hidden
-        className="absolute -right-32 bottom-16 h-80 w-80 rounded-full opacity-[0.09] blur-3xl"
+        className="absolute -right-40 bottom-24 h-96 w-96 rounded-full opacity-[0.10] blur-3xl"
         style={{ backgroundColor: "#19979C" }}
       />
       <div
@@ -872,13 +861,13 @@ function Testimonials() {
         style={{
           backgroundImage:
             "linear-gradient(rgba(24,47,88,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(24,47,88,0.6) 1px, transparent 1px)",
-          backgroundSize: "72px 72px",
+          backgroundSize: "80px 80px",
           maskImage:
             "radial-gradient(ellipse at center, black 30%, transparent 78%)",
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-6xl px-2 sm:px-6 lg:px-10">
         <FadeUp>
           <div className="mx-auto max-w-2xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#19979C]/25 bg-white/70 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-secondary shadow-sm backdrop-blur">
@@ -902,138 +891,160 @@ function Testimonials() {
         </FadeUp>
 
         <FadeUp delay={140}>
-          <div className="relative mt-12 md:mt-14">
-            {/* Edge fades */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-white to-transparent md:w-14"
-            />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-white to-transparent md:w-14"
-            />
+          <div className="relative mt-16 md:mt-20">
+            {/* Stage */}
+            <div className="relative mx-auto h-[440px] w-full max-w-3xl sm:h-[400px] md:h-[380px]">
+              {testimonials.map((t, i) => {
+                // Position relative to active, wrapped to -half..+half
+                let offset = i - active;
+                if (offset > count / 2) offset -= count;
+                if (offset < -count / 2) offset += count;
 
-            {/* Track */}
-            <div
-              ref={trackRef}
-              onScroll={onScroll}
-              className="scroll-hide -mx-2 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-2 pb-4 pt-2"
-              style={{ scrollbarWidth: "none" }}
-            >
-              {testimonials.map((t) => (
-                <article
-                  key={t.name}
-                  data-testimonial-card
-                  className="group relative flex w-[85%] shrink-0 snap-start flex-col overflow-hidden rounded-[22px] border border-border/70 bg-white p-6 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_18px_44px_-28px_rgba(24,47,88,0.22)] transition-all duration-[380ms] hover:-translate-y-1 hover:shadow-[0_2px_10px_-4px_rgba(24,47,88,0.08),0_28px_60px_-28px_rgba(24,47,88,0.3)] sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
-                  style={{ ["--accent" as any]: t.accent }}
-                >
-                  {/* Top accent */}
-                  <span
-                    aria-hidden
-                    className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-100"
+                const isActive = offset === 0;
+                const isSide = Math.abs(offset) === 1;
+                const isVisible = Math.abs(offset) <= 1;
+
+                const translate = offset * 62; // % of stage width
+                const scale = isActive ? 1 : isSide ? 0.88 : 0.8;
+                const opacity = isActive ? 1 : isSide ? 0.45 : 0;
+                const blur = isActive ? 0 : 2;
+                const z = isActive ? 30 : isSide ? 20 : 10;
+
+                return (
+                  <article
+                    key={t.name}
+                    aria-hidden={!isActive}
+                    className="absolute left-1/2 top-1/2 w-[92%] max-w-[640px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[28px] border border-border/70 bg-white p-8 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_30px_70px_-30px_rgba(24,47,88,0.28)] transition-all duration-[500ms] ease-out sm:p-10 md:p-12"
                     style={{
-                      background: `linear-gradient(90deg, ${t.accent}, ${t.accent}00)`,
+                      transform: `translate(calc(-50% + ${translate}%), -50%) scale(${scale})`,
+                      opacity,
+                      zIndex: z,
+                      filter: `blur(${blur}px)`,
+                      pointerEvents: isActive ? "auto" : "none",
+                      visibility: isVisible ? "visible" : "hidden",
+                      ["--accent" as any]: t.accent,
                     }}
-                  />
-                  <Quote
-                    aria-hidden
-                    size={72}
-                    strokeWidth={1}
-                    className="pointer-events-none absolute -right-2 -top-2 text-[#182F58]/[0.06]"
-                  />
-
-                  {/* Header: avatar + name */}
-                  <div className="flex items-center gap-3">
-                    <div
-                      className="relative grid h-12 w-12 shrink-0 place-items-center rounded-xl font-serif text-base font-semibold text-white"
-                      style={{ backgroundColor: t.accent }}
-                    >
-                      {t.initials}
-                      <span
-                        aria-hidden
-                        className="absolute -bottom-1.5 -right-1.5 grid h-5 w-5 place-items-center rounded-full bg-white shadow-sm ring-1 ring-black/[0.04]"
-                      >
-                        <BadgeCheck size={11} className="text-[#529542]" />
-                      </span>
-                    </div>
-                    <div className="min-w-0">
-                      <div className="truncate font-serif text-[15px] font-semibold text-primary">
-                        {t.name}
-                      </div>
-                      <div className="mt-0.5 truncate text-[10.5px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                        {t.treatment}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Rating */}
-                  <div className="mt-4 flex items-center gap-0.5">
-                    {Array.from({ length: t.rating }).map((_, i) => (
-                      <Star
-                        key={i}
-                        size={13}
-                        className="fill-[#f5b638] text-[#f5b638]"
-                      />
-                    ))}
-                  </div>
-
-                  {/* Quote */}
-                  <blockquote className="relative mt-3 line-clamp-5 font-serif text-[15px] leading-[1.65] text-primary/90">
+                  >
+                    {/* Top accent */}
                     <span
-                      className="mr-1 font-serif text-2xl leading-none"
-                      style={{ color: t.accent }}
-                    >
-                      “
-                    </span>
-                    {t.quote}
-                  </blockquote>
-
-                  {/* Footer meta */}
-                  <div className="mt-5 flex items-center justify-between border-t border-border pt-4">
-                    <span
-                      className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.16em]"
+                      aria-hidden
+                      className="absolute inset-x-0 top-0 h-[3px]"
                       style={{
-                        backgroundColor: `${t.accent}14`,
-                        color: t.accent,
+                        background: `linear-gradient(90deg, ${t.accent}, ${t.accent}00)`,
                       }}
-                    >
-                      <BadgeCheck size={11} />
-                      Verified
-                    </span>
-                    <span className="text-[11px] text-muted-foreground">
-                      {t.date}
-                    </span>
-                  </div>
-                </article>
-              ))}
+                    />
+                    <Quote
+                      aria-hidden
+                      size={120}
+                      strokeWidth={1}
+                      className="pointer-events-none absolute -right-3 -top-4 text-[#182F58]/[0.05]"
+                    />
+
+                    {/* Rating */}
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: t.rating }).map((_, k) => (
+                        <Star
+                          key={k}
+                          size={16}
+                          className="fill-[#f5b638] text-[#f5b638]"
+                        />
+                      ))}
+                    </div>
+
+                    {/* Quote */}
+                    <blockquote className="relative mt-5 font-serif text-[18px] leading-[1.7] text-primary/90 md:text-[20px] md:leading-[1.75]">
+                      <span
+                        className="mr-1 font-serif text-3xl leading-none"
+                        style={{ color: t.accent }}
+                      >
+                        “
+                      </span>
+                      {t.quote}
+                    </blockquote>
+
+                    {/* Footer: avatar + meta */}
+                    <div className="mt-8 flex items-center justify-between gap-4 border-t border-border pt-6">
+                      <div className="flex min-w-0 items-center gap-4">
+                        <div
+                          className="relative grid h-14 w-14 shrink-0 place-items-center rounded-2xl font-serif text-lg font-semibold text-white"
+                          style={{ backgroundColor: t.accent }}
+                        >
+                          {t.initials}
+                          <span
+                            aria-hidden
+                            className="absolute -bottom-1.5 -right-1.5 grid h-6 w-6 place-items-center rounded-full bg-white shadow-sm ring-1 ring-black/[0.04]"
+                          >
+                            <BadgeCheck size={13} className="text-[#529542]" />
+                          </span>
+                        </div>
+                        <div className="min-w-0">
+                          <div className="truncate font-serif text-[17px] font-semibold text-primary">
+                            {t.name}
+                          </div>
+                          <div className="mt-1 truncate text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                            {t.treatment}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="hidden shrink-0 flex-col items-end gap-1.5 sm:flex">
+                        <span
+                          className="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.16em]"
+                          style={{
+                            backgroundColor: `${t.accent}14`,
+                            color: t.accent,
+                          }}
+                        >
+                          <BadgeCheck size={11} />
+                          Verified
+                        </span>
+                        <span className="text-[11px] text-muted-foreground">
+                          {t.date}
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
 
-            {/* Controls + progress */}
-            <div className="mt-8 flex items-center justify-between gap-4">
-              <div className="relative h-[3px] flex-1 overflow-hidden rounded-full bg-border/70">
-                <span
-                  className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-[#182F58] via-[#1F72B9] to-[#19979C] transition-[width] duration-300"
-                  style={{ width: `${Math.max(12, progress * 100)}%` }}
-                />
+            {/* Controls */}
+            <div className="mt-10 flex items-center justify-center gap-6">
+              <button
+                type="button"
+                onClick={() => go(-1)}
+                aria-label="Previous testimonial"
+                className="grid h-12 w-12 place-items-center rounded-full border border-border bg-white text-primary transition-all duration-[380ms] hover:-translate-y-0.5 hover:border-secondary hover:text-secondary hover:shadow-premium"
+              >
+                <ChevronLeft size={18} />
+              </button>
+
+              <div className="flex items-center gap-2">
+                {testimonials.map((t, i) => {
+                  const isActive = i === active;
+                  return (
+                    <button
+                      key={t.name}
+                      type="button"
+                      onClick={() => setActive(i)}
+                      aria-label={`Show testimonial ${i + 1}`}
+                      className="group relative h-2 rounded-full transition-all duration-[380ms]"
+                      style={{
+                        width: isActive ? 32 : 8,
+                        backgroundColor: isActive ? t.accent : "#d9dfe8",
+                      }}
+                    />
+                  );
+                })}
               </div>
-              <div className="flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => scrollByCard(-1)}
-                  aria-label="Previous testimonials"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-border bg-white text-primary transition-all duration-[380ms] hover:-translate-y-0.5 hover:border-secondary hover:text-secondary hover:shadow-premium"
-                >
-                  <ChevronLeft size={18} />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => scrollByCard(1)}
-                  aria-label="Next testimonials"
-                  className="grid h-11 w-11 place-items-center rounded-full bg-[#182F58] text-white transition-all duration-[380ms] hover:-translate-y-0.5 hover:bg-[#19979C] hover:shadow-premium-lg"
-                >
-                  <ChevronRight size={18} />
-                </button>
-              </div>
+
+              <button
+                type="button"
+                onClick={() => go(1)}
+                aria-label="Next testimonial"
+                className="grid h-12 w-12 place-items-center rounded-full bg-[#182F58] text-white transition-all duration-[380ms] hover:-translate-y-0.5 hover:bg-[#19979C] hover:shadow-premium-lg"
+              >
+                <ChevronRight size={18} />
+              </button>
             </div>
           </div>
         </FadeUp>
