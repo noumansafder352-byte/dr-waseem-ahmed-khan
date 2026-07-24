@@ -34,6 +34,7 @@
   --color-ring-offset-background: var(--background);
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-display: "Playfair Display", "Fraunces", ui-serif, Georgia, serif;
   --color-medical: var(--medical);
   --color-medical-foreground: var(--medical-foreground);
   --color-teal: var(--teal);
