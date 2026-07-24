@@ -89,7 +89,7 @@ export function SiteHeader({ transparentOnTop = false }: { transparentOnTop?: bo
               to="/contact"
               hash="appointment"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-brand-gradient px-5 py-3 text-sm font-semibold text-white"
+              className="mt-2 inline-flex items-center justify-center rounded-full bg-medical px-5 py-3 text-sm font-semibold text-medical-foreground"
             >
               Book Appointment
             </Link>
