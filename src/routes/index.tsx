@@ -51,14 +51,20 @@ export const Route = createFileRoute("/")({
 const ABOUT_IMG =
   "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1400&q=80";
 
-const services = [
-  { icon: Stethoscope, title: "General Surgery", desc: "Comprehensive surgical care across a wide range of conditions." },
-  { icon: Activity, title: "Thyroid Surgery", desc: "Precise thyroidectomy and thyroid nodule management." },
-  { icon: HeartPulse, title: "Breast Surgery", desc: "Diagnostic and therapeutic breast surgical procedures." },
-  { icon: Shield, title: "Gallbladder Surgery", desc: "Laparoscopic cholecystectomy with rapid recovery." },
-  { icon: Scissors, title: "Hernia Repair", desc: "Open and laparoscopic repair with modern mesh techniques." },
-  { icon: Sparkles, title: "Appendix Surgery", desc: "Minimally invasive appendectomy for faster healing." },
-  { icon: Waves, title: "Varicose Vein Treatment", desc: "Advanced treatment options for venous conditions." },
+const services: {
+  icon: typeof Stethoscope;
+  title: string;
+  desc: string;
+  accent: string;
+  tint: string;
+}[] = [
+  { icon: Stethoscope, title: "General Surgery", desc: "Comprehensive surgical care across a wide range of conditions.", accent: "#182F58", tint: "#eaf1fa" },
+  { icon: Activity, title: "Thyroid Surgery", desc: "Precise thyroidectomy and thyroid nodule management.", accent: "#19979C", tint: "#e6f6f6" },
+  { icon: HeartPulse, title: "Breast Surgery", desc: "Diagnostic and therapeutic breast surgical procedures.", accent: "#1F72B9", tint: "#e8f1fb" },
+  { icon: Shield, title: "Gallbladder Surgery", desc: "Laparoscopic cholecystectomy with rapid recovery.", accent: "#529542", tint: "#eaf5e6" },
+  { icon: Scissors, title: "Hernia Repair", desc: "Open and laparoscopic repair with modern mesh techniques.", accent: "#182F58", tint: "#eaf1fa" },
+  { icon: Sparkles, title: "Appendix Surgery", desc: "Minimally invasive appendectomy for faster healing.", accent: "#19979C", tint: "#e6f6f6" },
+  { icon: Waves, title: "Varicose Vein Treatment", desc: "Advanced treatment options for venous conditions.", accent: "#1F72B9", tint: "#e8f1fb" },
 ];
 
 const trust = [
@@ -274,42 +280,158 @@ function Home() {
       </section>
 
       {/* Services */}
-      <section className="bg-[oklch(0.98_0.01_240)] px-6 py-24 md:px-8 md:py-32">
-        <div className="mx-auto max-w-7xl">
+      <section className="relative isolate overflow-hidden px-6 py-28 md:px-8 md:py-40">
+        {/* Premium background layers */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-[oklch(0.985_0.008_220)] to-white" />
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-[0.5]"
+          style={{
+            backgroundImage:
+              "radial-gradient(ellipse at 12% 8%, rgba(25,151,156,0.10), transparent 55%), radial-gradient(ellipse at 92% 90%, rgba(24,47,88,0.09), transparent 55%), radial-gradient(ellipse at 60% 40%, rgba(82,149,66,0.06), transparent 60%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(24,47,88,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(24,47,88,0.6) 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+            maskImage:
+              "radial-gradient(ellipse at center, black 35%, transparent 78%)",
+          }}
+        />
+        <svg
+          aria-hidden
+          className="pointer-events-none absolute -left-24 top-40 h-[28rem] w-[28rem] text-[#19979C]/10"
+          viewBox="0 0 400 400"
+          fill="none"
+        >
+          <path
+            d="M -50 200 Q 100 40, 250 200 T 550 200"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            fill="none"
+          />
+          <path
+            d="M -50 260 Q 100 100, 250 260 T 550 260"
+            stroke="currentColor"
+            strokeWidth="1"
+            fill="none"
+          />
+        </svg>
+        <div className="pointer-events-none absolute -right-40 -top-20 h-[32rem] w-[32rem] rounded-full border border-[#182F58]/[0.06]" />
+        <div className="pointer-events-none absolute -right-24 top-8 h-[24rem] w-[24rem] rounded-full border border-[#182F58]/[0.05]" />
+
+        <div className="relative mx-auto max-w-7xl">
           <FadeUp>
             <div className="mx-auto max-w-2xl text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#19979C]/25 bg-white/70 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-secondary shadow-sm backdrop-blur">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#19979C]" />
                 Areas of Expertise
               </span>
-              <h2 className="mt-4 text-4xl font-semibold text-primary md:text-5xl">
-                Advanced surgical care, tailored to you
+              <h2
+                className="mt-6 text-4xl leading-[1.1] tracking-tight text-primary md:text-5xl lg:text-[3.4rem]"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+              >
+                Advanced surgical care,
+                <br />
+                <em className="font-serif italic text-secondary">tailored to you</em>
               </h2>
-              <p className="mt-4 text-base text-muted-foreground">
-                A comprehensive range of general and laparoscopic surgical procedures,
-                delivered with the precision of a master surgeon.
+              <div className="mx-auto mt-6 h-px w-16 bg-gradient-to-r from-transparent via-[#19979C] to-transparent" />
+              <p className="mx-auto mt-6 max-w-xl text-base leading-[1.85] text-muted-foreground md:text-lg">
+                A comprehensive range of general and laparoscopic surgical
+                procedures, delivered with the precision of a master surgeon.
               </p>
             </div>
           </FadeUp>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
               <FadeUp key={s.title} delay={i * 60}>
-                <div className="group h-full rounded-3xl border border-border bg-white p-8 shadow-premium transition-all duration-500 hover:-translate-y-1 hover:shadow-premium-lg">
-                  <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#eaf1fa] text-primary">
-                    <s.icon size={26} />
+                <div className="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-border/70 bg-white p-10 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_20px_50px_-30px_rgba(24,47,88,0.15)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_10px_20px_-8px_rgba(24,47,88,0.08),0_40px_80px_-30px_rgba(24,47,88,0.25)]">
+                  {/* Top accent bar */}
+                  <span
+                    className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
+                    style={{ background: `linear-gradient(90deg, ${s.accent}, ${s.accent}00)` }}
+                  />
+                  <span
+                    className="absolute left-0 top-0 h-[3px] w-16"
+                    style={{ backgroundColor: s.accent }}
+                  />
+                  {/* Corner glow */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-60"
+                    style={{ backgroundColor: `${s.accent}22` }}
+                  />
+
+                  {/* Icon container */}
+                  <div className="relative">
+                    <div
+                      className="grid h-16 w-16 place-items-center rounded-2xl shadow-inner transition-transform duration-500 group-hover:scale-105"
+                      style={{ backgroundColor: s.tint, color: s.accent }}
+                    >
+                      <s.icon size={30} strokeWidth={1.6} />
+                    </div>
+                    <span
+                      aria-hidden
+                      className="absolute -bottom-1 -right-1 h-3 w-3 rounded-full opacity-70"
+                      style={{ backgroundColor: s.accent }}
+                    />
                   </div>
-                  <h3 className="mt-6 text-xl font-semibold text-primary">{s.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-                  <Link
-                    to="/services"
-                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-secondary transition-colors group-hover:gap-2.5"
-                  >
-                    Learn more <ArrowRight size={14} />
-                  </Link>
+
+                  <h3 className="mt-8 text-[1.35rem] font-semibold leading-tight text-primary">
+                    {s.title}
+                  </h3>
+                  <p className="mt-3 text-[15px] leading-[1.75] text-muted-foreground">
+                    {s.desc}
+                  </p>
+
+                  <div className="mt-8 flex items-center justify-between border-t border-border/60 pt-6">
+                    <Link
+                      to="/services"
+                      className="group/link relative inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-secondary"
+                      style={{ color: s.accent }}
+                    >
+                      <span className="relative">
+                        Learn more
+                        <span
+                          className="absolute -bottom-0.5 left-0 h-px w-0 transition-all duration-500 group-hover:w-full"
+                          style={{ backgroundColor: s.accent }}
+                        />
+                      </span>
+                      <ArrowRight
+                        size={15}
+                        className="transition-transform duration-500 group-hover:translate-x-1"
+                      />
+                    </Link>
+                    <span
+                      className="font-serif text-sm italic text-muted-foreground/50"
+                    >
+                      0{i + 1}
+                    </span>
+                  </div>
                 </div>
               </FadeUp>
             ))}
           </div>
+
+          <FadeUp delay={200}>
+            <div className="mt-16 text-center">
+              <Link
+                to="/services"
+                className="group inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-8 py-3.5 text-sm font-semibold text-primary shadow-sm transition-all hover:-translate-y-0.5 hover:border-secondary hover:text-secondary hover:shadow-premium"
+              >
+                View all services
+                <ArrowRight
+                  size={15}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+              </Link>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
