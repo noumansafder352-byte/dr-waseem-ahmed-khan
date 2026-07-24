@@ -520,7 +520,7 @@ function About() {
           </FadeUp>
 
           {/* Staggered two-column pillars with central spine */}
-          <div className="relative mt-14 md:mt-16">
+          <div className="relative mt-20 md:mt-24">
             {/* Central vertical spine (desktop) */}
             <div
               aria-hidden
