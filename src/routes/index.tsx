@@ -1066,7 +1066,7 @@ function Testimonials() {
 function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
   return (
     <article
-      className="group relative flex h-full min-h-[340px] flex-col overflow-hidden rounded-[20px] border border-border/70 bg-white p-7 shadow-[0_1px_2px_rgba(24,47,88,0.04),0_18px_40px_-28px_rgba(24,47,88,0.22)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_2px_6px_rgba(24,47,88,0.05),0_30px_60px_-30px_rgba(24,47,88,0.35)]"
+      className="group relative flex h-full min-h-[380px] flex-col items-center overflow-hidden rounded-[20px] border border-border/70 bg-white px-7 pb-7 pt-14 text-center shadow-[0_1px_2px_rgba(24,47,88,0.04),0_18px_40px_-28px_rgba(24,47,88,0.22)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_2px_6px_rgba(24,47,88,0.05),0_30px_60px_-30px_rgba(24,47,88,0.35)]"
     >
       {/* Accent top line */}
       <span
@@ -1077,51 +1077,65 @@ function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
         }}
       />
 
-      {/* Top row: rating + verified */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-0.5">
-          {Array.from({ length: t.rating }).map((_, k) => (
-            <Star key={k} size={14} className="fill-[#f5b638] text-[#f5b638]" />
-          ))}
-        </div>
-        <span
-          className="inline-flex items-center gap-1 rounded-full px-2 py-1 text-[9.5px] font-semibold uppercase tracking-[0.18em]"
-          style={{ backgroundColor: "#5295421a", color: "#3d7a30" }}
-        >
-          <BadgeCheck size={11} />
-          Verified
-        </span>
+      {/* Overlapping avatar */}
+      <div
+        className="absolute left-1/2 top-0 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full font-serif text-[15px] font-semibold text-white ring-4 ring-white shadow-[0_10px_24px_-10px_rgba(24,47,88,0.45)]"
+        style={{ backgroundColor: t.accent }}
+      >
+        {t.initials}
+      </div>
+
+      {/* Decorative quote mark */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-10 -translate-x-1/2 select-none font-serif text-[140px] leading-none text-primary/[0.05]"
+      >
+        “
+      </span>
+
+      {/* Name */}
+      <h3 className="font-serif text-[17px] font-semibold text-primary">
+        {t.name}
+      </h3>
+
+      {/* Treatment */}
+      <div
+        className="mt-1.5 text-[10.5px] font-semibold uppercase tracking-[0.22em]"
+        style={{ color: t.accent }}
+      >
+        {t.treatment}
+      </div>
+
+      {/* Stars */}
+      <div className="mt-3 flex items-center justify-center gap-0.5">
+        {Array.from({ length: t.rating }).map((_, k) => (
+          <Star key={k} size={14} className="fill-[#f5b638] text-[#f5b638]" />
+        ))}
       </div>
 
       {/* Quote */}
-      <p className="mt-5 flex-1 text-[14.5px] leading-[1.75] text-primary/85">
+      <p className="relative mt-4 flex-1 text-[14px] leading-[1.75] text-primary/80">
         “{t.quote}”
       </p>
 
       {/* Divider */}
-      <div className="mt-6 h-px w-full bg-border/70" />
+      <div className="mt-6 h-px w-12 bg-border" />
 
-      {/* Attribution */}
-      <div className="mt-5 flex items-center gap-3.5">
-        <div
-          className="grid h-11 w-11 shrink-0 place-items-center rounded-full font-serif text-[13px] font-semibold text-white"
-          style={{ backgroundColor: t.accent }}
+      {/* Footer: verified + date */}
+      <div className="mt-4 flex items-center justify-center gap-2.5 text-[10px] font-semibold uppercase tracking-[0.18em]">
+        <span
+          className="inline-flex items-center gap-1 rounded-full px-2 py-1"
+          style={{ backgroundColor: "#5295421a", color: "#3d7a30" }}
         >
-          {t.initials}
-        </div>
-        <div className="min-w-0">
-          <div className="truncate font-serif text-[15px] font-semibold text-primary">
-            {t.name}
-          </div>
-          <div className="mt-0.5 flex items-center gap-1.5 text-[10.5px] font-semibold uppercase tracking-[0.18em]">
-            <span style={{ color: t.accent }}>{t.treatment}</span>
-            <span className="text-muted-foreground/50">•</span>
-            <span className="text-muted-foreground">{t.date}</span>
-          </div>
-        </div>
+          <BadgeCheck size={11} />
+          Verified Patient
+        </span>
+        <span className="text-muted-foreground/50">•</span>
+        <span className="text-muted-foreground">{t.date}</span>
       </div>
     </article>
   );
 }
+
 
 
