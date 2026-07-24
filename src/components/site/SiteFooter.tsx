@@ -47,7 +47,7 @@ export function SiteFooter() {
             <img
               src={logo.url}
               alt="Dr. Waseem Ahmad Khan — General & Laparoscopic Surgeon"
-              className="h-16 w-auto md:h-20"
+              className="h-24 w-auto md:h-28"
               draggable={false}
             />
             <p className="mt-6 max-w-md text-[14px] leading-[1.85] text-white/70">
