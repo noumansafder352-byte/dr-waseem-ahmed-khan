@@ -141,7 +141,7 @@ function Home() {
               <Link
                 to="/contact"
                 hash="appointment"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-primary shadow-premium-lg transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full bg-medical px-7 py-3.5 text-sm font-semibold text-medical-foreground shadow-premium-lg transition-all hover:-translate-y-0.5 hover:bg-medical-hover"
               >
                 Book Appointment <ArrowRight size={16} />
               </Link>
