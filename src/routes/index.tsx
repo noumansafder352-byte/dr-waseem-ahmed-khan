@@ -117,15 +117,6 @@ const services: {
     image:
       "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80",
   },
-  {
-    icon: GitBranch,
-    title: "Varicose Vein Treatment",
-    desc: "Advanced treatment options for venous conditions.",
-    accent: "#1F72B9",
-    tint: "#e8f1fb",
-    image:
-      "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=80",
-  },
 ];
 
 const trust = [
