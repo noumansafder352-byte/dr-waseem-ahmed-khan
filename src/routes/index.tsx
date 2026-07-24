@@ -526,7 +526,7 @@ function Home() {
       </section>
 
       {/* Why patients trust — editorial split */}
-      <section className="relative overflow-hidden px-6 py-24 md:px-8 md:py-32">
+      <section className="relative overflow-hidden px-6 py-20 md:px-8 md:py-24">
         {/* Background atmosphere */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f6f9fc] to-white" />
         <div
