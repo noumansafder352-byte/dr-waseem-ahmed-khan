@@ -1067,7 +1067,7 @@ function Testimonials() {
 function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
   return (
     <article
-      className="group relative flex h-full min-h-[380px] flex-col items-center overflow-hidden rounded-[20px] border border-border/70 bg-white px-7 pb-7 pt-14 text-center shadow-[0_1px_2px_rgba(24,47,88,0.04),0_18px_40px_-28px_rgba(24,47,88,0.22)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_2px_6px_rgba(24,47,88,0.05),0_30px_60px_-30px_rgba(24,47,88,0.35)]"
+      className="group relative flex h-full min-h-[380px] flex-col items-center rounded-[20px] border border-border/70 bg-white px-7 pb-7 pt-14 text-center shadow-[0_1px_2px_rgba(24,47,88,0.04),0_18px_40px_-28px_rgba(24,47,88,0.22)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_2px_6px_rgba(24,47,88,0.05),0_30px_60px_-30px_rgba(24,47,88,0.35)]"
     >
       {/* Accent top line */}
       <span
