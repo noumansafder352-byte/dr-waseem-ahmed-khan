@@ -315,7 +315,7 @@ function About() {
           </FadeUp>
 
           {/* Alternating pillars with central spine */}
-          <div className="relative mt-20 md:mt-24">
+          <div className="relative mt-14 md:mt-16">
             {/* Central vertical spine (desktop) */}
             <div
               aria-hidden
@@ -335,7 +335,7 @@ function About() {
               }}
             />
 
-            <ol className="space-y-14 md:space-y-24">
+            <ol className="space-y-8 md:space-y-12">
               {values.map((v, i) => {
                 const accents = ["#182F58", "#19979C", "#529542", "#1F72B9", "#19979C", "#182F58"];
                 const accent = accents[i % accents.length];
