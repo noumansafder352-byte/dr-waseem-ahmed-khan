@@ -314,7 +314,7 @@ function About() {
             </div>
           </FadeUp>
 
-          {/* Alternating pillars with central spine */}
+          {/* Staggered two-column pillars with central spine */}
           <div className="relative mt-14 md:mt-16">
             {/* Central vertical spine (desktop) */}
             <div
@@ -322,7 +322,7 @@ function About() {
               className="pointer-events-none absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 md:block"
               style={{
                 background:
-                  "linear-gradient(to bottom, transparent 0%, rgba(24,47,88,0.18) 12%, rgba(31,114,185,0.22) 50%, rgba(25,151,156,0.18) 88%, transparent 100%)",
+                  "linear-gradient(to bottom, transparent 0%, rgba(24,47,88,0.18) 8%, rgba(31,114,185,0.22) 50%, rgba(25,151,156,0.18) 92%, transparent 100%)",
               }}
             />
             {/* Mobile spine */}
@@ -335,106 +335,118 @@ function About() {
               }}
             />
 
-            <ol className="space-y-8 md:space-y-12">
-              {values.map((v, i) => {
-                const accents = ["#182F58", "#19979C", "#529542", "#1F72B9", "#19979C", "#182F58"];
+            {(() => {
+              const accents = ["#182F58", "#19979C", "#529542", "#1F72B9", "#19979C", "#182F58"];
+              const renderItem = (v: (typeof values)[number], i: number, isLeft: boolean) => {
                 const accent = accents[i % accents.length];
-                const isLeft = i % 2 === 0;
                 return (
-                  <li key={v.title} className="relative">
-                    <FadeUp delay={i * 120}>
+                  <FadeUp key={v.title} delay={i * 100}>
+                    <div className="group relative grid grid-cols-[3rem_1fr] items-center gap-4 md:grid-cols-1 md:gap-0">
+                      {/* Content */}
                       <div
-                        className={`group relative grid grid-cols-[3rem_1fr] items-center gap-6 md:grid-cols-2 md:gap-12 ${
-                          isLeft ? "" : "md:[&>*:first-child]:order-2"
+                        className={`col-start-2 md:col-start-auto ${
+                          isLeft ? "md:pr-14 md:text-right" : "md:pl-14 md:text-left"
                         }`}
                       >
-                        {/* Content side */}
                         <div
-                          className={`md:col-span-1 ${
-                            isLeft ? "md:pr-10 md:text-right" : "md:pl-10 md:text-left"
-                          } col-start-2 md:col-start-auto`}
+                          className="relative rounded-2xl px-1 py-1 transition-all duration-[400ms] ease-out md:px-4 md:py-3 md:group-hover:-translate-y-1"
+                          style={{ transitionProperty: "transform, background-color, box-shadow" }}
                         >
                           <div
-                            className="relative rounded-2xl px-1 py-1 transition-all duration-[400ms] ease-out md:px-5 md:py-4 md:group-hover:-translate-y-1"
+                            aria-hidden
+                            className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100"
                             style={{
-                              transitionProperty: "transform, background-color, box-shadow",
+                              background: `linear-gradient(${isLeft ? "270deg" : "90deg"}, ${accent}0D 0%, transparent 80%)`,
+                            }}
+                          />
+                          <div className="relative">
+                            <div
+                              className={`flex items-center gap-3 ${
+                                isLeft ? "md:justify-end" : "md:justify-start"
+                              }`}
+                            >
+                              <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
+                                0{i + 1}
+                              </span>
+                              <span
+                                className="h-px w-8 transition-all duration-[400ms] group-hover:w-14"
+                                style={{ backgroundColor: accent }}
+                              />
+                            </div>
+                            <h3
+                              className="mt-2 font-serif text-3xl font-semibold leading-tight md:text-4xl"
+                              style={{ color: "var(--primary)" }}
+                            >
+                              <span
+                                className="transition-colors duration-[400ms] group-hover:text-[var(--hover-color)]"
+                                style={{ ["--hover-color" as never]: accent }}
+                              >
+                                {v.title}
+                              </span>
+                            </h3>
+                            <p
+                              className="mt-2 max-w-sm text-[15px] leading-[1.7] text-muted-foreground md:text-base"
+                              style={
+                                isLeft
+                                  ? { marginLeft: "auto", marginRight: 0 }
+                                  : { marginLeft: 0, marginRight: "auto" }
+                              }
+                            >
+                              {v.desc}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Icon medallion on spine */}
+                      <div
+                        className={`pointer-events-none absolute left-6 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 ${
+                          isLeft ? "md:left-auto md:right-0 md:translate-x-1/2" : "md:left-0 md:-translate-x-1/2"
+                        }`}
+                      >
+                        <div
+                          className="grid h-14 w-14 place-items-center rounded-full border border-border bg-white shadow-premium transition-all duration-[400ms] ease-out group-hover:shadow-premium-lg md:h-16 md:w-16"
+                          style={{ boxShadow: "0 0 0 6px rgba(255,255,255,0.95)" }}
+                        >
+                          <div
+                            className="grid h-10 w-10 place-items-center rounded-full text-white transition-transform duration-[400ms] ease-out group-hover:rotate-[6deg] group-hover:scale-105 md:h-11 md:w-11"
+                            style={{
+                              background: `linear-gradient(140deg, ${accent} 0%, ${accent}cc 100%)`,
                             }}
                           >
-                            {/* Subtle hover tint */}
-                            <div
-                              aria-hidden
-                              className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100"
-                              style={{
-                                background: `linear-gradient(${
-                                  isLeft ? "270deg" : "90deg"
-                                }, ${accent}0D 0%, transparent 80%)`,
-                              }}
-                            />
-                            <div className="relative">
-                              <div
-                                className={`flex items-center gap-3 ${
-                                  isLeft ? "md:justify-end" : "md:justify-start"
-                                }`}
-                              >
-                                <span
-                                  className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground"
-                                >
-                                  0{i + 1}
-                                </span>
-                                <span
-                                  className="h-px w-8 origin-left transition-all duration-[400ms] group-hover:w-14"
-                                  style={{
-                                    backgroundColor: accent,
-                                    transformOrigin: isLeft ? "right" : "left",
-                                  }}
-                                />
-                              </div>
-                              <h3
-                                className="mt-3 font-serif text-3xl font-semibold leading-tight transition-colors duration-[400ms] md:text-4xl"
-                                style={{ color: "var(--primary)" }}
-                              >
-                                <span
-                                  className="transition-colors duration-[400ms] group-hover:text-[var(--hover-color)]"
-                                  style={{ ["--hover-color" as never]: accent }}
-                                >
-                                  {v.title}
-                                </span>
-                              </h3>
-                              <p className="mt-2 max-w-sm text-[15px] leading-[1.7] text-muted-foreground md:text-base md:max-w-md md:ml-auto md:mr-0"
-                                 style={isLeft ? { marginLeft: "auto", marginRight: 0 } : { marginLeft: 0, marginRight: "auto" }}>
-                                {v.desc}
-                              </p>
-                            </div>
+                            <v.icon size={20} strokeWidth={1.6} />
                           </div>
                         </div>
-
-                        {/* Icon medallion on spine */}
-                        <div
-                          className="pointer-events-none absolute left-6 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 md:left-1/2"
-                        >
-                          <div
-                            className="grid h-16 w-16 place-items-center rounded-full border border-border bg-white shadow-premium transition-all duration-[400ms] ease-out group-hover:shadow-premium-lg md:h-20 md:w-20"
-                            style={{ boxShadow: "0 0 0 6px rgba(255,255,255,0.95)" }}
-                          >
-                            <div
-                              className="grid h-11 w-11 place-items-center rounded-full text-white transition-transform duration-[400ms] ease-out group-hover:rotate-[6deg] group-hover:scale-105 md:h-14 md:w-14"
-                              style={{
-                                background: `linear-gradient(140deg, ${accent} 0%, ${accent}cc 100%)`,
-                              }}
-                            >
-                              <v.icon size={22} strokeWidth={1.6} />
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Spacer for opposite side (desktop only) */}
-                        <div className="hidden md:block" aria-hidden />
                       </div>
-                    </FadeUp>
-                  </li>
+                    </div>
+                  </FadeUp>
                 );
-              })}
-            </ol>
+              };
+
+              const leftItems = values.filter((_, i) => i % 2 === 0);
+              const rightItems = values.filter((_, i) => i % 2 === 1);
+
+              return (
+                <div className="grid gap-6 md:grid-cols-2 md:gap-x-0 md:gap-y-0">
+                  <ol className="space-y-6 md:space-y-10">
+                    {leftItems.map((v) => {
+                      const originalIndex = values.indexOf(v);
+                      return (
+                        <li key={v.title}>{renderItem(v, originalIndex, true)}</li>
+                      );
+                    })}
+                  </ol>
+                  <ol className="space-y-6 md:mt-24 md:space-y-10">
+                    {rightItems.map((v) => {
+                      const originalIndex = values.indexOf(v);
+                      return (
+                        <li key={v.title}>{renderItem(v, originalIndex, false)}</li>
+                      );
+                    })}
+                  </ol>
+                </div>
+              );
+            })()}
           </div>
         </div>
       </section>
