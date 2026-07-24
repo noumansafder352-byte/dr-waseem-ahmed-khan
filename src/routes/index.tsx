@@ -130,14 +130,42 @@ const services: {
 ];
 
 const trust = [
-  { icon: Award, title: "Decades of Surgical Experience" },
-  { icon: Shield, title: "Former Head of Surgery — CMH & PEMH" },
-  { icon: GraduationCap, title: "Professor of Surgery" },
-  { icon: Users, title: "Councillor & Regional Director — CPSP" },
-  { icon: BookOpenCheck, title: "Evidence-Based Treatment" },
-  { icon: HeartHandshake, title: "Personalized Care" },
-  { icon: Activity, title: "Modern Surgical Techniques" },
-  { icon: Handshake, title: "Ethical Practice" },
+  {
+    icon: Award,
+    title: "Decades of Surgical Experience",
+    desc: "Thousands of successful procedures performed with an unwavering commitment to patient safety.",
+    accent: "#182F58",
+  },
+  {
+    icon: Shield,
+    title: "Former Head of Surgery — CMH & PEMH",
+    desc: "Leadership honed through years managing complex surgical cases at renowned institutions.",
+    accent: "#1F72B9",
+  },
+  {
+    icon: GraduationCap,
+    title: "Professor of Surgery",
+    desc: "Advancing surgical education while mentoring the next generation of healthcare professionals.",
+    accent: "#19979C",
+  },
+  {
+    icon: Users,
+    title: "Councillor & Regional Director — CPSP",
+    desc: "Shaping national standards of surgical training and professional excellence.",
+    accent: "#529542",
+  },
+  {
+    icon: BookOpenCheck,
+    title: "Evidence-Based Treatment",
+    desc: "Every decision grounded in current medical research and proven clinical outcomes.",
+    accent: "#1F72B9",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Personalized Patient Care",
+    desc: "A tailored plan for every patient, delivered with empathy and clear communication.",
+    accent: "#19979C",
+  },
 ];
 
 const process = [
