@@ -414,7 +414,7 @@ function Home() {
               <FadeUp key={s.title} delay={i * 60}>
                 <div
                   className="group relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-[20px] border border-border/70 bg-white p-7 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_18px_44px_-28px_rgba(24,47,88,0.15)] transition-all duration-[380ms] ease-out hover:-translate-y-1 hover:shadow-[0_10px_20px_-8px_rgba(24,47,88,0.12),0_36px_70px_-28px_rgba(24,47,88,0.32)]"
-                  style={{ '--accent': s.accent, '--tint': s.tint }}
+                  style={{ '--accent': s.accent, '--tint': s.tint } as any}
                 >
                   {/* Background image (default visible) */}
                   <div
