@@ -48,8 +48,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const HERO_IMG =
-  "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=2000&q=80";
 const ABOUT_IMG =
   "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1400&q=80";
 
