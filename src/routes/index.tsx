@@ -32,7 +32,7 @@ import {
   ChevronRight,
   BadgeCheck,
 } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { FadeUp } from "@/components/site/FadeUp";
 import { CtaBand } from "@/components/site/CtaBand";
