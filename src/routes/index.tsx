@@ -575,10 +575,10 @@ function Home() {
             </div>
           </FadeUp>
 
-          <div className="mt-16 grid gap-14 lg:grid-cols-12 lg:gap-16">
+          <div className="mt-16 grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
             {/* Left — portrait */}
-            <FadeUp className="lg:col-span-5">
-              <div className="relative">
+            <FadeUp className="h-full lg:col-span-5">
+              <div className="relative h-full">
                 {/* Decorative frame */}
                 <span
                   aria-hidden
@@ -589,18 +589,18 @@ function Home() {
                   className="absolute -bottom-4 -right-4 h-24 w-24 rounded-br-[24px] border-b-2 border-r-2 border-[#529542]/40"
                 />
 
-                <div className="relative overflow-hidden rounded-[24px] shadow-premium-lg">
+                <div className="relative h-full min-h-[560px] overflow-hidden rounded-[24px] shadow-premium-lg">
                   <img
                     src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=1200&q=80"
                     alt="Surgeon in the operating theatre"
-                    className="h-[560px] w-full object-cover"
+                    className="h-full w-full object-cover"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#182F58]/60 via-transparent to-transparent" />
                 </div>
 
                 {/* Floating experience badge */}
-                <div className="absolute -bottom-6 -left-6 rounded-2xl bg-white p-5 shadow-premium-lg ring-1 ring-black/[0.04] md:-left-8">
+                <div className="absolute bottom-8 left-8 rounded-2xl bg-white p-5 shadow-premium-lg ring-1 ring-black/[0.04]">
                   <div className="flex items-center gap-4">
                     <div
                       className="grid h-12 w-12 place-items-center rounded-xl text-white"
@@ -620,7 +620,7 @@ function Home() {
                 </div>
 
                 {/* Floating stat */}
-                <div className="absolute -right-4 top-8 hidden rounded-2xl bg-white p-4 shadow-premium ring-1 ring-black/[0.04] md:block">
+                <div className="absolute right-8 top-8 hidden rounded-2xl bg-white p-4 shadow-premium ring-1 ring-black/[0.04] md:block">
                   <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
                     Institutions Led
                   </div>
