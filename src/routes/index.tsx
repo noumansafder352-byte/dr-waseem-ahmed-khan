@@ -26,7 +26,6 @@ import {
   Microscope,
   Ribbon,
   Droplet,
-  GitBranch,
 } from "lucide-react";
 import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
