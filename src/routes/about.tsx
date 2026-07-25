@@ -60,6 +60,8 @@ const values = [
   { icon: Compass, title: "Precision", desc: "Meticulous surgical technique and attention to detail." },
 ];
 
+const valueAccents = ["#182F58", "#1F72B9", "#529542", "#19979C", "#182F58", "#529542"];
+
 function About() {
   return (
     <SiteLayout transparentHeader>
@@ -444,31 +446,18 @@ function About() {
         </div>
       </section>
 
-      {/* Core Values — editorial alternating pillars */}
-      <section className="relative overflow-hidden px-6 py-20 md:px-8 md:py-24">
-        {/* Premium background */}
+      {/* Core Values — editorial two-column composition */}
+      <section className="relative overflow-hidden px-6 py-20 md:px-8 md:py-28">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f7fafd] to-white" />
         <div
           className="absolute inset-0 opacity-[0.5]"
           style={{
             backgroundImage:
-              "radial-gradient(ellipse 60% 40% at 15% 10%, rgba(31,114,185,0.07), transparent 60%), radial-gradient(ellipse 55% 45% at 85% 90%, rgba(25,151,156,0.07), transparent 60%)",
+              "radial-gradient(ellipse 60% 40% at 50% 40%, rgba(31,114,185,0.06), transparent 60%), radial-gradient(ellipse 55% 45% at 50% 70%, rgba(25,151,156,0.06), transparent 60%)",
           }}
         />
-        <svg
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-32 hidden -translate-x-1/2 opacity-[0.14] md:block"
-          width="800"
-          height="800"
-          viewBox="0 0 800 800"
-          fill="none"
-        >
-          <circle cx="400" cy="400" r="300" stroke="#1F72B9" strokeWidth="0.5" />
-          <circle cx="400" cy="400" r="220" stroke="#19979C" strokeWidth="0.5" />
-          <circle cx="400" cy="400" r="140" stroke="#182F58" strokeWidth="0.5" />
-        </svg>
 
-        <div className="relative mx-auto max-w-6xl">
+        <div className="relative mx-auto max-w-7xl">
           <FadeUp>
             <div className="mx-auto max-w-2xl text-center">
               <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-1.5 shadow-premium backdrop-blur">
@@ -482,141 +471,98 @@ function About() {
                 <em className="italic font-normal text-[#19979C]">our practice</em>
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
-                Six commitments that shape every consultation, every decision,
-                and every outcome.
+                Six commitments that shape every consultation, every decision, and every outcome.
               </p>
             </div>
           </FadeUp>
 
-          {/* Staggered two-column pillars with central spine */}
-          <div className="relative mt-16 md:mt-20">
-            {/* Central vertical spine (desktop) */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 md:block"
-              style={{
-                background:
-                  "linear-gradient(to bottom, transparent 0%, rgba(24,47,88,0.18) 8%, rgba(31,114,185,0.22) 50%, rgba(25,151,156,0.18) 92%, transparent 100%)",
-              }}
-            />
-            {/* Mobile spine */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute bottom-0 left-6 top-0 w-px md:hidden"
-              style={{
-                background:
-                  "linear-gradient(to bottom, transparent, rgba(31,114,185,0.25), transparent)",
-              }}
-            />
+          {/* Desktop / tablet editorial two-column layout */}
+          <div className="relative mx-auto mt-16 hidden max-w-5xl grid-cols-2 gap-x-12 md:grid lg:gap-x-16">
+            {/* Vertical divider with central node */}
+            <div aria-hidden className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-border to-transparent" />
+            <div aria-hidden className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full border border-border bg-background" />
 
-            {(() => {
-              const accents = ["#182F58", "#19979C", "#529542", "#1F72B9", "#19979C", "#182F58"];
-              const rowStartClasses = [
-                "md:row-start-1", "md:row-start-2", "md:row-start-3",
-                "md:row-start-4", "md:row-start-5", "md:row-start-6"
-              ];
-              const renderItem = (v: (typeof values)[number], i: number, isLeft: boolean) => {
-                const accent = accents[i % accents.length];
+            {/* Left column */}
+            <div className="space-y-8 lg:space-y-10">
+              {values.slice(0, 3).map((v, i) => {
+                const Icon = v.icon;
+                const accent = valueAccents[i];
                 return (
-                  <FadeUp delay={i * 100}>
-                    <div className="group relative grid grid-cols-[3rem_1fr] items-center gap-4 md:grid-cols-1 md:gap-0">
-                      {/* Content */}
-                      <div
-                        className={`col-start-2 md:col-start-auto ${
-                          isLeft ? "md:pr-32 md:text-right" : "md:pl-32 md:text-left"
-                        }`}
-                      >
-                        <div
-                          className="relative rounded-2xl px-1 py-1 transition-all duration-[400ms] ease-out md:px-4 md:py-3 md:group-hover:-translate-y-1"
-                          style={{ transitionProperty: "transform, background-color, box-shadow" }}
-                        >
-                          <div
-                            aria-hidden
-                            className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100"
-                            style={{
-                              background: `linear-gradient(${isLeft ? "270deg" : "90deg"}, ${accent}0D 0%, transparent 80%)`,
-                            }}
-                          />
-                          <div className="relative">
-                            <div
-                              className={`flex items-center gap-3 ${
-                                isLeft ? "md:justify-end" : "md:justify-start"
-                              }`}
-                            >
-                              <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
-                                0{i + 1}
-                              </span>
-                              <span
-                                className="h-px w-8 transition-all duration-[400ms] group-hover:w-14"
-                                style={{ backgroundColor: accent }}
-                              />
-                            </div>
-                            <h3
-                              className="mt-2 font-serif text-3xl font-semibold leading-tight md:text-4xl"
-                              style={{ color: "var(--primary)" }}
-                            >
-                              <span
-                                className="transition-colors duration-[400ms] group-hover:text-[var(--hover-color)]"
-                                style={{ ["--hover-color" as never]: accent }}
-                              >
-                                {v.title}
-                              </span>
-                            </h3>
-                            <p
-                              className="mt-2 max-w-sm text-[15px] leading-[1.7] text-muted-foreground md:text-base"
-                              style={
-                                isLeft
-                                  ? { marginLeft: "auto", marginRight: 0 }
-                                  : { marginLeft: 0, marginRight: "auto" }
-                              }
-                            >
-                              {v.desc}
-                            </p>
-                          </div>
+                  <FadeUp key={v.title} delay={100 + i * 100}>
+                    <div className="group relative rounded-2xl border border-border bg-white p-6 shadow-premium transition-all duration-[400ms] ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-premium-lg">
+                      <div className="flex items-start gap-5">
+                        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110" style={{ backgroundColor: accent }}>
+                          <Icon size={22} strokeWidth={1.6} />
                         </div>
-                      </div>
-
-                      {/* Icon medallion on spine */}
-                      <div
-                        className={`pointer-events-none absolute left-6 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 ${
-                          isLeft ? "md:left-auto md:right-0 md:translate-x-1/2" : "md:left-0 md:-translate-x-1/2"
-                        }`}
-                      >
-                        <div
-                          className="grid h-14 w-14 place-items-center rounded-full border border-border bg-white shadow-premium transition-all duration-[400ms] ease-out group-hover:shadow-premium-lg md:h-16 md:w-16"
-                          style={{ boxShadow: "0 0 0 6px rgba(255,255,255,0.95)" }}
-                        >
-                          <div
-                            className="grid h-10 w-10 place-items-center rounded-full text-white transition-transform duration-[400ms] ease-out group-hover:rotate-[6deg] group-hover:scale-105 md:h-11 md:w-11"
-                            style={{
-                              background: `linear-gradient(140deg, ${accent} 0%, ${accent}cc 100%)`,
-                            }}
-                          >
-                            <v.icon size={20} strokeWidth={1.6} />
-                          </div>
+                        <div className="min-w-0">
+                          <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
+                            0{i + 1}
+                          </span>
+                          <h3 className="mt-1 font-serif text-xl font-semibold text-primary transition-colors duration-[400ms] group-hover:text-[var(--accent)]" style={{ ["--accent" as never]: accent }}>
+                            {v.title}
+                          </h3>
+                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
                         </div>
                       </div>
                     </div>
                   </FadeUp>
                 );
-              };
+              })}
+            </div>
 
+            {/* Right column (staggered down) */}
+            <div className="space-y-8 lg:space-y-10 md:mt-12">
+              {values.slice(3).map((v, i) => {
+                const Icon = v.icon;
+                const accent = valueAccents[i + 3];
+                return (
+                  <FadeUp key={v.title} delay={200 + i * 100}>
+                    <div className="group relative rounded-2xl border border-border bg-white p-6 shadow-premium transition-all duration-[400ms] ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-premium-lg">
+                      <div className="flex items-start gap-5">
+                        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110" style={{ backgroundColor: accent }}>
+                          <Icon size={22} strokeWidth={1.6} />
+                        </div>
+                        <div className="min-w-0">
+                          <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
+                            0{i + 4}
+                          </span>
+                          <h3 className="mt-1 font-serif text-xl font-semibold text-primary transition-colors duration-[400ms] group-hover:text-[var(--accent)]" style={{ ["--accent" as never]: accent }}>
+                            {v.title}
+                          </h3>
+                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </FadeUp>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Mobile single-column */}
+          <div className="mt-12 space-y-6 md:hidden">
+            {values.map((v, i) => {
+              const Icon = v.icon;
+              const accent = valueAccents[i];
               return (
-                <ol className="list-none space-y-8 md:grid md:grid-cols-2 md:gap-x-0 md:gap-y-12">
-                  {values.map((v, i) => {
-                    const isLeft = i % 2 === 0;
-                    return (
-                      <li
-                        key={v.title}
-                        className={`${isLeft ? "md:col-start-1" : "md:col-start-2"} ${rowStartClasses[i]}`}
-                      >
-                        {renderItem(v, i, isLeft)}
-                      </li>
-                    );
-                  })}
-                </ol>
+                <FadeUp key={v.title} delay={80 + i * 70}>
+                  <div className="group relative rounded-2xl border border-border bg-white p-5 shadow-premium transition-all duration-[400ms] hover:-translate-y-1 hover:border-transparent hover:shadow-premium-lg">
+                    <div className="flex items-start gap-4">
+                      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110" style={{ backgroundColor: accent }}>
+                        <Icon size={20} strokeWidth={1.6} />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
+                          0{i + 1}
+                        </span>
+                        <h3 className="mt-1 font-serif text-lg font-semibold text-primary">{v.title}</h3>
+                        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                </FadeUp>
               );
-            })()}
+            })}
           </div>
         </div>
       </section>
