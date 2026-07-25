@@ -454,31 +454,18 @@ function About() {
         </div>
       </section>
 
-      {/* Core Values — editorial alternating pillars */}
-      <section className="relative overflow-hidden px-6 py-20 md:px-8 md:py-24">
-        {/* Premium background */}
+      {/* Core Values — radial orbit composition */}
+      <section className="relative overflow-hidden px-6 py-20 md:px-8 md:py-28">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f7fafd] to-white" />
         <div
           className="absolute inset-0 opacity-[0.5]"
           style={{
             backgroundImage:
-              "radial-gradient(ellipse 60% 40% at 15% 10%, rgba(31,114,185,0.07), transparent 60%), radial-gradient(ellipse 55% 45% at 85% 90%, rgba(25,151,156,0.07), transparent 60%)",
+              "radial-gradient(ellipse 60% 40% at 50% 40%, rgba(31,114,185,0.06), transparent 60%), radial-gradient(ellipse 55% 45% at 50% 70%, rgba(25,151,156,0.06), transparent 60%)",
           }}
         />
-        <svg
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-32 hidden -translate-x-1/2 opacity-[0.14] md:block"
-          width="800"
-          height="800"
-          viewBox="0 0 800 800"
-          fill="none"
-        >
-          <circle cx="400" cy="400" r="300" stroke="#1F72B9" strokeWidth="0.5" />
-          <circle cx="400" cy="400" r="220" stroke="#19979C" strokeWidth="0.5" />
-          <circle cx="400" cy="400" r="140" stroke="#182F58" strokeWidth="0.5" />
-        </svg>
 
-        <div className="relative mx-auto max-w-6xl">
+        <div className="relative mx-auto max-w-7xl">
           <FadeUp>
             <div className="mx-auto max-w-2xl text-center">
               <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-1.5 shadow-premium backdrop-blur">
@@ -492,141 +479,124 @@ function About() {
                 <em className="italic font-normal text-[#19979C]">our practice</em>
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
-                Six commitments that shape every consultation, every decision,
-                and every outcome.
+                Six commitments that shape every consultation, every decision, and every outcome.
               </p>
             </div>
           </FadeUp>
 
-          {/* Staggered two-column pillars with central spine */}
-          <div className="relative mt-16 md:mt-20">
-            {/* Central vertical spine (desktop) */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 md:block"
-              style={{
-                background:
-                  "linear-gradient(to bottom, transparent 0%, rgba(24,47,88,0.18) 8%, rgba(31,114,185,0.22) 50%, rgba(25,151,156,0.18) 92%, transparent 100%)",
-              }}
-            />
-            {/* Mobile spine */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute bottom-0 left-6 top-0 w-px md:hidden"
-              style={{
-                background:
-                  "linear-gradient(to bottom, transparent, rgba(31,114,185,0.25), transparent)",
-              }}
-            />
+          {/* Desktop radial orbit */}
+          <div className="relative mx-auto mt-16 hidden aspect-square max-w-4xl lg:block">
+            {/* SVG connecting ring + spokes */}
+            <svg aria-hidden className="absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 800 800">
+              <defs>
+                <linearGradient id="orbit-spoke" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#1F72B9" stopOpacity="0.35" />
+                  <stop offset="100%" stopColor="#19979C" stopOpacity="0.35" />
+                </linearGradient>
+              </defs>
+              <circle
+                cx="400"
+                cy="400"
+                r="240"
+                stroke="#182F58"
+                strokeOpacity="0.08"
+                strokeWidth="1"
+                fill="none"
+                strokeDasharray="4 6"
+              />
+              <line x1="400" y1="400" x2="400" y2="160" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="400" y1="400" x2="628" y2="326" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="400" y1="400" x2="541" y2="594" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="400" y1="400" x2="259" y2="594" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="400" y1="400" x2="172" y2="326" stroke="url(#orbit-spoke)" strokeWidth="1" />
+            </svg>
 
-            {(() => {
-              const accents = ["#182F58", "#19979C", "#529542", "#1F72B9", "#19979C", "#182F58"];
-              const rowStartClasses = [
-                "md:row-start-1", "md:row-start-2", "md:row-start-3",
-                "md:row-start-4", "md:row-start-5", "md:row-start-6"
-              ];
-              const renderItem = (v: (typeof values)[number], i: number, isLeft: boolean) => {
-                const accent = accents[i % accents.length];
+            {/* Center hub — Patient-Centered */}
+            <FadeUp delay={100}>
+              <div className="absolute left-1/2 top-1/2 z-20 w-60 -translate-x-1/2 -translate-y-1/2">
+                <div
+                  className="rounded-full border border-border bg-white p-7 text-center shadow-premium-lg transition-all duration-[400ms] ease-out hover:scale-[1.03]"
+                  style={{ boxShadow: "0 0 0 8px rgba(255,255,255,0.85), 0 24px 60px -20px rgba(24,47,88,0.25)" }}
+                >
+                  <div
+                    className="mx-auto grid h-16 w-16 place-items-center rounded-full text-white"
+                    style={{ background: "linear-gradient(140deg, #19979C 0%, #19979Ccc 100%)" }}
+                  >
+                    <CENTER_VALUE.icon size={26} strokeWidth={1.6} />
+                  </div>
+                  <h3 className="mt-4 font-serif text-xl font-semibold text-primary">{CENTER_VALUE.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{CENTER_VALUE.desc}</p>
+                </div>
+              </div>
+            </FadeUp>
+
+            {/* Satellite value cards */}
+            {ORBIT_VALUES.map((v, i) => {
+              const Icon = v.icon;
+              return (
+                <FadeUp key={v.title} delay={220 + i * 100}>
+                  <div
+                    className="group absolute z-10 w-56"
+                    style={{ left: `calc(50% + ${v.x}px)`, top: `calc(50% + ${v.y}px)`, transform: "translate(-50%, -50%)" }}
+                  >
+                    <div className="rounded-2xl border border-border bg-white p-5 shadow-premium transition-all duration-[400ms] ease-out group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-premium-lg">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="grid h-10 w-10 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110"
+                          style={{ backgroundColor: v.accent }}
+                        >
+                          <Icon size={20} strokeWidth={1.6} />
+                        </div>
+                        <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
+                          0{i + 1}
+                        </span>
+                      </div>
+                      <h3 className="mt-3 font-serif text-xl font-semibold text-primary transition-colors duration-[400ms] group-hover:text-[var(--accent)]" style={{ ["--accent" as never]: v.accent }}>
+                        {v.title}
+                      </h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
+                    </div>
+                  </div>
+                </FadeUp>
+              );
+            })}
+          </div>
+
+          {/* Mobile / tablet stacked layout */}
+          <div className="mt-16 lg:hidden">
+            <FadeUp>
+              <div className="mx-auto max-w-sm rounded-2xl border border-border bg-white p-6 text-center shadow-premium-lg">
+                <div
+                  className="mx-auto grid h-14 w-14 place-items-center rounded-full text-white"
+                  style={{ background: "linear-gradient(140deg, #19979C 0%, #19979Ccc 100%)" }}
+                >
+                  <CENTER_VALUE.icon size={24} strokeWidth={1.6} />
+                </div>
+                <h3 className="mt-4 font-serif text-xl font-semibold text-primary">{CENTER_VALUE.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{CENTER_VALUE.desc}</p>
+              </div>
+            </FadeUp>
+            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+              {ORBIT_VALUES.map((v, i) => {
+                const Icon = v.icon;
                 return (
-                  <FadeUp delay={i * 100}>
-                    <div className="group relative grid grid-cols-[3rem_1fr] items-center gap-4 md:grid-cols-1 md:gap-0">
-                      {/* Content */}
-                      <div
-                        className={`col-start-2 md:col-start-auto ${
-                          isLeft ? "md:pr-32 md:text-right" : "md:pl-32 md:text-left"
-                        }`}
-                      >
+                  <FadeUp key={v.title} delay={80 + i * 70}>
+                    <div className="group rounded-2xl border border-border bg-white p-5 shadow-premium transition-all duration-[400ms] hover:-translate-y-1 hover:border-transparent hover:shadow-premium-lg">
+                      <div className="flex items-center gap-3">
                         <div
-                          className="relative rounded-2xl px-1 py-1 transition-all duration-[400ms] ease-out md:px-4 md:py-3 md:group-hover:-translate-y-1"
-                          style={{ transitionProperty: "transform, background-color, box-shadow" }}
+                          className="grid h-10 w-10 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110"
+                          style={{ backgroundColor: v.accent }}
                         >
-                          <div
-                            aria-hidden
-                            className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100"
-                            style={{
-                              background: `linear-gradient(${isLeft ? "270deg" : "90deg"}, ${accent}0D 0%, transparent 80%)`,
-                            }}
-                          />
-                          <div className="relative">
-                            <div
-                              className={`flex items-center gap-3 ${
-                                isLeft ? "md:justify-end" : "md:justify-start"
-                              }`}
-                            >
-                              <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
-                                0{i + 1}
-                              </span>
-                              <span
-                                className="h-px w-8 transition-all duration-[400ms] group-hover:w-14"
-                                style={{ backgroundColor: accent }}
-                              />
-                            </div>
-                            <h3
-                              className="mt-2 font-serif text-3xl font-semibold leading-tight md:text-4xl"
-                              style={{ color: "var(--primary)" }}
-                            >
-                              <span
-                                className="transition-colors duration-[400ms] group-hover:text-[var(--hover-color)]"
-                                style={{ ["--hover-color" as never]: accent }}
-                              >
-                                {v.title}
-                              </span>
-                            </h3>
-                            <p
-                              className="mt-2 max-w-sm text-[15px] leading-[1.7] text-muted-foreground md:text-base"
-                              style={
-                                isLeft
-                                  ? { marginLeft: "auto", marginRight: 0 }
-                                  : { marginLeft: 0, marginRight: "auto" }
-                              }
-                            >
-                              {v.desc}
-                            </p>
-                          </div>
+                          <Icon size={20} strokeWidth={1.6} />
                         </div>
+                        <h3 className="font-serif text-lg font-semibold text-primary">{v.title}</h3>
                       </div>
-
-                      {/* Icon medallion on spine */}
-                      <div
-                        className={`pointer-events-none absolute left-6 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 ${
-                          isLeft ? "md:left-auto md:right-0 md:translate-x-1/2" : "md:left-0 md:-translate-x-1/2"
-                        }`}
-                      >
-                        <div
-                          className="grid h-14 w-14 place-items-center rounded-full border border-border bg-white shadow-premium transition-all duration-[400ms] ease-out group-hover:shadow-premium-lg md:h-16 md:w-16"
-                          style={{ boxShadow: "0 0 0 6px rgba(255,255,255,0.95)" }}
-                        >
-                          <div
-                            className="grid h-10 w-10 place-items-center rounded-full text-white transition-transform duration-[400ms] ease-out group-hover:rotate-[6deg] group-hover:scale-105 md:h-11 md:w-11"
-                            style={{
-                              background: `linear-gradient(140deg, ${accent} 0%, ${accent}cc 100%)`,
-                            }}
-                          >
-                            <v.icon size={20} strokeWidth={1.6} />
-                          </div>
-                        </div>
-                      </div>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
                     </div>
                   </FadeUp>
                 );
-              };
-
-              return (
-                <ol className="list-none space-y-8 md:grid md:grid-cols-2 md:gap-x-0 md:gap-y-12">
-                  {values.map((v, i) => {
-                    const isLeft = i % 2 === 0;
-                    return (
-                      <li
-                        key={v.title}
-                        className={`${isLeft ? "md:col-start-1" : "md:col-start-2"} ${rowStartClasses[i]}`}
-                      >
-                        {renderItem(v, i, isLeft)}
-                      </li>
-                    );
-                  })}
-                </ol>
-              );
-            })()}
+              })}
+            </div>
           </div>
         </div>
       </section>
