@@ -13,7 +13,7 @@ export function PageHero({
   image: string;
   children?: ReactNode;
 }) {
-  const heightClass = "min-h-[70vh] md:min-h-[85vh]";
+  const heightClass = "min-h-[80vh] md:min-h-[90vh]";
   return (
     <section className={`relative ${heightClass} w-full overflow-hidden`}>
       <img
