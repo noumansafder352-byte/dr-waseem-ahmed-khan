@@ -191,18 +191,7 @@ function Contact() {
 
                 {/* Consultation Hours */}
                 <div className="relative">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <span className="h-px w-6 bg-[#19979C]" />
-                      <span className="text-[10px] font-semibold uppercase tracking-[0.26em] text-[#19979C]">
-                        Availability
-                      </span>
-                    </div>
-                    <span className="grid h-9 w-9 place-items-center rounded-xl border border-border/70 bg-white text-[#182F58] shadow-sm transition-transform duration-300 group-hover:rotate-[12deg]">
-                      <Clock size={15} />
-                    </span>
-                  </div>
-                  <h3 className="relative mt-2 text-xl font-semibold tracking-tight text-primary">
+                  <h3 className="relative text-xl font-semibold tracking-tight text-primary">
                     Consultation Hours
                   </h3>
 
