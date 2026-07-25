@@ -64,34 +64,9 @@ function Contact() {
         image={HERO}
       />
 
-      {/* Contact info */}
-      <section className="px-6 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { icon: MapPin, title: "Clinic", detail: "Rawalpindi, Pakistan" },
-              { icon: Phone, title: "Phone", detail: "+92 300 000 0000" },
-              { icon: Mail, title: "Email", detail: "info@drwaseemkhan.com" },
-              { icon: Clock, title: "Hours", detail: "Mon – Sat • 10 AM – 6 PM" },
-            ].map((c, i) => (
-              <FadeUp key={c.title} delay={i * 60}>
-                <div className="h-full rounded-2xl border border-border bg-white p-7 text-center shadow-premium">
-                  <div className="mx-auto grid h-12 w-12 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
-                    <c.icon size={22} />
-                  </div>
-                  <h3 className="mt-5 text-sm font-semibold uppercase tracking-wider text-primary">
-                    {c.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{c.detail}</p>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Appointment form + map */}
       <section id="appointment" className="scroll-mt-24 bg-[oklch(0.98_0.01_240)] px-6 py-24 md:px-8 md:py-32">
+
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-5">
           <FadeUp className="lg:col-span-3">
             <div className="rounded-3xl border border-border bg-white p-8 shadow-premium-lg md:p-12">
