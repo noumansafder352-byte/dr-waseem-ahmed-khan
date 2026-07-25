@@ -153,7 +153,7 @@ function Services() {
       />
 
       {/* Intro */}
-      <section className="px-6 py-20 md:px-8 md:py-28">
+      <section className="px-6 py-10 md:px-8 md:py-14">
         <FadeUp>
           <div className="mx-auto max-w-3xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
