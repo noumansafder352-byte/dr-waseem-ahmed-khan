@@ -317,7 +317,7 @@ function Services() {
       </section>
 
       {/* FAQ */}
-      <section className="relative px-6 py-20 md:px-8 md:py-28">
+      <section className="relative px-6 py-14 md:px-8 md:py-20">
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,#1F72B9_0%,transparent_70%)] opacity-[0.05]" />
         </div>
