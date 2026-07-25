@@ -119,23 +119,106 @@ function Services() {
       </section>
 
       {/* Service cards */}
-      <section className="bg-[oklch(0.98_0.01_240)] px-6 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((s, i) => (
-              <FadeUp key={s.title} delay={i * 50}>
-                <div className="group relative h-full overflow-hidden rounded-3xl border border-border bg-white p-8 shadow-premium transition-all duration-500 hover:-translate-y-1 hover:shadow-premium-lg">
-                  <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand-gradient opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-20" />
-                  <div className="relative">
-                    <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#eaf1fa] text-primary">
-                      <s.icon size={26} />
+      <section className="relative overflow-hidden bg-[oklch(0.985_0.008_240)] px-6 py-24 md:px-8 md:py-32">
+        {/* Decorative background accents */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-[#1F72B9]/5 blur-3xl" />
+          <div className="absolute -right-40 bottom-20 h-96 w-96 rounded-full bg-[#19979C]/5 blur-3xl" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl">
+          {/* Section header */}
+          <FadeUp>
+            <div className="mx-auto max-w-3xl text-center">
+              <div className="mx-auto flex items-center justify-center gap-3">
+                <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#19979C]" />
+                <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#19979C]">
+                  Surgical Expertise
+                </span>
+                <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#19979C]" />
+              </div>
+              <h2 className="mt-6 font-display text-4xl font-semibold leading-[1.1] tracking-tight text-primary md:text-5xl lg:text-[3.5rem]">
+                Our Surgical Services
+              </h2>
+              <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                A comprehensive range of general and laparoscopic surgical procedures,
+                delivered with advanced techniques and evidence-based, patient-centered care.
+              </p>
+              <div className="mx-auto mt-8 h-[3px] w-24 rounded-full bg-gradient-to-r from-[#182F58] via-[#1F72B9] to-[#19979C]" />
+            </div>
+          </FadeUp>
+
+          {/* Cards grid */}
+          <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((s, i) => {
+              const accents = ["#182F58", "#1F72B9", "#19979C", "#529542", "#1F72B9", "#19979C", "#182F58"];
+              const accent = accents[i % accents.length];
+              return (
+                <FadeUp key={s.title} delay={i * 60}>
+                  <div
+                    className="group relative h-full overflow-hidden rounded-3xl bg-white p-8 shadow-premium ring-1 ring-border/70 transition-all duration-[400ms] ease-out hover:-translate-y-2 hover:shadow-premium-lg hover:ring-transparent"
+                    style={{ ["--accent" as string]: accent }}
+                  >
+                    {/* Gradient border on hover */}
+                    <span
+                      className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100"
+                      style={{
+                        background: `linear-gradient(135deg, ${accent}, #19979C) border-box`,
+                        WebkitMask:
+                          "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+                        WebkitMaskComposite: "xor",
+                        maskComposite: "exclude",
+                        padding: "1.5px",
+                      }}
+                    />
+
+                    {/* Corner glow */}
+                    <span
+                      className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full opacity-0 blur-3xl transition-opacity duration-[400ms] group-hover:opacity-40"
+                      style={{ backgroundColor: accent }}
+                    />
+
+                    {/* Shimmer sweep */}
+                    <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-[900ms] ease-out group-hover:translate-x-full" />
+
+                    <div className="relative flex h-full flex-col">
+                      {/* Icon */}
+                      <div className="relative">
+                        <div
+                          className="grid h-16 w-16 place-items-center rounded-2xl bg-[#eaf1fa] text-primary transition-all duration-[400ms] ease-out group-hover:-rotate-6 group-hover:scale-110"
+                          style={{
+                            boxShadow: `0 0 0 0 ${accent}00`,
+                          }}
+                        >
+                          <s.icon
+                            size={28}
+                            className="transition-colors duration-[400ms]"
+                            style={{ color: accent }}
+                          />
+                        </div>
+                        <span
+                          className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 blur-xl transition-opacity duration-[400ms] group-hover:opacity-60"
+                          style={{ backgroundColor: accent }}
+                        />
+                      </div>
+
+                      <h3 className="mt-7 text-xl font-semibold text-primary transition-colors duration-[400ms]">
+                        {s.title}
+                      </h3>
+
+                      <div
+                        className="mt-3 h-[2px] w-10 rounded-full transition-all duration-[400ms] ease-out group-hover:w-20"
+                        style={{ backgroundColor: accent }}
+                      />
+
+                      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                        {s.desc}
+                      </p>
                     </div>
-                    <h3 className="mt-6 text-xl font-semibold text-primary">{s.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                   </div>
-                </div>
-              </FadeUp>
-            ))}
+                </FadeUp>
+              );
+            })}
           </div>
         </div>
       </section>
