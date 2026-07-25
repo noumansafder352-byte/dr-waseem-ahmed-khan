@@ -744,7 +744,7 @@ function Home() {
           </FadeUp>
           <div className="mt-12 space-y-3 md:space-y-4">
             {faqs.map((f, i) => (
-              <FaqItem key={i} index={i + 1} q={f.q} a={f.a} />
+              <FaqItem key={i} index={i + 1} q={f.q} a={f.a} defaultOpen={i === 0} />
             ))}
           </div>
         </div>
