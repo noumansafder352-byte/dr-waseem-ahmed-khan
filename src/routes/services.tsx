@@ -13,6 +13,7 @@ import {
   Syringe,
   CalendarCheck,
 } from "lucide-react";
+import thyroidSurgeryImage from "@/assets/thyroid-surgery.png.asset.json";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { FadeUp } from "@/components/site/FadeUp";
@@ -56,8 +57,7 @@ const services = [
     title: "Thyroid Surgery",
     tag: "Endocrine Precision",
     desc: "Precise thyroidectomy and thyroid nodule management for benign and malignant disease, with attention to voice preservation and cosmetic outcomes.",
-    image:
-      "https://images.unsplash.com/photo-1666214277657-e668a2183a34?auto=format&fit=crop&w=1200&q=80",
+    image: thyroidSurgeryImage.url,
   },
   {
     icon: HeartPulse,
