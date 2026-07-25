@@ -602,7 +602,7 @@ function About() {
 
               return (
                 <div className="grid gap-6 md:grid-cols-2 md:gap-x-0 md:gap-y-0">
-                  <ol className="space-y-10 md:space-y-16">
+                  <ol className="space-y-12 md:space-y-24">
                     {leftItems.map((v) => {
                       const originalIndex = values.indexOf(v);
                       return (
@@ -610,7 +610,7 @@ function About() {
                       );
                     })}
                   </ol>
-                  <ol className="space-y-10 md:mt-28 md:space-y-16">
+                  <ol className="space-y-12 md:mt-[6rem] md:space-y-24">
                     {rightItems.map((v) => {
                       const originalIndex = values.indexOf(v);
                       return (
