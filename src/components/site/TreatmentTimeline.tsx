@@ -10,7 +10,7 @@ const ACCENTS = ["#182F58", "#1F72B9", "#19979C", "#529542", "#1F72B9", "#19979C
 
 export function TreatmentTimeline({ steps }: { steps: Step[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const stepRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const stepRefs = useRef<Array<HTMLLIElement | null>>([]);
   const [visible, setVisible] = useState<boolean[]>(() => steps.map(() => false));
   const [progress, setProgress] = useState(0); // 0..1 of the connector line
 
