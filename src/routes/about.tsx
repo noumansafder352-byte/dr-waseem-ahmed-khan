@@ -115,7 +115,7 @@ function About() {
           }}
         />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-2 lg:gap-20">
+        <div className="relative mx-auto grid max-w-7xl items-start gap-16 lg:grid-cols-2 lg:gap-20">
           {/* Left — Content */}
           <div className="order-2 lg:order-1">
             <FadeUp>
@@ -132,22 +132,13 @@ function About() {
             </FadeUp>
 
             <FadeUp delay={100}>
-              <div className="mt-7 space-y-5 text-base leading-[1.9] text-muted-foreground md:text-[1.05rem]">
-                <p>
-                  Maj Gen (Rtd) Waseem Ahmad Khan, HI (M) has built a distinguished
-                  career through decades of advanced surgical education,
-                  professional training, and leadership in General and Laparoscopic
-                  Surgery. His internationally recognized qualifications, combined
-                  with extensive clinical experience, reflect a lifelong commitment
-                  to excellence in patient care, surgical innovation, and medical
-                  education.
-                </p>
-                <p>
-                  Every qualification represents a milestone in his pursuit of
-                  delivering safe, evidence-based, and modern surgical treatment
-                  while mentoring future generations of surgeons.
-                </p>
-              </div>
+              <p className="mt-7 max-w-xl text-base leading-[1.85] text-muted-foreground md:text-[1.05rem]">
+                Maj Gen (Rtd) Waseem Ahmad Khan, HI (M) has built a distinguished
+                surgical career through advanced training, internationally recognized
+                qualifications, and decades of leadership in General and Laparoscopic
+                Surgery. His credentials reflect a lifelong commitment to safe,
+                evidence-based patient care and the education of future surgeons.
+              </p>
             </FadeUp>
 
             <ul className="mt-10 space-y-4">
@@ -206,25 +197,34 @@ function About() {
           </div>
 
           {/* Right — Image */}
-          <FadeUp delay={80} className="order-1 lg:order-2">
-            <div className="group relative mx-auto max-w-[560px]">
-              {/* Decorative background shape */}
+          <FadeUp delay={80} className="order-1 lg:order-2 lg:sticky lg:top-28">
+            <div className="group relative mx-auto max-w-[580px] lg:max-w-none">
+              {/* Layered decorative backdrop */}
               <div
                 aria-hidden
-                className="absolute -inset-6 -z-10 rounded-[36px] opacity-70"
+                className="absolute -inset-5 -z-20 rounded-[40px]"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(31,114,185,0.10), rgba(25,151,156,0.10))",
+                    "linear-gradient(135deg, rgba(24,47,88,0.08) 0%, rgba(31,114,185,0.06) 50%, rgba(25,151,156,0.06) 100%)",
                 }}
               />
-              {/* Floating geometric accents */}
               <div
                 aria-hidden
-                className="absolute -left-5 -top-5 h-20 w-20 rounded-2xl border border-[#1F72B9]/30 bg-white/60 backdrop-blur"
+                className="absolute -inset-2 -z-10 rounded-[32px] border border-[#1F72B9]/10 bg-white/40 backdrop-blur-sm"
+              />
+
+              {/* Floating geometric accents — brand colors */}
+              <div
+                aria-hidden
+                className="absolute -left-7 top-1/4 h-16 w-16 rounded-2xl border border-[#1F72B9]/25 bg-white/70 shadow-premium backdrop-blur"
               />
               <div
                 aria-hidden
-                className="absolute -bottom-6 -right-5 h-24 w-24 rounded-full"
+                className="absolute -right-6 bottom-1/4 h-20 w-20 rounded-full border border-[#19979C]/20 bg-white/60 shadow-premium backdrop-blur"
+              />
+              <div
+                aria-hidden
+                className="absolute -bottom-4 left-10 h-28 w-28 rounded-full opacity-60"
                 style={{
                   background:
                     "radial-gradient(circle, rgba(82,149,66,0.18), transparent 70%)",
@@ -232,8 +232,41 @@ function About() {
               />
               <div
                 aria-hidden
-                className="absolute -right-3 top-10 h-3 w-3 rounded-full bg-[#19979C]"
+                className="absolute -top-3 right-16 h-4 w-4 rounded-full bg-[#529542]"
               />
+              <div
+                aria-hidden
+                className="absolute bottom-16 -left-4 h-3 w-3 rounded-full bg-[#19979C]"
+              />
+
+              {/* Premium floating badge */}
+              <div
+                className="absolute -right-4 top-10 z-20 rounded-2xl border border-white/60 bg-white/95 px-5 py-4 shadow-premium-lg backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-1"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-[#182F58] to-[#1F72B9] text-white shadow-premium">
+                    <Award size={22} strokeWidth={1.6} />
+                  </div>
+                  <div>
+                    <div className="font-serif text-xl font-semibold text-primary">30+</div>
+                    <div className="text-[0.72rem] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                      Years of Excellence
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Secondary floating badge */}
+              <div
+                className="absolute -left-3 bottom-16 z-20 rounded-full border border-white/60 bg-white/95 px-4 py-2.5 shadow-premium backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-0.5"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-[#529542]" />
+                  <span className="text-xs font-semibold tracking-wide text-primary">
+                    FACS — International Recognition
+                  </span>
+                </div>
+              </div>
 
               {/* Image frame */}
               <div
@@ -250,11 +283,11 @@ function About() {
                 <img
                   src="https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&w=1200&q=80"
                   alt="Consultant surgeon in clinical setting"
-                  className="h-[560px] w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
+                  className="h-[420px] w-full object-cover sm:h-[520px] md:h-[640px] lg:h-[680px] transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
                 />
                 <div
                   aria-hidden
-                  className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#182F58]/40 to-transparent"
+                  className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#182F58]/50 to-transparent"
                 />
               </div>
             </div>
