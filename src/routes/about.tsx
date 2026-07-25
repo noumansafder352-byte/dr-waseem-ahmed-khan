@@ -187,22 +187,10 @@ function About() {
                     </div>
                     <div className="flex-1">
                       <h3 className="inline-block font-serif text-[1.15rem] font-semibold leading-tight text-primary transition-all duration-[350ms] ease-out group-hover:text-[1.28rem]">
-                        <span className="relative inline-block">
-                          {q.code}
-                          <span
-                            aria-hidden
-                            className="absolute -bottom-0.5 left-0 h-px w-0 bg-[#182F58] transition-all duration-[350ms] ease-out group-hover:w-full"
-                          />
-                        </span>
+                        {q.code}
                       </h3>
                       <p className="mt-1.5 max-w-md text-sm leading-relaxed text-muted-foreground">
-                        <span className="relative inline">
-                          {q.desc}
-                          <span
-                            aria-hidden
-                            className="absolute -bottom-0.5 left-0 h-px w-0 bg-[#182F58] transition-all duration-[350ms] ease-out group-hover:w-full"
-                          />
-                        </span>
+                        {q.desc}
                       </p>
                     </div>
                   </li>
