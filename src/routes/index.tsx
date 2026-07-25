@@ -23,6 +23,8 @@ import {
   ArrowRight,
   Plus,
   Minus,
+  X,
+
   Microscope,
   Ribbon,
   Droplet,
@@ -719,21 +721,29 @@ function Home() {
       <Testimonials />
 
       {/* FAQ */}
-      <section className="px-6 py-20 md:px-8 md:py-24">
-        <div className="mx-auto max-w-4xl">
+      <section className="relative px-6 py-20 md:px-8 md:py-28">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,#1F72B9_0%,transparent_70%)] opacity-[0.05]" />
+        </div>
+        <div className="mx-auto max-w-3xl">
           <FadeUp>
             <div className="text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
-                FAQ
+              <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white/80 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-primary/70 shadow-sm backdrop-blur">
+                <span className="text-primary/50">010</span>
+                <span className="h-1 w-1 rounded-full bg-[#529542]" />
+                FAQs
               </span>
-              <h2 className="mt-4 text-4xl font-semibold text-primary md:text-5xl">
+              <h2 className="mt-5 font-serif text-4xl font-semibold tracking-tight text-primary md:text-5xl">
                 Frequently asked questions
               </h2>
+              <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground md:text-base">
+                Answers to the questions patients most often ask before their consultation.
+              </p>
             </div>
           </FadeUp>
-          <div className="mt-12 divide-y divide-border overflow-hidden rounded-3xl border border-border bg-white shadow-premium">
+          <div className="mt-12 space-y-3 md:space-y-4">
             {faqs.map((f, i) => (
-              <FaqItem key={i} q={f.q} a={f.a} />
+              <FaqItem key={i} index={i + 1} q={f.q} a={f.a} />
             ))}
           </div>
         </div>
@@ -745,29 +755,96 @@ function Home() {
   );
 }
 
-function FaqItem({ q, a }: { q: string; a: string }) {
+function FaqItem({ index, q, a }: { index: number; q: string; a: string }) {
   const [open, setOpen] = useState(false);
+  const num = String(index).padStart(2, "0");
   return (
-    <button
-      type="button"
-      onClick={() => setOpen((v) => !v)}
-      className="block w-full text-left"
-      aria-expanded={open}
+    <div
+      className={[
+        "group relative overflow-hidden rounded-[22px] border bg-white transition-all duration-[350ms] ease-out",
+        open
+          ? "border-transparent shadow-premium-lg [background:linear-gradient(#ffffff,#ffffff)_padding-box,linear-gradient(135deg,#182F58_0%,#1F72B9_45%,#19979C_100%)_border-box] border-[1.5px]"
+          : "border-border/70 shadow-sm hover:-translate-y-0.5 hover:shadow-premium",
+      ].join(" ")}
     >
-      <div className="flex items-start justify-between gap-6 px-8 py-6">
-        <span className="text-base font-medium text-primary md:text-lg">{q}</span>
-        <span className="mt-1 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-accent text-secondary">
-          {open ? <Minus size={16} /> : <Plus size={16} />}
-        </span>
-      </div>
       {open && (
-        <div className="px-8 pb-6 text-sm leading-relaxed text-muted-foreground md:text-base">
-          {a}
-        </div>
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-0 bg-[radial-gradient(120%_120%_at_0%_0%,rgba(31,114,185,0.05)_0%,rgba(25,151,156,0.035)_45%,transparent_75%)]"
+        />
       )}
-    </button>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="relative flex w-full items-center gap-4 px-5 py-5 text-left md:gap-6 md:px-7 md:py-6"
+        aria-expanded={open}
+      >
+        <span
+          className={[
+            "grid h-8 w-8 shrink-0 place-items-center rounded-full text-[11px] font-semibold tracking-wide transition-colors duration-[350ms] md:h-9 md:w-9 md:text-xs",
+            open
+              ? "bg-[#182F58] text-white"
+              : "bg-[#1F72B9]/[0.08] text-[#1F72B9] group-hover:bg-[#1F72B9]/[0.14]",
+          ].join(" ")}
+        >
+          {num}
+        </span>
+        <span
+          className={[
+            "flex-1 text-[15px] font-semibold tracking-tight transition-colors duration-[350ms] md:text-lg",
+            open ? "text-primary" : "text-primary/85 group-hover:text-primary",
+          ].join(" ")}
+        >
+          {q}
+        </span>
+        <span
+          className={[
+            "relative grid h-10 w-10 shrink-0 place-items-center rounded-full border transition-all duration-[350ms] md:h-11 md:w-11",
+            open
+              ? "border-transparent bg-[#182F58] text-white"
+              : "border-border/70 bg-white text-primary/70 group-hover:border-[#19979C]/40 group-hover:bg-[#19979C]/[0.06] group-hover:text-[#19979C]",
+          ].join(" ")}
+        >
+          <Plus
+            size={18}
+            strokeWidth={2}
+            className={[
+              "absolute transition-all duration-[350ms] ease-out",
+              open ? "rotate-45 scale-0 opacity-0" : "rotate-0 scale-100 opacity-100",
+            ].join(" ")}
+          />
+          <X
+            size={18}
+            strokeWidth={2}
+            className={[
+              "absolute transition-all duration-[350ms] ease-out",
+              open ? "rotate-0 scale-100 opacity-100" : "-rotate-45 scale-0 opacity-0",
+            ].join(" ")}
+          />
+        </span>
+      </button>
+      <div
+        className={[
+          "grid transition-[grid-template-rows,opacity] duration-[400ms] ease-out",
+          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+        ].join(" ")}
+      >
+        <div className="overflow-hidden">
+          <div
+            className={[
+              "px-5 pb-6 pl-[4.25rem] pr-5 text-[14.5px] leading-[1.75] text-muted-foreground transition-transform duration-[400ms] ease-out md:pl-[4.75rem] md:pr-16 md:text-[15.5px]",
+              open ? "translate-y-0" : "-translate-y-1",
+            ].join(" ")}
+          >
+            <div className="mb-4 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
+            {a}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
+
 
 const testimonials = [
   {
