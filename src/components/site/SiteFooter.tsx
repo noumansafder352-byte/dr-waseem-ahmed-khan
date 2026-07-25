@@ -80,7 +80,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <></>
+          
             <FooterColumn title="Quick Links">
               {([
                 { to: "/", label: "Home" },
