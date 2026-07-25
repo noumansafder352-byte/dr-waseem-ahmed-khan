@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { MapPin, Phone, Mail, Clock, CheckCircle2 } from "lucide-react";
+import { Clock, CheckCircle2 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { FadeUp } from "@/components/site/FadeUp";
@@ -148,16 +148,34 @@ function Contact() {
 
                   <ul className="relative mt-4 space-y-3 text-sm">
                     {[
-                      { icon: MapPin, label: "Rawalpindi, Pakistan", tint: "#1F72B9" },
-                      { icon: Phone, label: "+92 300 000 0000", tint: "#19979C" },
-                      { icon: Mail, label: "info@drwaseemkhan.com", tint: "#529542" },
-                    ].map(({ icon: Icon, label, tint }) => (
+                      {
+                        label: "Rawalpindi, Pakistan",
+                        icon: (
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                          </svg>
+                        ),
+                      },
+                      {
+                        label: "+92 300 000 0000",
+                        icon: (
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                          </svg>
+                        ),
+                      },
+                      {
+                        label: "info@drwaseemkhan.com",
+                        icon: (
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                          </svg>
+                        ),
+                      },
+                    ].map(({ icon, label }) => (
                       <li key={label} className="flex items-center gap-3">
-                        <span
-                          className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-border/70 bg-white text-primary shadow-sm transition-all duration-300 group-hover:-translate-y-0.5"
-                          style={{ color: tint }}
-                        >
-                          <Icon size={15} />
+                        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white text-[#529542] shadow-sm transition-all duration-300 group-hover:-translate-y-0.5">
+                          {icon}
                         </span>
                         <span className="font-medium text-primary/90">{label}</span>
                       </li>
@@ -173,18 +191,7 @@ function Contact() {
 
                 {/* Consultation Hours */}
                 <div className="relative">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <span className="h-px w-6 bg-[#19979C]" />
-                      <span className="text-[10px] font-semibold uppercase tracking-[0.26em] text-[#19979C]">
-                        Availability
-                      </span>
-                    </div>
-                    <span className="grid h-9 w-9 place-items-center rounded-xl border border-border/70 bg-white text-[#182F58] shadow-sm transition-transform duration-300 group-hover:rotate-[12deg]">
-                      <Clock size={15} />
-                    </span>
-                  </div>
-                  <h3 className="relative mt-2 text-xl font-semibold tracking-tight text-primary">
+                  <h3 className="relative text-xl font-semibold tracking-tight text-primary">
                     Consultation Hours
                   </h3>
 
@@ -211,7 +218,7 @@ function Contact() {
                 <iframe
                   title="Clinic Location"
                   src="https://www.google.com/maps?q=Rawalpindi,Pakistan&output=embed"
-                  className="h-48 w-full"
+                  className="h-64 w-full"
                   loading="lazy"
                 />
               </div>
