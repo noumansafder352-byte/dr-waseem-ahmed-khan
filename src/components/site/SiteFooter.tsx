@@ -132,8 +132,8 @@ export function SiteFooter() {
                 </ContactItem>
               </ul>
             </div>
-          </div>
         </div>
+
 
 
         <div className="mt-7 flex flex-col justify-between gap-3 text-[12px] text-primary-foreground/58 md:flex-row md:items-center">
