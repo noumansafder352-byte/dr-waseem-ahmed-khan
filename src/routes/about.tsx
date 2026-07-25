@@ -221,7 +221,7 @@ function About() {
       </section>
 
       {/* Leadership & Experience — Executive Journey */}
-      <section className="relative overflow-hidden px-6 pt-24 pb-32 md:px-8 md:pt-32 md:pb-44">
+      <section className="relative overflow-hidden px-6 pt-16 pb-32 md:px-8 md:pt-20 md:pb-44">
 
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f7fafd] to-white" />
         <div
