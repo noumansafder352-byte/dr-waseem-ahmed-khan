@@ -13,6 +13,7 @@ import {
   Syringe,
   CalendarCheck,
 } from "lucide-react";
+import thyroidSurgeryImage from "@/assets/thyroid-surgery.png.asset.json";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { FadeUp } from "@/components/site/FadeUp";
