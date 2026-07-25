@@ -43,20 +43,20 @@ export function SiteFooter() {
       />
 
       <div className="relative mx-auto max-w-[1280px] px-6 pb-8 pt-20 md:px-10 md:pt-24 lg:px-12">
-        <div className="grid gap-12 border-b border-primary-foreground/12 pb-14 lg:grid-cols-[0.95fr_2.5fr] lg:gap-20">
-          <div className="max-w-xl">
+        <div className="grid gap-12 border-b border-primary-foreground/12 pb-14 sm:grid-cols-2 lg:grid-cols-4 lg:items-start lg:gap-12">
+          <div className="flex flex-col">
             <img
               src={logo.url}
               alt="Dr. Waseem Ahmad Khan — General & Laparoscopic Surgeon"
-              className="h-28 w-auto md:h-32"
+              className="-mt-2 h-20 w-auto md:h-24"
               draggable={false}
             />
-            <p className="mt-7 max-w-md text-[14px] leading-[1.9] text-primary-foreground/72">
+            <p className="mt-6 max-w-xs text-[14px] leading-[1.9] text-primary-foreground/72">
               Distinguished surgical care led by Maj Gen (Rtd) Waseem Ahmad Khan,
               combining decades of operative experience with precise, compassionate
               patient care.
             </p>
-            <div className="mt-8 flex items-center gap-3">
+            <div className="mt-7 flex items-center gap-3">
               {[
                 { Icon: Facebook, label: "Facebook", href: "https://facebook.com" },
                 { Icon: Instagram, label: "Instagram", href: "https://instagram.com" },
@@ -80,7 +80,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-16">
+          <></>
             <FooterColumn title="Quick Links">
               {([
                 { to: "/", label: "Home" },
