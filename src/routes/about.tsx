@@ -602,7 +602,7 @@ function About() {
               };
 
               return (
-                <ol className="list-none space-y-12 md:grid md:grid-cols-2 md:gap-x-0 md:gap-y-16">
+                <ol className="list-none space-y-8 md:grid md:grid-cols-2 md:gap-x-0 md:gap-y-12">
                   {values.map((v, i) => {
                     const isLeft = i % 2 === 0;
                     return (
