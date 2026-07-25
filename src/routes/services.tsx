@@ -247,34 +247,39 @@ function Services() {
         </div>
       </section>
 
-      {/* Process timeline */}
-      <section className="px-6 py-24 md:px-8 md:py-32">
-        <div className="mx-auto max-w-7xl">
+      {/* Treatment Process — premium animated timeline */}
+      <section className="relative overflow-hidden px-6 py-24 md:px-8 md:py-32">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.35]"
+          style={{
+            background:
+              "radial-gradient(60% 40% at 50% 0%, rgba(31,114,185,0.06) 0%, transparent 70%), radial-gradient(50% 40% at 50% 100%, rgba(25,151,156,0.05) 0%, transparent 70%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl">
           <FadeUp>
             <div className="mx-auto max-w-2xl text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
-                Treatment Process
-              </span>
-              <h2 className="mt-4 text-4xl font-semibold text-primary md:text-5xl">
+              <div className="mx-auto flex items-center justify-center gap-3">
+                <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#19979C]" />
+                <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#19979C]">
+                  Patient Journey
+                </span>
+                <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#19979C]" />
+              </div>
+              <h2 className="mt-6 font-display text-4xl font-semibold text-primary md:text-5xl">
                 From consultation to complete recovery
               </h2>
+              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
+                A carefully guided pathway — every stage designed around clarity,
+                safety, and your comfort.
+              </p>
+              <div className="mx-auto mt-8 h-[3px] w-24 rounded-full bg-gradient-to-r from-[#182F58] via-[#1F72B9] to-[#19979C]" />
             </div>
           </FadeUp>
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {process.map((p, i) => (
-              <FadeUp key={p.title} delay={i * 60}>
-                <div className="h-full rounded-2xl border border-border bg-white p-7 shadow-premium">
-                  <div className="flex items-center gap-4">
-                    <div className="grid h-12 w-12 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
-                      <p.icon size={22} />
-                    </div>
-                    <span className="font-serif text-2xl text-primary/25">0{i + 1}</span>
-                  </div>
-                  <h3 className="mt-5 text-lg font-semibold text-primary">{p.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
-                </div>
-              </FadeUp>
-            ))}
+
+          <div className="mt-20">
+            <TreatmentTimeline steps={process} />
           </div>
         </div>
       </section>
