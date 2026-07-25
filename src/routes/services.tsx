@@ -19,6 +19,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { FadeUp } from "@/components/site/FadeUp";
 import { CtaBand } from "@/components/site/CtaBand";
 import { TreatmentTimeline } from "@/components/site/TreatmentTimeline";
+import { FaqItem } from "@/components/site/FaqItem";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -108,6 +109,37 @@ const process = [
   { icon: Syringe, title: "Surgery", desc: "Safe, precise, modern surgical technique." },
   { icon: HeartPulse, title: "Recovery", desc: "Guided post-operative recovery and support." },
   { icon: CalendarCheck, title: "Follow-Up", desc: "Ongoing follow-up to ensure the best outcome." },
+];
+
+const serviceFaqs = [
+  {
+    q: "What conditions are treated under General Surgery?",
+    a: "General Surgery covers a wide range of conditions, including hernias, gallbladder disease, appendix problems, breast conditions, thyroid disorders, and other abdominal surgical conditions.",
+  },
+  {
+    q: "When is thyroid surgery recommended?",
+    a: "Thyroid surgery may be recommended for thyroid nodules, goiter, hyperthyroidism, or when thyroid cancer is suspected or confirmed.",
+  },
+  {
+    q: "Do all breast lumps require surgery?",
+    a: "No. Many breast lumps are benign. A thorough examination and appropriate investigations help determine whether surgery is necessary.",
+  },
+  {
+    q: "What are the common symptoms of gallbladder disease?",
+    a: "Common symptoms include pain in the upper right abdomen, nausea, vomiting, bloating, and discomfort after eating fatty meals.",
+  },
+  {
+    q: "Can a hernia heal without surgery?",
+    a: "No. Hernias do not heal on their own and usually require surgical repair to prevent complications.",
+  },
+  {
+    q: "What are the warning signs of appendicitis?",
+    a: "Severe pain in the lower right abdomen, fever, nausea, vomiting, and loss of appetite are common signs that require immediate medical attention.",
+  },
+  {
+    q: "When should I seek treatment for varicose veins?",
+    a: "You should seek treatment if you experience pain, swelling, heaviness, skin changes, or if the veins interfere with your daily activities.",
+  },
 ];
 
 function Services() {
@@ -284,7 +316,37 @@ function Services() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="relative px-6 py-20 md:px-8 md:py-28">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,#1F72B9_0%,transparent_70%)] opacity-[0.05]" />
+        </div>
+        <div className="mx-auto max-w-3xl">
+          <FadeUp>
+            <div className="text-center">
+              <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white/80 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-primary/70 shadow-sm backdrop-blur">
+                <span className="text-primary/50">011</span>
+                <span className="h-1 w-1 rounded-full bg-[#529542]" />
+                FAQs
+              </span>
+              <h2 className="mt-5 font-serif text-4xl font-semibold tracking-tight text-primary md:text-5xl">
+                Frequently asked questions
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground md:text-base">
+                Answers to common questions about our surgical services and procedures.
+              </p>
+            </div>
+          </FadeUp>
+          <div className="mt-12 space-y-3 md:space-y-4">
+            {serviceFaqs.map((f, i) => (
+              <FaqItem key={i} index={i + 1} q={f.q} a={f.a} defaultOpen={i === 0} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <CtaBand />
+
     </SiteLayout>
   );
 }

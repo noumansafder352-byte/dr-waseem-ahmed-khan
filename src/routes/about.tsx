@@ -187,22 +187,10 @@ function About() {
                     </div>
                     <div className="flex-1">
                       <h3 className="inline-block font-serif text-[1.15rem] font-semibold leading-tight text-primary transition-all duration-[350ms] ease-out group-hover:text-[1.28rem]">
-                        <span className="relative inline-block">
-                          {q.code}
-                          <span
-                            aria-hidden
-                            className="absolute -bottom-0.5 left-0 h-px w-0 bg-[#182F58] transition-all duration-[350ms] ease-out group-hover:w-full"
-                          />
-                        </span>
+                        {q.code}
                       </h3>
                       <p className="mt-1.5 max-w-md text-sm leading-relaxed text-muted-foreground">
-                        <span className="relative inline">
-                          {q.desc}
-                          <span
-                            aria-hidden
-                            className="absolute -bottom-0.5 left-0 h-px w-0 bg-[#182F58] transition-all duration-[350ms] ease-out group-hover:w-full"
-                          />
-                        </span>
+                        {q.desc}
                       </p>
                     </div>
                   </li>
@@ -233,7 +221,8 @@ function About() {
       </section>
 
       {/* Leadership & Experience — Executive Journey */}
-      <section className="relative overflow-hidden px-6 py-24 md:px-8 md:py-32">
+      <section className="relative overflow-hidden px-6 pt-24 pb-32 md:px-8 md:pt-32 md:pb-44">
+
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f7fafd] to-white" />
         <div
           className="absolute inset-0 opacity-[0.4]"
@@ -446,7 +435,7 @@ function About() {
       </section>
 
       {/* Core Values — bespoke editorial roster */}
-      <section className="relative overflow-hidden bg-white px-6 py-24 md:px-8 md:py-32">
+      <section className="relative overflow-hidden bg-white px-6 pt-24 pb-14 md:px-8 md:pt-32 md:pb-20">
         {/* Subtle ambient wash */}
         <div
           aria-hidden
