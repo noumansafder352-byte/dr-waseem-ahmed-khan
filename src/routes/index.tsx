@@ -37,6 +37,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { FadeUp } from "@/components/site/FadeUp";
 import { CtaBand } from "@/components/site/CtaBand";
+import { FaqItem } from "@/components/site/FaqItem";
 
 export const Route = createFileRoute("/")({
   head: () => ({
