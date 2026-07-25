@@ -446,126 +446,109 @@ function About() {
         </div>
       </section>
 
-      {/* Core Values — editorial two-column composition */}
-      <section className="relative overflow-hidden px-6 py-20 md:px-8 md:py-28">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f7fafd] to-white" />
+      {/* Core Values — bespoke editorial roster */}
+      <section className="relative overflow-hidden bg-white px-6 py-24 md:px-8 md:py-32">
+        {/* Subtle ambient wash */}
         <div
-          className="absolute inset-0 opacity-[0.5]"
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-60"
           style={{
             backgroundImage:
-              "radial-gradient(ellipse 60% 40% at 50% 40%, rgba(31,114,185,0.06), transparent 60%), radial-gradient(ellipse 55% 45% at 50% 70%, rgba(25,151,156,0.06), transparent 60%)",
+              "radial-gradient(ellipse 50% 40% at 15% 20%, rgba(31,114,185,0.05), transparent 60%), radial-gradient(ellipse 45% 40% at 90% 85%, rgba(25,151,156,0.05), transparent 60%)",
           }}
         />
+        {/* Oversized serif watermark */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-8 top-16 hidden select-none font-serif text-[16rem] font-semibold leading-none text-primary/[0.03] lg:block"
+        >
+          Values
+        </div>
 
         <div className="relative mx-auto max-w-7xl">
-          <FadeUp>
-            <div className="mx-auto max-w-2xl text-center">
-              <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-1.5 shadow-premium backdrop-blur">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#19979C]" />
-                <span className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-primary">
-                  Core Values
-                </span>
-              </div>
-              <h2 className="mt-6 font-serif text-4xl font-semibold leading-[1.1] text-primary md:text-6xl">
-                The principles that guide{" "}
-                <em className="italic font-normal text-[#19979C]">our practice</em>
-              </h2>
-              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
-                Six commitments that shape every consultation, every decision, and every outcome.
-              </p>
-            </div>
-          </FadeUp>
-
-          {/* Desktop / tablet editorial two-column layout */}
-          <div className="relative mx-auto mt-16 hidden max-w-5xl grid-cols-2 gap-x-12 md:grid lg:gap-x-16">
-            {/* Vertical divider with central node */}
-            <div aria-hidden className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-border to-transparent" />
-            <div aria-hidden className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full border border-border bg-background" />
-
-            {/* Left column */}
-            <div className="space-y-8 lg:space-y-10">
-              {values.slice(0, 3).map((v, i) => {
-                const Icon = v.icon;
-                const accent = valueAccents[i];
-                return (
-                  <FadeUp key={v.title} delay={100 + i * 100}>
-                    <div className="group relative rounded-2xl border border-border bg-white p-6 shadow-premium transition-all duration-[400ms] ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-premium-lg">
-                      <div className="flex items-start gap-5">
-                        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110" style={{ backgroundColor: accent }}>
-                          <Icon size={22} strokeWidth={1.6} />
-                        </div>
-                        <div className="min-w-0">
-                          <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
-                            0{i + 1}
-                          </span>
-                          <h3 className="mt-1 font-serif text-xl font-semibold text-primary transition-colors duration-[400ms] group-hover:text-[var(--accent)]" style={{ ["--accent" as never]: accent }}>
-                            {v.title}
-                          </h3>
-                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </FadeUp>
-                );
-              })}
-            </div>
-
-            {/* Right column (staggered down) */}
-            <div className="space-y-8 lg:space-y-10 md:mt-12">
-              {values.slice(3).map((v, i) => {
-                const Icon = v.icon;
-                const accent = valueAccents[i + 3];
-                return (
-                  <FadeUp key={v.title} delay={200 + i * 100}>
-                    <div className="group relative rounded-2xl border border-border bg-white p-6 shadow-premium transition-all duration-[400ms] ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-premium-lg">
-                      <div className="flex items-start gap-5">
-                        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110" style={{ backgroundColor: accent }}>
-                          <Icon size={22} strokeWidth={1.6} />
-                        </div>
-                        <div className="min-w-0">
-                          <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
-                            0{i + 4}
-                          </span>
-                          <h3 className="mt-1 font-serif text-xl font-semibold text-primary transition-colors duration-[400ms] group-hover:text-[var(--accent)]" style={{ ["--accent" as never]: accent }}>
-                            {v.title}
-                          </h3>
-                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </FadeUp>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Mobile single-column */}
-          <div className="mt-12 space-y-6 md:hidden">
-            {values.map((v, i) => {
-              const Icon = v.icon;
-              const accent = valueAccents[i];
-              return (
-                <FadeUp key={v.title} delay={80 + i * 70}>
-                  <div className="group relative rounded-2xl border border-border bg-white p-5 shadow-premium transition-all duration-[400ms] hover:-translate-y-1 hover:border-transparent hover:shadow-premium-lg">
-                    <div className="flex items-start gap-4">
-                      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110" style={{ backgroundColor: accent }}>
-                        <Icon size={20} strokeWidth={1.6} />
-                      </div>
-                      <div className="min-w-0">
-                        <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
-                          0{i + 1}
-                        </span>
-                        <h3 className="mt-1 font-serif text-lg font-semibold text-primary">{v.title}</h3>
-                        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
-                      </div>
-                    </div>
+          <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
+            {/* Left — sticky editorial header */}
+            <div className="lg:col-span-4">
+              <div className="lg:sticky lg:top-32">
+                <FadeUp>
+                  <div className="inline-flex items-center gap-3">
+                    <span className="h-px w-10 bg-[#19979C]" />
+                    <span className="text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-primary">
+                      Core Values
+                    </span>
+                  </div>
+                  <h2 className="mt-6 font-serif text-4xl font-semibold leading-[1.05] text-primary md:text-5xl lg:text-[3.5rem]">
+                    The principles that guide{" "}
+                    <em className="italic font-normal text-[#19979C]">our practice</em>
+                  </h2>
+                  <p className="mt-6 max-w-md text-base leading-[1.8] text-muted-foreground">
+                    Six commitments that shape every consultation, every clinical
+                    decision, and every surgical outcome — the quiet standards
+                    behind three decades of trusted care.
+                  </p>
+                  <div className="mt-10 flex items-center gap-4">
+                    <span className="font-serif text-5xl font-semibold text-primary">06</span>
+                    <span className="max-w-[10rem] text-xs uppercase tracking-[0.24em] text-muted-foreground">
+                      Guiding<br />Principles
+                    </span>
                   </div>
                 </FadeUp>
-              );
-            })}
+              </div>
+            </div>
+
+            {/* Right — hairline-divided roster */}
+            <div className="lg:col-span-8">
+              <ul className="border-t border-border/70">
+                {values.map((v, i) => {
+                  const Icon = v.icon;
+                  const accent = valueAccents[i];
+                  const num = String(i + 1).padStart(2, "0");
+                  return (
+                    <FadeUp key={v.title} delay={80 + i * 90}>
+                      <li
+                        className="group relative border-b border-border/70"
+                        style={{ ["--accent" as never]: accent }}
+                      >
+                        {/* Left accent bar that grows in on hover */}
+                        <span
+                          aria-hidden
+                          className="pointer-events-none absolute left-0 top-1/2 h-0 w-[2px] -translate-y-1/2 bg-[var(--accent)] transition-all duration-[400ms] ease-out group-hover:h-[70%]"
+                        />
+                        <div className="grid grid-cols-[auto_1fr_auto] items-center gap-6 py-7 pl-6 pr-2 transition-colors duration-[400ms] md:gap-10 md:py-9 md:pl-8">
+                          {/* Numeric index */}
+                          <span className="font-serif text-2xl font-medium italic text-muted-foreground/70 transition-colors duration-[400ms] group-hover:text-[var(--accent)] md:text-3xl">
+                            {num}
+                          </span>
+
+                          {/* Title + description */}
+                          <div className="min-w-0">
+                            <h3 className="font-serif text-xl font-semibold tracking-tight text-primary transition-colors duration-[400ms] group-hover:text-[var(--accent)] md:text-2xl">
+                              {v.title}
+                            </h3>
+                            <p className="mt-2 max-w-xl text-sm leading-[1.75] text-muted-foreground md:text-[0.95rem]">
+                              {v.desc}
+                            </p>
+                          </div>
+
+                          {/* Icon medallion */}
+                          <div className="relative shrink-0">
+                            <div
+                              className="grid h-14 w-14 place-items-center rounded-full border border-border/80 bg-white text-[var(--accent)] transition-all duration-[400ms] ease-out group-hover:border-transparent group-hover:bg-[var(--accent)] group-hover:text-white group-hover:shadow-[0_10px_30px_-10px_var(--accent)] md:h-16 md:w-16"
+                            >
+                              <Icon size={22} strokeWidth={1.5} />
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </FadeUp>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
+
 
       <CtaBand />
     </SiteLayout>
