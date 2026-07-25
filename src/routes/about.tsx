@@ -446,7 +446,7 @@ function About() {
         </div>
       </section>
 
-      {/* Core Values — radial orbit composition */}
+      {/* Core Values — editorial two-column composition */}
       <section className="relative overflow-hidden px-6 py-20 md:px-8 md:py-28">
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f7fafd] to-white" />
         <div
