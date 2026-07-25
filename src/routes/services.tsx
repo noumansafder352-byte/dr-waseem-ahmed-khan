@@ -111,6 +111,37 @@ const process = [
   { icon: CalendarCheck, title: "Follow-Up", desc: "Ongoing follow-up to ensure the best outcome." },
 ];
 
+const serviceFaqs = [
+  {
+    q: "What conditions are treated under General Surgery?",
+    a: "General Surgery covers a wide range of conditions, including hernias, gallbladder disease, appendix problems, breast conditions, thyroid disorders, and other abdominal surgical conditions.",
+  },
+  {
+    q: "When is thyroid surgery recommended?",
+    a: "Thyroid surgery may be recommended for thyroid nodules, goiter, hyperthyroidism, or when thyroid cancer is suspected or confirmed.",
+  },
+  {
+    q: "Do all breast lumps require surgery?",
+    a: "No. Many breast lumps are benign. A thorough examination and appropriate investigations help determine whether surgery is necessary.",
+  },
+  {
+    q: "What are the common symptoms of gallbladder disease?",
+    a: "Common symptoms include pain in the upper right abdomen, nausea, vomiting, bloating, and discomfort after eating fatty meals.",
+  },
+  {
+    q: "Can a hernia heal without surgery?",
+    a: "No. Hernias do not heal on their own and usually require surgical repair to prevent complications.",
+  },
+  {
+    q: "What are the warning signs of appendicitis?",
+    a: "Severe pain in the lower right abdomen, fever, nausea, vomiting, and loss of appetite are common signs that require immediate medical attention.",
+  },
+  {
+    q: "When should I seek treatment for varicose veins?",
+    a: "You should seek treatment if you experience pain, swelling, heaviness, skin changes, or if the veins interfere with your daily activities.",
+  },
+];
+
 function Services() {
   return (
     <SiteLayout transparentHeader>
