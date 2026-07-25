@@ -114,20 +114,20 @@ export function SiteFooter() {
             <div className="sm:col-span-2 lg:col-span-1">
               <FooterHeading>Contact</FooterHeading>
               <ul className="mt-7 space-y-4 text-[14px] text-primary-foreground/70">
-                <ContactItem icon={<MapPin size={15} strokeWidth={1.75} />}>
+                <ContactItem icon={<MapPin size={13} strokeWidth={1.75} />}>
                   Rawalpindi, Pakistan
                 </ContactItem>
-                <ContactItem icon={<Phone size={15} strokeWidth={1.75} />}>
+                <ContactItem icon={<Phone size={13} strokeWidth={1.75} />}>
                   <a href="tel:+923000000000" className="transition-colors hover:text-primary-foreground">
                     +92 300 000 0000
                   </a>
                 </ContactItem>
-                <ContactItem icon={<Mail size={15} strokeWidth={1.75} />}>
+                <ContactItem icon={<Mail size={13} strokeWidth={1.75} />}>
                   <a href="mailto:info@drwaseemkhan.com" className="transition-colors hover:text-primary-foreground">
                     info@drwaseemkhan.com
                   </a>
                 </ContactItem>
-                <ContactItem icon={<Clock size={15} strokeWidth={1.75} />}>
+                <ContactItem icon={<Clock size={13} strokeWidth={1.75} />}>
                   Mon – Sat: 10:00 AM – 6:00 PM
                 </ContactItem>
               </ul>
