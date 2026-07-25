@@ -12,7 +12,8 @@ export function TreatmentTimeline({ steps }: { steps: Step[] }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<Array<HTMLLIElement | null>>([]);
   const [visible, setVisible] = useState<boolean[]>(() => steps.map(() => false));
-  const [progress, setProgress] = useState(0); // 0..1 of the connector line
+  const [progress, setProgress] = useState(0);
+  const [activeHover, setActiveHover] = useState<number | null>(null);
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -51,119 +52,163 @@ export function TreatmentTimeline({ steps }: { steps: Step[] }) {
     };
   }, []);
 
-  const activeIndex = Math.min(
-    steps.length - 1,
-    Math.max(0, visible.lastIndexOf(true)),
-  );
+  const scrolledCount = visible.filter(Boolean).length;
+  const activeIndex =
+    activeHover ?? Math.max(0, Math.min(steps.length - 1, scrolledCount - 1));
 
   return (
-    <div ref={containerRef} className="relative mx-auto max-w-3xl">
-      {/* Rail (base) */}
-      <div
-        aria-hidden
-        className="absolute left-[27px] top-2 bottom-2 w-[2px] rounded-full bg-border md:left-1/2 md:-translate-x-1/2"
-      />
-      {/* Rail (progress) */}
-      <div
-        aria-hidden
-        className="absolute left-[27px] top-2 w-[2px] rounded-full md:left-1/2 md:-translate-x-1/2"
-        style={{
-          height: `calc(${progress * 100}% - 4px)`,
-          background:
-            "linear-gradient(to bottom, #182F58 0%, #1F72B9 40%, #19979C 75%, #529542 100%)",
-          transition: "height 400ms ease-out",
-          boxShadow: "0 0 12px rgba(31,114,185,0.35)",
-        }}
-      />
+    <div ref={containerRef} className="relative">
+      {/* ============ DESKTOP / TABLET: horizontal timeline ============ */}
+      <div className="hidden md:block">
+        <ol className="relative grid" style={{ gridTemplateColumns: `repeat(${steps.length}, minmax(0, 1fr))` }}>
+          {/* Rail base */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-0 right-0 h-[2px] rounded-full bg-border"
+            style={{ top: "44px" }}
+          />
+          {/* Rail progress */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-0 h-[2px] rounded-full"
+            style={{
+              top: "44px",
+              width: `${progress * 100}%`,
+              background:
+                "linear-gradient(to right, #182F58 0%, #1F72B9 40%, #19979C 75%, #529542 100%)",
+              transition: "width 500ms ease-out",
+              boxShadow: "0 0 12px rgba(31,114,185,0.35)",
+            }}
+          />
 
-      <ol className="relative space-y-10 md:space-y-16">
-        {steps.map((s, i) => {
-          const accent = ACCENTS[i % ACCENTS.length];
-          const isVisible = visible[i];
-          const isActive = i === activeIndex;
-          const alignRight = i % 2 === 1; // desktop side alternation
-          return (
-            <li
-              key={s.title}
-              ref={(el) => {
-                stepRefs.current[i] = el;
-              }}
-              data-idx={i}
-              className={`relative flex items-start gap-6 md:grid md:grid-cols-2 md:gap-0 ${
-                alignRight ? "md:[&>*:first-child]:col-start-2" : ""
-              }`}
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateY(0)" : "translateY(24px)",
-                transition:
-                  "opacity 600ms ease-out, transform 600ms ease-out",
-                transitionDelay: `${i * 40}ms`,
-              }}
-            >
-              {/* Node (mobile: left, desktop: centered on rail) */}
-              <span
-                aria-hidden
-                className="absolute left-0 top-2 z-10 grid h-14 w-14 place-items-center rounded-full bg-white ring-1 ring-border md:left-1/2 md:-translate-x-1/2"
+          {steps.map((s, i) => {
+            const accent = ACCENTS[i % ACCENTS.length];
+            const isVisible = visible[i];
+            const isActive = i === activeIndex;
+            return (
+              <li
+                key={s.title}
+                ref={(el) => {
+                  stepRefs.current[i] = el;
+                }}
+                data-idx={i}
+                onMouseEnter={() => setActiveHover(i)}
+                onMouseLeave={() => setActiveHover(null)}
+                className="relative flex flex-col items-center px-3 text-center"
                 style={{
-                  boxShadow: isActive
-                    ? `0 0 0 4px ${accent}22, 0 10px 24px -8px ${accent}66`
-                    : "0 4px 12px -6px rgba(24,47,88,0.15)",
-                  transition: "box-shadow 400ms ease-out",
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? "translateY(0)" : "translateY(16px)",
+                  transition: "opacity 500ms ease-out, transform 500ms ease-out",
+                  transitionDelay: `${i * 80}ms`,
                 }}
               >
+                {/* Node */}
                 <span
-                  className="grid h-10 w-10 place-items-center rounded-full transition-transform duration-[400ms] ease-out"
+                  aria-hidden
+                  className="relative z-10 grid h-[88px] w-[88px] place-items-center rounded-full bg-white ring-1 ring-border transition-[box-shadow,transform] duration-[400ms] ease-out"
                   style={{
-                    backgroundColor: `${accent}14`,
-                    color: accent,
-                    transform: isActive ? "scale(1.08)" : "scale(1)",
+                    boxShadow: isActive
+                      ? `0 0 0 6px ${accent}1f, 0 14px 30px -10px ${accent}66`
+                      : "0 6px 16px -8px rgba(24,47,88,0.18)",
+                    transform: isActive ? "translateY(-2px)" : "translateY(0)",
                   }}
                 >
-                  <s.icon size={20} />
-                </span>
-              </span>
-
-              {/* Card */}
-              <div
-                className={`ml-20 flex-1 md:ml-0 ${
-                  alignRight ? "md:pl-16 md:text-left" : "md:pr-16 md:text-right"
-                }`}
-              >
-                <div
-                  className="group relative overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-premium transition-[transform,box-shadow] duration-[400ms] ease-out hover:-translate-y-0.5 hover:shadow-premium-lg md:p-7"
-                >
                   <span
-                    aria-hidden
-                    className={`absolute top-0 h-[3px] w-16 rounded-full transition-[width] duration-[400ms] ease-out group-hover:w-28 ${
-                      alignRight ? "left-0" : "right-0"
-                    }`}
-                    style={{ backgroundColor: accent }}
-                  />
-                  <div
-                    className={`flex items-center gap-3 ${
-                      alignRight ? "" : "md:flex-row-reverse"
-                    }`}
+                    className="grid h-16 w-16 place-items-center rounded-full transition-transform duration-[400ms] ease-out"
+                    style={{
+                      backgroundColor: `${accent}14`,
+                      color: accent,
+                      transform: isActive ? "scale(1.08)" : "scale(1)",
+                    }}
                   >
-                    <span
-                      className="text-xs font-semibold uppercase tracking-[0.24em]"
-                      style={{ color: accent }}
-                    >
-                      Step {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="h-px flex-1 bg-border" />
+                    <s.icon size={28} />
+                  </span>
+                </span>
+
+                {/* Step label */}
+                <span
+                  className="mt-5 text-[11px] font-semibold uppercase tracking-[0.28em]"
+                  style={{ color: accent }}
+                >
+                  Step {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-2 font-display text-lg font-semibold leading-tight text-primary lg:text-xl">
+                  {s.title}
+                </h3>
+                <p className="mt-2 max-w-[220px] text-sm leading-relaxed text-muted-foreground">
+                  {s.desc}
+                </p>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+
+      {/* ============ MOBILE: swipeable horizontal timeline ============ */}
+      <div className="md:hidden">
+        <div className="relative">
+          <div
+            className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 pl-1 pr-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {steps.map((s, i) => {
+              const accent = ACCENTS[i % ACCENTS.length];
+              const isVisible = visible[i];
+              return (
+                <div
+                  key={s.title}
+                  ref={(el) => {
+                    stepRefs.current[i] = el as unknown as HTMLLIElement | null;
+                  }}
+                  data-idx={i}
+                  className="relative w-[78%] shrink-0 snap-center"
+                  style={{
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? "translateY(0)" : "translateY(12px)",
+                    transition: "opacity 500ms ease-out, transform 500ms ease-out",
+                  }}
+                >
+                  <div className="rounded-2xl border border-border bg-white p-5 shadow-premium">
+                    <div className="flex items-center gap-3">
+                      <span
+                        className="grid h-12 w-12 place-items-center rounded-full"
+                        style={{ backgroundColor: `${accent}14`, color: accent }}
+                      >
+                        <s.icon size={22} />
+                      </span>
+                      <span
+                        className="text-[11px] font-semibold uppercase tracking-[0.24em]"
+                        style={{ color: accent }}
+                      >
+                        Step {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <h3 className="mt-3 font-display text-lg font-semibold leading-tight text-primary">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {s.desc}
+                    </p>
                   </div>
-                  <h3 className="mt-3 font-display text-xl font-semibold leading-tight text-primary md:text-2xl">
-                    {s.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {s.desc}
-                  </p>
                 </div>
-              </div>
-            </li>
-          );
-        })}
-      </ol>
+              );
+            })}
+          </div>
+          {/* Mobile progress dots */}
+          <div className="mt-2 flex items-center justify-center gap-1.5">
+            {steps.map((_, i) => (
+              <span
+                key={i}
+                className="h-1.5 rounded-full transition-all duration-300"
+                style={{
+                  width: i === activeIndex ? 20 : 6,
+                  backgroundColor:
+                    i === activeIndex ? ACCENTS[i % ACCENTS.length] : "#E2E8F0",
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
