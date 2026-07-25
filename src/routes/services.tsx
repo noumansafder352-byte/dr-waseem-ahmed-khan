@@ -57,8 +57,7 @@ const services = [
     title: "Thyroid Surgery",
     tag: "Endocrine Precision",
     desc: "Precise thyroidectomy and thyroid nodule management for benign and malignant disease, with attention to voice preservation and cosmetic outcomes.",
-    image:
-      "https://images.unsplash.com/photo-1666214277657-e668a2183a34?auto=format&fit=crop&w=1200&q=80",
+    image: thyroidSurgeryImage.url,
   },
   {
     icon: HeartPulse,
