@@ -511,10 +511,14 @@ function About() {
 
             {(() => {
               const accents = ["#182F58", "#19979C", "#529542", "#1F72B9", "#19979C", "#182F58"];
+              const rowStartClasses = [
+                "md:row-start-1", "md:row-start-2", "md:row-start-3",
+                "md:row-start-4", "md:row-start-5", "md:row-start-6"
+              ];
               const renderItem = (v: (typeof values)[number], i: number, isLeft: boolean) => {
                 const accent = accents[i % accents.length];
                 return (
-                  <FadeUp key={v.title} delay={i * 100}>
+                  <FadeUp delay={i * 100}>
                     <div className="group relative grid grid-cols-[3rem_1fr] items-center gap-4 md:grid-cols-1 md:gap-0">
                       {/* Content */}
                       <div
@@ -597,28 +601,20 @@ function About() {
                 );
               };
 
-              const leftItems = values.filter((_, i) => i % 2 === 0);
-              const rightItems = values.filter((_, i) => i % 2 === 1);
-
               return (
-                <div className="grid gap-6 md:grid-cols-2 md:gap-x-0 md:gap-y-0">
-                  <ol className="space-y-12 md:space-y-24">
-                    {leftItems.map((v) => {
-                      const originalIndex = values.indexOf(v);
-                      return (
-                        <li key={v.title}>{renderItem(v, originalIndex, true)}</li>
-                      );
-                    })}
-                  </ol>
-                  <ol className="space-y-12 md:mt-[3rem] md:space-y-24">
-                    {rightItems.map((v) => {
-                      const originalIndex = values.indexOf(v);
-                      return (
-                        <li key={v.title}>{renderItem(v, originalIndex, false)}</li>
-                      );
-                    })}
-                  </ol>
-                </div>
+                <ol className="list-none space-y-12 md:grid md:grid-cols-2 md:gap-x-0 md:gap-y-16">
+                  {values.map((v, i) => {
+                    const isLeft = i % 2 === 0;
+                    return (
+                      <li
+                        key={v.title}
+                        className={`${isLeft ? "md:col-start-1" : "md:col-start-2"} ${rowStartClasses[i]}`}
+                      >
+                        {renderItem(v, i, isLeft)}
+                      </li>
+                    );
+                  })}
+                </ol>
               );
             })()}
           </div>
