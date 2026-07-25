@@ -75,7 +75,7 @@ export function SiteHeader(_: { transparentOnTop?: boolean } = {}) {
           <img
             src={logo.url}
             alt="Dr. Waseem Ahmad Khan — General & Laparoscopic Surgeon"
-            className="h-[76px] w-auto md:h-[84px]"
+            className="h-[86px] w-auto md:h-[96px]"
             draggable={false}
           />
         </Link>
