@@ -280,7 +280,7 @@ function Services() {
       </section>
 
       {/* Treatment Process — premium animated timeline */}
-      <section className="relative overflow-hidden px-6 py-24 md:px-8 md:py-32">
+      <section className="relative overflow-hidden px-6 pt-14 pb-24 md:px-8 md:pt-20 md:pb-32">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.35]"
