@@ -60,6 +60,16 @@ const values = [
   { icon: Compass, title: "Precision", desc: "Meticulous surgical technique and attention to detail." },
 ];
 
+const CENTER_VALUE = values.find((v) => v.title === "Patient-Centered")!;
+const ORBIT_VALUES = values
+  .filter((v) => v.title !== "Patient-Centered")
+  .map((v, i) => ({
+    ...v,
+    accent: ["#182F58", "#1F72B9", "#529542", "#19979C", "#182F58"][i],
+    x: [0, 228, 141, -141, -228][i],
+    y: [-240, -74, 195, 195, -74][i],
+  }));
+
 function About() {
   return (
     <SiteLayout transparentHeader>
