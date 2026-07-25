@@ -485,9 +485,9 @@ function About() {
           </FadeUp>
 
           {/* Desktop radial orbit */}
-          <div className="relative mx-auto mt-16 hidden aspect-square max-w-4xl lg:block">
+          <div className="relative mx-auto mt-12 hidden h-[700px] w-[700px] lg:block">
             {/* SVG connecting ring + spokes */}
-            <svg aria-hidden className="absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 800 800">
+            <svg aria-hidden className="absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 700 700">
               <defs>
                 <linearGradient id="orbit-spoke" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stopColor="#1F72B9" stopOpacity="0.35" />
@@ -495,37 +495,37 @@ function About() {
                 </linearGradient>
               </defs>
               <circle
-                cx="400"
-                cy="400"
-                r="240"
+                cx="350"
+                cy="350"
+                r="200"
                 stroke="#182F58"
                 strokeOpacity="0.08"
                 strokeWidth="1"
                 fill="none"
                 strokeDasharray="4 6"
               />
-              <line x1="400" y1="400" x2="400" y2="160" stroke="url(#orbit-spoke)" strokeWidth="1" />
-              <line x1="400" y1="400" x2="628" y2="326" stroke="url(#orbit-spoke)" strokeWidth="1" />
-              <line x1="400" y1="400" x2="541" y2="594" stroke="url(#orbit-spoke)" strokeWidth="1" />
-              <line x1="400" y1="400" x2="259" y2="594" stroke="url(#orbit-spoke)" strokeWidth="1" />
-              <line x1="400" y1="400" x2="172" y2="326" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="350" y1="350" x2="350" y2="150" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="350" y1="350" x2="540" y2="288" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="350" y1="350" x2="468" y2="512" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="350" y1="350" x2="232" y2="512" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="350" y1="350" x2="160" y2="288" stroke="url(#orbit-spoke)" strokeWidth="1" />
             </svg>
 
             {/* Center hub — Patient-Centered */}
             <FadeUp delay={100}>
-              <div className="absolute left-1/2 top-1/2 z-20 w-60 -translate-x-1/2 -translate-y-1/2">
+              <div className="absolute left-1/2 top-1/2 z-20 w-52 -translate-x-1/2 -translate-y-1/2">
                 <div
-                  className="rounded-full border border-border bg-white p-7 text-center shadow-premium-lg transition-all duration-[400ms] ease-out hover:scale-[1.03]"
+                  className="rounded-full border border-border bg-white p-6 text-center transition-all duration-[400ms] ease-out hover:scale-[1.03]"
                   style={{ boxShadow: "0 0 0 8px rgba(255,255,255,0.85), 0 24px 60px -20px rgba(24,47,88,0.25)" }}
                 >
                   <div
-                    className="mx-auto grid h-16 w-16 place-items-center rounded-full text-white"
+                    className="mx-auto grid h-14 w-14 place-items-center rounded-full text-white"
                     style={{ background: "linear-gradient(140deg, #19979C 0%, #19979Ccc 100%)" }}
                   >
-                    <CENTER_VALUE.icon size={26} strokeWidth={1.6} />
+                    <CENTER_VALUE.icon size={24} strokeWidth={1.6} />
                   </div>
-                  <h3 className="mt-4 font-serif text-xl font-semibold text-primary">{CENTER_VALUE.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{CENTER_VALUE.desc}</p>
+                  <h3 className="mt-3 font-serif text-lg font-semibold text-primary">{CENTER_VALUE.title}</h3>
+                  <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{CENTER_VALUE.desc}</p>
                 </div>
               </div>
             </FadeUp>
@@ -536,25 +536,25 @@ function About() {
               return (
                 <FadeUp key={v.title} delay={220 + i * 100}>
                   <div
-                    className="group absolute z-10 w-56"
+                    className="group absolute z-10 w-52"
                     style={{ left: `calc(50% + ${v.x}px)`, top: `calc(50% + ${v.y}px)`, transform: "translate(-50%, -50%)" }}
                   >
                     <div className="rounded-2xl border border-border bg-white p-5 shadow-premium transition-all duration-[400ms] ease-out group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-premium-lg">
                       <div className="flex items-center gap-3">
                         <div
-                          className="grid h-10 w-10 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110"
+                          className="grid h-9 w-9 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110"
                           style={{ backgroundColor: v.accent }}
                         >
-                          <Icon size={20} strokeWidth={1.6} />
+                          <Icon size={18} strokeWidth={1.6} />
                         </div>
                         <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
                           0{i + 1}
                         </span>
                       </div>
-                      <h3 className="mt-3 font-serif text-xl font-semibold text-primary transition-colors duration-[400ms] group-hover:text-[var(--accent)]" style={{ ["--accent" as never]: v.accent }}>
+                      <h3 className="mt-3 font-serif text-lg font-semibold text-primary transition-colors duration-[400ms] group-hover:text-[var(--accent)]" style={{ ["--accent" as never]: v.accent }}>
                         {v.title}
                       </h3>
-                      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
+                      <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{v.desc}</p>
                     </div>
                   </div>
                 </FadeUp>
