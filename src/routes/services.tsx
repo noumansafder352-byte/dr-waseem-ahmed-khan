@@ -316,7 +316,37 @@ function Services() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="relative px-6 py-20 md:px-8 md:py-28">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,#1F72B9_0%,transparent_70%)] opacity-[0.05]" />
+        </div>
+        <div className="mx-auto max-w-3xl">
+          <FadeUp>
+            <div className="text-center">
+              <span className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-white/80 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-primary/70 shadow-sm backdrop-blur">
+                <span className="text-primary/50">011</span>
+                <span className="h-1 w-1 rounded-full bg-[#529542]" />
+                FAQs
+              </span>
+              <h2 className="mt-5 font-serif text-4xl font-semibold tracking-tight text-primary md:text-5xl">
+                Frequently asked questions
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground md:text-base">
+                Answers to common questions about our surgical services and procedures.
+              </p>
+            </div>
+          </FadeUp>
+          <div className="mt-12 space-y-3 md:space-y-4">
+            {serviceFaqs.map((f, i) => (
+              <FaqItem key={i} index={i + 1} q={f.q} a={f.a} defaultOpen={i === 0} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <CtaBand />
+
     </SiteLayout>
   );
 }
