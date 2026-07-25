@@ -64,6 +64,7 @@ function About() {
   return (
     <SiteLayout transparentHeader>
       <PageHero
+        tall
         eyebrow="About the Surgeon"
         title="A career defined by excellence in surgical care"
         subtitle="Meet Maj Gen (Rtd) Waseem Ahmad Khan — a distinguished General & Laparoscopic Surgeon whose life's work bridges military healthcare, surgical education, and compassionate patient care."
