@@ -21,9 +21,8 @@ import {
   HeartHandshake,
   CalendarCheck,
   ArrowRight,
-  Plus,
-  Minus,
-  X,
+
+
 
   Microscope,
   Ribbon,
