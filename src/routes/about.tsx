@@ -148,10 +148,10 @@ function About() {
                 {/* Vertical timeline connector */}
                 <div
                   aria-hidden
-                  className="absolute bottom-4 left-[27px] top-4 hidden w-px bg-gradient-to-b from-[#182F58]/20 via-[#1F72B9]/25 via-[#19979C]/25 to-[#529542]/20 md:block"
+                  className="absolute bottom-4 left-[24px] top-4 hidden w-px bg-gradient-to-b from-[#182F58]/20 via-[#1F72B9]/25 via-[#19979C]/25 to-[#529542]/20 md:block"
                 />
 
-                <div className="space-y-5">
+                <div className="space-y-4">
                   {[
                     {
                       code: "MBBS",
@@ -190,17 +190,17 @@ function About() {
                     },
                   ].map((q, i) => (
                     <FadeUp key={q.code} delay={180 + i * 80}>
-                      <div className="group relative flex items-start gap-5 md:gap-7">
+                      <div className="group relative flex items-start gap-4 md:gap-6">
                         {/* Icon node */}
                         <div className="relative z-10 flex-shrink-0">
                           <div
-                            className="grid h-14 w-14 place-items-center rounded-full border border-white/60 bg-white shadow-premium transition-all duration-[400ms] group-hover:scale-110 group-hover:shadow-premium-lg"
+                            className="grid h-12 w-12 place-items-center rounded-full border border-white/60 bg-white shadow-premium transition-all duration-[400ms] group-hover:scale-110 group-hover:shadow-premium-lg"
                             style={{
                               boxShadow: `inset 0 0 0 2px ${q.accent}20, 0 12px 40px -12px ${q.accent}25`,
                             }}
                           >
                             <q.icon
-                              size={24}
+                              size={22}
                               strokeWidth={1.6}
                               style={{ color: q.accent }}
                             />
@@ -209,23 +209,23 @@ function About() {
 
                         {/* Credential card */}
                         <div
-                          className="flex-1 rounded-[18px] border border-border/70 bg-white p-5 transition-all duration-[400ms] group-hover:-translate-y-1 group-hover:border-[#19979C]/30 group-hover:shadow-premium-lg sm:p-6"
+                          className="flex-1 rounded-[18px] border border-border/70 bg-white p-4 transition-all duration-[400ms] group-hover:-translate-y-1 group-hover:border-[#19979C]/30 group-hover:shadow-premium-lg sm:p-5"
                           style={{
                             background: "linear-gradient(180deg, #ffffff 0%, #fafbfc 100%)",
                           }}
                         >
-                          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                            <h3 className="font-serif text-xl font-semibold tracking-tight text-primary">
+                          <div className="flex flex-col gap-0.5 sm:flex-row sm:items-center sm:justify-between">
+                            <h3 className="font-serif text-lg font-semibold tracking-tight text-primary">
                               {q.code}
                             </h3>
                             <span
-                              className="text-[0.68rem] font-semibold uppercase tracking-[0.2em]"
+                              className="text-[0.62rem] font-semibold uppercase tracking-[0.18em]"
                               style={{ color: q.accent }}
                             >
                               {q.category}
                             </span>
                           </div>
-                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                             {q.desc}
                           </p>
                         </div>
