@@ -151,6 +151,24 @@ function Contact() {
                   ))}
                 </ul>
               </div>
+              <div className="rounded-3xl border border-border bg-white p-8 shadow-premium">
+                <h3 className="text-lg font-semibold text-primary">Clinic</h3>
+                <ul className="mt-4 space-y-3 text-sm">
+                  {[
+                    { icon: MapPin, label: "Rawalpindi, Pakistan" },
+                    { icon: Phone, label: "+92 300 000 0000" },
+                    { icon: Mail, label: "info@drwaseemkhan.com" },
+                  ].map(({ icon: Icon, label }) => (
+                    <li key={label} className="flex items-center gap-3 border-b border-border pb-3 last:border-0 last:pb-0">
+                      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
+                        <Icon size={16} />
+                      </span>
+                      <span className="font-medium text-primary">{label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
             </div>
           </FadeUp>
         </div>
