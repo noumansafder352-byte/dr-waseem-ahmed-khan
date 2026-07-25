@@ -45,37 +45,58 @@ const services = [
   {
     icon: Stethoscope,
     title: "General Surgery",
+    tag: "Comprehensive Care",
     desc: "Comprehensive surgical care across a wide range of abdominal, gastrointestinal, and soft-tissue conditions — with careful diagnosis and modern operative technique.",
+    image:
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80",
   },
   {
     icon: Activity,
     title: "Thyroid Surgery",
+    tag: "Endocrine Precision",
     desc: "Precise thyroidectomy and thyroid nodule management for benign and malignant disease, with attention to voice preservation and cosmetic outcomes.",
+    image:
+      "https://images.unsplash.com/photo-1631815588090-d1bcbe9b4b46?auto=format&fit=crop&w=1200&q=80",
   },
   {
     icon: HeartPulse,
     title: "Breast Surgery",
+    tag: "Sensitive & Precise",
     desc: "Diagnostic and therapeutic breast surgical procedures, including lump excision, biopsy, and oncological surgery — delivered with sensitivity and care.",
+    image:
+      "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=80",
   },
   {
     icon: Shield,
     title: "Gallbladder Surgery",
+    tag: "Laparoscopic",
     desc: "Laparoscopic cholecystectomy for gallstone disease — a minimally invasive procedure with small incisions, less pain, and rapid recovery.",
+    image:
+      "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1200&q=80",
   },
   {
     icon: Scissors,
     title: "Hernia Repair",
+    tag: "Durable Results",
     desc: "Open and laparoscopic repair of inguinal, umbilical, incisional, and hiatal hernias — using modern mesh techniques for durable, long-term results.",
+    image:
+      "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=80",
   },
   {
     icon: Sparkles,
     title: "Appendix Surgery",
+    tag: "Minimally Invasive",
     desc: "Minimally invasive laparoscopic appendectomy for acute appendicitis, offering faster healing, minimal scarring, and quicker return to daily life.",
+    image:
+      "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&w=1200&q=80",
   },
   {
     icon: Waves,
     title: "Varicose Vein Treatment",
+    tag: "Venous Care",
     desc: "Advanced treatment options for varicose and venous conditions — from lifestyle counselling to surgical intervention when clinically indicated.",
+    image:
+      "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=80",
   },
 ];
 
