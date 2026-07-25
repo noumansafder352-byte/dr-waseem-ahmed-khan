@@ -43,7 +43,7 @@ export function SiteFooter() {
       />
 
       <div className="relative mx-auto max-w-[1280px] px-6 pb-8 pt-20 md:px-10 md:pt-24 lg:px-12">
-        <div className="grid gap-12 border-b border-primary-foreground/12 pb-14 lg:grid-cols-[1.25fr_2fr] lg:gap-16">
+        <div className="grid gap-12 border-b border-primary-foreground/12 pb-14 lg:grid-cols-[0.95fr_2.5fr] lg:gap-20">
           <div className="max-w-xl">
             <img
               src={logo.url}
