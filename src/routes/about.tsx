@@ -476,117 +476,93 @@ function About() {
             </div>
           </FadeUp>
 
-          {/* Desktop radial orbit — center hub with semicircle satellites */}
-          <div className="relative mx-auto mt-16 hidden h-[380px] w-[720px] lg:block">
-            {/* SVG connecting arc + spokes */}
-            <svg aria-hidden className="absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 720 380">
-              <defs>
-                <linearGradient id="orbit-spoke" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#1F72B9" stopOpacity="0.35" />
-                  <stop offset="100%" stopColor="#19979C" stopOpacity="0.35" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M 170 75 A 190 190 0 1 1 550 75"
-                stroke="#182F58"
-                strokeOpacity="0.08"
-                strokeWidth="1"
-                fill="none"
-                strokeDasharray="4 6"
-              />
-              <line x1="360" y1="75" x2="550" y2="75" stroke="url(#orbit-spoke)" strokeWidth="1" />
-              <line x1="360" y1="75" x2="494" y2="209" stroke="url(#orbit-spoke)" strokeWidth="1" />
-              <line x1="360" y1="75" x2="360" y2="265" stroke="url(#orbit-spoke)" strokeWidth="1" />
-              <line x1="360" y1="75" x2="226" y2="209" stroke="url(#orbit-spoke)" strokeWidth="1" />
-              <line x1="360" y1="75" x2="170" y2="75" stroke="url(#orbit-spoke)" strokeWidth="1" />
-            </svg>
+          {/* Desktop / tablet editorial two-column layout */}
+          <div className="relative mx-auto mt-16 hidden max-w-5xl grid-cols-2 gap-x-12 md:grid lg:gap-x-16">
+            {/* Vertical divider with central node */}
+            <div aria-hidden className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-border to-transparent" />
+            <div aria-hidden className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full border border-border bg-background" />
 
-            {/* Center hub — Patient-Centered */}
-            <FadeUp delay={100}>
-              <div className="absolute left-1/2 top-[75px] z-20 w-52 -translate-x-1/2 -translate-y-1/2">
-                <div
-                  className="rounded-full border border-border bg-white p-6 text-center transition-all duration-[400ms] ease-out hover:scale-[1.03]"
-                  style={{ boxShadow: "0 0 0 8px rgba(255,255,255,0.85), 0 24px 60px -20px rgba(24,47,88,0.25)" }}
-                >
-                  <div
-                    className="mx-auto grid h-14 w-14 place-items-center rounded-full text-white"
-                    style={{ background: "linear-gradient(140deg, #19979C 0%, #19979Ccc 100%)" }}
-                  >
-                    <CENTER_VALUE.icon size={24} strokeWidth={1.6} />
-                  </div>
-                  <h3 className="mt-3 font-serif text-lg font-semibold text-primary">{CENTER_VALUE.title}</h3>
-                  <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{CENTER_VALUE.desc}</p>
-                </div>
-              </div>
-            </FadeUp>
-
-            {/* Satellite value cards */}
-            {ORBIT_VALUES.map((v, i) => {
-              const Icon = v.icon;
-              return (
-                <FadeUp key={v.title} delay={220 + i * 100}>
-                  <div
-                    className="group absolute z-10 w-52"
-                    style={{ left: `calc(50% + ${v.x}px)`, top: `calc(75px + ${v.y}px)`, transform: "translate(-50%, -50%)" }}
-                  >
-                    <div className="rounded-2xl border border-border bg-white p-5 shadow-premium transition-all duration-[400ms] ease-out group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-premium-lg">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="grid h-9 w-9 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110"
-                          style={{ backgroundColor: v.accent }}
-                        >
-                          <Icon size={18} strokeWidth={1.6} />
-                        </div>
-                        <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
-                          0{i + 1}
-                        </span>
-                      </div>
-                      <h3 className="mt-3 font-serif text-lg font-semibold text-primary transition-colors duration-[400ms] group-hover:text-[var(--accent)]" style={{ ["--accent" as never]: v.accent }}>
-                        {v.title}
-                      </h3>
-                      <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{v.desc}</p>
-                    </div>
-                  </div>
-                </FadeUp>
-              );
-            })}
-          </div>
-
-          {/* Mobile / tablet stacked layout */}
-          <div className="mt-16 lg:hidden">
-            <FadeUp>
-              <div className="mx-auto max-w-sm rounded-2xl border border-border bg-white p-6 text-center shadow-premium-lg">
-                <div
-                  className="mx-auto grid h-14 w-14 place-items-center rounded-full text-white"
-                  style={{ background: "linear-gradient(140deg, #19979C 0%, #19979Ccc 100%)" }}
-                >
-                  <CENTER_VALUE.icon size={24} strokeWidth={1.6} />
-                </div>
-                <h3 className="mt-4 font-serif text-xl font-semibold text-primary">{CENTER_VALUE.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{CENTER_VALUE.desc}</p>
-              </div>
-            </FadeUp>
-            <div className="mt-10 grid gap-5 sm:grid-cols-2">
-              {ORBIT_VALUES.map((v, i) => {
+            {/* Left column */}
+            <div className="space-y-8 lg:space-y-10">
+              {values.slice(0, 3).map((v, i) => {
                 const Icon = v.icon;
+                const accent = valueAccents[i];
                 return (
-                  <FadeUp key={v.title} delay={80 + i * 70}>
-                    <div className="group rounded-2xl border border-border bg-white p-5 shadow-premium transition-all duration-[400ms] hover:-translate-y-1 hover:border-transparent hover:shadow-premium-lg">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="grid h-10 w-10 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110"
-                          style={{ backgroundColor: v.accent }}
-                        >
-                          <Icon size={20} strokeWidth={1.6} />
+                  <FadeUp key={v.title} delay={100 + i * 100}>
+                    <div className="group relative rounded-2xl border border-border bg-white p-6 shadow-premium transition-all duration-[400ms] ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-premium-lg">
+                      <div className="flex items-start gap-5">
+                        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110" style={{ backgroundColor: accent }}>
+                          <Icon size={22} strokeWidth={1.6} />
                         </div>
-                        <h3 className="font-serif text-lg font-semibold text-primary">{v.title}</h3>
+                        <div className="min-w-0">
+                          <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
+                            0{i + 1}
+                          </span>
+                          <h3 className="mt-1 font-serif text-xl font-semibold text-primary transition-colors duration-[400ms] group-hover:text-[var(--accent)]" style={{ ["--accent" as never]: accent }}>
+                            {v.title}
+                          </h3>
+                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
+                        </div>
                       </div>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
                     </div>
                   </FadeUp>
                 );
               })}
             </div>
+
+            {/* Right column (staggered down) */}
+            <div className="space-y-8 lg:space-y-10 md:mt-12">
+              {values.slice(3).map((v, i) => {
+                const Icon = v.icon;
+                const accent = valueAccents[i + 3];
+                return (
+                  <FadeUp key={v.title} delay={200 + i * 100}>
+                    <div className="group relative rounded-2xl border border-border bg-white p-6 shadow-premium transition-all duration-[400ms] ease-out hover:-translate-y-1 hover:border-transparent hover:shadow-premium-lg">
+                      <div className="flex items-start gap-5">
+                        <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110" style={{ backgroundColor: accent }}>
+                          <Icon size={22} strokeWidth={1.6} />
+                        </div>
+                        <div className="min-w-0">
+                          <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
+                            0{i + 4}
+                          </span>
+                          <h3 className="mt-1 font-serif text-xl font-semibold text-primary transition-colors duration-[400ms] group-hover:text-[var(--accent)]" style={{ ["--accent" as never]: accent }}>
+                            {v.title}
+                          </h3>
+                          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </FadeUp>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Mobile single-column */}
+          <div className="mt-12 space-y-6 md:hidden">
+            {values.map((v, i) => {
+              const Icon = v.icon;
+              const accent = valueAccents[i];
+              return (
+                <FadeUp key={v.title} delay={80 + i * 70}>
+                  <div className="group relative rounded-2xl border border-border bg-white p-5 shadow-premium transition-all duration-[400ms] hover:-translate-y-1 hover:border-transparent hover:shadow-premium-lg">
+                    <div className="flex items-start gap-4">
+                      <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full text-white transition-transform duration-[400ms] group-hover:scale-110" style={{ backgroundColor: accent }}>
+                        <Icon size={20} strokeWidth={1.6} />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="font-serif text-xs font-medium italic tracking-[0.2em] text-muted-foreground">
+                          0{i + 1}
+                        </span>
+                        <h3 className="mt-1 font-serif text-lg font-semibold text-primary">{v.title}</h3>
+                        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{v.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                </FadeUp>
+              );
+            })}
           </div>
         </div>
       </section>
