@@ -19,6 +19,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { FadeUp } from "@/components/site/FadeUp";
 import { CtaBand } from "@/components/site/CtaBand";
 import { TreatmentTimeline } from "@/components/site/TreatmentTimeline";
+import { FaqItem } from "@/components/site/FaqItem";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
