@@ -146,15 +146,21 @@ function Contact() {
                     Clinic Details
                   </h3>
 
-                  <ul className="relative mt-4 space-y-3 text-sm">
+                  <ul className="relative mt-4 space-y-4 text-sm">
                     {[
-                      { label: "Rawalpindi, Pakistan", icon: <MapPin size={15} strokeWidth={1.75} /> },
-                      { label: "+92 300 000 0000", icon: <Phone size={15} strokeWidth={1.75} /> },
-                      { label: "info@drwaseemkhan.com", icon: <Mail size={15} strokeWidth={1.75} /> },
+                      { label: "Rawalpindi, Pakistan", icon: <MapPin size={18} strokeWidth={2} /> },
+                      { label: "+92 300 000 0000", icon: <Phone size={18} strokeWidth={2} /> },
+                      { label: "info@drwaseemkhan.com", icon: <Mail size={18} strokeWidth={2} /> },
                     ].map(({ icon, label }) => (
-                      <li key={label} className="flex items-center gap-3">
-                        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#529542]/20 bg-white text-[#529542] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-[#529542]/50">
-                          {icon}
+                      <li key={label} className="flex items-center gap-3.5">
+                        <span
+                          className="group/icon relative grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-full border border-[#1F72B9]/18 bg-[#1F72B9]/[0.09] text-[#1F72B9] backdrop-blur-sm transition-all duration-[350ms] hover:-translate-y-0.5 hover:border-[#1F72B9]/70 hover:text-primary"
+                        >
+                          <span
+                            aria-hidden
+                            className="absolute inset-0 scale-0 rounded-full bg-[#1F72B9]/25 opacity-0 transition-all duration-[350ms] group-hover/icon:scale-100 group-hover/icon:opacity-100"
+                          />
+                          <span className="relative z-10">{icon}</span>
                         </span>
                         <span className="font-medium text-primary/90">{label}</span>
                       </li>

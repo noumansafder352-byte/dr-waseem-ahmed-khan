@@ -186,10 +186,14 @@ function ContactItem({
 }) {
   return (
     <li className="flex items-start gap-3">
-      <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-primary-foreground/12 bg-primary-foreground/[0.05] text-[#529542] transition-colors duration-300 hover:border-[#529542]/60 hover:text-[#529542]">
-        {icon}
+      <span className="group/icon relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full border border-primary-foreground/14 bg-primary-foreground/[0.05] text-primary-foreground/82 backdrop-blur-sm transition-all duration-[350ms] hover:-translate-y-0.5 hover:border-teal/70 hover:text-primary-foreground">
+        <span
+          aria-hidden
+          className="absolute inset-0 scale-0 rounded-full bg-teal/25 opacity-0 transition-all duration-[350ms] group-hover/icon:scale-100 group-hover/icon:opacity-100"
+        />
+        <span className="relative z-10">{icon}</span>
       </span>
-      <span className="leading-[1.7]">{children}</span>
+      <span className="mt-2.5 leading-[1.7]">{children}</span>
     </li>
   );
 }
