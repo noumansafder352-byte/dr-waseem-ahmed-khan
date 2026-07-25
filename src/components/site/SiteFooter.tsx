@@ -135,15 +135,6 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-[1fr_auto_1fr] md:items-center">
-          <div className="hidden h-px bg-primary-foreground/12 md:block" />
-          <div className="flex items-center gap-2 justify-self-start md:justify-self-center">
-            <span className="h-1.5 w-8 rounded-full bg-secondary" />
-            <span className="h-1.5 w-8 rounded-full bg-teal" />
-            <span className="h-1.5 w-8 rounded-full bg-medical" />
-          </div>
-          <div className="hidden h-px bg-primary-foreground/12 md:block" />
-        </div>
 
         <div className="mt-7 flex flex-col justify-between gap-3 text-[12px] text-primary-foreground/58 md:flex-row md:items-center">
           <p>© {year} Maj Gen (Rtd) Waseem Ahmad Khan. All rights reserved.</p>
