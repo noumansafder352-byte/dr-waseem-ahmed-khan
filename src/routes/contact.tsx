@@ -128,6 +128,80 @@ function Contact() {
 
           <FadeUp delay={100} className="lg:col-span-2">
             <div className="flex h-full flex-col gap-6">
+              {/* Clinic — premium panel */}
+              <div className="group relative overflow-hidden rounded-[20px] border border-border/70 bg-white p-8 shadow-premium transition-all duration-[350ms] ease-out hover:-translate-y-1 hover:shadow-premium-lg">
+                <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#1F72B9]/40 to-transparent" />
+                <span className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(circle_at_center,#19979C_0%,transparent_70%)] opacity-[0.06] transition-all duration-500 group-hover:opacity-[0.12] group-hover:scale-110" />
+                <span className="pointer-events-none absolute -left-10 -bottom-10 h-36 w-36 rounded-full bg-[radial-gradient(circle_at_center,#1F72B9_0%,transparent_70%)] opacity-[0.05]" />
+
+                <div className="relative flex items-center gap-3">
+                  <span className="h-px w-8 bg-[#529542]" />
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#529542]">
+                    Visit Us
+                  </span>
+                </div>
+                <h3 className="relative mt-3 text-2xl font-semibold tracking-tight text-primary">
+                  Clinic
+                </h3>
+
+                <ul className="relative mt-6 space-y-4 text-sm">
+                  {[
+                    { icon: MapPin, label: "Rawalpindi, Pakistan", tint: "#1F72B9" },
+                    { icon: Phone, label: "+92 300 000 0000", tint: "#19979C" },
+                    { icon: Mail, label: "info@drwaseemkhan.com", tint: "#529542" },
+                  ].map(({ icon: Icon, label, tint }) => (
+                    <li key={label} className="flex items-center gap-4">
+                      <span
+                        className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-border/70 bg-white text-primary shadow-sm transition-all duration-300 group-hover:-translate-y-0.5"
+                        style={{ color: tint }}
+                      >
+                        <Icon size={16} />
+                      </span>
+                      <span className="font-medium text-primary/90">{label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Consultation Hours — premium panel */}
+              <div className="group relative overflow-hidden rounded-[20px] border border-border/70 bg-white p-8 shadow-premium transition-all duration-[350ms] ease-out hover:-translate-y-1 hover:shadow-premium-lg">
+                <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#19979C]/40 to-transparent" />
+                <span className="pointer-events-none absolute -right-14 -bottom-14 h-44 w-44 rounded-full bg-[radial-gradient(circle_at_center,#529542_0%,transparent_70%)] opacity-[0.06] transition-all duration-500 group-hover:opacity-[0.12] group-hover:scale-110" />
+                <span className="pointer-events-none absolute -left-8 -top-8 h-28 w-28 rounded-full bg-[radial-gradient(circle_at_center,#182F58_0%,transparent_70%)] opacity-[0.05]" />
+
+                <div className="relative flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="h-px w-8 bg-[#19979C]" />
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#19979C]">
+                      Availability
+                    </span>
+                  </div>
+                  <span className="grid h-10 w-10 place-items-center rounded-xl border border-border/70 bg-white text-[#182F58] shadow-sm transition-transform duration-300 group-hover:rotate-[12deg]">
+                    <Clock size={16} />
+                  </span>
+                </div>
+                <h3 className="relative mt-3 text-2xl font-semibold tracking-tight text-primary">
+                  Consultation Hours
+                </h3>
+
+                <ul className="relative mt-6 space-y-3 text-sm">
+                  {[
+                    ["Monday – Friday", "10:00 AM – 6:00 PM"],
+                    ["Saturday", "10:00 AM – 2:00 PM"],
+                    ["Sunday", "Closed"],
+                  ].map(([d, t]) => (
+                    <li
+                      key={d}
+                      className="flex items-center justify-between border-b border-dashed border-border pb-3 last:border-0 last:pb-0"
+                    >
+                      <span className="text-primary/75">{d}</span>
+                      <span className="font-semibold text-primary">{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Map */}
               <div className="overflow-hidden rounded-3xl border border-border shadow-premium">
                 <iframe
                   title="Clinic Location"
@@ -136,41 +210,9 @@ function Contact() {
                   loading="lazy"
                 />
               </div>
-              <div className="rounded-3xl border border-border bg-white p-8 shadow-premium">
-                <h3 className="text-lg font-semibold text-primary">Consultation Hours</h3>
-                <ul className="mt-4 space-y-3 text-sm">
-                  {[
-                    ["Monday – Friday", "10:00 AM – 6:00 PM"],
-                    ["Saturday", "10:00 AM – 2:00 PM"],
-                    ["Sunday", "Closed"],
-                  ].map(([d, t]) => (
-                    <li key={d} className="flex items-center justify-between border-b border-border pb-3 last:border-0 last:pb-0">
-                      <span className="text-primary/80">{d}</span>
-                      <span className="font-medium text-primary">{t}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="rounded-3xl border border-border bg-white p-8 shadow-premium">
-                <h3 className="text-lg font-semibold text-primary">Clinic</h3>
-                <ul className="mt-4 space-y-3 text-sm">
-                  {[
-                    { icon: MapPin, label: "Rawalpindi, Pakistan" },
-                    { icon: Phone, label: "+92 300 000 0000" },
-                    { icon: Mail, label: "info@drwaseemkhan.com" },
-                  ].map(({ icon: Icon, label }) => (
-                    <li key={label} className="flex items-center gap-3 border-b border-border pb-3 last:border-0 last:pb-0">
-                      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
-                        <Icon size={16} />
-                      </span>
-                      <span className="font-medium text-primary">{label}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
             </div>
           </FadeUp>
+
         </div>
       </section>
 
