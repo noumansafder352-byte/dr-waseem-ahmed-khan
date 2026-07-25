@@ -94,6 +94,7 @@ export function SiteFooter() {
               ))}
             </FooterColumn>
 
+
             <FooterColumn title="Services">
               {[
                 "General Surgery",
@@ -167,12 +168,9 @@ function FooterColumn({ title, children }: { title: string; children: ReactNode 
 
 function FooterHeading({ children }: { children: ReactNode }) {
   return (
-    <div className="flex items-center gap-3">
-      <span className="h-px w-7 bg-teal" />
-      <h4 className="font-serif text-[13px] font-semibold uppercase tracking-[0.22em] text-primary-foreground">
-        {children}
-      </h4>
-    </div>
+    <h4 className="font-serif text-[13px] font-semibold uppercase tracking-[0.22em] text-primary-foreground">
+      {children}
+    </h4>
   );
 }
 
@@ -182,8 +180,8 @@ function FooterLink({ to, children }: { to: "/" | "/about" | "/services" | "/con
       to={to}
       className="group/link inline-flex items-center gap-3 text-[14px] text-primary-foreground/70 transition-colors duration-300 hover:text-primary-foreground"
     >
-      <span className="h-px w-4 bg-primary-foreground/24 transition-all duration-300 group-hover/link:w-7 group-hover/link:bg-teal" />
-      <span className="transition-transform duration-300 group-hover/link:translate-x-0.5">{children}</span>
+      <span className="h-1.5 w-1.5 rounded-full bg-medical transition-transform duration-300 group-hover/link:scale-125" />
+      <span>{children}</span>
     </Link>
   );
 }
