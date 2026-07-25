@@ -153,7 +153,7 @@ function Services() {
       />
 
       {/* Intro */}
-      <section className="px-6 py-20 md:px-8 md:py-28">
+      <section className="px-6 py-10 md:px-8 md:py-14">
         <FadeUp>
           <div className="mx-auto max-w-3xl text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
@@ -280,7 +280,7 @@ function Services() {
       </section>
 
       {/* Treatment Process — premium animated timeline */}
-      <section className="relative overflow-hidden px-6 py-24 md:px-8 md:py-32">
+      <section className="relative overflow-hidden px-6 pt-14 pb-24 md:px-8 md:pt-20 md:pb-32">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.35]"
@@ -317,7 +317,7 @@ function Services() {
       </section>
 
       {/* FAQ */}
-      <section className="relative px-6 py-20 md:px-8 md:py-28">
+      <section className="relative px-6 py-14 md:px-8 md:py-20">
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,#1F72B9_0%,transparent_70%)] opacity-[0.05]" />
         </div>
