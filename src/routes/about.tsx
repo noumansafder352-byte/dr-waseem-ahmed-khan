@@ -8,7 +8,9 @@ import {
   Sparkles,
   BookOpenCheck,
   Compass,
-  Globe,
+  Stethoscope,
+  BriefcaseMedical,
+  BadgeCheck,
   ScrollText,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -62,6 +64,7 @@ function About() {
   return (
     <SiteLayout transparentHeader>
       <PageHero
+        tall
         eyebrow="About the Surgeon"
         title="A career defined by excellence in surgical care"
         subtitle="Meet Maj Gen (Rtd) Waseem Ahmad Khan — a distinguished General & Laparoscopic Surgeon whose life's work bridges military healthcare, surgical education, and compassionate patient care."
@@ -117,9 +120,9 @@ function About() {
           }}
         />
 
-        <div className="relative mx-auto grid max-w-7xl items-start gap-16 lg:grid-cols-2 lg:gap-20">
-          {/* Left — Content */}
-          <div className="order-2 lg:order-1">
+        <div className="relative mx-auto grid max-w-7xl items-stretch gap-16 lg:grid-cols-2 lg:gap-20">
+          {/* Left — Editorial list */}
+          <div className="order-2 flex flex-col lg:order-1">
             <FadeUp>
               <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-4 py-1.5 shadow-premium backdrop-blur">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#529542]" />
@@ -127,208 +130,100 @@ function About() {
                   Professional Credentials
                 </span>
               </div>
-              <h2 className="mt-6 font-serif text-4xl font-semibold leading-[1.1] text-primary md:text-5xl lg:text-[3.4rem]">
+              <h2 className="mt-6 font-serif text-4xl font-semibold leading-[1.1] text-primary md:text-5xl lg:text-[3.2rem]">
                 Academic Excellence &{" "}
                 <em className="italic font-normal text-[#19979C]">Surgical Expertise</em>
               </h2>
-            </FadeUp>
-
-            <FadeUp delay={100}>
-              <p className="mt-7 max-w-xl text-base leading-[1.85] text-muted-foreground md:text-[1.05rem]">
-                Maj Gen (Rtd) Waseem Ahmad Khan, HI (M) has built a distinguished
-                surgical career through advanced training, internationally recognized
-                qualifications, and decades of leadership in General and Laparoscopic
-                Surgery. His credentials reflect a lifelong commitment to safe,
-                evidence-based patient care and the education of future surgeons.
+              <p className="mt-6 max-w-xl text-base leading-[1.85] text-muted-foreground">
+                Advanced training, internationally recognized qualifications, and
+                decades of leadership in General and Laparoscopic Surgery.
               </p>
             </FadeUp>
 
-            <div className="mt-12">
-              <div className="relative">
-                {/* Vertical timeline connector */}
-                <div
-                  aria-hidden
-                  className="absolute bottom-4 left-[24px] top-4 hidden w-px bg-gradient-to-b from-[#182F58]/20 via-[#1F72B9]/25 via-[#19979C]/25 to-[#529542]/20 md:block"
-                />
-
-                <div className="space-y-4">
-                  {[
-                    {
-                      code: "MBBS",
-                      desc: "Bachelor of Medicine & Surgery",
-                      category: "Medical Degree",
-                      accent: "#182F58",
-                      icon: GraduationCap,
-                    },
-                    {
-                      code: "FCPS",
-                      desc: "Fellow — General Surgery",
-                      category: "Surgical Fellowship",
-                      accent: "#1F72B9",
-                      icon: Award,
-                    },
-                    {
-                      code: "FACS",
-                      desc: "Fellow, American College of Surgeons",
-                      category: "International Recognition",
-                      accent: "#19979C",
-                      icon: Globe,
-                    },
-                    {
-                      code: "CHPE",
-                      desc: "Certificate in Health Professions Education",
-                      category: "Academic Credential",
-                      accent: "#529542",
-                      icon: BookOpenCheck,
-                    },
-                    {
-                      code: "Diploma in Surgery",
-                      desc: "AFPGMI",
-                      category: "Postgraduate Diploma",
-                      accent: "#1F72B9",
-                      icon: ScrollText,
-                    },
-                  ].map((q, i) => (
-                    <FadeUp key={q.code} delay={180 + i * 80}>
-                      <div className="group relative flex items-start gap-4 md:gap-6">
-                        {/* Icon node */}
-                        <div className="relative z-10 flex-shrink-0">
-                          <div
-                            className="grid h-12 w-12 place-items-center rounded-full border border-white/60 bg-white shadow-premium transition-all duration-[400ms] group-hover:scale-110 group-hover:shadow-premium-lg"
-                            style={{
-                              boxShadow: `inset 0 0 0 2px ${q.accent}20, 0 12px 40px -12px ${q.accent}25`,
-                            }}
-                          >
-                            <q.icon
-                              size={22}
-                              strokeWidth={1.6}
-                              style={{ color: q.accent }}
-                            />
-                          </div>
-                        </div>
-
-                        {/* Credential card */}
-                        <div
-                          className="flex-1 rounded-[18px] border border-border/70 bg-white p-4 transition-all duration-[400ms] group-hover:-translate-y-1 group-hover:border-[#19979C]/30 group-hover:shadow-premium-lg sm:p-5"
-                          style={{
-                            background: "linear-gradient(180deg, #ffffff 0%, #fafbfc 100%)",
-                          }}
-                        >
-                          <div className="flex flex-col gap-0.5 sm:flex-row sm:items-center sm:justify-between">
-                            <h3 className="font-serif text-lg font-semibold tracking-tight text-primary">
-                              {q.code}
-                            </h3>
-                            <span
-                              className="text-[0.62rem] font-semibold uppercase tracking-[0.18em]"
-                              style={{ color: q.accent }}
-                            >
-                              {q.category}
-                            </span>
-                          </div>
-                          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                            {q.desc}
-                          </p>
-                        </div>
-                      </div>
-                    </FadeUp>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <ul className="mt-10 flex-1 divide-y divide-border/60">
+              {[
+                {
+                  code: "MBBS",
+                  desc: "Bachelor of Medicine & Surgery — foundational medical training.",
+                  accent: "#182F58",
+                  icon: Stethoscope,
+                },
+                {
+                  code: "FCPS",
+                  desc: "Fellow of the College of Physicians & Surgeons — General Surgery.",
+                  accent: "#1F72B9",
+                  icon: BriefcaseMedical,
+                },
+                {
+                  code: "FACS",
+                  desc: "Fellow of the American College of Surgeons — international recognition.",
+                  accent: "#19979C",
+                  icon: BadgeCheck,
+                },
+                {
+                  code: "CHPE",
+                  desc: "Certificate in Health Professions Education — academic leadership.",
+                  accent: "#529542",
+                  icon: GraduationCap,
+                },
+                {
+                  code: "Diploma in Surgery",
+                  desc: "Postgraduate Diploma — AFPGMI advanced surgical training.",
+                  accent: "#1F72B9",
+                  icon: ScrollText,
+                },
+              ].map((q, i) => (
+                <FadeUp key={q.code} delay={140 + i * 70}>
+                  <li className="group flex items-start gap-5 py-6">
+                    <div
+                      className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full transition-all duration-[350ms] ease-out group-hover:scale-110"
+                      style={{
+                        backgroundColor: `${q.accent}0F`,
+                        color: q.accent,
+                      }}
+                    >
+                      <q.icon size={20} strokeWidth={1.7} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="inline-block font-serif text-[1.15rem] font-semibold leading-tight text-primary transition-all duration-[350ms] ease-out group-hover:text-[1.28rem]">
+                        <span className="relative inline-block">
+                          {q.code}
+                          <span
+                            aria-hidden
+                            className="absolute -bottom-0.5 left-0 h-px w-0 bg-[#182F58] transition-all duration-[350ms] ease-out group-hover:w-full"
+                          />
+                        </span>
+                      </h3>
+                      <p className="mt-1.5 max-w-md text-sm leading-relaxed text-muted-foreground">
+                        <span className="relative inline">
+                          {q.desc}
+                          <span
+                            aria-hidden
+                            className="absolute -bottom-0.5 left-0 h-px w-0 bg-[#182F58] transition-all duration-[350ms] ease-out group-hover:w-full"
+                          />
+                        </span>
+                      </p>
+                    </div>
+                  </li>
+                </FadeUp>
+              ))}
+            </ul>
           </div>
 
-          {/* Right — Image */}
-          <FadeUp delay={80} className="order-1 lg:order-2 lg:sticky lg:top-28">
-            <div className="group relative mx-auto max-w-[580px] lg:max-w-none">
-              {/* Layered decorative backdrop */}
+          {/* Right — Clean image */}
+          <FadeUp delay={80} className="order-1 lg:order-2">
+            <div className="relative h-full min-h-[520px]">
               <div
-                aria-hidden
-                className="absolute -inset-5 -z-20 rounded-[40px]"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(24,47,88,0.08) 0%, rgba(31,114,185,0.06) 50%, rgba(25,151,156,0.06) 100%)",
-                }}
-              />
-              <div
-                aria-hidden
-                className="absolute -inset-2 -z-10 rounded-[32px] border border-[#1F72B9]/10 bg-white/40 backdrop-blur-sm"
-              />
-
-              {/* Floating geometric accents — brand colors */}
-              <div
-                aria-hidden
-                className="absolute -left-7 top-1/4 h-16 w-16 rounded-2xl border border-[#1F72B9]/25 bg-white/70 shadow-premium backdrop-blur"
-              />
-              <div
-                aria-hidden
-                className="absolute -right-6 bottom-1/4 h-20 w-20 rounded-full border border-[#19979C]/20 bg-white/60 shadow-premium backdrop-blur"
-              />
-              <div
-                aria-hidden
-                className="absolute -bottom-4 left-10 h-28 w-28 rounded-full opacity-60"
-                style={{
-                  background:
-                    "radial-gradient(circle, rgba(82,149,66,0.18), transparent 70%)",
-                }}
-              />
-              <div
-                aria-hidden
-                className="absolute -top-3 right-16 h-4 w-4 rounded-full bg-[#529542]"
-              />
-              <div
-                aria-hidden
-                className="absolute bottom-16 -left-4 h-3 w-3 rounded-full bg-[#19979C]"
-              />
-
-              {/* Premium floating badge */}
-              <div
-                className="absolute -right-4 top-10 z-20 rounded-2xl border border-white/60 bg-white/95 px-5 py-4 shadow-premium-lg backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-1"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-[#182F58] to-[#1F72B9] text-white shadow-premium">
-                    <Award size={22} strokeWidth={1.6} />
-                  </div>
-                  <div>
-                    <div className="font-serif text-xl font-semibold text-primary">30+</div>
-                    <div className="text-[0.72rem] font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                      Years of Excellence
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Secondary floating badge */}
-              <div
-                className="absolute -left-3 bottom-16 z-20 rounded-full border border-white/60 bg-white/95 px-4 py-2.5 shadow-premium backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-0.5"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-[#529542]" />
-                  <span className="text-xs font-semibold tracking-wide text-primary">
-                    FACS — International Recognition
-                  </span>
-                </div>
-              </div>
-
-              {/* Image frame */}
-              <div
-                className="relative overflow-hidden rounded-[24px] border border-white/60 transition-all duration-[600ms] ease-out group-hover:-translate-y-1"
+                className="relative h-full overflow-hidden rounded-[24px] border border-white/60"
                 style={{
                   boxShadow:
                     "0 2px 6px rgba(24,47,88,0.06), 0 30px 70px -24px rgba(24,47,88,0.30)",
                 }}
               >
-                <div
-                  aria-hidden
-                  className="absolute inset-0 z-10 rounded-[24px] ring-1 ring-inset ring-[#1F72B9]/20"
-                />
                 <img
                   src="https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&w=1200&q=80"
                   alt="Consultant surgeon in clinical setting"
-                  className="h-[420px] w-full object-cover sm:h-[520px] md:h-[640px] lg:h-[680px] transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
-                />
-                <div
-                  aria-hidden
-                  className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#182F58]/50 to-transparent"
+                  className="h-full min-h-[520px] w-full object-cover"
                 />
               </div>
             </div>
@@ -707,7 +602,7 @@ function About() {
 
               return (
                 <div className="grid gap-6 md:grid-cols-2 md:gap-x-0 md:gap-y-0">
-                  <ol className="space-y-10 md:space-y-16">
+                  <ol className="space-y-12 md:space-y-24">
                     {leftItems.map((v) => {
                       const originalIndex = values.indexOf(v);
                       return (
@@ -715,7 +610,7 @@ function About() {
                       );
                     })}
                   </ol>
-                  <ol className="space-y-10 md:mt-28 md:space-y-16">
+                  <ol className="space-y-12 md:mt-[6rem] md:space-y-24">
                     {rightItems.map((v) => {
                       const originalIndex = values.indexOf(v);
                       return (
