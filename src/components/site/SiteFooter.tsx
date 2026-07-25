@@ -114,20 +114,20 @@ export function SiteFooter() {
             <div className="sm:col-span-2 lg:col-span-1">
               <FooterHeading>Contact</FooterHeading>
               <ul className="mt-7 space-y-4 text-[14px] text-primary-foreground/70">
-                <ContactItem icon={<MapPin size={15} strokeWidth={1.75} />}>
+                <ContactItem icon={<MapPin size={13} strokeWidth={1.75} />}>
                   Rawalpindi, Pakistan
                 </ContactItem>
-                <ContactItem icon={<Phone size={15} strokeWidth={1.75} />}>
+                <ContactItem icon={<Phone size={13} strokeWidth={1.75} />}>
                   <a href="tel:+923000000000" className="transition-colors hover:text-primary-foreground">
                     +92 300 000 0000
                   </a>
                 </ContactItem>
-                <ContactItem icon={<Mail size={15} strokeWidth={1.75} />}>
+                <ContactItem icon={<Mail size={13} strokeWidth={1.75} />}>
                   <a href="mailto:info@drwaseemkhan.com" className="transition-colors hover:text-primary-foreground">
                     info@drwaseemkhan.com
                   </a>
                 </ContactItem>
-                <ContactItem icon={<Clock size={15} strokeWidth={1.75} />}>
+                <ContactItem icon={<Clock size={13} strokeWidth={1.75} />}>
                   Mon – Sat: 10:00 AM – 6:00 PM
                 </ContactItem>
               </ul>
@@ -185,15 +185,16 @@ function ContactItem({
   children: ReactNode;
 }) {
   return (
-    <li className="flex items-start gap-3">
-      <span className="group/icon relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full border border-primary-foreground/14 bg-primary-foreground/[0.05] text-primary-foreground/82 backdrop-blur-sm transition-all duration-[350ms] hover:-translate-y-0.5 hover:border-teal/70 hover:text-primary-foreground">
+    <li className="group/row flex cursor-default items-start gap-3 text-primary-foreground/82 transition-colors duration-[350ms] hover:text-primary-foreground">
+      <span className="relative grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-full border border-primary-foreground/14 bg-primary-foreground/[0.05] backdrop-blur-sm transition-all duration-[350ms] group-hover/row:-translate-y-0.5 group-hover/row:border-teal/70">
         <span
           aria-hidden
-          className="absolute inset-0 scale-0 rounded-full bg-teal/25 opacity-0 transition-all duration-[350ms] group-hover/icon:scale-100 group-hover/icon:opacity-100"
+          className="absolute inset-0 scale-0 rounded-full bg-teal/25 opacity-0 transition-all duration-[350ms] group-hover/row:scale-100 group-hover/row:opacity-100"
         />
         <span className="relative z-10">{icon}</span>
       </span>
-      <span className="mt-2.5 leading-[1.7]">{children}</span>
+      <span className="mt-1.5 leading-[1.7]">{children}</span>
     </li>
   );
 }
+
