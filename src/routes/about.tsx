@@ -610,7 +610,7 @@ function About() {
                       );
                     })}
                   </ol>
-                  <ol className="space-y-12 md:mt-[6rem] md:space-y-24">
+                  <ol className="space-y-12 md:mt-[3rem] md:space-y-24">
                     {rightItems.map((v) => {
                       const originalIndex = values.indexOf(v);
                       return (
