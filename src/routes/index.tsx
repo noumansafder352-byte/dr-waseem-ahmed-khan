@@ -23,6 +23,8 @@ import {
   ArrowRight,
   Plus,
   Minus,
+  X,
+
   Microscope,
   Ribbon,
   Droplet,
