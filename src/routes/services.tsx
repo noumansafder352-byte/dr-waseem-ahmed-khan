@@ -178,25 +178,12 @@ function Services() {
               return (
                 <FadeUp key={s.title} delay={i * 60}>
                   <article
-                    className="group relative flex h-full overflow-hidden rounded-[28px] bg-white shadow-premium ring-1 ring-border/60 transition-all duration-[400ms] ease-out hover:-translate-y-1.5 hover:shadow-premium-lg"
+                    className="group relative flex h-full overflow-hidden rounded-[28px] bg-white shadow-premium ring-1 ring-border/60 transition-[transform,box-shadow] duration-[400ms] ease-out hover:-translate-y-1 hover:shadow-premium-lg"
                   >
                     {/* Left accent bar */}
                     <span
                       className="absolute left-0 top-0 h-full w-[3px] origin-top scale-y-[0.25] transition-transform duration-[500ms] ease-out group-hover:scale-y-100"
                       style={{ backgroundColor: accent }}
-                    />
-
-                    {/* Gradient border on hover */}
-                    <span
-                      className="pointer-events-none absolute inset-0 rounded-[28px] opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100"
-                      style={{
-                        background: `linear-gradient(135deg, ${accent}, #19979C) border-box`,
-                        WebkitMask:
-                          "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-                        WebkitMaskComposite: "xor",
-                        maskComposite: "exclude",
-                        padding: "1.5px",
-                      }}
                     />
 
                     {/* Content column */}
@@ -214,17 +201,13 @@ function Services() {
                       </div>
 
                       {/* Icon */}
-                      <div className="relative mt-6">
+                      <div className="mt-6">
                         <div
-                          className="grid h-14 w-14 place-items-center rounded-2xl transition-all duration-[400ms] ease-out group-hover:-rotate-6 group-hover:scale-110"
+                          className="grid h-14 w-14 place-items-center rounded-2xl transition-transform duration-[400ms] ease-out group-hover:-rotate-6 group-hover:scale-110"
                           style={{ backgroundColor: `${accent}12` }}
                         >
                           <s.icon size={26} style={{ color: accent }} />
                         </div>
-                        <span
-                          className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 blur-xl transition-opacity duration-[400ms] group-hover:opacity-50"
-                          style={{ backgroundColor: accent }}
-                        />
                       </div>
 
                       <h3 className="mt-6 font-display text-2xl font-semibold leading-tight tracking-tight text-primary">
@@ -232,7 +215,7 @@ function Services() {
                       </h3>
 
                       <div
-                        className="mt-3 h-[2px] w-10 rounded-full transition-all duration-[400ms] ease-out group-hover:w-24"
+                        className="mt-3 h-[2px] w-10 rounded-full transition-[width] duration-[400ms] ease-out group-hover:w-24"
                         style={{ backgroundColor: accent }}
                       />
 
@@ -241,23 +224,19 @@ function Services() {
                       </p>
                     </div>
 
-                    {/* Image column with subtle integration */}
+                    {/* Image column */}
                     <div className="relative hidden w-[38%] shrink-0 overflow-hidden md:block">
                       <div
                         className="absolute inset-0 bg-cover bg-center transition-transform duration-[600ms] ease-out group-hover:scale-105"
                         style={{ backgroundImage: `url(${s.image})` }}
                       />
-                      {/* Brand color veil */}
                       <div
-                        className="absolute inset-0 opacity-80 transition-opacity duration-[400ms] group-hover:opacity-60"
+                        className="absolute inset-0 opacity-80"
                         style={{
                           background: `linear-gradient(150deg, ${accent} 0%, ${accent}CC 40%, transparent 100%)`,
                         }}
                       />
-                      {/* Left fade into content */}
                       <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent" />
-                      {/* Corner sheen */}
-                      <span className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-white/25 opacity-0 blur-3xl transition-opacity duration-[500ms] group-hover:opacity-100" />
                     </div>
                   </article>
                 </FadeUp>
