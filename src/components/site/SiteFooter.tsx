@@ -1,94 +1,62 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Clock, ArrowUpRight } from "lucide-react";
+import { Clock, Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import type { ReactNode } from "react";
 import logo from "@/assets/logo.png.asset.json";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative isolate overflow-hidden bg-primary text-white">
-      {/* Section-to-footer transition */}
+    <footer className="relative isolate overflow-hidden bg-primary text-primary-foreground">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 -top-24 h-24"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px"
         style={{
           background:
-            "linear-gradient(to bottom, transparent 0%, rgba(24,47,88,0.35) 55%, #182F58 100%)",
+            "linear-gradient(90deg, transparent, color-mix(in oklab, var(--secondary) 70%, transparent), color-mix(in oklab, var(--teal) 80%, transparent), color-mix(in oklab, var(--medical) 75%, transparent), transparent)",
         }}
       />
-
-      {/* Ambient brand glows */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-32 -top-32 h-[460px] w-[460px] rounded-full opacity-[0.20] blur-3xl"
-        style={{ backgroundColor: "#1F72B9" }}
+        className="pointer-events-none absolute inset-0 opacity-80"
+        style={{
+          background:
+            "radial-gradient(70% 55% at 50% 0%, color-mix(in oklab, var(--secondary) 18%, transparent) 0%, transparent 68%), radial-gradient(42% 48% at 0% 100%, color-mix(in oklab, var(--teal) 18%, transparent) 0%, transparent 72%), linear-gradient(180deg, color-mix(in oklab, var(--primary) 92%, black) 0%, var(--primary) 46%, color-mix(in oklab, var(--primary) 86%, black) 100%)",
+        }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-40 bottom-0 h-[500px] w-[500px] rounded-full opacity-[0.18] blur-3xl"
-        style={{ backgroundColor: "#19979C" }}
-      />
-      {/* Subtle grid texture */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
-          backgroundSize: "96px 96px",
-          maskImage:
-            "radial-gradient(ellipse at center, black 30%, transparent 78%)",
+            "linear-gradient(color-mix(in oklab, var(--primary-foreground) 55%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--primary-foreground) 55%, transparent) 1px, transparent 1px)",
+          backgroundSize: "84px 84px",
+          maskImage: "radial-gradient(ellipse at center, black 18%, transparent 76%)",
         }}
       />
-      {/* Radial vignette to add depth like the header */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute left-1/2 top-16 h-28 w-[min(86vw,980px)] -translate-x-1/2 rounded-full blur-3xl"
         style={{
-          background:
-            "radial-gradient(60% 50% at 50% 0%, rgba(31,114,185,0.18) 0%, transparent 70%)",
-        }}
-      />
-      {/* Accent hairline top */}
-      <div
-        aria-hidden
-        className="absolute inset-x-0 top-0 h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, rgba(25,151,156,0.85), rgba(82,149,66,0.85), rgba(31,114,185,0.85), transparent)",
+          background: "color-mix(in oklab, var(--teal) 18%, transparent)",
         }}
       />
 
-      <div className="relative mx-auto max-w-[1280px] px-6 pb-10 pt-24 md:px-10 md:pt-28 lg:px-12">
-        {/* Top brand strip */}
-        <div className="flex flex-col items-start gap-8 border-b border-white/10 pb-12 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-5">
+      <div className="relative mx-auto max-w-[1280px] px-6 pb-8 pt-20 md:px-10 md:pt-24 lg:px-12">
+        <div className="grid gap-12 border-b border-primary-foreground/12 pb-14 lg:grid-cols-[1.25fr_2fr] lg:gap-16">
+          <div className="max-w-xl">
             <img
               src={logo.url}
               alt="Dr. Waseem Ahmad Khan — General & Laparoscopic Surgeon"
-              className="h-20 w-auto md:h-24"
+              className="h-24 w-auto md:h-28"
               draggable={false}
             />
-          </div>
-          <Link
-            to="/contact"
-            hash="appointment"
-            className="group inline-flex items-center gap-3 rounded-full bg-medical px-7 py-3.5 text-[14px] font-semibold text-medical-foreground shadow-[0_10px_24px_-10px_rgba(82,149,66,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal hover:shadow-[0_14px_30px_-12px_rgba(25,151,156,0.55)]"
-          >
-            Book an Appointment
-            <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </Link>
-        </div>
-
-        <div className="grid gap-14 pt-14 md:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr_1.1fr] lg:gap-12">
-          {/* Brand */}
-          <div>
-            <p className="max-w-md text-[14px] leading-[1.85] text-white/70">
-              Expert general and laparoscopic surgical care by
-              Maj Gen (Rtd) Waseem Ahmad Khan — decades of clinical excellence,
-              delivered with precision and compassion.
+            <p className="mt-7 max-w-md text-[14px] leading-[1.9] text-primary-foreground/72">
+              Distinguished surgical care led by Maj Gen (Rtd) Waseem Ahmad Khan,
+              combining decades of operative experience with precise, compassionate
+              patient care.
             </p>
-            <div className="mt-7 flex items-center gap-3">
+            <div className="mt-8 flex items-center gap-3">
               {[
                 { Icon: Facebook, label: "Facebook", href: "https://facebook.com" },
                 { Icon: Instagram, label: "Instagram", href: "https://instagram.com" },
@@ -100,48 +68,33 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
-                  className="group/social relative grid h-10 w-10 place-items-center overflow-hidden rounded-full border border-white/15 bg-white/[0.04] text-white/85 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#19979C]/70 hover:text-white"
+                  className="group/social relative grid h-11 w-11 place-items-center overflow-hidden rounded-full border border-primary-foreground/14 bg-primary-foreground/[0.05] text-primary-foreground/82 backdrop-blur-sm transition-all duration-[350ms] hover:-translate-y-0.5 hover:border-teal/70 hover:text-primary-foreground"
                 >
                   <span
                     aria-hidden
-                    className="absolute inset-0 -z-0 scale-0 rounded-full bg-gradient-to-br from-[#19979C]/40 to-[#1F72B9]/40 opacity-0 transition-all duration-300 group-hover/social:scale-100 group-hover/social:opacity-100"
+                    className="absolute inset-0 scale-0 rounded-full bg-teal/25 opacity-0 transition-all duration-[350ms] group-hover/social:scale-100 group-hover/social:opacity-100"
                   />
-                  <Icon size={16} strokeWidth={1.75} className="relative z-10" />
+                  <Icon size={16} strokeWidth={1.8} className="relative z-10" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <FooterHeading>Explore</FooterHeading>
-            <ul className="mt-6 space-y-3.5 text-[14px]">
-              {[
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            <FooterColumn title="Quick Links">
+              {([
                 { to: "/", label: "Home" },
                 { to: "/about", label: "About Us" },
                 { to: "/services", label: "Services" },
                 { to: "/contact", label: "Contact Us" },
-              ].map((l) => (
-                <li key={l.to}>
-                  <Link
-                    to={l.to}
-                    className="group/link inline-flex items-center gap-2 text-white/70 transition-colors duration-300 hover:text-white"
-                  >
-                    <span
-                      aria-hidden
-                      className="h-px w-4 bg-white/25 transition-all duration-300 group-hover/link:w-7 group-hover/link:bg-[#19979C]"
-                    />
-                    <span className="transition-transform duration-300 group-hover/link:translate-x-0.5">{l.label}</span>
-                  </Link>
+              ] as const).map((link) => (
+                <li key={link.to}>
+                  <FooterLink to={link.to}>{link.label}</FooterLink>
                 </li>
               ))}
-            </ul>
-          </div>
+            </FooterColumn>
 
-          {/* Services */}
-          <div>
-            <FooterHeading>Services</FooterHeading>
-            <ul className="mt-6 space-y-3.5 text-[14px] text-white/70">
+            <FooterColumn title="Services">
               {[
                 "General Surgery",
                 "Thyroid Surgery",
@@ -149,64 +102,53 @@ export function SiteFooter() {
                 "Gallbladder Surgery",
                 "Hernia Repair",
                 "Appendix Surgery",
-                "Varicose Vein Treatment",
-              ].map((s) => (
-                <li key={s} className="group/svc flex items-center gap-2 transition-colors duration-300 hover:text-white">
-                  <span
-                    aria-hidden
-                    className="inline-block h-1 w-1 rounded-full bg-white/30 transition-all duration-300 group-hover/svc:bg-[#529542] group-hover/svc:shadow-[0_0_10px_rgba(82,149,66,0.7)]"
-                  />
-                  {s}
+              ].map((service) => (
+                <li key={service} className="group/item flex items-center gap-3 text-[14px] text-primary-foreground/70 transition-colors duration-300 hover:text-primary-foreground">
+                  <span className="h-1.5 w-1.5 rounded-full bg-medical transition-transform duration-300 group-hover/item:scale-125" />
+                  <span>{service}</span>
                 </li>
               ))}
-            </ul>
-          </div>
+            </FooterColumn>
 
-          {/* Contact */}
-          <div>
-            <FooterHeading>Get in Touch</FooterHeading>
-            <ul className="mt-6 space-y-4 text-[14px] text-white/70">
-              <ContactItem icon={<MapPin size={15} strokeWidth={1.75} />}>
-                Rawalpindi, Pakistan
-              </ContactItem>
-              <ContactItem icon={<Phone size={15} strokeWidth={1.75} />}>
-                <a href="tel:+923000000000" className="transition-colors hover:text-white">
-                  +92 300 000 0000
-                </a>
-              </ContactItem>
-              <ContactItem icon={<Mail size={15} strokeWidth={1.75} />}>
-                <a
-                  href="mailto:info@drwaseemkhan.com"
-                  className="transition-colors hover:text-white"
-                >
-                  info@drwaseemkhan.com
-                </a>
-              </ContactItem>
-              <ContactItem icon={<Clock size={15} strokeWidth={1.75} />}>
-                Mon – Sat: 10:00 AM – 6:00 PM
-              </ContactItem>
-            </ul>
+            <div className="sm:col-span-2 lg:col-span-1">
+              <FooterHeading>Contact</FooterHeading>
+              <ul className="mt-7 space-y-4 text-[14px] text-primary-foreground/70">
+                <ContactItem icon={<MapPin size={15} strokeWidth={1.75} />}>
+                  Rawalpindi, Pakistan
+                </ContactItem>
+                <ContactItem icon={<Phone size={15} strokeWidth={1.75} />}>
+                  <a href="tel:+923000000000" className="transition-colors hover:text-primary-foreground">
+                    +92 300 000 0000
+                  </a>
+                </ContactItem>
+                <ContactItem icon={<Mail size={15} strokeWidth={1.75} />}>
+                  <a href="mailto:info@drwaseemkhan.com" className="transition-colors hover:text-primary-foreground">
+                    info@drwaseemkhan.com
+                  </a>
+                </ContactItem>
+                <ContactItem icon={<Clock size={15} strokeWidth={1.75} />}>
+                  Mon – Sat: 10:00 AM – 6:00 PM
+                </ContactItem>
+              </ul>
+            </div>
           </div>
         </div>
 
-        {/* Ornamental divider */}
-        <div className="mt-16 flex items-center gap-4">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-          <div className="flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#182F58] ring-1 ring-white/25" />
-            <span className="h-1.5 w-1.5 rounded-full bg-[#1F72B9]" />
-            <span className="h-1.5 w-1.5 rounded-full bg-[#19979C]" />
-            <span className="h-1.5 w-1.5 rounded-full bg-[#529542]" />
+        <div className="mt-8 grid gap-6 md:grid-cols-[1fr_auto_1fr] md:items-center">
+          <div className="hidden h-px bg-primary-foreground/12 md:block" />
+          <div className="flex items-center gap-2 justify-self-start md:justify-self-center">
+            <span className="h-1.5 w-8 rounded-full bg-secondary" />
+            <span className="h-1.5 w-8 rounded-full bg-teal" />
+            <span className="h-1.5 w-8 rounded-full bg-medical" />
           </div>
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+          <div className="hidden h-px bg-primary-foreground/12 md:block" />
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-6 flex flex-col items-center justify-between gap-3 text-[12px] text-white/55 md:flex-row">
+        <div className="mt-7 flex flex-col justify-between gap-3 text-[12px] text-primary-foreground/58 md:flex-row md:items-center">
           <p>© {year} Maj Gen (Rtd) Waseem Ahmad Khan. All rights reserved.</p>
-          <p className="flex items-center gap-2">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#529542]" />
-            Premium surgical care · Rawalpindi
+          <p className="flex items-center gap-2 text-primary-foreground/64">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-medical" />
+            General & Laparoscopic Surgeon · Rawalpindi
           </p>
         </div>
       </div>
@@ -214,14 +156,35 @@ export function SiteFooter() {
   );
 }
 
-function FooterHeading({ children }: { children: React.ReactNode }) {
+function FooterColumn({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <div>
+      <FooterHeading>{title}</FooterHeading>
+      <ul className="mt-7 space-y-3.5">{children}</ul>
+    </div>
+  );
+}
+
+function FooterHeading({ children }: { children: ReactNode }) {
   return (
     <div className="flex items-center gap-3">
-      <span className="h-px w-6 bg-[#19979C]" />
-      <h4 className="font-serif text-[13px] font-semibold uppercase tracking-[0.22em] text-white">
+      <span className="h-px w-7 bg-teal" />
+      <h4 className="font-serif text-[13px] font-semibold uppercase tracking-[0.22em] text-primary-foreground">
         {children}
       </h4>
     </div>
+  );
+}
+
+function FooterLink({ to, children }: { to: "/" | "/about" | "/services" | "/contact"; children: ReactNode }) {
+  return (
+    <Link
+      to={to}
+      className="group/link inline-flex items-center gap-3 text-[14px] text-primary-foreground/70 transition-colors duration-300 hover:text-primary-foreground"
+    >
+      <span className="h-px w-4 bg-primary-foreground/24 transition-all duration-300 group-hover/link:w-7 group-hover/link:bg-teal" />
+      <span className="transition-transform duration-300 group-hover/link:translate-x-0.5">{children}</span>
+    </Link>
   );
 }
 
@@ -229,12 +192,12 @@ function ContactItem({
   icon,
   children,
 }: {
-  icon: React.ReactNode;
-  children: React.ReactNode;
+  icon: ReactNode;
+  children: ReactNode;
 }) {
   return (
     <li className="flex items-start gap-3">
-      <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-[#19979C] transition-colors duration-300 hover:border-[#19979C]/60 hover:text-white">
+      <span className="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-primary-foreground/12 bg-primary-foreground/[0.05] text-teal transition-colors duration-300 hover:border-teal/60 hover:text-primary-foreground">
         {icon}
       </span>
       <span className="leading-[1.7]">{children}</span>
