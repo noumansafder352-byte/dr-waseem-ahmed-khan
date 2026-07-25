@@ -8,7 +8,9 @@ import {
   Sparkles,
   BookOpenCheck,
   Compass,
-  Globe,
+  Stethoscope,
+  BriefcaseMedical,
+  BadgeCheck,
   ScrollText,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
