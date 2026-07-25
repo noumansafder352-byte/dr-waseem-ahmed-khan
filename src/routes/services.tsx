@@ -17,6 +17,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { FadeUp } from "@/components/site/FadeUp";
 import { CtaBand } from "@/components/site/CtaBand";
+import { TreatmentTimeline } from "@/components/site/TreatmentTimeline";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -56,7 +57,7 @@ const services = [
     tag: "Endocrine Precision",
     desc: "Precise thyroidectomy and thyroid nodule management for benign and malignant disease, with attention to voice preservation and cosmetic outcomes.",
     image:
-      "https://images.unsplash.com/photo-1631815588090-d1bcbe9b4b46?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1666214277657-e668a2183a34?auto=format&fit=crop&w=1200&q=80",
   },
   {
     icon: HeartPulse,
@@ -178,25 +179,12 @@ function Services() {
               return (
                 <FadeUp key={s.title} delay={i * 60}>
                   <article
-                    className="group relative flex h-full overflow-hidden rounded-[28px] bg-white shadow-premium ring-1 ring-border/60 transition-all duration-[400ms] ease-out hover:-translate-y-1.5 hover:shadow-premium-lg"
+                    className="group relative flex h-full overflow-hidden rounded-[28px] bg-white shadow-premium ring-1 ring-border/60 transition-[transform,box-shadow] duration-[400ms] ease-out hover:-translate-y-1 hover:shadow-premium-lg"
                   >
                     {/* Left accent bar */}
                     <span
                       className="absolute left-0 top-0 h-full w-[3px] origin-top scale-y-[0.25] transition-transform duration-[500ms] ease-out group-hover:scale-y-100"
                       style={{ backgroundColor: accent }}
-                    />
-
-                    {/* Gradient border on hover */}
-                    <span
-                      className="pointer-events-none absolute inset-0 rounded-[28px] opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100"
-                      style={{
-                        background: `linear-gradient(135deg, ${accent}, #19979C) border-box`,
-                        WebkitMask:
-                          "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
-                        WebkitMaskComposite: "xor",
-                        maskComposite: "exclude",
-                        padding: "1.5px",
-                      }}
                     />
 
                     {/* Content column */}
@@ -214,17 +202,13 @@ function Services() {
                       </div>
 
                       {/* Icon */}
-                      <div className="relative mt-6">
+                      <div className="mt-6">
                         <div
-                          className="grid h-14 w-14 place-items-center rounded-2xl transition-all duration-[400ms] ease-out group-hover:-rotate-6 group-hover:scale-110"
+                          className="grid h-14 w-14 place-items-center rounded-2xl transition-transform duration-[400ms] ease-out group-hover:-rotate-6 group-hover:scale-110"
                           style={{ backgroundColor: `${accent}12` }}
                         >
                           <s.icon size={26} style={{ color: accent }} />
                         </div>
-                        <span
-                          className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 blur-xl transition-opacity duration-[400ms] group-hover:opacity-50"
-                          style={{ backgroundColor: accent }}
-                        />
                       </div>
 
                       <h3 className="mt-6 font-display text-2xl font-semibold leading-tight tracking-tight text-primary">
@@ -232,7 +216,7 @@ function Services() {
                       </h3>
 
                       <div
-                        className="mt-3 h-[2px] w-10 rounded-full transition-all duration-[400ms] ease-out group-hover:w-24"
+                        className="mt-3 h-[2px] w-10 rounded-full transition-[width] duration-[400ms] ease-out group-hover:w-24"
                         style={{ backgroundColor: accent }}
                       />
 
@@ -241,23 +225,19 @@ function Services() {
                       </p>
                     </div>
 
-                    {/* Image column with subtle integration */}
+                    {/* Image column */}
                     <div className="relative hidden w-[38%] shrink-0 overflow-hidden md:block">
                       <div
                         className="absolute inset-0 bg-cover bg-center transition-transform duration-[600ms] ease-out group-hover:scale-105"
                         style={{ backgroundImage: `url(${s.image})` }}
                       />
-                      {/* Brand color veil */}
                       <div
-                        className="absolute inset-0 opacity-80 transition-opacity duration-[400ms] group-hover:opacity-60"
+                        className="absolute inset-0 opacity-80"
                         style={{
                           background: `linear-gradient(150deg, ${accent} 0%, ${accent}CC 40%, transparent 100%)`,
                         }}
                       />
-                      {/* Left fade into content */}
                       <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent" />
-                      {/* Corner sheen */}
-                      <span className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-white/25 opacity-0 blur-3xl transition-opacity duration-[500ms] group-hover:opacity-100" />
                     </div>
                   </article>
                 </FadeUp>
@@ -267,34 +247,39 @@ function Services() {
         </div>
       </section>
 
-      {/* Process timeline */}
-      <section className="px-6 py-24 md:px-8 md:py-32">
-        <div className="mx-auto max-w-7xl">
+      {/* Treatment Process — premium animated timeline */}
+      <section className="relative overflow-hidden px-6 py-24 md:px-8 md:py-32">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.35]"
+          style={{
+            background:
+              "radial-gradient(60% 40% at 50% 0%, rgba(31,114,185,0.06) 0%, transparent 70%), radial-gradient(50% 40% at 50% 100%, rgba(25,151,156,0.05) 0%, transparent 70%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl">
           <FadeUp>
             <div className="mx-auto max-w-2xl text-center">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
-                Treatment Process
-              </span>
-              <h2 className="mt-4 text-4xl font-semibold text-primary md:text-5xl">
+              <div className="mx-auto flex items-center justify-center gap-3">
+                <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#19979C]" />
+                <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#19979C]">
+                  Patient Journey
+                </span>
+                <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#19979C]" />
+              </div>
+              <h2 className="mt-6 font-display text-4xl font-semibold text-primary md:text-5xl">
                 From consultation to complete recovery
               </h2>
+              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
+                A carefully guided pathway — every stage designed around clarity,
+                safety, and your comfort.
+              </p>
+              <div className="mx-auto mt-8 h-[3px] w-24 rounded-full bg-gradient-to-r from-[#182F58] via-[#1F72B9] to-[#19979C]" />
             </div>
           </FadeUp>
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {process.map((p, i) => (
-              <FadeUp key={p.title} delay={i * 60}>
-                <div className="h-full rounded-2xl border border-border bg-white p-7 shadow-premium">
-                  <div className="flex items-center gap-4">
-                    <div className="grid h-12 w-12 place-items-center rounded-xl bg-[#eaf1fa] text-primary">
-                      <p.icon size={22} />
-                    </div>
-                    <span className="font-serif text-2xl text-primary/25">0{i + 1}</span>
-                  </div>
-                  <h3 className="mt-5 text-lg font-semibold text-primary">{p.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
-                </div>
-              </FadeUp>
-            ))}
+
+          <div className="mt-20">
+            <TreatmentTimeline steps={process} />
           </div>
         </div>
       </section>
