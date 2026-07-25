@@ -52,15 +52,15 @@ const timeline = [
 ];
 
 const values = [
-  { icon: ShieldCheck, title: "Integrity", desc: "Honest advice and transparent guidance at every step." },
-  { icon: HeartHandshake, title: "Compassion", desc: "Every patient treated with dignity, warmth, and empathy." },
-  { icon: Sparkles, title: "Excellence", desc: "A commitment to the highest surgical and clinical standards." },
-  { icon: BookOpenCheck, title: "Evidence-Based", desc: "Modern, research-driven treatment decisions." },
-  { icon: Users, title: "Patient-Centered", desc: "Personalized plans built around your needs and goals." },
-  { icon: Compass, title: "Precision", desc: "Meticulous surgical technique and attention to detail." },
+  { icon: Shield, title: "Integrity", desc: "Honest advice and transparent guidance at every step of your care." },
+  { icon: HeartPulse, title: "Compassion", desc: "Every patient treated with dignity, warmth, and unwavering empathy." },
+  { icon: Gem, title: "Excellence", desc: "A commitment to the highest surgical and clinical standards worldwide." },
+  { icon: Microscope, title: "Evidence-Based", desc: "Modern, research-driven treatment decisions grounded in science." },
+  { icon: UserRound, title: "Patient-Centered", desc: "Personalized plans built around your individual needs and goals." },
+  { icon: Crosshair, title: "Precision", desc: "Meticulous surgical technique and uncompromising attention to detail." },
 ];
 
-const valueAccents = ["#182F58", "#1F72B9", "#529542", "#19979C", "#182F58", "#529542"];
+const valueAccents = ["#182F58", "#529542", "#1F72B9", "#19979C", "#182F58", "#529542"];
 
 function About() {
   return (
