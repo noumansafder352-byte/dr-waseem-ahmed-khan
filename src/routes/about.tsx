@@ -484,36 +484,34 @@ function About() {
             </div>
           </FadeUp>
 
-          {/* Desktop radial orbit */}
-          <div className="relative mx-auto mt-12 hidden h-[700px] w-[700px] lg:block">
-            {/* SVG connecting ring + spokes */}
-            <svg aria-hidden className="absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 700 700">
+          {/* Desktop radial orbit — center hub with semicircle satellites */}
+          <div className="relative mx-auto mt-16 hidden h-[380px] w-[720px] lg:block">
+            {/* SVG connecting arc + spokes */}
+            <svg aria-hidden className="absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 720 380">
               <defs>
                 <linearGradient id="orbit-spoke" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stopColor="#1F72B9" stopOpacity="0.35" />
                   <stop offset="100%" stopColor="#19979C" stopOpacity="0.35" />
                 </linearGradient>
               </defs>
-              <circle
-                cx="350"
-                cy="350"
-                r="200"
+              <path
+                d="M 170 75 A 190 190 0 1 1 550 75"
                 stroke="#182F58"
                 strokeOpacity="0.08"
                 strokeWidth="1"
                 fill="none"
                 strokeDasharray="4 6"
               />
-              <line x1="350" y1="350" x2="350" y2="150" stroke="url(#orbit-spoke)" strokeWidth="1" />
-              <line x1="350" y1="350" x2="540" y2="288" stroke="url(#orbit-spoke)" strokeWidth="1" />
-              <line x1="350" y1="350" x2="468" y2="512" stroke="url(#orbit-spoke)" strokeWidth="1" />
-              <line x1="350" y1="350" x2="232" y2="512" stroke="url(#orbit-spoke)" strokeWidth="1" />
-              <line x1="350" y1="350" x2="160" y2="288" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="360" y1="75" x2="550" y2="75" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="360" y1="75" x2="494" y2="209" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="360" y1="75" x2="360" y2="265" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="360" y1="75" x2="226" y2="209" stroke="url(#orbit-spoke)" strokeWidth="1" />
+              <line x1="360" y1="75" x2="170" y2="75" stroke="url(#orbit-spoke)" strokeWidth="1" />
             </svg>
 
             {/* Center hub — Patient-Centered */}
             <FadeUp delay={100}>
-              <div className="absolute left-1/2 top-1/2 z-20 w-52 -translate-x-1/2 -translate-y-1/2">
+              <div className="absolute left-1/2 top-[75px] z-20 w-52 -translate-x-1/2 -translate-y-1/2">
                 <div
                   className="rounded-full border border-border bg-white p-6 text-center transition-all duration-[400ms] ease-out hover:scale-[1.03]"
                   style={{ boxShadow: "0 0 0 8px rgba(255,255,255,0.85), 0 24px 60px -20px rgba(24,47,88,0.25)" }}
@@ -537,7 +535,7 @@ function About() {
                 <FadeUp key={v.title} delay={220 + i * 100}>
                   <div
                     className="group absolute z-10 w-52"
-                    style={{ left: `calc(50% + ${v.x}px)`, top: `calc(50% + ${v.y}px)`, transform: "translate(-50%, -50%)" }}
+                    style={{ left: `calc(50% + ${v.x}px)`, top: `calc(75px + ${v.y}px)`, transform: "translate(-50%, -50%)" }}
                   >
                     <div className="rounded-2xl border border-border bg-white p-5 shadow-premium transition-all duration-[400ms] ease-out group-hover:-translate-y-1 group-hover:border-transparent group-hover:shadow-premium-lg">
                       <div className="flex items-center gap-3">
