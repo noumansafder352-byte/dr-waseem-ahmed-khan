@@ -80,7 +80,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-16">
             <FooterColumn title="Quick Links">
               {([
                 { to: "/", label: "Home" },
