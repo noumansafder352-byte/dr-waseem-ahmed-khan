@@ -92,7 +92,7 @@ const services: {
     accent: "#1F72B9",
     tint: "#e8f1fb",
     image:
-      "https://images.unsplash.com/photo-1631815588090-d1bcbe9a8537?auto=format&fit=crop&w=1200&q=80",
+      "https://plus.unsplash.com/premium_photo-1702598505388-e2ac9b3812e9?auto=format&fit=crop&w=1200&q=80",
   },
   {
     icon: Droplet,
