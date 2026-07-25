@@ -435,7 +435,7 @@ function About() {
       </section>
 
       {/* Core Values — bespoke editorial roster */}
-      <section className="relative overflow-hidden bg-white px-6 pt-24 pb-14 md:px-8 md:pt-32 md:pb-20">
+      <section className="relative overflow-hidden bg-white px-6 pt-16 pb-14 md:px-8 md:pt-20 md:pb-20">
         {/* Subtle ambient wash */}
         <div
           aria-hidden
