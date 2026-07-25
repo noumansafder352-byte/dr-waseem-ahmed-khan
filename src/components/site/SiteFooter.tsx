@@ -168,12 +168,9 @@ function FooterColumn({ title, children }: { title: string; children: ReactNode 
 
 function FooterHeading({ children }: { children: ReactNode }) {
   return (
-    <div className="flex items-center gap-3">
-      <span className="h-px w-7 bg-teal" />
-      <h4 className="font-serif text-[13px] font-semibold uppercase tracking-[0.22em] text-primary-foreground">
-        {children}
-      </h4>
-    </div>
+    <h4 className="font-serif text-[13px] font-semibold uppercase tracking-[0.22em] text-primary-foreground">
+      {children}
+    </h4>
   );
 }
 
