@@ -218,7 +218,7 @@ function Contact() {
                 <iframe
                   title="Clinic Location"
                   src="https://www.google.com/maps?q=Rawalpindi,Pakistan&output=embed"
-                  className="h-48 w-full"
+                  className="h-64 w-full"
                   loading="lazy"
                 />
               </div>
