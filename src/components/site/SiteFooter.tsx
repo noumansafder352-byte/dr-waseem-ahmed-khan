@@ -165,7 +165,7 @@ function FooterHeading({ children }: { children: ReactNode }) {
   );
 }
 
-function FooterLink({ to, hash, children }: { to: "/" | "/about" | "/services" | "/contact"; hash?: string; children: ReactNode }) {
+function FooterLink({ to, hash, children }: { to: string; hash?: string; children: ReactNode }) {
   return (
     <Link
       to={to}
