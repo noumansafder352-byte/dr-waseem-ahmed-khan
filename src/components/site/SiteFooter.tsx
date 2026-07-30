@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Clock, Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 import logo from "@/assets/logo.png.asset.json";
 
@@ -43,12 +43,13 @@ export function SiteFooter() {
       />
 
       <div className="relative mx-auto max-w-[1280px] px-6 pb-8 pt-20 md:px-10 md:pt-24 lg:px-12">
-        <div className="grid gap-12 border-b border-primary-foreground/12 pb-14 sm:grid-cols-2 lg:grid-cols-4 lg:items-start lg:gap-12">
+        <div className="grid gap-12 border-b border-primary-foreground/12 pb-14 sm:grid-cols-2 lg:grid-cols-[1.15fr_1fr_1fr_1fr] lg:items-start lg:gap-12">
+          {/* Logo & Introduction */}
           <div className="flex flex-col">
             <img
               src={logo.url}
               alt="Dr. Waseem Ahmad Khan — General & Laparoscopic Surgeon"
-              className="-mt-2 h-20 w-auto md:h-24"
+              className="h-24 w-auto object-contain md:h-28"
               draggable={false}
             />
             <p className="mt-6 max-w-xs text-[14px] leading-[1.9] text-primary-foreground/72">
@@ -60,7 +61,6 @@ export function SiteFooter() {
               {[
                 { Icon: Facebook, label: "Facebook", href: "https://facebook.com" },
                 { Icon: Instagram, label: "Instagram", href: "https://instagram.com" },
-                { Icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
               ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
@@ -80,61 +80,61 @@ export function SiteFooter() {
             </div>
           </div>
 
-          
-            <FooterColumn title="Quick Links">
-              {([
-                { to: "/", label: "Home" },
-                { to: "/about", label: "About Us" },
-                { to: "/services", label: "Services" },
-                { to: "/contact", label: "Contact Us" },
-              ] as const).map((link) => (
-                <li key={link.to}>
-                  <FooterLink to={link.to}>{link.label}</FooterLink>
-                </li>
-              ))}
-            </FooterColumn>
+          <FooterColumn title="Quick Links">
+            {[
+              { to: "/", label: "Home" },
+              { to: "/about", label: "About Us" },
+              { to: "/services", label: "Services" },
+              { to: "/", hash: "why-trust", label: "Why Trust Us" },
+              { to: "/", hash: "faqs", label: "FAQs" },
+              { to: "/contact", label: "Contact Us" },
+            ].map((link) => (
+              <li key={`${link.to}-${link.label}`}>
+                <FooterLink to={link.to} hash={link.hash}>
+                  {link.label}
+                </FooterLink>
+              </li>
+            ))}
+          </FooterColumn>
 
+          <FooterColumn title="Services">
+            {[
+              "General Surgery",
+              "Thyroid Surgery",
+              "Breast Surgery",
+              "Gallbladder Surgery",
+              "Hernia Repair",
+              "Appendix Surgery",
+            ].map((service) => (
+              <li key={service} className="group/item flex items-center gap-3 text-[14px] text-primary-foreground/70 transition-colors duration-300 hover:text-primary-foreground">
+                <span className="h-1.5 w-1.5 rounded-full bg-medical transition-transform duration-300 group-hover/item:scale-125" />
+                <span>{service}</span>
+              </li>
+            ))}
+          </FooterColumn>
 
-            <FooterColumn title="Services">
-              {[
-                "General Surgery",
-                "Thyroid Surgery",
-                "Breast Surgery",
-                "Gallbladder Surgery",
-                "Hernia Repair",
-                "Appendix Surgery",
-              ].map((service) => (
-                <li key={service} className="group/item flex items-center gap-3 text-[14px] text-primary-foreground/70 transition-colors duration-300 hover:text-primary-foreground">
-                  <span className="h-1.5 w-1.5 rounded-full bg-medical transition-transform duration-300 group-hover/item:scale-125" />
-                  <span>{service}</span>
-                </li>
-              ))}
-            </FooterColumn>
-
-            <div className="sm:col-span-2 lg:col-span-1">
-              <FooterHeading>Contact</FooterHeading>
-              <ul className="mt-7 space-y-4 text-[14px] text-primary-foreground/70">
-                <ContactItem icon={<MapPin size={13} strokeWidth={1.75} />}>
-                  Rawalpindi, Pakistan
-                </ContactItem>
-                <ContactItem icon={<Phone size={13} strokeWidth={1.75} />}>
-                  <a href="tel:+923000000000" className="transition-colors hover:text-primary-foreground">
-                    +92 300 000 0000
-                  </a>
-                </ContactItem>
-                <ContactItem icon={<Mail size={13} strokeWidth={1.75} />}>
-                  <a href="mailto:info@drwaseemkhan.com" className="transition-colors hover:text-primary-foreground">
-                    info@drwaseemkhan.com
-                  </a>
-                </ContactItem>
-                <ContactItem icon={<Clock size={13} strokeWidth={1.75} />}>
-                  Mon – Sat: 10:00 AM – 6:00 PM
-                </ContactItem>
-              </ul>
-            </div>
+          <div className="sm:col-span-2 lg:col-span-1">
+            <FooterHeading>Contact</FooterHeading>
+            <ul className="mt-7 space-y-4 text-[14px] text-primary-foreground/70">
+              <ContactItem icon={<MapPin size={13} strokeWidth={1.75} />}>
+                Rawalpindi, Pakistan
+              </ContactItem>
+              <ContactItem icon={<Phone size={13} strokeWidth={1.75} />}>
+                <a href="tel:+923000000000" className="transition-colors hover:text-primary-foreground">
+                  +92 300 000 0000
+                </a>
+              </ContactItem>
+              <ContactItem icon={<Mail size={13} strokeWidth={1.75} />}>
+                <a href="mailto:info@drwaseemkhan.com" className="transition-colors hover:text-primary-foreground">
+                  info@drwaseemkhan.com
+                </a>
+              </ContactItem>
+              <ContactItem icon={<Clock size={13} strokeWidth={1.75} />}>
+                Mon – Sat: 10:00 AM – 6:00 PM
+              </ContactItem>
+            </ul>
+          </div>
         </div>
-
-
 
         <div className="mt-7 flex flex-col justify-between gap-3 text-[12px] text-primary-foreground/58 md:flex-row md:items-center">
           <p>© {year} Maj Gen (Rtd) Waseem Ahmad Khan. All rights reserved.</p>
@@ -165,10 +165,11 @@ function FooterHeading({ children }: { children: ReactNode }) {
   );
 }
 
-function FooterLink({ to, children }: { to: "/" | "/about" | "/services" | "/contact"; children: ReactNode }) {
+function FooterLink({ to, hash, children }: { to: string; hash?: string; children: ReactNode }) {
   return (
     <Link
       to={to}
+      hash={hash}
       className="group/link inline-flex items-center gap-3 text-[14px] text-primary-foreground/70 transition-colors duration-300 hover:text-primary-foreground"
     >
       <span className="h-1.5 w-1.5 rounded-full bg-medical transition-transform duration-300 group-hover/link:scale-125" />
@@ -197,4 +198,3 @@ function ContactItem({
     </li>
   );
 }
-
