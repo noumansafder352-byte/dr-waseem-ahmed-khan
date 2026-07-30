@@ -71,9 +71,13 @@ export function SiteHeader(_: { transparentOnTop?: boolean } = {}) {
 
       {/* Main header */}
       <div className="mx-auto grid h-[88px] max-w-[1280px] grid-cols-[auto_1fr_auto] items-center gap-6 px-6 md:px-10 lg:px-12">
-        <Link to="/" className="flex items-center shrink-0" aria-label="Dr. Waseem Ahmad Khan — Home">
+        <Link
+          to="/"
+          className="flex items-center shrink-0"
+          aria-label="Dr. Waseem Ahmad Khan — Home"
+        >
           <img
-            src={logo.url}
+            src="/image/dr-waseem-logo-icon.png"
             alt="Dr. Waseem Ahmad Khan — General & Laparoscopic Surgeon"
             className="h-[86px] w-auto md:h-[96px]"
             draggable={false}
@@ -168,10 +172,22 @@ export function SiteHeader(_: { transparentOnTop?: boolean } = {}) {
           </Link>
         </nav>
         <div className="mt-4 flex items-center justify-center gap-6 border-t border-white/10 px-6 py-5">
-          <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" className="text-white transition-colors hover:text-medical">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Facebook"
+            className="text-white transition-colors hover:text-medical"
+          >
             <Facebook size={18} strokeWidth={1.75} />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="text-white transition-colors hover:text-medical">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+            className="text-white transition-colors hover:text-medical"
+          >
             <Instagram size={18} strokeWidth={1.75} />
           </a>
         </div>

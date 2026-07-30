@@ -12,8 +12,8 @@ export function CtaBand() {
             Take the First Step Toward Better Health
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base text-white/85 md:text-lg">
-            Whether you need a consultation, second opinion, or surgical treatment,
-            we're here to provide trusted care every step of the way.
+            Whether you need a consultation, second opinion, or surgical treatment, we're here to
+            provide trusted care every step of the way.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <Link

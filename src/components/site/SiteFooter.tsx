@@ -47,15 +47,14 @@ export function SiteFooter() {
           {/* Logo & Introduction */}
           <div className="flex flex-col items-start text-left">
             <img
-              src={logo.url}
+              src="/image/dr-waseem-logo-icon.png"
               alt="Dr. Waseem Ahmad Khan — General & Laparoscopic Surgeon"
               className="h-24 w-auto object-contain md:h-28"
               draggable={false}
             />
             <p className="mt-6 max-w-xs text-[14px] leading-[1.9] text-primary-foreground/72">
-              Distinguished surgical care led by Maj Gen (Rtd) Waseem Ahmad Khan,
-              combining decades of operative experience with precise, compassionate
-              patient care.
+              Distinguished surgical care led by Maj Gen (Rtd) Waseem Ahmad Khan, combining decades
+              of operative experience with precise, compassionate patient care.
             </p>
             <div className="mt-7 flex items-center gap-3">
               {[
@@ -106,7 +105,10 @@ export function SiteFooter() {
               "Hernia Repair",
               "Appendix Surgery",
             ].map((service) => (
-              <li key={service} className="group/item flex items-center gap-3 text-[14px] text-primary-foreground/70 transition-colors duration-300 hover:text-primary-foreground">
+              <li
+                key={service}
+                className="group/item flex items-center gap-3 text-[14px] text-primary-foreground/70 transition-colors duration-300 hover:text-primary-foreground"
+              >
                 <span className="h-1.5 w-1.5 rounded-full bg-medical transition-transform duration-300 group-hover/item:scale-125" />
                 <span>{service}</span>
               </li>
@@ -120,12 +122,18 @@ export function SiteFooter() {
                 Rawalpindi, Pakistan
               </ContactItem>
               <ContactItem icon={<Phone size={13} strokeWidth={1.75} />}>
-                <a href="tel:+923000000000" className="transition-colors hover:text-primary-foreground">
+                <a
+                  href="tel:+923000000000"
+                  className="transition-colors hover:text-primary-foreground"
+                >
                   +92 300 000 0000
                 </a>
               </ContactItem>
               <ContactItem icon={<Mail size={13} strokeWidth={1.75} />}>
-                <a href="mailto:info@drwaseemkhan.com" className="transition-colors hover:text-primary-foreground">
+                <a
+                  href="mailto:info@drwaseemkhan.com"
+                  className="transition-colors hover:text-primary-foreground"
+                >
                   info@drwaseemkhan.com
                 </a>
               </ContactItem>
@@ -178,13 +186,7 @@ function FooterLink({ to, hash, children }: { to: string; hash?: string; childre
   );
 }
 
-function ContactItem({
-  icon,
-  children,
-}: {
-  icon: ReactNode;
-  children: ReactNode;
-}) {
+function ContactItem({ icon, children }: { icon: ReactNode; children: ReactNode }) {
   return (
     <li className="group/row flex cursor-default items-start gap-3 text-primary-foreground/82 transition-colors duration-[350ms] hover:text-primary-foreground">
       <span className="relative grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-full border border-primary-foreground/14 bg-primary-foreground/[0.05] backdrop-blur-sm transition-all duration-[350ms] group-hover/row:-translate-y-0.5 group-hover/row:border-teal/70">

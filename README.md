@@ -6,7 +6,7 @@ The website should reflect trust, professionalism, expertise, and compassionate 
 
 The official logo is attached in this chat. Use it consistently throughout the website, including the header and footer, while maintaining proper spacing and proportions.
 
-------------------------------------------------------------
+---
 
 WEBSITE INFORMATION
 
@@ -54,7 +54,7 @@ Specialized Services:
 
 • Varicose Vein Treatment
 
-------------------------------------------------------------
+---
 
 BRANDING
 
@@ -76,7 +76,7 @@ Use subtle gradients combining the primary and secondary colors.
 
 Avoid using unnecessary colors.
 
-------------------------------------------------------------
+---
 
 DESIGN STYLE
 
@@ -120,7 +120,7 @@ Avoid AI-generated doctor illustrations or cartoon medical graphics.
 
 Typography should be clean and modern such as Inter, Manrope, or Plus Jakarta Sans.
 
-------------------------------------------------------------
+---
 
 HEADER
 
@@ -144,7 +144,7 @@ Book Appointment button
 
 The header should be transparent over the hero section and become white with a soft shadow while scrolling.
 
-------------------------------------------------------------
+---
 
 HOME PAGE
 
@@ -168,7 +168,7 @@ Book Appointment CTA
 
 Use the following homepage content.
 
-------------------------------------------------------------
+---
 
 Hero
 
@@ -194,7 +194,7 @@ Book Appointment
 
 Contact Us
 
-------------------------------------------------------------
+---
 
 About Doctor
 
@@ -206,7 +206,7 @@ Content:
 
 Maj Gen (Rtd) Waseem Ahmad Khan is a distinguished General & Laparoscopic Surgeon with an accomplished career in military healthcare, surgical education, and advanced patient care. His approach combines decades of clinical expertise with compassion, ensuring every patient receives safe, personalized, and evidence-based treatment.
 
-------------------------------------------------------------
+---
 
 Areas of Expertise
 
@@ -226,7 +226,7 @@ Appendix Surgery
 
 Varicose Vein Treatment
 
-------------------------------------------------------------
+---
 
 Why Patients Trust Us
 
@@ -248,7 +248,7 @@ Include premium feature cards.
 
 • Ethical Practice
 
-------------------------------------------------------------
+---
 
 Professional Credentials
 
@@ -276,7 +276,7 @@ Councillor CPSP
 
 Regional Director CPSP Rawalpindi
 
-------------------------------------------------------------
+---
 
 Patient Care Process
 
@@ -292,7 +292,7 @@ Recovery
 
 Follow-Up
 
-------------------------------------------------------------
+---
 
 Frequently Asked Questions
 
@@ -312,7 +312,7 @@ Do you provide follow-up care?
 
 Yes. Follow-up care is an essential part of every patient's treatment.
 
-------------------------------------------------------------
+---
 
 CTA
 
@@ -326,7 +326,7 @@ Book Appointment
 
 Contact Us
 
-------------------------------------------------------------
+---
 
 ABOUT PAGE
 
@@ -350,7 +350,7 @@ Book Appointment CTA
 
 Use the content already provided for each section and present it using premium layouts, timelines, icon cards, and modern spacing.
 
-------------------------------------------------------------
+---
 
 SERVICES PAGE
 
@@ -382,7 +382,7 @@ Varicose Vein Treatment
 
 Each service should have a concise professional description displayed inside premium cards.
 
-------------------------------------------------------------
+---
 
 CONTACT PAGE
 
@@ -416,7 +416,7 @@ Preferred Appointment Date
 
 Message
 
-------------------------------------------------------------
+---
 
 FOOTER
 
@@ -440,7 +440,7 @@ Social Media Icons
 
 Copyright
 
-------------------------------------------------------------
+---
 
 GENERAL REQUIREMENTS
 

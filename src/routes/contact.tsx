@@ -65,8 +65,10 @@ function Contact() {
       />
 
       {/* Appointment form + map */}
-      <section id="appointment" className="scroll-mt-24 bg-[oklch(0.98_0.01_240)] px-6 py-24 md:px-8 md:py-32">
-
+      <section
+        id="appointment"
+        className="scroll-mt-24 bg-[oklch(0.98_0.01_240)] px-6 py-24 md:px-8 md:py-32"
+      >
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-5">
           <FadeUp className="lg:col-span-3">
             <div className="rounded-3xl border border-border bg-white p-8 shadow-premium-lg md:p-12">
@@ -77,14 +79,20 @@ function Contact() {
                 Request an appointment
               </h2>
               <p className="mt-3 text-sm text-muted-foreground">
-                Fill in the form below and the clinic will get back to you to
-                confirm your consultation.
+                Fill in the form below and the clinic will get back to you to confirm your
+                consultation.
               </p>
 
               <form onSubmit={onSubmit} className="mt-8 grid gap-5 sm:grid-cols-2">
                 <Field label="Full Name" name="name" required />
                 <Field label="Phone Number" name="phone" type="tel" required />
-                <Field label="Email Address" name="email" type="email" required className="sm:col-span-2" />
+                <Field
+                  label="Email Address"
+                  name="email"
+                  type="email"
+                  required
+                  className="sm:col-span-2"
+                />
                 <div className="flex flex-col gap-2">
                   <label className="text-xs font-medium uppercase tracking-wider text-primary/70">
                     Select Service
@@ -95,9 +103,13 @@ function Contact() {
                     defaultValue=""
                     className="h-12 rounded-xl border border-border bg-background px-4 text-sm text-foreground outline-none transition-colors focus:border-secondary focus:ring-4 focus:ring-secondary/10"
                   >
-                    <option value="" disabled>Choose a service…</option>
+                    <option value="" disabled>
+                      Choose a service…
+                    </option>
                     {services.map((s) => (
-                      <option key={s} value={s}>{s}</option>
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -156,9 +168,7 @@ function Contact() {
                         key={label}
                         className="group/row flex cursor-default items-center gap-3.5 rounded-lg px-1 py-1 transition-colors duration-[350ms]"
                       >
-                        <span
-                          className="relative grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-full border border-[#1F72B9]/18 bg-[#1F72B9]/[0.09] text-[#1F72B9] backdrop-blur-sm transition-all duration-[350ms] group-hover/row:-translate-y-0.5 group-hover/row:border-[#1F72B9]/70 group-hover/row:text-primary"
-                        >
+                        <span className="relative grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-full border border-[#1F72B9]/18 bg-[#1F72B9]/[0.09] text-[#1F72B9] backdrop-blur-sm transition-all duration-[350ms] group-hover/row:-translate-y-0.5 group-hover/row:border-[#1F72B9]/70 group-hover/row:text-primary">
                           <span
                             aria-hidden
                             className="absolute inset-0 scale-0 rounded-full bg-[#1F72B9]/25 opacity-0 transition-all duration-[350ms] group-hover/row:scale-100 group-hover/row:opacity-100"
@@ -171,7 +181,6 @@ function Contact() {
                       </li>
                     ))}
                   </ul>
-
                 </div>
 
                 {/* Elegant divider */}
@@ -215,7 +224,6 @@ function Contact() {
               </div>
             </div>
           </FadeUp>
-
         </div>
       </section>
 
@@ -251,7 +259,6 @@ function Contact() {
           </div>
         </div>
       </section>
-
     </SiteLayout>
   );
 }

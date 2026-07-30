@@ -21,9 +21,6 @@ import {
   HeartHandshake,
   CalendarCheck,
   ArrowRight,
-
-
-
   Microscope,
   Ribbon,
   Droplet,
@@ -213,8 +210,7 @@ function Home() {
             backgroundImage:
               "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
             backgroundSize: "64px 64px",
-            maskImage:
-              "radial-gradient(ellipse at center, black 40%, transparent 75%)",
+            maskImage: "radial-gradient(ellipse at center, black 40%, transparent 75%)",
           }}
         />
         {/* Decorative shapes */}
@@ -287,10 +283,9 @@ function Home() {
 
           <FadeUp delay={400}>
             <p className="mx-auto mt-8 max-w-2xl text-base leading-[1.9] text-white/80 md:text-lg">
-              Delivering expert surgical care with decades of clinical
-              excellence, leadership, and compassionate patient care — every
-              treatment personalized using evidence-based techniques to achieve
-              the best possible outcomes.
+              Delivering expert surgical care with decades of clinical excellence, leadership, and
+              compassionate patient care — every treatment personalized using evidence-based
+              techniques to achieve the best possible outcomes.
             </p>
           </FadeUp>
 
@@ -318,13 +313,16 @@ function Home() {
         </div>
       </section>
 
-
       {/* About */}
       <section className="px-6 py-20 md:px-8 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <FadeUp>
             <div className="relative overflow-hidden rounded-3xl shadow-premium-lg">
-              <img src={ABOUT_IMG} alt="Surgical excellence" className="h-full w-full object-cover" />
+              <img
+                src={ABOUT_IMG}
+                alt="Surgical excellence"
+                className="h-full w-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/25 to-transparent" />
             </div>
           </FadeUp>
@@ -334,15 +332,14 @@ function Home() {
                 About Dr. Waseem
               </span>
               <h2 className="mt-4 text-4xl font-semibold text-primary md:text-5xl">
-                Experience. Precision. <em className="font-serif italic text-secondary">Compassion.</em>
+                Experience. Precision.{" "}
+                <em className="font-serif italic text-secondary">Compassion.</em>
               </h2>
               <p className="mt-6 text-base leading-[1.85] text-muted-foreground md:text-lg">
-                Maj Gen (Rtd) Waseem Ahmad Khan is a distinguished General &
-                Laparoscopic Surgeon with an accomplished career in military
-                healthcare, surgical education, and advanced patient care. His
-                approach combines decades of clinical expertise with compassion,
-                ensuring every patient receives safe, personalized, and
-                evidence-based treatment.
+                Maj Gen (Rtd) Waseem Ahmad Khan is a distinguished General & Laparoscopic Surgeon
+                with an accomplished career in military healthcare, surgical education, and advanced
+                patient care. His approach combines decades of clinical expertise with compassion,
+                ensuring every patient receives safe, personalized, and evidence-based treatment.
               </p>
               <div className="mt-8 grid grid-cols-3 gap-6 border-t border-border pt-8">
                 {[
@@ -384,8 +381,7 @@ function Home() {
             backgroundImage:
               "linear-gradient(rgba(24,47,88,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(24,47,88,0.6) 1px, transparent 1px)",
             backgroundSize: "72px 72px",
-            maskImage:
-              "radial-gradient(ellipse at center, black 35%, transparent 78%)",
+            maskImage: "radial-gradient(ellipse at center, black 35%, transparent 78%)",
           }}
         />
         <svg
@@ -427,8 +423,8 @@ function Home() {
               </h2>
               <div className="mx-auto mt-6 h-px w-16 bg-gradient-to-r from-transparent via-[#19979C] to-transparent" />
               <p className="mx-auto mt-6 max-w-xl text-base leading-[1.85] text-muted-foreground md:text-lg">
-                A comprehensive range of general and laparoscopic surgical
-                procedures, delivered with the precision of a master surgeon.
+                A comprehensive range of general and laparoscopic surgical procedures, delivered
+                with the precision of a master surgeon.
               </p>
             </div>
           </FadeUp>
@@ -438,7 +434,7 @@ function Home() {
               <FadeUp key={s.title} delay={i * 60}>
                 <div
                   className="group relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-[20px] border border-border/70 bg-white p-7 shadow-[0_2px_10px_-4px_rgba(24,47,88,0.06),0_18px_44px_-28px_rgba(24,47,88,0.15)] transition-all duration-[380ms] ease-out hover:-translate-y-1 hover:shadow-[0_10px_20px_-8px_rgba(24,47,88,0.12),0_36px_70px_-28px_rgba(24,47,88,0.32)]"
-                  style={{ '--accent': s.accent, '--tint': s.tint } as any}
+                  style={{ "--accent": s.accent, "--tint": s.tint } as any}
                 >
                   {/* Background image (default visible) */}
                   <div
@@ -508,7 +504,6 @@ function Home() {
             ))}
           </div>
 
-
           <FadeUp delay={200}>
             <div className="mt-16 text-center">
               <Link
@@ -516,10 +511,7 @@ function Home() {
                 className="group inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white px-8 py-3.5 text-sm font-semibold text-primary shadow-sm transition-all hover:-translate-y-0.5 hover:border-secondary hover:text-secondary hover:shadow-premium"
               >
                 View all services
-                <ArrowRight
-                  size={15}
-                  className="transition-transform group-hover:translate-x-1"
-                />
+                <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </FadeUp>
@@ -654,10 +646,7 @@ function Home() {
 
                         <div className="min-w-0 flex-1">
                           <div className="flex items-baseline gap-3">
-                            <span
-                              className="font-serif text-xs italic"
-                              style={{ color: t.accent }}
-                            >
+                            <span className="font-serif text-xs italic" style={{ color: t.accent }}>
                               0{i + 1}
                             </span>
                             <span
@@ -682,7 +671,6 @@ function Home() {
         </div>
       </section>
 
-
       {/* Process */}
       <section className="bg-primary px-6 py-20 text-white md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
@@ -704,9 +692,7 @@ function Home() {
                     <div className="grid h-12 w-12 place-items-center rounded-xl bg-brand-gradient">
                       <p.icon size={22} />
                     </div>
-                    <span className="font-serif text-2xl text-white/40">
-                      0{i + 1}
-                    </span>
+                    <span className="font-serif text-2xl text-white/40">0{i + 1}</span>
                   </div>
                   <h3 className="mt-5 text-xl font-semibold">{p.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-white/70">{p.desc}</p>
@@ -749,13 +735,10 @@ function Home() {
         </div>
       </section>
 
-
       <CtaBand />
     </SiteLayout>
   );
 }
-
-
 
 const testimonials = [
   {
@@ -852,13 +835,10 @@ function Testimonials() {
   // Infinite loop: render items + first `visible` clones at the end
   const items = [...testimonials, ...testimonials.slice(0, visible)];
 
-  const go = useCallback(
-    (dir: 1 | -1) => {
-      setAnimate(true);
-      setIndex((i) => i + dir);
-    },
-    [],
-  );
+  const go = useCallback((dir: 1 | -1) => {
+    setAnimate(true);
+    setIndex((i) => i + dir);
+  }, []);
 
   // Handle loop snap when reaching cloned tail / negative
   useEffect(() => {
@@ -941,8 +921,7 @@ function Testimonials() {
           backgroundImage:
             "linear-gradient(rgba(24,47,88,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(24,47,88,0.7) 1px, transparent 1px)",
           backgroundSize: "96px 96px",
-          maskImage:
-            "radial-gradient(ellipse at center, black 30%, transparent 78%)",
+          maskImage: "radial-gradient(ellipse at center, black 30%, transparent 78%)",
         }}
       />
 
@@ -958,14 +937,13 @@ function Testimonials() {
               className="mt-6 text-4xl leading-[1.1] tracking-tight text-primary md:text-5xl lg:text-[3.2rem]"
               style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
             >
-              Voices of{" "}
-              <em className="font-serif italic text-secondary">trust</em> &amp;{" "}
+              Voices of <em className="font-serif italic text-secondary">trust</em> &amp;{" "}
               <em className="font-serif italic text-[#19979C]">recovery</em>
             </h2>
             <div className="mx-auto mt-6 h-px w-16 bg-gradient-to-r from-transparent via-[#19979C] to-transparent" />
             <p className="mx-auto mt-6 max-w-xl text-base leading-[1.85] text-muted-foreground md:text-[17px]">
-              Reflections from patients who have entrusted their care to
-              Dr. Waseem — shared with gratitude, in their own words.
+              Reflections from patients who have entrusted their care to Dr. Waseem — shared with
+              gratitude, in their own words.
             </p>
           </div>
         </FadeUp>
@@ -986,9 +964,7 @@ function Testimonials() {
                 className="flex touch-pan-y select-none"
                 style={{
                   transform: `translate3d(${translate}%,0,0)`,
-                  transition: animate
-                    ? "transform 650ms cubic-bezier(0.22,0.61,0.36,1)"
-                    : "none",
+                  transition: animate ? "transform 650ms cubic-bezier(0.22,0.61,0.36,1)" : "none",
                 }}
               >
                 {items.map((it, i) => (
@@ -1054,9 +1030,7 @@ function Testimonials() {
 
 function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
   return (
-    <article
-      className="group relative flex h-full min-h-[380px] flex-col items-center rounded-[20px] border border-border/70 bg-white px-7 pb-7 pt-14 text-center shadow-[0_1px_2px_rgba(24,47,88,0.04),0_18px_40px_-28px_rgba(24,47,88,0.22)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_2px_6px_rgba(24,47,88,0.05),0_30px_60px_-30px_rgba(24,47,88,0.35)]"
-    >
+    <article className="group relative flex h-full min-h-[380px] flex-col items-center rounded-[20px] border border-border/70 bg-white px-7 pb-7 pt-14 text-center shadow-[0_1px_2px_rgba(24,47,88,0.04),0_18px_40px_-28px_rgba(24,47,88,0.22)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_2px_6px_rgba(24,47,88,0.05),0_30px_60px_-30px_rgba(24,47,88,0.35)]">
       {/* Accent top line */}
       <span
         aria-hidden
@@ -1083,9 +1057,7 @@ function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
       </span>
 
       {/* Name */}
-      <h3 className="font-serif text-[17px] font-semibold text-primary">
-        {t.name}
-      </h3>
+      <h3 className="font-serif text-[17px] font-semibold text-primary">{t.name}</h3>
 
       {/* Treatment */}
       <div
@@ -1103,9 +1075,7 @@ function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
       </div>
 
       {/* Quote */}
-      <p className="relative mt-4 flex-1 text-[14px] leading-[1.75] text-primary/80">
-        “{t.quote}”
-      </p>
+      <p className="relative mt-4 flex-1 text-[14px] leading-[1.75] text-primary/80">“{t.quote}”</p>
 
       {/* Divider */}
       <div className="mt-6 h-px w-12 bg-border" />
@@ -1125,6 +1095,3 @@ function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
     </article>
   );
 }
-
-
-

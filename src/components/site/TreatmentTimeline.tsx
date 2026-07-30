@@ -93,7 +93,11 @@ export function TreatmentTimeline({ steps }: { steps: Step[] }) {
 
   const Arrow = ({ direction }: { direction: "right" | "left" | "down" }) => {
     const rotate =
-      direction === "right" ? "rotate(0deg)" : direction === "left" ? "rotate(180deg)" : "rotate(90deg)";
+      direction === "right"
+        ? "rotate(0deg)"
+        : direction === "left"
+          ? "rotate(180deg)"
+          : "rotate(90deg)";
     return (
       <svg
         aria-hidden
@@ -101,7 +105,14 @@ export function TreatmentTimeline({ steps }: { steps: Step[] }) {
         className="h-2.5 w-2.5"
         style={{ transform: rotate, color: "currentColor" }}
       >
-        <path d="M2 2 L8 6 L2 10" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        <path
+          d="M2 2 L8 6 L2 10"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     );
   };
@@ -180,7 +191,9 @@ export function TreatmentTimeline({ steps }: { steps: Step[] }) {
               return (
                 <div key={s.title} className="contents">
                   <StepNode s={s} globalIdx={globalIdx} />
-                  {displayIndex < bottomRow.length - 1 && <HorizontalRail fromIdx={railFrom} reverse />}
+                  {displayIndex < bottomRow.length - 1 && (
+                    <HorizontalRail fromIdx={railFrom} reverse />
+                  )}
                 </div>
               );
             })}

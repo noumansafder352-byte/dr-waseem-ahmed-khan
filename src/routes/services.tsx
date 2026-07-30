@@ -103,12 +103,28 @@ const services = [
 ];
 
 const process = [
-  { icon: UserRound, title: "Consultation", desc: "Detailed discussion of your symptoms, history, and concerns." },
-  { icon: ScanSearch, title: "Diagnosis", desc: "Thorough evaluation with the appropriate investigations." },
-  { icon: FileText, title: "Treatment Plan", desc: "A personalized, evidence-based plan reviewed with you." },
+  {
+    icon: UserRound,
+    title: "Consultation",
+    desc: "Detailed discussion of your symptoms, history, and concerns.",
+  },
+  {
+    icon: ScanSearch,
+    title: "Diagnosis",
+    desc: "Thorough evaluation with the appropriate investigations.",
+  },
+  {
+    icon: FileText,
+    title: "Treatment Plan",
+    desc: "A personalized, evidence-based plan reviewed with you.",
+  },
   { icon: Syringe, title: "Surgery", desc: "Safe, precise, modern surgical technique." },
   { icon: HeartPulse, title: "Recovery", desc: "Guided post-operative recovery and support." },
-  { icon: CalendarCheck, title: "Follow-Up", desc: "Ongoing follow-up to ensure the best outcome." },
+  {
+    icon: CalendarCheck,
+    title: "Follow-Up",
+    desc: "Ongoing follow-up to ensure the best outcome.",
+  },
 ];
 
 const serviceFaqs = [
@@ -163,10 +179,9 @@ function Services() {
               Trusted surgical care, tailored to you
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Every procedure is planned around your specific condition, health
-              history, and goals. Dr. Waseem combines decades of surgical
-              experience with modern, minimally invasive techniques to deliver
-              the safest and most effective outcome possible.
+              Every procedure is planned around your specific condition, health history, and goals.
+              Dr. Waseem combines decades of surgical experience with modern, minimally invasive
+              techniques to deliver the safest and most effective outcome possible.
             </p>
           </div>
         </FadeUp>
@@ -195,8 +210,8 @@ function Services() {
                 Our Surgical Services
               </h2>
               <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                A comprehensive range of general and laparoscopic surgical procedures,
-                delivered with advanced techniques and evidence-based, patient-centered care.
+                A comprehensive range of general and laparoscopic surgical procedures, delivered
+                with advanced techniques and evidence-based, patient-centered care.
               </p>
               <div className="mx-auto mt-8 h-[3px] w-24 rounded-full bg-gradient-to-r from-[#182F58] via-[#1F72B9] to-[#19979C]" />
             </div>
@@ -205,14 +220,20 @@ function Services() {
           {/* Editorial service panels */}
           <div className="mt-20 grid gap-7 md:grid-cols-2">
             {services.map((s, i) => {
-              const accents = ["#182F58", "#1F72B9", "#19979C", "#529542", "#1F72B9", "#19979C", "#182F58"];
+              const accents = [
+                "#182F58",
+                "#1F72B9",
+                "#19979C",
+                "#529542",
+                "#1F72B9",
+                "#19979C",
+                "#182F58",
+              ];
               const accent = accents[i % accents.length];
               const num = String(i + 1).padStart(2, "0");
               return (
                 <FadeUp key={s.title} delay={i * 60}>
-                  <article
-                    className="group relative flex h-full overflow-hidden rounded-[28px] bg-white shadow-premium ring-1 ring-border/60 transition-[transform,box-shadow] duration-[400ms] ease-out hover:-translate-y-1 hover:shadow-premium-lg"
-                  >
+                  <article className="group relative flex h-full overflow-hidden rounded-[28px] bg-white shadow-premium ring-1 ring-border/60 transition-[transform,box-shadow] duration-[400ms] ease-out hover:-translate-y-1 hover:shadow-premium-lg">
                     {/* Left accent bar */}
                     <span
                       className="absolute left-0 top-0 h-full w-[3px] origin-top scale-y-[0.25] transition-transform duration-[500ms] ease-out group-hover:scale-y-100"
@@ -252,9 +273,7 @@ function Services() {
                         style={{ backgroundColor: accent }}
                       />
 
-                      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                        {s.desc}
-                      </p>
+                      <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                     </div>
 
                     {/* Image column */}
@@ -303,8 +322,8 @@ function Services() {
                 From consultation to complete recovery
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
-                A carefully guided pathway — every stage designed around clarity,
-                safety, and your comfort.
+                A carefully guided pathway — every stage designed around clarity, safety, and your
+                comfort.
               </p>
               <div className="mx-auto mt-8 h-[3px] w-24 rounded-full bg-gradient-to-r from-[#182F58] via-[#1F72B9] to-[#19979C]" />
             </div>
@@ -346,7 +365,6 @@ function Services() {
       </section>
 
       <CtaBand />
-
     </SiteLayout>
   );
 }

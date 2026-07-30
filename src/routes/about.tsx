@@ -44,20 +44,56 @@ const PORTRAIT =
   "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80";
 
 const timeline = [
-  { title: "Head of Surgery — CMH", detail: "Led the Department of Surgery at Combined Military Hospital." },
-  { title: "Head of Surgery — PEMH", detail: "Led the Department of Surgery at Pakistan Emirates Military Hospital." },
-  { title: "Professor of Surgery", detail: "Army Medical College, Rawalpindi — training the next generation of surgeons." },
+  {
+    title: "Head of Surgery — CMH",
+    detail: "Led the Department of Surgery at Combined Military Hospital.",
+  },
+  {
+    title: "Head of Surgery — PEMH",
+    detail: "Led the Department of Surgery at Pakistan Emirates Military Hospital.",
+  },
+  {
+    title: "Professor of Surgery",
+    detail: "Army Medical College, Rawalpindi — training the next generation of surgeons.",
+  },
   { title: "Councillor — CPSP", detail: "College of Physicians & Surgeons Pakistan." },
-  { title: "Regional Director — CPSP Rawalpindi", detail: "Overseeing regional surgical education and standards." },
+  {
+    title: "Regional Director — CPSP Rawalpindi",
+    detail: "Overseeing regional surgical education and standards.",
+  },
 ];
 
 const values = [
-  { icon: Shield, title: "Integrity", desc: "Honest advice and transparent guidance at every step of your care." },
-  { icon: HeartPulse, title: "Compassion", desc: "Every patient treated with dignity, warmth, and unwavering empathy." },
-  { icon: Gem, title: "Excellence", desc: "A commitment to the highest surgical and clinical standards worldwide." },
-  { icon: Microscope, title: "Evidence-Based", desc: "Modern, research-driven treatment decisions grounded in science." },
-  { icon: UserRound, title: "Patient-Centered", desc: "Personalized plans built around your individual needs and goals." },
-  { icon: Crosshair, title: "Precision", desc: "Meticulous surgical technique and uncompromising attention to detail." },
+  {
+    icon: Shield,
+    title: "Integrity",
+    desc: "Honest advice and transparent guidance at every step of your care.",
+  },
+  {
+    icon: HeartPulse,
+    title: "Compassion",
+    desc: "Every patient treated with dignity, warmth, and unwavering empathy.",
+  },
+  {
+    icon: Gem,
+    title: "Excellence",
+    desc: "A commitment to the highest surgical and clinical standards worldwide.",
+  },
+  {
+    icon: Microscope,
+    title: "Evidence-Based",
+    desc: "Modern, research-driven treatment decisions grounded in science.",
+  },
+  {
+    icon: UserRound,
+    title: "Patient-Centered",
+    desc: "Personalized plans built around your individual needs and goals.",
+  },
+  {
+    icon: Crosshair,
+    title: "Precision",
+    desc: "Meticulous surgical technique and uncompromising attention to detail.",
+  },
 ];
 
 const valueAccents = ["#182F58", "#529542", "#1F72B9", "#19979C", "#182F58", "#529542"];
@@ -91,17 +127,15 @@ function About() {
               </h2>
               <div className="mt-6 space-y-5 text-base leading-[1.9] text-muted-foreground md:text-lg">
                 <p>
-                  Maj Gen (Rtd) Waseem Ahmad Khan, HI (M), is a distinguished
-                  General & Laparoscopic Surgeon with an accomplished career in
-                  military healthcare, surgical education, and advanced patient
-                  care.
+                  Maj Gen (Rtd) Waseem Ahmad Khan, HI (M), is a distinguished General & Laparoscopic
+                  Surgeon with an accomplished career in military healthcare, surgical education,
+                  and advanced patient care.
                 </p>
                 <p>
-                  His approach combines decades of clinical expertise with genuine
-                  compassion, ensuring every patient receives safe, personalized,
-                  and evidence-based treatment. He has trained generations of
-                  surgeons and continues to serve as a leader in the surgical
-                  community of Pakistan.
+                  His approach combines decades of clinical expertise with genuine compassion,
+                  ensuring every patient receives safe, personalized, and evidence-based treatment.
+                  He has trained generations of surgeons and continues to serve as a leader in the
+                  surgical community of Pakistan.
                 </p>
               </div>
             </div>
@@ -136,8 +170,8 @@ function About() {
                 <em className="italic font-normal text-[#19979C]">Surgical Expertise</em>
               </h2>
               <p className="mt-6 max-w-xl text-base leading-[1.85] text-muted-foreground">
-                Advanced training, internationally recognized qualifications, and
-                decades of leadership in General and Laparoscopic Surgery.
+                Advanced training, internationally recognized qualifications, and decades of
+                leadership in General and Laparoscopic Surgery.
               </p>
             </FadeUp>
 
@@ -205,8 +239,7 @@ function About() {
               <div
                 className="relative h-full overflow-hidden rounded-[24px] border border-white/60"
                 style={{
-                  boxShadow:
-                    "0 2px 6px rgba(24,47,88,0.06), 0 30px 70px -24px rgba(24,47,88,0.30)",
+                  boxShadow: "0 2px 6px rgba(24,47,88,0.06), 0 30px 70px -24px rgba(24,47,88,0.30)",
                 }}
               >
                 <img
@@ -222,7 +255,6 @@ function About() {
 
       {/* Leadership & Experience — Executive Journey */}
       <section className="relative overflow-hidden px-6 pt-16 pb-32 md:px-8 md:pt-20 md:pb-44">
-
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f7fafd] to-white" />
         <div
           className="absolute inset-0 opacity-[0.4]"
@@ -238,7 +270,12 @@ function About() {
           viewBox="0 0 1200 400"
         >
           <path d="M0,200 Q300,80 600,200 T1200,200" stroke="#182F58" strokeWidth="1" fill="none" />
-          <path d="M0,240 Q300,120 600,240 T1200,240" stroke="#19979C" strokeWidth="1" fill="none" />
+          <path
+            d="M0,240 Q300,120 600,240 T1200,240"
+            stroke="#19979C"
+            strokeWidth="1"
+            fill="none"
+          />
         </svg>
 
         <div className="relative mx-auto max-w-7xl">
@@ -251,13 +288,11 @@ function About() {
                 </span>
               </div>
               <h2 className="mt-6 font-serif text-4xl font-semibold leading-[1.1] text-primary md:text-6xl">
-                A distinguished{" "}
-                <em className="italic font-normal text-[#1F72B9]">journey</em>
+                A distinguished <em className="italic font-normal text-[#1F72B9]">journey</em>
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
-                Decades of service defining surgical leadership, education, and
-                institutional excellence across Pakistan's most respected medical
-                institutions.
+                Decades of service defining surgical leadership, education, and institutional
+                excellence across Pakistan's most respected medical institutions.
               </p>
             </div>
           </FadeUp>
@@ -421,14 +456,13 @@ function About() {
               Patient Care Philosophy
             </span>
             <h2 className="mt-4 font-serif text-3xl leading-tight md:text-5xl">
-              "Every patient deserves care that is safe, precise, and delivered
-              with genuine compassion — from first consultation through complete recovery."
+              "Every patient deserves care that is safe, precise, and delivered with genuine
+              compassion — from first consultation through complete recovery."
             </h2>
             <p className="mt-8 text-base text-white/75 md:text-lg">
-              Dr. Waseem's practice is built on the belief that great surgery
-              begins with great listening. Every treatment plan is tailored to
-              the individual, grounded in evidence, and delivered with the
-              highest standards of ethical care.
+              Dr. Waseem's practice is built on the belief that great surgery begins with great
+              listening. Every treatment plan is tailored to the individual, grounded in evidence,
+              and delivered with the highest standards of ethical care.
             </p>
           </FadeUp>
         </div>
@@ -470,14 +504,16 @@ function About() {
                     <em className="italic font-normal text-[#19979C]">our practice</em>
                   </h2>
                   <p className="mt-6 max-w-md text-base leading-[1.8] text-muted-foreground">
-                    Six commitments that shape every consultation, every clinical
-                    decision, and every surgical outcome — the quiet standards
-                    behind three decades of trusted care.
+                    Six commitments that shape every consultation, every clinical decision, and
+                    every surgical outcome — the quiet standards behind three decades of trusted
+                    care.
                   </p>
                   <div className="mt-10 flex items-center gap-4">
                     <span className="font-serif text-5xl font-semibold text-primary">06</span>
                     <span className="max-w-[10rem] text-xs uppercase tracking-[0.24em] text-muted-foreground">
-                      Guiding<br />Principles
+                      Guiding
+                      <br />
+                      Principles
                     </span>
                   </div>
                 </FadeUp>
@@ -520,9 +556,7 @@ function About() {
 
                           {/* Icon medallion */}
                           <div className="relative shrink-0">
-                            <div
-                              className="grid h-14 w-14 place-items-center rounded-full border border-border/80 bg-white text-[var(--accent)] transition-all duration-[400ms] ease-out group-hover:border-transparent group-hover:bg-[var(--accent)] group-hover:text-white group-hover:shadow-[0_10px_30px_-10px_var(--accent)] md:h-16 md:w-16"
-                            >
+                            <div className="grid h-14 w-14 place-items-center rounded-full border border-border/80 bg-white text-[var(--accent)] transition-all duration-[400ms] ease-out group-hover:border-transparent group-hover:bg-[var(--accent)] group-hover:text-white group-hover:shadow-[0_10px_30px_-10px_var(--accent)] md:h-16 md:w-16">
                               <Icon size={22} strokeWidth={1.5} />
                             </div>
                           </div>
@@ -536,7 +570,6 @@ function About() {
           </div>
         </div>
       </section>
-
 
       <CtaBand />
     </SiteLayout>
