@@ -4,7 +4,7 @@ import { CheckCircle2, MapPin, Phone, Mail } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "@/components/site/PageHero";
 import { FadeUp } from "@/components/site/FadeUp";
-import { CtaBand } from "@/components/site/CtaBand";
+
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/contact")({
