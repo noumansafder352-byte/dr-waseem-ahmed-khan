@@ -45,7 +45,7 @@ export function SiteFooter() {
       <div className="relative mx-auto max-w-[1280px] px-6 pb-8 pt-20 md:px-10 md:pt-24 lg:px-12">
         <div className="grid gap-12 border-b border-primary-foreground/12 pb-14 sm:grid-cols-2 lg:grid-cols-[1.15fr_1fr_1fr_1fr] lg:items-start lg:gap-12">
           {/* Logo & Introduction */}
-          <div className="flex flex-col">
+          <div className="flex flex-col items-start text-left">
             <img
               src={logo.url}
               alt="Dr. Waseem Ahmad Khan — General & Laparoscopic Surgeon"
