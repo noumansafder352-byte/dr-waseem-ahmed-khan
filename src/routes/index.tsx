@@ -527,7 +527,7 @@ function Home() {
       </section>
 
       {/* Why patients trust — editorial split */}
-      <section className="relative overflow-hidden px-6 py-20 md:px-8 md:py-24">
+      <section id="why-trust" className="relative overflow-hidden px-6 py-20 md:px-8 md:py-24">
         {/* Background atmosphere */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f6f9fc] to-white" />
         <div
@@ -721,7 +721,7 @@ function Home() {
       <Testimonials />
 
       {/* FAQ */}
-      <section className="relative px-6 py-14 md:px-8 md:py-20">
+      <section id="faqs" className="relative px-6 py-14 md:px-8 md:py-20">
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,#1F72B9_0%,transparent_70%)] opacity-[0.05]" />
         </div>
