@@ -252,7 +252,6 @@ function Contact() {
         </div>
       </section>
 
-      <CtaBand />
     </SiteLayout>
   );
 }
