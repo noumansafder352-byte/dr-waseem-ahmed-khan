@@ -45,7 +45,7 @@ export function SiteHeader(_: { transparentOnTop?: boolean } = {}) {
             className="flex items-center gap-2 text-[13px] font-medium tracking-wide text-white/85 transition-colors hover:text-white"
           >
             <MapPin size={15} strokeWidth={1.75} />
-            <span>Rawalpindi, Pakistan</span>
+            <span>Ibadat International Hospital, Rawalpindi, Pakistan.</span>
           </a>
           <div className="flex items-center gap-6">
             <a

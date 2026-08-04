@@ -160,9 +160,9 @@ function Contact() {
 
                   <ul className="relative mt-4 space-y-3 text-sm">
                     {[
-                      { label: "Rawalpindi, Pakistan", icon: <MapPin size={16} strokeWidth={2} /> },
-                      { label: "+92 300 000 0000", icon: <Phone size={16} strokeWidth={2} /> },
-                      { label: "info@drwaseemkhan.com", icon: <Mail size={16} strokeWidth={2} /> },
+                      { label: "Ibadat International Hospital, Near Liaquat Bagh Garden, College Road, Rawalpindi, Pakistan.", icon: <MapPin size={16} strokeWidth={2} /> },
+                      { label: "+92 314 1555125", icon: <Phone size={16} strokeWidth={2} /> },
+                      { label: "info@drwaseemahmedkhan.com", icon: <Mail size={16} strokeWidth={2} /> },
                     ].map(({ icon, label }) => (
                       <li
                         key={label}

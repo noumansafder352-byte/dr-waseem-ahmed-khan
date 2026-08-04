@@ -115,26 +115,26 @@ export function SiteFooter() {
             <FooterHeading>Contact</FooterHeading>
             <ul className="mt-7 space-y-4 text-[14px] text-primary-foreground/70">
               <ContactItem icon={<MapPin size={13} strokeWidth={1.75} />}>
-                Rawalpindi, Pakistan
+                Ibadat International Hospital, Rawalpindi, Pakistan.
               </ContactItem>
               <ContactItem icon={<Phone size={13} strokeWidth={1.75} />}>
                 <a
-                  href="tel:+923000000000"
+                  href="tel:+92 314 1555125"
                   className="transition-colors hover:text-primary-foreground"
                 >
-                  +92 300 000 0000
+                  +92 314 1555125
                 </a>
               </ContactItem>
               <ContactItem icon={<Mail size={13} strokeWidth={1.75} />}>
                 <a
-                  href="mailto:info@drwaseemkhan.com"
+                  href="mailto:info@drwaseemahmedkhan.com"
                   className="transition-colors hover:text-primary-foreground"
                 >
-                  info@drwaseemkhan.com
+                  info@drwaseemahmedkhan.com
                 </a>
               </ContactItem>
               <ContactItem icon={<Clock size={13} strokeWidth={1.75} />}>
-                Mon – Sat: 10:00 AM – 6:00 PM
+                Mon – Sat: 02:00 PM – 7:00 PM
               </ContactItem>
             </ul>
           </div>

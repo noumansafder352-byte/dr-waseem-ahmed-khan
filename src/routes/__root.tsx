@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import WhatsAppButton from "@/components/site/WhatsAppButton";
 import {
   Outlet,
   Link,
@@ -120,7 +121,22 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+
+      {/* Floating WhatsApp Button */}
+      <WhatsAppButton />
+
       <Toaster position="top-right" richColors />
     </QueryClientProvider>
   );
 }
+
+// function RootComponent() {
+//   const { queryClient } = Route.useRouteContext();
+
+//   return (
+//     <QueryClientProvider client={queryClient}>
+//       <Outlet />
+//       <Toaster position="top-right" richColors />
+//     </QueryClientProvider>
+//   );
+// }
