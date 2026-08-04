@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Clock, Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 import logo from "@/assets/logo.png.asset.json";
+import { BrandLogo } from "@/components/site/BrandLogo";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -46,12 +47,7 @@ export function SiteFooter() {
         <div className="grid gap-12 border-b border-primary-foreground/12 pb-14 sm:grid-cols-2 lg:grid-cols-[1.15fr_1fr_1fr_1fr] lg:items-start lg:gap-12">
           {/* Logo & Introduction */}
           <div className="flex flex-col items-start text-left">
-            <img
-              src="/image/dr-waseem-logo-icon.png"
-              alt="Dr. Waseem Ahmad Khan — General & Laparoscopic Surgeon"
-              className="h-24 w-auto object-contain md:h-28"
-              draggable={false}
-            />
+            <BrandLogo />
             <p className="mt-6 max-w-xs text-[14px] leading-[1.9] text-primary-foreground/72">
               Distinguished surgical care led by Maj Gen (Rtd) Waseem Ahmad Khan, combining decades
               of operative experience with precise, compassionate patient care.

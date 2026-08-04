@@ -57,10 +57,10 @@ const timeline = [
     detail: "Army Medical College, Rawalpindi — training the next generation of surgeons.",
   },
   { title: "Councillor — CPSP", detail: "College of Physicians & Surgeons Pakistan." },
-  {
-    title: "Regional Director — CPSP Rawalpindi",
-    detail: "Overseeing regional surgical education and standards.",
-  },
+  // {
+  //   title: "Regional Director — CPSP Rawalpindi",
+  //   detail: "Overseeing regional surgical education and standards.",
+  // },
 ];
 
 const values = [
@@ -113,7 +113,11 @@ function About() {
         <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-5">
           <FadeUp className="lg:col-span-2">
             <div className="relative overflow-hidden rounded-3xl shadow-premium-lg">
-              <img src={PORTRAIT} alt="" className="h-full w-full object-cover" />
+              <img
+                src="/image/waseem-ahmed-khan.jpg"
+                alt=""
+                className="h-full w-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
             </div>
           </FadeUp>
@@ -243,7 +247,7 @@ function About() {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&w=1200&q=80"
+                  src="/image/professional-credentials.png"
                   alt="Consultant surgeon in clinical setting"
                   className="h-full min-h-[520px] w-full object-cover"
                 />
@@ -325,7 +329,7 @@ function About() {
               />
             </svg>
 
-            <ol className="relative grid grid-cols-5 gap-4">
+            <ol className="relative grid grid-cols-4 gap-6">
               {timeline.map((t, i) => {
                 const accents = ["#182F58", "#1F72B9", "#19979C", "#529542", "#182F58"];
                 const accent = accents[i];

@@ -81,8 +81,7 @@ const services: {
     desc: "Precise thyroidectomy and thyroid nodule management.",
     accent: "#19979C",
     tint: "#e6f6f6",
-    image:
-      "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80",
+    image: "/image/thyroid.png",
   },
   {
     icon: Ribbon,
@@ -99,8 +98,7 @@ const services: {
     desc: "Laparoscopic cholecystectomy with rapid recovery.",
     accent: "#529542",
     tint: "#eaf5e6",
-    image:
-      "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1200&q=80",
+    image: "/image/gallbladder-surgery.png",
   },
   {
     icon: ShieldCheck,
@@ -108,8 +106,7 @@ const services: {
     desc: "Open and laparoscopic repair with modern mesh techniques.",
     accent: "#182F58",
     tint: "#eaf1fa",
-    image:
-      "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=80",
+    image: "/image/hernia-repair.png",
   },
   {
     icon: Scissors,
@@ -117,8 +114,7 @@ const services: {
     desc: "Minimally invasive appendectomy for faster healing.",
     accent: "#19979C",
     tint: "#e6f6f6",
-    image:
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80",
+    image: "/image/appendix-surgery.png",
   },
 ];
 
@@ -319,7 +315,7 @@ function Home() {
           <FadeUp>
             <div className="relative overflow-hidden rounded-3xl shadow-premium-lg">
               <img
-                src={ABOUT_IMG}
+                src="/image/homepage-about-dr-waseem-img.png"
                 alt="Surgical excellence"
                 className="h-full w-full object-cover"
               />
@@ -579,7 +575,7 @@ function Home() {
 
                 <div className="relative h-full min-h-[560px] overflow-hidden rounded-[24px] shadow-premium-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=1200&q=80"
+                    src="/image/why-trust.png"
                     alt="Surgeon in the operating theatre"
                     className="h-full w-full object-cover"
                     loading="lazy"

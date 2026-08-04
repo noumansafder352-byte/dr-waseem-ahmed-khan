@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, MapPin, Facebook, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png.asset.json";
+import { BrandLogo } from "@/components/site/BrandLogo";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -71,18 +72,20 @@ export function SiteHeader(_: { transparentOnTop?: boolean } = {}) {
 
       {/* Main header */}
       <div className="mx-auto grid h-[88px] max-w-[1280px] grid-cols-[auto_1fr_auto] items-center gap-6 px-6 md:px-10 lg:px-12">
-        <Link
+        {/* <Link
           to="/"
           className="flex items-center shrink-0"
           aria-label="Dr. Waseem Ahmad Khan — Home"
         >
           <img
-            src="/image/dr-waseem-logo-icon.png"
+            src="/image/dr-waseem-header-icon.png"
             alt="Dr. Waseem Ahmad Khan — General & Laparoscopic Surgeon"
             className="h-[86px] w-auto md:h-[96px]"
             draggable={false}
           />
-        </Link>
+        </Link> */}
+
+        <BrandLogo />
 
         <nav className="hidden justify-center lg:flex">
           <ul className="flex items-center gap-12">

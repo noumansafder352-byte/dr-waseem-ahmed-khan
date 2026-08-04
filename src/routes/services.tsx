@@ -58,7 +58,7 @@ const services = [
     title: "Thyroid Surgery",
     tag: "Endocrine Precision",
     desc: "Precise thyroidectomy and thyroid nodule management for benign and malignant disease, with attention to voice preservation and cosmetic outcomes.",
-    image: thyroidSurgeryImage.url,
+    image: "/image/thyroid.png",
   },
   {
     icon: HeartPulse,
@@ -73,32 +73,28 @@ const services = [
     title: "Gallbladder Surgery",
     tag: "Laparoscopic",
     desc: "Laparoscopic cholecystectomy for gallstone disease — a minimally invasive procedure with small incisions, less pain, and rapid recovery.",
-    image:
-      "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1200&q=80",
+    image: "/image/gallbladder-surgery.png",
   },
   {
     icon: Scissors,
     title: "Hernia Repair",
     tag: "Durable Results",
     desc: "Open and laparoscopic repair of inguinal, umbilical, incisional, and hiatal hernias — using modern mesh techniques for durable, long-term results.",
-    image:
-      "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=80",
+    image: "/image/hernia-repair.png",
   },
   {
     icon: Sparkles,
     title: "Appendix Surgery",
     tag: "Minimally Invasive",
     desc: "Minimally invasive laparoscopic appendectomy for acute appendicitis, offering faster healing, minimal scarring, and quicker return to daily life.",
-    image:
-      "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&w=1200&q=80",
+    image: "/image/appendix-surgery.png",
   },
   {
     icon: Waves,
     title: "Varicose Vein Treatment",
     tag: "Venous Care",
     desc: "Advanced treatment options for varicose and venous conditions — from lifestyle counselling to surgical intervention when clinically indicated.",
-    image:
-      "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=80",
+    image: "/image/varicose-vein-treatment.png",
   },
 ];
 
