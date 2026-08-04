@@ -325,17 +325,18 @@ function Home() {
           <FadeUp delay={120}>
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
-                About Dr. Waseem
+                About Maj. Gen. (Rtd) Dr. Waseem Ahmed Khan
               </span>
               <h2 className="mt-4 text-4xl font-semibold text-primary md:text-5xl">
                 Experience. Precision.{" "}
                 <em className="font-serif italic text-secondary">Compassion.</em>
               </h2>
               <p className="mt-6 text-base leading-[1.85] text-muted-foreground md:text-lg">
-                Maj Gen (Rtd) Waseem Ahmad Khan is a distinguished General & Laparoscopic Surgeon
-                with an accomplished career in military healthcare, surgical education, and advanced
-                patient care. His approach combines decades of clinical expertise with compassion,
-                ensuring every patient receives safe, personalized, and evidence-based treatment.
+                Maj. Gen. (Rtd) Dr. Waseem Ahmed Khan is a distinguished General & Laparoscopic
+                Surgeon with an accomplished career in military healthcare, surgical education, and
+                advanced patient care. His approach combines decades of clinical expertise with
+                compassion, ensuring every patient receives safe, personalized, and evidence-based
+                treatment.
               </p>
               <div className="mt-8 grid grid-cols-3 gap-6 border-t border-border pt-8">
                 {[

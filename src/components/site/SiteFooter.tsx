@@ -49,8 +49,8 @@ export function SiteFooter() {
           <div className="flex flex-col items-start text-left">
             <BrandLogo />
             <p className="mt-6 max-w-xs text-[14px] leading-[1.9] text-primary-foreground/72">
-              Distinguished surgical care led by Maj Gen (Rtd) Waseem Ahmad Khan, combining decades
-              of operative experience with precise, compassionate patient care.
+              Distinguished surgical care led by Maj. Gen. (Rtd) Waseem Ahmad Khan, combining
+              decades of operative experience with precise, compassionate patient care.
             </p>
             <div className="mt-7 flex items-center gap-3">
               {[
@@ -141,10 +141,18 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-7 flex flex-col justify-between gap-3 text-[12px] text-primary-foreground/58 md:flex-row md:items-center">
-          <p>© {year} Maj Gen (Rtd) Waseem Ahmad Khan. All rights reserved.</p>
+          <p>© {year} Maj. Gen. (Rtd) Dr Waseem Ahmad Khan. All rights reserved.</p>
           <p className="flex items-center gap-2 text-primary-foreground/64">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-medical" />
-            General & Laparoscopic Surgeon · Rawalpindi
+            Design & Developed by{" "}
+            <a
+              href="https://nexenstrategy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-primary-foreground transition-colors duration-300 hover:text-medical"
+            >
+              NexenStrategy
+            </a>
           </p>
         </div>
       </div>

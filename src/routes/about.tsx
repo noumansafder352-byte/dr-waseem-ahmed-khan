@@ -21,17 +21,17 @@ import { CtaBand } from "@/components/site/CtaBand";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Maj Gen (Rtd) Waseem Ahmad Khan" },
+      { title: "About — Maj. Gen. (Rtd) Dr. Waseem Ahmad Khan" },
       {
         name: "description",
         content:
-          "Meet Maj Gen (Rtd) Waseem Ahmad Khan — a distinguished General & Laparoscopic Surgeon with a distinguished career in military healthcare and surgical education.",
+          "Meet Maj. Gen. (Rtd) Dr. Waseem Ahmad Khan, a distinguished General & Laparoscopic Surgeon with a distinguished career in military healthcare and surgical education.",
       },
       { property: "og:title", content: "About — Maj Gen (Rtd) Waseem Ahmad Khan" },
       {
         property: "og:description",
         content:
-          "Distinguished General & Laparoscopic Surgeon — decades of clinical excellence, leadership, and compassionate patient care.",
+          "Distinguished General & Laparoscopic Surgeon, decades of clinical excellence, leadership, and compassionate patient care.",
       },
     ],
   }),

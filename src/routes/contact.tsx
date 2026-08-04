@@ -160,9 +160,16 @@ function Contact() {
 
                   <ul className="relative mt-4 space-y-3 text-sm">
                     {[
-                      { label: "Ibadat International Hospital, Near Liaquat Bagh Garden, College Road, Rawalpindi, Pakistan.", icon: <MapPin size={16} strokeWidth={2} /> },
+                      {
+                        label:
+                          "Ibadat International Hospital, Near Liaquat Bagh Garden, College Road, Rawalpindi, Pakistan.",
+                        icon: <MapPin size={16} strokeWidth={2} />,
+                      },
                       { label: "+92 314 1555125", icon: <Phone size={16} strokeWidth={2} /> },
-                      { label: "info@drwaseemahmedkhan.com", icon: <Mail size={16} strokeWidth={2} /> },
+                      {
+                        label: "info@drwaseemahmedkhan.com",
+                        icon: <Mail size={16} strokeWidth={2} />,
+                      },
                     ].map(({ icon, label }) => (
                       <li
                         key={label}
@@ -196,11 +203,7 @@ function Contact() {
                   </h3>
 
                   <ul className="relative mt-4 space-y-2 text-sm">
-                    {[
-                      ["Monday – Friday", "10:00 AM – 6:00 PM"],
-                      ["Saturday", "10:00 AM – 2:00 PM"],
-                      ["Sunday", "Closed"],
-                    ].map(([d, t]) => (
+                    {[["Monday – Saturday", "2:00 PM – 7:00 PM"]].map(([d, t]) => (
                       <li
                         key={d}
                         className="flex items-center justify-between border-b border-dashed border-border pb-2 last:border-0 last:pb-0"
