@@ -12,6 +12,7 @@ import {
   FileText,
   Syringe,
   CalendarCheck,
+  CircleDot,
 } from "lucide-react";
 import thyroidSurgeryImage from "@/assets/thyroid-surgery.png.asset.json";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -95,6 +96,29 @@ const services = [
     tag: "Venous Care",
     desc: "Advanced treatment options for varicose and venous conditions — from lifestyle counselling to surgical intervention when clinically indicated.",
     image: "/image/varicose-vein-treatment.png",
+  },
+  {
+    icon: CircleDot,
+    title: "Perianal Surgery",
+    tag: "Colorectal Care",
+    desc: "Compassionate surgical treatment for piles, anal fissures, fistula, and other perianal conditions, with a focus on precise care, comfort, and lasting relief.",
+    image:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    icon: ScanSearch,
+    title: "Abdominal Tumours",
+    tag: "Oncological Surgery",
+    desc: "Comprehensive evaluation and surgical management of abdominal tumours, with careful planning, precise technique, and coordinated care for each patient.",
+    image: "/image/abdominal-tumor.png",
+  },
+  {
+    icon: Shield,
+    title: "Soft Tissue Tumors",
+    tag: "Specialist Care",
+    desc: "Diagnosis and surgical removal of benign and suspicious soft tissue tumors, with attention to complete excision, tissue preservation, and a smooth recovery.",
+    image:
+      "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=80",
   },
 ];
 

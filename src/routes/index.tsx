@@ -315,7 +315,7 @@ function Home() {
           <FadeUp>
             <div className="relative overflow-hidden rounded-3xl shadow-premium-lg">
               <img
-                src="/image/homepage-about-dr-waseem-img.png"
+                src="/image/about-dr-waseem.png"
                 alt="Surgical excellence"
                 className="h-full w-full object-cover"
               />
