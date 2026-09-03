@@ -42,7 +42,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Maj Gen (Rtd) Waseem Ahmad Khan — General & Laparoscopic Surgeon delivering expert, evidence-based surgical care with decades of clinical excellence.",
+          "Maj. Gen. (Rtd) Waseem Ahmad Khan — General & Laparoscopic Surgeon delivering expert, evidence-based surgical care with decades of clinical excellence.",
       },
       { property: "og:title", content: "Dr. Waseem Ahmad Khan — General & Laparoscopic Surgeon" },
       {
