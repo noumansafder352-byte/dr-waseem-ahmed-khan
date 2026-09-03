@@ -50,7 +50,7 @@ const services = [
     icon: Stethoscope,
     title: "General Surgery",
     tag: "Comprehensive Care",
-    desc: "Comprehensive surgical care across a wide range of abdominal, gastrointestinal, and soft-tissue conditions — with careful diagnosis and modern operative technique.",
+    desc: "Comprehensive surgical care across a wide range of abdominal, gastrointestinal, and soft-tissue conditions, with careful diagnosis and modern operative technique.",
     image:
       "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80",
   },
@@ -65,7 +65,7 @@ const services = [
     icon: HeartPulse,
     title: "Breast Surgery",
     tag: "Sensitive & Precise",
-    desc: "Diagnostic and therapeutic breast surgical procedures, including lump excision, biopsy, and oncological surgery — delivered with sensitivity and care.",
+    desc: "Diagnostic and therapeutic breast surgical procedures, including lump excision, biopsy, and oncological surgery, delivered with sensitivity and care.",
     image:
       "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=80",
   },
@@ -73,14 +73,14 @@ const services = [
     icon: Shield,
     title: "Gallbladder Surgery",
     tag: "Laparoscopic",
-    desc: "Laparoscopic cholecystectomy for gallstone disease — a minimally invasive procedure with small incisions, less pain, and rapid recovery.",
+    desc: "Laparoscopic cholecystectomy for gallstone disease, a minimally invasive procedure with small incisions, less pain, and rapid recovery.",
     image: "/image/gallbladder-surgery.png",
   },
   {
     icon: Scissors,
     title: "Hernia Repair",
     tag: "Durable Results",
-    desc: "Open and laparoscopic repair of inguinal, umbilical, incisional, and hiatal hernias — using modern mesh techniques for durable, long-term results.",
+    desc: "Open and laparoscopic repair of inguinal, umbilical, incisional, and hiatal hernias, using modern mesh techniques for durable, long-term results.",
     image: "/image/hernia-repair.png",
   },
   {
@@ -94,7 +94,7 @@ const services = [
     icon: Waves,
     title: "Varicose Vein Treatment",
     tag: "Venous Care",
-    desc: "Advanced treatment options for varicose and venous conditions — from lifestyle counselling to surgical intervention when clinically indicated.",
+    desc: "Advanced treatment options for varicose and venous conditions, from lifestyle counselling to surgical intervention when clinically indicated.",
     image: "/image/varicose-vein-treatment.png",
   },
   {
@@ -139,11 +139,11 @@ const process = [
     desc: "A personalized, evidence-based plan reviewed with you.",
   },
   { icon: Syringe, title: "Surgery", desc: "Safe, precise, modern surgical technique." },
-  { icon: HeartPulse, title: "Recovery", desc: "Guided post-operative recovery and support." },
+  { icon: HeartPulse, title: "Recovery", desc: "Guided post operative recovery and support." },
   {
     icon: CalendarCheck,
     title: "Follow-Up",
-    desc: "Ongoing follow-up to ensure the best outcome.",
+    desc: "Ongoing follow up to ensure the best outcome.",
   },
 ];
 
@@ -342,7 +342,7 @@ function Services() {
                 From consultation to complete recovery
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
-                A carefully guided pathway — every stage designed around clarity, safety, and your
+                A carefully guided pathway, every stage designed around clarity, safety, and your
                 comfort.
               </p>
               <div className="mx-auto mt-8 h-[3px] w-24 rounded-full bg-gradient-to-r from-[#182F58] via-[#1F72B9] to-[#19979C]" />

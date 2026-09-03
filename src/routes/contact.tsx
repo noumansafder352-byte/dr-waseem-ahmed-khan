@@ -59,7 +59,7 @@ function Contact() {
     <SiteLayout transparentHeader>
       <PageHero
         eyebrow="Contact & Appointments"
-        title="Book a consultation with Dr. Waseem"
+        title="Book a consultation with Dr. Waseem Ahmad Khan"
         subtitle="Reach the clinic directly or request an appointment online. Every enquiry receives a personal response."
         image={HERO}
       />

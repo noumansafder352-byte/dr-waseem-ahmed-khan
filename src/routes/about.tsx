@@ -45,18 +45,18 @@ const PORTRAIT =
 
 const timeline = [
   {
-    title: "Head of Surgery — CMH",
+    title: "Head of Surgery - CMH",
     detail: "Led the Department of Surgery at Combined Military Hospital.",
   },
   {
-    title: "Head of Surgery — PEMH",
+    title: "Head of Surgery - PEMH",
     detail: "Led the Department of Surgery at Pakistan Emirates Military Hospital.",
   },
   {
     title: "Professor of Surgery",
-    detail: "Army Medical College, Rawalpindi — training the next generation of surgeons.",
+    detail: "Army Medical College, Rawalpindi, training the next generation of surgeons.",
   },
-  { title: "Councillor — CPSP", detail: "College of Physicians & Surgeons Pakistan." },
+  { title: "Councillor - CPSP", detail: "College of Physicians & Surgeons Pakistan." },
   // {
   //   title: "Regional Director — CPSP Rawalpindi",
   //   detail: "Overseeing regional surgical education and standards.",
@@ -104,7 +104,7 @@ function About() {
       <PageHero
         eyebrow="About the Surgeon"
         title="A career defined by excellence in surgical care"
-        subtitle="Meet Maj Gen (Rtd) Waseem Ahmad Khan — a distinguished General & Laparoscopic Surgeon whose life's work bridges military healthcare, surgical education, and compassionate patient care."
+        subtitle="Meet Maj Gen (Rtd) Waseem Ahmad Khan, a distinguished General & Laparoscopic Surgeon whose life's work bridges military healthcare, surgical education, and compassionate patient care."
         image={HERO}
       />
 
@@ -183,31 +183,31 @@ function About() {
               {[
                 {
                   code: "MBBS",
-                  desc: "Bachelor of Medicine & Surgery — foundational medical training.",
+                  desc: "Bachelor of Medicine & Surgery, foundational medical training.",
                   accent: "#182F58",
                   icon: Stethoscope,
                 },
                 {
                   code: "FCPS",
-                  desc: "Fellow of the College of Physicians & Surgeons — General Surgery.",
+                  desc: "Fellow of the College of Physicians & Surgeons, General Surgery.",
                   accent: "#1F72B9",
                   icon: BriefcaseMedical,
                 },
                 {
                   code: "FACS",
-                  desc: "Fellow of the American College of Surgeons — international recognition.",
+                  desc: "Fellow of the American College of Surgeons, international recognition.",
                   accent: "#19979C",
                   icon: BadgeCheck,
                 },
                 {
                   code: "CHPE",
-                  desc: "Certificate in Health Professions Education — academic leadership.",
+                  desc: "Certificate in Health Professions Education, academic leadership.",
                   accent: "#529542",
                   icon: GraduationCap,
                 },
                 {
                   code: "Diploma in Surgery",
-                  desc: "Postgraduate Diploma — AFPGMI advanced surgical training.",
+                  desc: "Postgraduate Diploma, AFPGMI advanced surgical training.",
                   accent: "#1F72B9",
                   icon: ScrollText,
                 },
@@ -461,7 +461,7 @@ function About() {
             </span>
             <h2 className="mt-4 font-serif text-3xl leading-tight md:text-5xl">
               "Every patient deserves care that is safe, precise, and delivered with genuine
-              compassion — from first consultation through complete recovery."
+              compassion, from first consultation through complete recovery."
             </h2>
             <p className="mt-8 text-base text-white/75 md:text-lg">
               Dr. Waseem's practice is built on the belief that great surgery begins with great
@@ -509,7 +509,7 @@ function About() {
                   </h2>
                   <p className="mt-6 max-w-md text-base leading-[1.8] text-muted-foreground">
                     Six commitments that shape every consultation, every clinical decision, and
-                    every surgical outcome — the quiet standards behind three decades of trusted
+                    every surgical outcome, the quiet standards behind three decades of trusted
                     care.
                   </p>
                   <div className="mt-10 flex items-center gap-4">

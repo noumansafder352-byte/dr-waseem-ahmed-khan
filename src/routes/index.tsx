@@ -127,7 +127,7 @@ const trust = [
   },
   {
     icon: Shield,
-    title: "Former Head of Surgery — CMH & PEMH",
+    title: "Former Head of Surgery, CMH & PEMH",
     desc: "Leadership honed through years managing complex surgical cases at renowned institutions.",
     accent: "#1F72B9",
   },
@@ -139,7 +139,7 @@ const trust = [
   },
   {
     icon: Users,
-    title: "Councillor & Regional Director — CPSP",
+    title: "Councillor & Regional Director, CPSP",
     desc: "Shaping national standards of surgical training and professional excellence.",
     accent: "#529542",
   },
@@ -280,7 +280,7 @@ function Home() {
           <FadeUp delay={400}>
             <p className="mx-auto mt-8 max-w-2xl text-base leading-[1.9] text-white/80 md:text-lg">
               Delivering expert surgical care with decades of clinical excellence, leadership, and
-              compassionate patient care — every treatment personalized using evidence-based
+              compassionate patient care, every treatment personalized using evidence based
               techniques to achieve the best possible outcomes.
             </p>
           </FadeUp>
@@ -554,7 +554,7 @@ function Home() {
                 <span className="italic text-[#1F72B9]">distinction</span>
               </h2>
               <p className="mt-5 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
-                Three decades of surgical leadership, teaching, and patient-centred practice —
+                Three decades of surgical leadership, teaching, and patient centred practice,
                 distilled into the principles that guide every consultation and procedure.
               </p>
             </div>
@@ -765,7 +765,7 @@ const testimonials = [
     date: "November 2025",
     rating: 5,
     quote:
-      "The professionalism, precision, and warmth I experienced under Dr. Waseem's care was extraordinary. I felt genuinely looked after — not just as a patient, but as a person.",
+      "The professionalism, precision, and warmth I experienced under Dr. Waseem's care was extraordinary. I felt genuinely looked after not just as a patient, but as a person.",
     accent: "#1F72B9",
   },
   {
@@ -939,8 +939,8 @@ function Testimonials() {
             </h2>
             <div className="mx-auto mt-6 h-px w-16 bg-gradient-to-r from-transparent via-[#19979C] to-transparent" />
             <p className="mx-auto mt-6 max-w-xl text-base leading-[1.85] text-muted-foreground md:text-[17px]">
-              Reflections from patients who have entrusted their care to Dr. Waseem — shared with
-              gratitude, in their own words.
+              Reflections from patients who have entrusted their care to Dr. Waseem Ahmad Khan,
+              shared with gratitude, in their own words.
             </p>
           </div>
         </FadeUp>
