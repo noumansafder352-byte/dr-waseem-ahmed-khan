@@ -269,7 +269,7 @@ function Home() {
           <FadeUp delay={280}>
             <div className="mt-8">
               <p className="text-xl font-semibold text-white md:text-2xl">
-                Maj Gen (Rtd) Waseem Ahmad Khan, HI (M)
+                Maj. Gen. (Rtd) Waseem Ahmad Khan, HI (M)
               </p>
               <p className="mt-2 text-sm font-light tracking-[0.18em] text-white/75 md:text-base">
                 General &amp; Laparoscopic Surgeon
