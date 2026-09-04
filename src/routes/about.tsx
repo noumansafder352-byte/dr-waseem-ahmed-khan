@@ -114,7 +114,7 @@ function About() {
           <FadeUp className="lg:col-span-2">
             <div className="relative overflow-hidden rounded-3xl shadow-premium-lg">
               <img
-                src="/image/waseem-ahmed-khan.jpg"
+                src="/image/waseem-ahmed-khan.png"
                 alt=""
                 className="h-full w-full object-cover"
               />
